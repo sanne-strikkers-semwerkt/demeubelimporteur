@@ -66,7 +66,11 @@
       {% for block in section.blocks %}
         <div class="zakelijk-project-card" {{ block.shopify_attributes }}>
           {% if block.settings.image != blank %}
-            <img src="{{ block.settings.image | img_url: '600x400' }}" alt="{{ block.settings.title | default: 'Project' }}" class="zakelijk-project-image">
+            <img
+              src="{{ block.settings.image | img_url: '600x400' }}"
+              alt="{{ block.settings.title | default: 'Project' }}"
+              class="zakelijk-project-image"
+            >
           {% endif %}
           {% if block.settings.title != blank %}
             <h3 class="zakelijk-project-title">{{ block.settings.title }}</h3>
@@ -119,6 +123,7 @@
   "presets": [
     {
       "name": "Zakelijk Projects",
+      "category": "Zakelijk",
       "blocks": [
         {
           "type": "project",
@@ -146,4 +151,3 @@
   ]
 }
 {% endschema %}
-

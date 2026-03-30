@@ -43,7 +43,11 @@
       {% for block in section.blocks %}
         {% if block.settings.logo != blank %}
           <div {{ block.shopify_attributes }}>
-            <img src="{{ block.settings.logo | img_url: '200x' }}" alt="{{ block.settings.company_name | default: 'Client logo' }}" class="zakelijk-client-logo">
+            <img
+              src="{{ block.settings.logo | img_url: '200x' }}"
+              alt="{{ block.settings.company_name | default: 'Client logo' }}"
+              class="zakelijk-client-logo"
+            >
           </div>
         {% endif %}
       {% endfor %}
@@ -83,6 +87,7 @@
   "presets": [
     {
       "name": "Zakelijk Client Logos",
+      "category": "Zakelijk",
       "blocks": [
         {
           "type": "logo"
@@ -101,4 +106,3 @@
   ]
 }
 {% endschema %}
-

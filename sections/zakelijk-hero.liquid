@@ -63,7 +63,7 @@
   "name": "Zakelijk Hero",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "heading",
       "label": "Heading",
       "default": "Thuisgevoel, ook op kantoor met meubels van De Meubel Importeur"
@@ -78,13 +78,41 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "radio",
+      "id": "hero_picker",
+      "label": "Hero media",
+      "options": [
+        {
+          "label": "Video",
+          "value": "video"
+        },
+        {
+          "label": "Afbeelding",
+          "value": "image"
+        }
+      ]
+    },
+    {
+      "type": "video_url",
+      "label": "Video URL",
+      "id": "hero_video",
+      "accept": ["youtube"],
+      "visible_if": "{{ section.settings.hero_picker == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "label": "Afbeelding",
+      "id": "hero_image",
+      "visible_if": "{{ section.settings.hero_picker == 'image' }}"
     }
   ],
   "presets": [
     {
-      "name": "Zakelijk Hero"
+      "name": "Zakelijk Hero",
+      "category": "Zakelijk"
     }
   ]
 }
 {% endschema %}
-
