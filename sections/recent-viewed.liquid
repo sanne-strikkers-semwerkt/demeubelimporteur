@@ -1,0 +1,32 @@
+<!-- related Product - Dit heb je eerder bekeken -->
+<section class="related-product-wrp recent-viewed-section">
+    <div class="container">
+        <div class="related-product-block">
+            <div class="titlebar">
+                <h3>{{ section.settings.title }}</h3>
+            </div>
+            <div class="related-product-slider recently-viewed-slider borderb">
+              {% render 'recently-viewed' %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end related Product -->
+
+{% schema %}
+  {
+    "name": "Recent View",
+    "settings": [
+      {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Recent View"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,181 @@
+<section class="location-detail-wrp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="description">
+                  {% for block in section.blocks %}
+                  <div class="titlebar">
+                    {% if block.settings.title-aboveDesc != blank %}
+                      <h6>{{ block.settings.title-aboveDesc }}</h6>  
+                    {% endif %}
+                    {% if block.settings.title != blank %}
+                      <h3>{{ block.settings.title }}</h3>
+                    {% endif %}
+                    {% if block.settings.title-belowDesc != blank %}
+                      <h6>{{ block.settings.title-belowDesc }}</h6>  
+                    {% endif %}
+                    {% if block.settings.btn-label != blank %}
+                      <a href="{{ block.settings.btn-link }}" class="btn-orange">{{ block.settings.btn-label }}</a>
+                    {% endif %}
+                  </div>
+                  {% endfor %}
+                    <h6>{{ section.settings.text }}</h6>
+                    <div class="desc">
+                        <h5>{{ section.settings.heading1 }}</h5>
+                        <p>{{ section.settings.text1 }}</p>
+                    </div>
+                    <div class="desc">
+                        <h5>{{ section.settings.heading2 }}</h5>
+                        <p>{{ section.settings.text2 }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="location-detail-img">
+                    <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ template.suffix | replace: '-', ' ' }}">
+                </div>
+                <div class="location-detail-time">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <h5>{{ section.settings.heading3 }}</h5>
+                            <ul>
+                              {{ section.settings.text3 }}
+                                <!-- <li>Maandag:  <span>10.00 – 18.00 uur</span></li>
+                                <li>Dinsdag: <span>10.00 – 18.00 uur</span></li>
+                                <li>Woensdag: <span>10.00 – 18.00 uur</span></li>
+                                <li>Donderdag: <span>10.00 – 18.00 uur</span></li>
+                                <li>Vrijdag: <span>10.00 – 18.00 uur</span></li>
+                                <li>Zaterdag:  <span>10.00 – 18.00 uur</span></li>
+                                <li>Zondag:  <span>10.00 – 18.00 uur</span></li> -->
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h5>{{ section.settings.heading4 }}</h5>
+                            <p>{{ section.settings.text4 }}</p>
+                            <ul>
+                                <li><a href="{{ section.settings.phone-link }}"><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/tel-icon.svg?v=1717136575" alt="">{{ section.settings.phone }}</a></li>
+                                <li><a href="{{ section.settings.mail-link }}" class="underline-txt"><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/mail-icon.svg?v=1717136575" alt="">{{ section.settings.mail }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Location detail",
+    "settings": [
+      {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+      {
+          "type": "text",
+          "id": "heading1",
+          "label": "Heading"
+        },
+      {
+          "type": "text",
+          "id": "text1",
+          "label": "Text"
+        },
+      {
+          "type": "text",
+          "id": "heading2",
+          "label": "Heading"
+        },
+      {
+          "type": "text",
+          "id": "text2",
+          "label": "Text"
+        },
+      {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+      {
+          "type": "text",
+          "id": "heading3",
+          "label": "Heading"
+        },
+      {
+          "type": "html",
+          "id": "text3",
+          "label": "Text"
+        },
+      {
+          "type": "text",
+          "id": "heading4",
+          "label": "Heading"
+        },
+      {
+          "type": "text",
+          "id": "text4",
+          "label": "Text"
+        },
+      {
+          "type": "url",
+          "id": "phone-link",
+          "label": "Phone link"
+        },
+      {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone"
+        },
+      {
+          "type": "url",
+          "id": "mail-link",
+          "label": "Mail link"
+        },
+      {
+          "type": "text",
+          "id": "mail",
+          "label": "Mail"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "order online block",
+        "settings": [
+          {
+            "type": "html",
+            "id": "title-aboveDesc",
+            "label": "Title Above Description"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "title-belowDesc",
+            "label": "Title Below Description"
+          },
+          {
+            "type": "text",
+            "id": "btn-label",
+            "label": "Button Label"
+          },
+          {
+            "type": "url",
+            "id": "btn-link",
+            "label": "Button URL"
+          }
+        ]
+      }
+    ],
+    "limit": 1,
+    "presets": [
+      {
+        "name": "Location detail"
+      }
+    ]
+  }
+{% endschema %}

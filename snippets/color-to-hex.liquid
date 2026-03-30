@@ -1,0 +1,44 @@
+{%- comment -%}
+  Convert color name to hex value
+  Accepts:
+  - color_name: {String} color name in lowercase
+{%- endcomment -%}
+{%- assign color_lower = color_name | downcase | strip -%}
+{%- case color_lower -%}
+  {%- when 'beige' -%}#F5F5DC
+  {%- when 'zwart' or 'black' -%}#000000
+  {%- when 'wit' or 'white' -%}#FFFFFF
+  {%- when 'grijs' or 'gray' or 'grey' -%}#808080
+  {%- when 'donkergrijs' or 'dark gray' or 'dark grey' -%}#404040
+  {%- when 'lichtgrijs' or 'light gray' or 'light grey' -%}#D3D3D3
+  {%- when 'blauw' or 'blue' -%}#0000FF
+  {%- when 'donkerblauw' or 'dark blue' -%}#00008B
+  {%- when 'lichtblauw' or 'light blue' -%}#ADD8E6
+  {%- when 'rood' or 'red' -%}#FF0000
+  {%- when 'donkerrood' or 'dark red' -%}#8B0000
+  {%- when 'groen' or 'green' -%}#008000
+  {%- when 'donkergroen' or 'dark green' -%}#006400
+  {%- when 'lichtgroen' or 'light green' -%}#90EE90
+  {%- when 'geel' or 'yellow' -%}#FFFF00
+  {%- when 'oranje' or 'orange' -%}#FFA500
+  {%- when 'paars' or 'purple' or 'violet' -%}#800080
+  {%- when 'roze' or 'pink' -%}#FFC0CB
+  {%- when 'bruin' or 'brown' -%}#A52A2A
+  {%- when 'donkerbruin' or 'dark brown' -%}#654321
+  {%- when 'lichtbruin' or 'light brown' -%}#D2691E
+  {%- when 'turquoise' -%}#40E0D0
+  {%- when 'nude' -%}#E3BC9A
+  {%- when 'crème' or 'cream' -%}#FFFDD0
+  {%- when 'taupe' -%}#8B8589
+  {%- when 'terracotta' -%}#E2725B
+  {%- when 'bordeaux' -%}#800020
+  {%- when 'navy' -%}#000080
+  {%- when 'mint' -%}#98FF98
+  {%- when 'lavendel' or 'lavender' -%}#E6E6FA
+  {%- when 'mustard' -%}#FFDB58
+  {%- when 'khaki' -%}#C3B091
+  {%- when 'olijf' or 'olive' -%}#808000
+  {%- when 'terracotta' -%}#E2725B
+  {%- else -%}#CCCCCC
+{%- endcase -%}
+

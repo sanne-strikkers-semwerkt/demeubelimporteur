@@ -1,0 +1,57 @@
+<section class="social-media-wrp">
+    <div class="container">
+        <div class="social-media-block">
+          {% if section.settings.social-media-heading != blank %}
+            <h3><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/thumbs-up-white.svg?v=1747388182" alt="" /> {{ section.settings.social-media-heading }}</h3>
+          {% endif %}
+            {% if section.blocks != blanks %}
+              <ul>
+                {% for block in section.blocks %}
+                    <li><a href="{{ block.settings.social-media-link }}"><img src="{{ block.settings.social-media-logo | img_url: 'small' }}" alt="" /> {{ block.settings.social-media-app }}</a></li>
+                {% endfor %}
+              </ul>
+          {% endif %}
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Social Media Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social-media-heading",
+        "label": "Social Media Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "social-media",
+        "name": "social-media",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "social-media-logo",
+            "label": "Social Media Logo"
+          },
+          {
+            "type": "text",
+            "id": "social-media-app",
+            "label": "Social Media Name"
+          },
+          {
+            "type": "url",
+            "id": "social-media-link",
+            "label": "Social Media Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Social Media Bar"
+      }
+    ]
+  }
+{% endschema %}

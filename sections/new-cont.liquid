@@ -1,0 +1,26 @@
+
+<section class="contact-wrp">
+  <div class="container">
+    <div class="map-block" id="map">
+        <iframe src="{{ section.settings.map }}" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Map",
+    "settings": [
+       {
+          "type": "url",
+          "id": "map",
+          "label": "Map"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Map"
+      }
+    ]
+  }
+{% endschema %}

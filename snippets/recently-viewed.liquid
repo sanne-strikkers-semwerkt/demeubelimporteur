@@ -1,0 +1,264 @@
+
+<script>
+    
+        function setRecentlyViewedPdp() {
+            const pdpData = {
+                productId : "{{ product.id }}",
+                productTitle : "{{ product.title }}",
+                productImg : "{{ product.featured_image | img_url: '' }}",
+                productPrice : "{{ product.price | money | remove_first: '' }}",
+                productUrl : "{{ product.url }}",
+                productcompare_at_price : "{{ product.compare_at_price | money | remove_first: '' }}",
+                productStock : "{{ product.selected_or_first_available_variant.inventory_quantity }}",
+                productStockInfo : "{{ product.metafields.arena.stockinfo }}",
+                productAvailable : "{{ product.selected_or_first_available_variant.available }}"
+            };
+    
+            const productArr = [];
+            let jsonResp,
+                jsonRespArr, 
+                jsonRespArrStr; 
+            const numberOfProduct = 5;
+            const hiddenProductId = '15706174095694';
+            if(pdpData.productTitle != "" && pdpData.productId !== hiddenProductId){
+              productArr.push(pdpData);
+            }
+            const currPdpTitle = pdpData.productTitle;
+            const pdpDataString = JSON.stringify(productArr);
+            const localData = localStorage.getItem('recently_viewed');
+            if (localData == null) {
+                localStorage.setItem('recently_viewed', pdpDataString);
+                
+            }
+           
+            else if ( localData != null ) {
+                
+               
+                const oldPdpData = localStorage.getItem('recently_viewed');
+               
+                const countPdpData = (oldPdpData.match(/productTitle/g) || []).length;
+               
+                const reVisitPdp =  oldPdpData.includes(currPdpTitle);
+               
+                if (countPdpData < numberOfProduct && reVisitPdp == false) {
+                    jsonResp = JSON.parse(oldPdpData);
+                    jsonRespArr = jsonResp.concat(productArr);
+                    jsonRespArrStr = JSON.stringify(jsonRespArr);
+                    localStorage.setItem('recently_viewed', jsonRespArrStr);
+                }
+               
+                else if (countPdpData >= numberOfProduct && reVisitPdp == false) {
+                    jsonResp = JSON.parse(oldPdpData);
+                    jsonResp.shift();
+                    jsonRespArr = jsonResp.concat(productArr);
+                    jsonRespArr =  JSON.stringify(jsonRespArr);
+                    localStorage.setItem('recently_viewed', jsonRespArr);
+                }
+            }
+        }
+        
+        
+        setRecentlyViewedPdp();
+        
+        const localViewed = localStorage.recently_viewed;
+        
+    </script>
+             <!-- <div class="recently-title">
+                      <h2 class="title inline-richtext h2 scroll-trigger animate--slide-in"><b>Recently Viewed</b></h2>
+                    </div>
+    <div class="js-recentPdpBlock">
+    </div> -->
+    <script>
+        function getRecentPdp (){
+
+            const pdpData = JSON.parse(localStorage.getItem('recently_viewed'));
+            const hiddenProductId = '15706174095694';
+            const filteredData = pdpData && pdpData.length > 0
+                ? pdpData.filter(function(item) { return String(item.productId) !== hiddenProductId; })
+                : [];
+            if (filteredData.length > 0) {
+            const recentViewHtml = []
+            filteredData.forEach(function(item){ 
+              var productHtml = `
+                <div id="Recent">
+                    <div class="product-box">
+                        <a href="${item.productUrl}">
+                            <div class="box-img">
+                                <img src='${item.productImg}' alt="">
+                            </div>
+                            <div class="description">
+                                <h3>${item.productTitle}</h3>`;
+                                
+                                // Stock information logic
+                                const stockQuantity = parseInt(item.productStock) || 0;
+                                const hasStockInfo = item.productStockInfo && item.productStockInfo.trim() !== '';
+                                const isAvailable = item.productAvailable === 'true' || item.productAvailable === true || item.productAvailable === 'True';
+                                
+                                if (stockQuantity > 0) {
+                                    productHtml += `<h5 class="stockss show-stock-desktop show-stock-tablet show-stock-mobile">Op voorraad (vandaag besteld, binnen 1-10 werkdagen bezorgd)</h5>`;
+                                } else if (hasStockInfo && isAvailable) {
+                                    productHtml += `<h5 class="weekss show-delivery-weeks-desktop show-delivery-weeks-tablet show-delivery-weeks-mobile"></h5>`;
+                                }
+                                
+                                if (item.productcompare_at_price) {
+                                    productHtml += `<p>Adviesprijs <span>${item.productcompare_at_price },-</span></p>`;
+                                }
+                                productHtml += `<h6>${item.productPrice},-</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>`;
+
+              recentViewHtml.push(productHtml);
+              
+            });
+            const recentBlock = `${recentViewHtml.join('')}`
+            const contentBlock = document.querySelectorAll('.recently-viewed-slider');
+            contentBlock.forEach(element =>{
+                element.innerHTML = recentBlock;
+                
+                const deleteLink = document.createElement('div');
+                deleteLink.style.cssText = 'text-align: center; margin-top: 15px;';
+         
+                element.parentNode.appendChild(deleteLink);
+                
+                updateDeliveryTimes();
+            })          
+            }else{
+                      const recentSection = document.querySelector('.recent-viewed-section');
+                      if (recentSection) recentSection.style.display = 'none';
+            } 
+        }
+        
+        function updateDeliveryTimes() {
+            $('.product-box .weekss').each(function() {
+                var $this = $(this);
+                var $productBox = $this.closest('.product-box');
+                var productTitle = $productBox.find('h3').text();
+                
+                // Find the corresponding product data from localStorage
+                const pdpData = JSON.parse(localStorage.getItem('recently_viewed'));
+                if (pdpData) {
+                    const productData = pdpData.find(item => item.productTitle === productTitle);
+                    if (productData && productData.productStockInfo) {
+                        var levertijdText = productData.productStockInfo;
+                        var updatedText = processDeliveryTime(levertijdText);
+                        $this.text(updatedText);
+                    }
+                }
+            });
+        }
+
+        function processDeliveryTime(levertijdText) {
+            const rangeRegex = /tussen de\s+(\d+)\s+en\s+(\d+)\s+weken/i;
+            const singleWeekRegex = /(\d+)\s*weken?/i;
+            const vanafWeekRegex = /vanaf\s+week\s+(\d+)/i;
+
+            let updatedText = levertijdText;
+
+            if (rangeRegex.test(levertijdText)) {
+                let match = levertijdText.match(rangeRegex);
+                let earliestWeek = parseInt(match[1]);
+                let dateAndMonth = getMondayOfWeekFromToday(earliestWeek);
+                updatedText = `Levering vanaf ${dateAndMonth}`;
+            } else if (vanafWeekRegex.test(levertijdText)) {
+                let match = levertijdText.match(vanafWeekRegex);
+                let weekNumber = parseInt(match[1]);
+                let dateAndMonth = getMondayOfWeek(weekNumber);
+                updatedText = `Levering vanaf ${dateAndMonth}`;
+            } else if (singleWeekRegex.test(levertijdText)) {
+                let match = levertijdText.match(singleWeekRegex);
+                let weekNumber = parseInt(match[1]);
+                let dateAndMonth = getMondayOfWeek(weekNumber);
+                updatedText = `Levering vanaf ${dateAndMonth}`;
+            }
+
+            return updatedText;
+        }
+
+        function getMondayOfWeekFromToday(weeksFromToday) {
+            let today = new Date();
+            let targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (weeksFromToday * 7));
+
+            // Get the Monday of the target week
+            let day = targetDate.getDay();
+            let diffToMonday = (day === 0 ? -6 : 1 - day); // Adjust for Sunday = 0
+            let monday = new Date(targetDate);
+            monday.setDate(targetDate.getDate() + diffToMonday);
+
+            let mondayDay = monday.getDate();
+            const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+            return `${mondayDay} ${monthName}`;
+        }
+
+        function getMondayOfWeek(weekNumber, year) {
+            year = year || new Date().getFullYear();
+            let jan1 = new Date(year, 0, 1);
+            let jan1Day = jan1.getDay();
+            let offset = (jan1Day <= 4) ? 1 - jan1Day : 8 - jan1Day;
+            let monday = new Date(year, 0, 1 + offset + (weekNumber - 1) * 7);
+            let day = monday.getDate();
+            const monthName = monday.toLocaleString('nl-NL', { month: 'long' }); // Dutch month
+            return `${day} ${monthName}`;
+        }
+        
+        // Function to clear recently viewed products
+        function clearRecentlyViewed() {
+            // Create modal HTML
+            const modalHtml = `
+                <div class="modal fade" id="clearRecentlyViewedModal" tabindex="-1" aria-labelledby="clearRecentlyViewedModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="clearRecentlyViewedModalLabel">Recent bekeken wissen</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Sluiten">
+                                    <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Weet je zeker dat je alle recent bekeken producten wilt wissen? Deze actie kan niet ongedaan worden gemaakt.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuleren</button>
+                                <button type="button" class="btn btn-danger" onclick="confirmClearRecentlyViewed()">Ja, wissen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add modal to body if it doesn't exist
+            if (!document.getElementById('clearRecentlyViewedModal')) {
+                document.body.insertAdjacentHTML('beforeend', modalHtml);
+            }
+            
+            // Show the modal
+            const modal = new bootstrap.Modal(document.getElementById('clearRecentlyViewedModal'));
+            modal.show();
+        }
+        
+        // Function to confirm clearing recently viewed products
+        function confirmClearRecentlyViewed() {
+            localStorage.removeItem('recently_viewed');
+            
+            // Hide the recently viewed section only
+            const recentSection = document.querySelector('.recent-viewed-section');
+            if (recentSection) {
+                recentSection.style.display = 'none';
+            }
+            
+            // Clear only the recently viewed slider content
+            const contentBlock = document.querySelectorAll('.recently-viewed-slider');
+            contentBlock.forEach(element => {
+                element.innerHTML = '';
+            });
+            
+            // Hide the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('clearRecentlyViewedModal'));
+            if (modal) {
+                modal.hide();
+            }
+        }
+    
+        getRecentPdp();
+        </script>

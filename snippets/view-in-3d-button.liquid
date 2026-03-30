@@ -1,0 +1,83 @@
+{% comment %}
+  Component for displaying the "View in 3D" / AR button.
+
+  This snippet should be placed within a container that has a sibling
+  element with the class '.product-slider-container' for the script to work correctly.
+{% endcomment %}
+
+<div class="fixed-ar-button-slot">
+  <button class="zieny-ar-btn flex-btn-main" style="display: none; cursor:pointer;">
+    <img
+      class="img-3d-sem"
+      src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Frame_bc0a60c5-c660-4ad7-ab07-857a3006eb87_1.svg?v=1755694040"
+      width="20"
+      height="20"
+      alt="3D view icon"
+      loading="lazy"
+    >
+    Bekijk in 3D
+  </button>
+</div>
+
+ <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const arButton = document.querySelector('.zieny-ar-btn');
+              const sliderContainer = document.querySelector('.product-slider-container');
+              if (!arButton || !sliderContainer) {
+                return;
+              }
+
+              const checkButtonVisibility = () => {
+                if (arButton.style.display !== 'none' && arButton.offsetParent !== null) {
+                  sliderContainer.classList.add('ar-button-is-visible');
+                } else {
+                  sliderContainer.classList.remove('ar-button-is-visible');
+                }
+              };
+
+              const observer = new MutationObserver((mutations) => {
+                checkButtonVisibility();
+              });
+              observer.observe(arButton, {
+                attributes: true,
+              });
+
+              checkButtonVisibility();
+            });
+          </script>
+
+          
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select the AR button within this component's scope
+    const arButton = document.querySelector('.zieny-ar-btn');
+    // Find the closest parent slider container to ensure the correct one is targeted
+    const sliderContainer = arButton.closest('.overview-product-slider').querySelector('.product-slider-container');
+
+    if (!arButton || !sliderContainer) {
+      console.warn('AR button or slider container not found for the 3D component.');
+      return;
+    }
+
+    // Function to check button's visibility and toggle a class on the container
+    const checkButtonVisibility = () => {
+      // Check if the button is visible (not display:none and has dimensions)
+      const isVisible = arButton.style.display !== 'none' && arButton.offsetParent !== null;
+      sliderContainer.classList.toggle('ar-button-is-visible', isVisible);
+    };
+
+    // Use a MutationObserver to watch for changes in the button's style attribute
+    const observer = new MutationObserver(() => {
+      checkButtonVisibility();
+    });
+
+    // Start observing the button for attribute changes (specifically 'style')
+    observer.observe(arButton, {
+      attributes: true,
+      attributeFilter: ['style']
+    });
+
+    // Initial check when the page loads
+    checkButtonVisibility();
+  });
+</script>

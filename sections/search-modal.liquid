@@ -1,0 +1,1736 @@
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal--search">
+  <div class="search-modal--search__overlay"></div>
+  <div class="search-modal--search__container">
+    <!-- Search Header -->
+    <div class="search-modal--search__header">
+      <div class="search-modal--search__input-container">
+        <!-- Search Icon -->
+        <div class="search-modal--search__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <input
+          type="text"
+          id="search-modal-input"
+          class="search-modal--search__input"
+          placeholder="Zoek naar producten..."
+          autocomplete="off"
+        >
+        <button class="search-modal--search__clear-btn" type="button" id="search-modal-clear">Wissen</button>
+        <button class="search-modal--search__go-to-search-btn" type="button" id="search-modal-go-to-search">
+          Zoek
+        </button>
+      </div>
+      <button class="search-modal--search__close-btn" type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Search Content -->
+    <div class="search-modal--search__content">
+      <!-- Loading State -->
+      <div id="search-loading" class="search-modal--search__loading" style="display: none;">
+        <div class="search-modal--search__spinner"></div>
+        <p>Producten zoeken...</p>
+      </div>
+
+      <!-- Initial & No Results State -->
+      <div id="search-no-results" class="search-modal--search__no-results">
+        <div class="search-modal--search__no-results-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <h3>Nog geen resultaten</h3>
+        <p>Gebruik de zoekbalk om te beginnen of kies een categorie.</p>
+        <div class="search-modal--search__suggestions">
+          <button class="search-modal--search__suggestion-btn" data-search="eettafel">Eettafel</button>
+          <button class="search-modal--search__suggestion-btn" data-search="stoel">Stoel</button>
+          <button class="search-modal--search__suggestion-btn" data-search="eetkamerstoel">Eetkamerstoel</button>
+          <button class="search-modal--search__suggestion-btn" data-search="bank">Bank</button>
+          <button class="search-modal--search__suggestion-btn" data-search="salontafel">Salontafel</button>
+          <button class="search-modal--search__suggestion-btn" data-search="dressoir">Dressoir</button>
+          <button class="search-modal--search__suggestion-btn" data-search="buffetkast">Buffetkast</button>
+          <button class="search-modal--search__suggestion-btn" data-search="mangohouten">Mangohouten</button>
+          <button class="search-modal--search__suggestion-btn" data-search="zwart">Zwart</button>
+          {% comment %} BLACK FRIDAY SUGGESTION - REMOVE AFTER BLACK FRIDAY {% endcomment %}
+          <button class="search-modal--search__suggestion-btn search-modal--search__black-friday-suggestion" data-navigate="/collections/lente-deals">
+            <div class="notification-bar" style="background:none!important; padding: 0px!important; border-radius: 10px!important;">
+              <div class="notification-block" style="justify-content: left!important;">
+                <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+                  <b>PAAS</b>
+                  <span>DEALS</span>
+                </h6>
+              </div>
+            </div>
+          </button>
+          {% comment %} END BLACK FRIDAY SUGGESTION {% endcomment %}
+        </div>
+      </div>
+
+      <!-- Search Results -->
+      <div id="search-results" class="search-modal--search__results">
+        <!-- Dynamic results will be populated here -->
+      </div>
+
+      <!-- Search Stats -->
+      <div id="search-stats" class="search-modal--search__stats" style="display: none;">
+        <span id="search-count">0 resultaten gevonden</span>
+      </div>
+
+      <!-- Infinite Scroll Loading Indicator -->
+      <div id="search-infinite-loading" class="search-modal--search__infinite-loading">
+        <div class="search-modal--search__infinite-spinner"></div>
+        <span>Meer resultaten laden...</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --brand-primary: #fb5a00;
+    --brand-primary-light: #fff5ef;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666;
+    --background-light: #ffffff;
+    --background-medium: #f8f9fa;
+    --border-color: #e5e7eb;
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Search Modal Base */
+  .search-modal--search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .search-modal--search.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .search-modal--search__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+  }
+
+  .search-modal--search__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--background-light);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+
+  .search-modal--search.active .search-modal--search__container {
+    transform: scale(1);
+  }
+
+  /* Header */
+  .search-modal--search__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--background-light);
+    flex-shrink: 0;
+  }
+
+  .search-modal--search__input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .search-modal--search__icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+  }
+
+  .search-modal--search__input {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 3.5rem; /* 14px 48px 14px 56px */
+    font-size: 16px; /* 16px minimum to prevent mobile zoom */
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: all var(--transition-fast);
+    background: var(--background-medium);
+    color: var(--text-primary);
+    -webkit-appearance: none;
+  }
+
+  .search-modal--search__input:focus {
+    border-color: var(--brand-primary);
+    background: var(--background-light);
+    box-shadow: 0 0 0 3px var(--brand-primary-light);
+  }
+
+  .search-modal--search__input:focus ~ .search-modal--search__go-to-search-btn,
+  .search-modal--search__input:not(:placeholder-shown) ~ .search-modal--search__go-to-search-btn {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    pointer-events: auto;
+  }
+
+  .search-modal--search__go-to-search-btn {
+    position: absolute;
+    right: 0.5rem; /* 8px */
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    padding: 0.5rem 1rem; /* 8px 16px */
+    background: var(--brand-primary);
+    color: white;
+    font-size: 16px; /* 16px to match website standards */
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .search-modal--search__go-to-search-btn:hover {
+    background: #e15100;
+  }
+
+  .search-modal--search__clear-btn {
+    position: absolute;
+    right: 5.5rem; /* Position to the left of the search button with proper spacing */
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    padding: 0.5rem 1rem; /* 8px 16px - more horizontal padding for text */
+    background: var(--background-medium);
+    color: var(--text-secondary);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 16px; /* 16px to match website standards */
+    font-weight: 500;
+  }
+
+  .search-modal--search__clear-btn:hover {
+    background: var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .search-modal--search__input:focus ~ .search-modal--search__clear-btn,
+  .search-modal--search__input:not(:placeholder-shown) ~ .search-modal--search__clear-btn {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    pointer-events: auto;
+  }
+
+  .search-modal--search__close-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    flex-shrink: 0; /* Prevent button from shrinking */
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .search-modal--search__close-btn:hover {
+    background-color: var(--background-medium);
+    color: var(--text-primary);
+  }
+
+  /* Content Area */
+  .search-modal--search__content {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 1rem 0.75rem 6rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Allow flex item to shrink */
+    max-height: 100%; /* Ensure it doesn't exceed container height */
+    width: 100%; /* Ensure content area takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+
+  /* Loading State */
+  .search-modal--search__loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-secondary);
+    margin: auto;
+  }
+
+  .search-modal--search__spinner {
+    width: 3rem; /* 48px */
+    height: 3rem; /* 48px */
+    border: 4px solid var(--border-color);
+    border-top-color: var(--brand-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1.5rem;
+  }
+
+  /* No Results & Initial State */
+  .search-modal--search__no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+  }
+
+  .search-modal--search__no-results-icon {
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+  }
+
+  .search-modal--search__no-results h3 {
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .search-modal--search__no-results p {
+    color: var(--text-secondary);
+    margin: 0 0 2rem;
+  }
+
+  .search-modal--search__suggestions {
+    display: flex;
+    gap: 0.75rem; /* 12px */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-modal--search__suggestion-btn {
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    background: var(--background-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 16px; /* 16px to match website standards */
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .search-modal--search__suggestion-btn:hover {
+    background: var(--brand-primary);
+    color: white;
+    border-color: var(--brand-primary);
+    transform: translateY(-2px);
+  }
+
+  /* Black Friday Suggestion Button - REMOVE AFTER BLACK FRIDAY */
+  .search-modal--search__black-friday-suggestion {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 10px !important;
+  }
+
+  .search-modal--search__black-friday-suggestion:hover {
+    background: transparent !important;
+    transform: translateY(-2px);
+  }
+
+  .search-modal--search__black-friday-suggestion .notification-bar {
+    margin: 0;
+  }
+  /* END Black Friday Suggestion Button */
+
+  /* Results */
+  .search-modal--search__results {
+    display: none; /* Initially hidden */
+    grid-template-columns: 1fr;
+    gap: 0.75rem; /* Reduced gap for mobile */
+    width: 100%;
+    max-width: 100%;
+    grid-auto-rows: minmax(80px, auto); /* Mobile: smaller minimum height for horizontal layout */
+    box-sizing: border-box; /* Include padding and borders in width calculation */
+  }
+
+  .search-modal--search__results.show {
+    display: grid !important;
+  }
+
+  .search-modal--search__result-item {
+    display: flex;
+    align-items: flex-start; /* Align to top to accommodate multi-line titles */
+    gap: 0.75rem; /* Reduced gap for mobile */
+    padding: 0.5rem; /* 8px - reduced padding for mobile */
+    border-radius: 8px;
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+    cursor: pointer;
+    text-decoration: none !important;
+    color: inherit;
+    border: 1px solid transparent;
+    box-sizing: border-box; /* Include padding and borders in width calculation */
+    min-width: 0; /* Allow item to shrink below content size */
+  }
+
+  .search-modal--search__result-item:link,
+  .search-modal--search__result-item:visited,
+  .search-modal--search__result-item:active {
+    text-decoration: none !important;
+  }
+
+  .search-modal--search__result-item:hover {
+    background: var(--background-medium);
+    border-color: var(--border-color);
+    text-decoration: none !important;
+  }
+
+  .search-modal--search__result-image {
+    width: 70px; /* Slightly larger for mobile */
+    height: 70px; /* Slightly larger for mobile */
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background-color: var(--background-medium);
+  }
+
+  .search-modal--search__image-placeholder {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    background-color: var(--background-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .search-modal--search__placeholder-icon {
+    color: var(--text-secondary);
+    opacity: 0.5;
+    font-size: 1.5rem;
+  }
+
+  .search-modal--search__result-content {
+    flex-grow: 1;
+    min-width: 0;
+    width: 100%; /* Ensure content takes full width */
+    overflow: hidden; /* Prevent content overflow */
+  }
+
+  .search-modal--search__result-title {
+    font-size: 14px; /* 14px - smaller for better fit */
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+    white-space: normal; /* Allow text to wrap */
+    overflow: visible; /* Show full text */
+    text-overflow: unset; /* Remove ellipsis */
+    word-wrap: break-word; /* Break long words if needed */
+  }
+
+  .search-modal--search__result-price {
+    font-size: 16px; /* 16px to match website standards */
+    font-weight: 500;
+    color: var(--brand-primary);
+  }
+
+  .search-modal--search__result-compare-price {
+    font-size: 14px; /* 14px to match website standards */
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+  }
+
+  /* Search term highlighting */
+  .search-highlight {
+    background-color: var(--brand-primary-light);
+    color: var(--brand-primary);
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .search-modal--search__stats {
+    text-align: center;
+    position: absolute;
+    padding: 1rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    background: var(--background-medium);
+    bottom: 0px;
+    width: 100%;
+  }
+
+  /* Infinite Scroll Loading */
+  .search-modal--search__infinite-loading {
+    display: none;
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    width: 100%;
+    max-width: 100%;
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+
+  .search-modal--search__infinite-loading.show {
+    display: block;
+  }
+
+  .search-modal--search__infinite-spinner {
+    width: 1.5rem; /* 24px */
+    height: 1.5rem; /* 24px */
+    border: 3px solid var(--border-color);
+    border-top-color: var(--brand-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 0.75rem;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Tablet and Desktop Styles */
+  @media (min-width: 768px) {
+    .search-modal--search__container {
+      max-width: 90vw;
+      width: 1024px;
+      max-height: 85vh;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .search-modal--search__header {
+      padding: 1.5rem; /* 24px */
+    }
+
+    .search-modal--search__input {
+      font-size: 18px; /* 18px for desktop */
+      padding: 1.125rem 3rem 1.125rem 3.5rem; /* 18px 48px 18px 56px */
+    }
+
+    .search-modal--search__go-to-search-btn {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+      pointer-events: auto;
+      right: 0.75rem; /* Slightly more space on desktop */
+    }
+
+    .search-modal--search__clear-btn {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+      pointer-events: auto;
+      right: 6rem; /* More space on desktop for better alignment */
+    }
+
+    .search-modal--search__content {
+      padding: 2rem 2rem 6rem 2rem; /* 32px - desktop padding */
+    }
+
+    /* Grid layout for results on desktop */
+    .search-modal--search__results.show {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem 1rem;
+      align-items: start; /* Prevent stretching */
+      grid-auto-rows: minmax(200px, auto); /* Desktop: proper minimum height for vertical layout */
+    }
+
+    .search-modal--search__result-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem; /* Desktop padding */
+      gap: 0.75rem;
+      height: fit-content; /* Prevent height issues */
+      width: 100%; /* Ensure items take full width of grid cell */
+      max-width: 100%; /* Prevent items from exceeding grid cell width */
+      overflow: visible; /* Allow content to show fully */
+      background: var(--background-medium); /* Default background on desktop */
+      border-color: var(--border-color); /* Default border on desktop */
+    }
+
+    .search-modal--search__result-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover; /* Ensure consistent image sizing */
+    }
+
+    .search-modal--search__image-placeholder {
+      width: 100%;
+      height: 180px;
+    }
+
+    .search-modal--search__result-title {
+      font-size: 16px; /* 16px for desktop - smaller and more readable */
+    }
+
+    .search-modal--search__result-item:hover {
+      background: var(--border-color); /* Slightly darker on hover */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .search-modal--search__results.show {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  // --- DO NOT CHANGE ANY LOGIC ---
+  class SearchModal {
+    constructor() {
+      this.modal = document.getElementById('search-modal');
+      this.input = document.getElementById('search-modal-input');
+      this.results = document.getElementById('search-results');
+      this.loading = document.getElementById('search-loading');
+      this.noResults = document.getElementById('search-no-results');
+      this.stats = document.getElementById('search-stats');
+      this.searchCount = document.getElementById('search-count');
+      this.infiniteLoading = document.getElementById('search-infinite-loading');
+      this.goToSearchBtn = document.getElementById('search-modal-go-to-search');
+      this.clearBtn = document.getElementById('search-modal-clear');
+
+      this.isOpen = false;
+      this.currentQuery = '';
+      this.allResults = [];
+      this.visibleCount = 18; // Start with 18 items (6 rows of 3 on desktop)
+      this.isLoading = false;
+      this.isLoadingMore = false;
+      this.hasMoreResults = true;
+
+      this.init();
+    }
+
+    init() {
+      document.addEventListener('click', (e) => {
+        if (
+          e.target.matches('.search-modal--search__close-btn') ||
+          e.target.matches('.search-modal--search__overlay') ||
+          e.target.closest('.search-modal--search__close-btn')
+        ) {
+          this.close();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.close();
+        }
+        if (e.key === '/' && !this.isOpen && !e.target.matches('input, textarea')) {
+          e.preventDefault();
+          this.open();
+        }
+      });
+
+      this.input.addEventListener(
+        'input',
+        this.debounce((e) => {
+          this.search(e.target.value);
+          this.toggleActionButtons();
+        }, 300).bind(this)
+      );
+
+      this.input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          this.search(e.target.value);
+        }
+      });
+
+      this.goToSearchBtn.addEventListener('click', () => {
+        this.goToSearchPage();
+      });
+
+      if (this.clearBtn) {
+        this.clearBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.clearInput();
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        const suggestionBtn = e.target.closest('.search-modal--search__suggestion-btn');
+        if (suggestionBtn) {
+          // Check if it's the Black Friday button with navigation
+          if (suggestionBtn.dataset.navigate) {
+            window.location.href = suggestionBtn.dataset.navigate;
+            return;
+          }
+          // Regular search suggestion
+          const query = suggestionBtn.dataset.search;
+          if (query) {
+            this.input.value = query;
+            this.search(query);
+          }
+        }
+      });
+
+      if (this.results) {
+        const contentArea = this.modal.querySelector('.search-modal--search__content');
+        contentArea.addEventListener('scroll', () => {
+          this.handleInfiniteScroll(contentArea);
+        });
+      }
+
+      this.modal.addEventListener('touchstart', (e) => {
+        if (e.target === this.modal || e.target.matches('.search-modal--search__overlay')) {
+          this.close();
+        }
+      });
+    }
+
+    open() {
+      this.modal.classList.add('active');
+      this.isOpen = true;
+      document.body.style.overflow = 'hidden';
+
+      // Clear any previous state
+      this.clearResults();
+
+      // Focus input after modal animation starts
+      setTimeout(() => {
+        this.input.focus();
+      }, 100);
+    }
+
+    close() {
+      this.modal.classList.remove('active');
+      this.isOpen = false;
+      this.input.value = '';
+      this.clearResults();
+      document.body.style.overflow = '';
+    }
+
+    async search(query) {
+      if (!query.trim()) {
+        this.clearResults();
+        return;
+      }
+
+      // Special analytics search
+      if (query.toLowerCase() === 'analytics' || query.toLowerCase() === 'stats') {
+        this.showAnalytics();
+        return;
+      }
+
+      this.currentQuery = query;
+      this.isLoading = true;
+      this.showLoading();
+
+      // Check cache first
+      const cacheKey = `search_v2_${query.toLowerCase()}`;
+      const cachedResults = this.getCachedResults(cacheKey);
+
+      if (cachedResults) {
+        const hiddenProductId = '15706174095694';
+        this.allResults = cachedResults.filter(p => String(p.id) !== hiddenProductId);
+        this.visibleCount = 18;
+        this.hideLoading();
+        this.displayResults();
+
+        // Still push to Shopify API for analytics (async, don't wait)
+        this.pushSearchToShopifyAPI(query, cachedResults.length);
+        return;
+      }
+
+      const timeout = setTimeout(() => {
+        this.hideLoading();
+        this.showNoResults();
+      }, 5000);
+
+      try {
+        const rawProducts = await this.fetchAllProductsFromJson();
+        const products = this.normalizeProductsFromJSON(rawProducts);
+        const results = this.searchInProducts(products, query);
+
+        clearTimeout(timeout);
+
+        // Cache results for 5 minutes
+        this.cacheResults(cacheKey, results, 5 * 60 * 1000);
+
+        this.allResults = results;
+        this.visibleCount = 18; // Start with 18 items (6 rows of 3 on desktop)
+        this.hideLoading();
+        this.displayResults();
+
+        // Track search for analytics (both local and Shopify)
+        this.trackSearch(query, results.length);
+        this.pushSearchToShopifyAPI(query, results.length);
+      } catch (error) {
+        console.error('Search error:', error);
+        clearTimeout(timeout);
+        this.hideLoading();
+        this.showNoResults();
+      } finally {
+        this.isLoading = false;
+      }
+    }
+
+    displayResults() {
+      if (this.allResults.length === 0) {
+        this.showNoResults();
+        return;
+      }
+      this.hideNoResults();
+
+      const visibleResults = this.allResults.slice(0, this.visibleCount);
+      this.results.innerHTML = this.renderResultsHTML(visibleResults);
+      this.results.classList.add('show');
+
+      // Update search stats
+      this.updateSearchStats();
+
+      this.hasMoreResults = this.allResults.length > this.visibleCount;
+    }
+
+    updateSearchStats() {
+      if (this.stats && this.searchCount) {
+        const totalResults = this.allResults.length;
+        const visibleResults = Math.min(this.visibleCount, totalResults);
+
+        let statsText;
+        if (totalResults === 0) {
+          statsText = 'Geen resultaten gevonden';
+        } else if (totalResults === 1) {
+          statsText = '1 resultaat gevonden';
+        } else if (visibleResults === totalResults) {
+          statsText = `${totalResults} resultaten gevonden`;
+        } else {
+          statsText = `${visibleResults} van ${totalResults} resultaten`;
+        }
+
+        this.searchCount.textContent = statsText;
+        this.stats.style.display = 'block';
+      }
+    }
+
+    // ===== BLACK FRIDAY BADGE COMPONENT - REMOVE AFTER BLACK FRIDAY =====
+    isBlackFridayProduct(product) {
+      // Check if product has black-friday tag
+      if (product.tags) {
+        const tags = typeof product.tags === 'string' ? product.tags.toLowerCase() : product.tags.join(' ').toLowerCase();
+        if (tags.includes('blackfriday2025') || tags.includes('blackfriday2025')) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    renderBlackFridayBadge() {
+      // Return Black Friday badge HTML - can be removed entirely after Black Friday
+      return `<div class="notification-bar" style="background:none!important; padding: 0px!important;  border-radius: 10px!important; transform: scale(0.6); transform-origin: left center;">
+        <div class="notification-block" style="justify-content: left!important;">
+          <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+            <b>PAAS</b>
+            <span>DEALS</span>
+          </h6>
+        </div>
+      </div>`;
+    }
+    // ===== END BLACK FRIDAY BADGE COMPONENT =====
+
+    renderSingleResultHTML(product) {
+      // This helper function renders a single search result item
+      return `
+            <img src="${product.featured_image || ''}" 
+                 alt="${product.title}" 
+                 class="search-modal--search__result-image"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="search-modal--search__image-placeholder" style="display:none;">
+              <div class="search-modal--search__placeholder-icon">
+                <i class="fa fa-image"></i>
+              </div>
+            </div>
+            <div class="search-modal--search__result-content">
+              <h3 class="search-modal--search__result-title">${this.highlightSearchTerm(
+                product.title,
+                this.currentQuery
+              )}</h3>
+              <div class="search-modal--search__result-price">
+              
+                ${this.formatPrice(product.price)}
+                ${
+                  product.compare_at_price
+                    ? `<span class="search-modal--search__result-compare-price">${this.formatPrice(
+                        product.compare_at_price
+                      )}</span>`
+                    : ''
+                }
+              </div>
+            </div>
+        `;
+    }
+
+    renderResultsHTML(results) {
+      // This is used for the INITIAL render
+      return results
+        .map((product) => {
+          // Ensure URL is valid, fallback to search page if not
+          const productUrl =
+            product.url && product.url.startsWith('/products/')
+              ? product.url
+              : `/search?q=${encodeURIComponent(product.title || '')}`;
+          
+          // Add data attributes for debugging
+          const debugInfo = `data-product-id="${product.id}" data-handle="${product.handle}" data-available="${product.available}"`;
+
+          return `
+                    <a href="${productUrl}" class="search-modal--search__result-item" data-url="${productUrl}" ${debugInfo}>
+                        ${this.renderSingleResultHTML(product)}
+                    </a>`;
+        })
+        .join('');
+    }
+
+    handleInfiniteScroll(scrollContainer) {
+      if (this.isLoadingMore || !this.hasMoreResults) {
+        return;
+      }
+      const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
+      if (scrollTop + clientHeight >= scrollHeight - 300) {
+        // 300px threshold
+        this.loadMoreResults();
+      }
+    }
+
+    loadMoreResults() {
+      if (this.isLoadingMore || !this.hasMoreResults) {
+        return;
+      }
+      this.isLoadingMore = true;
+      if (this.infiniteLoading) this.infiniteLoading.classList.add('show');
+
+      setTimeout(() => {
+        const currentCount = this.visibleCount;
+        const newVisibleCount = Math.min(currentCount + 12, this.allResults.length); // Load 12 items for better infinite scroll
+        const newItems = this.allResults.slice(currentCount, newVisibleCount);
+
+        if (newItems.length > 0) {
+          // Create a document fragment for better performance
+          const fragment = document.createDocumentFragment();
+
+          // Create each new item as a DOM element
+          newItems.forEach((product) => {
+            const resultItem = document.createElement('a');
+            // Ensure URL is valid, fallback to search page if not
+            const productUrl =
+              product.url && product.url.startsWith('/products/')
+                ? product.url
+                : `/search?q=${encodeURIComponent(product.title || '')}`;
+
+            resultItem.href = productUrl;
+            resultItem.className = 'search-modal--search__result-item';
+            resultItem.dataset.url = productUrl;
+            resultItem.dataset.productId = product.id;
+            resultItem.dataset.handle = product.handle;
+            resultItem.dataset.available = product.available;
+            resultItem.innerHTML = this.renderSingleResultHTML(product);
+            fragment.appendChild(resultItem);
+          });
+
+          // Append all new items at once to prevent layout shifts
+          if (this.results) {
+            this.results.appendChild(fragment);
+          }
+        }
+
+        // Update state
+        this.visibleCount = newVisibleCount;
+        this.hasMoreResults = this.allResults.length > this.visibleCount;
+        this.isLoadingMore = false;
+        if (this.infiniteLoading) this.infiniteLoading.classList.remove('show');
+
+        // Update search stats
+        this.updateSearchStats();
+      }, 300); // Reduced delay for better UX
+    }
+
+    goToSearchPage() {
+      const query = this.input.value.trim();
+      window.location.href = query ? `/search?q=${encodeURIComponent(query)}` : '/search';
+    }
+
+    clearInput() {
+      this.input.value = '';
+      this.input.focus();
+      this.clearResults();
+      this.toggleActionButtons();
+    }
+
+    toggleActionButtons() {
+      if (this.clearBtn && this.goToSearchBtn) {
+        const hasText = this.input.value.trim().length > 0;
+
+        if (hasText) {
+          this.clearBtn.style.opacity = '1';
+          this.clearBtn.style.transform = 'translateY(-50%) scale(1)';
+          this.clearBtn.style.pointerEvents = 'auto';
+
+          this.goToSearchBtn.style.opacity = '1';
+          this.goToSearchBtn.style.transform = 'translateY(-50%) scale(1)';
+          this.goToSearchBtn.style.pointerEvents = 'auto';
+        } else {
+          this.clearBtn.style.opacity = '0';
+          this.clearBtn.style.transform = 'translateY(-50%) scale(0.9)';
+          this.clearBtn.style.pointerEvents = 'none';
+
+          this.goToSearchBtn.style.opacity = '0';
+          this.goToSearchBtn.style.transform = 'translateY(-50%) scale(0.9)';
+          this.goToSearchBtn.style.pointerEvents = 'none';
+        }
+      }
+    }
+
+    async fetchAllProductsFromJson() {
+      const cacheKey = 'search_modal_products_json_full_v3';
+      try {
+        const cached = sessionStorage.getItem(cacheKey);
+        if (cached) {
+          const { data, time } = JSON.parse(cached);
+          const TTL = 2 * 60 * 1000; // 2 minutes
+          if (Date.now() - time < TTL && Array.isArray(data) && data.length > 0) return data;
+        }
+      } catch (e) {}
+
+      const all = [];
+      const perPage = 250;
+      let page = 1;
+      let hasMore = true;
+
+      while (hasMore) {
+        const url = `/products.json?limit=${perPage}&page=${page}`;
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) break;
+
+        const data = await res.json();
+        const raw = Array.isArray(data) ? data : (data.products || []);
+        if (raw.length === 0) break;
+
+        all.push.apply(all, raw);
+        hasMore = raw.length >= perPage;
+        page++;
+        if (page > 100) break;
+      }
+
+      try {
+        sessionStorage.setItem(cacheKey, JSON.stringify({ data: all, time: Date.now() }));
+      } catch (e) {}
+
+      return all;
+    }
+
+    normalizeProductsFromJSON(rawProducts) {
+      if (!Array.isArray(rawProducts)) return [];
+      return rawProducts.map((p) => {
+        const variant = (p.variants && p.variants[0]) || {};
+        const img = (p.images && p.images[0]) ? p.images[0] : null;
+        const src = (typeof img === 'string') ? img : (img && img.src) ? img.src : '';
+        const tags = p.tags;
+        const tagsStr = Array.isArray(tags) ? (tags.join ? tags.join(' ') : '') : (typeof tags === 'string' ? tags : '');
+
+        return {
+          id: p.id,
+          title: p.title || '',
+          handle: p.handle || '',
+          url: p.handle ? `/products/${p.handle}` : '',
+          vendor: p.vendor || '',
+          product_type: p.product_type || '',
+          tags: tagsStr,
+          featured_image: src,
+          price: variant.price != null ? String(variant.price) : '',
+          compare_at_price: variant.compare_at_price != null ? String(variant.compare_at_price) : null,
+          available: variant.available != null ? variant.available : (p.variants && p.variants.some((v) => v.available)),
+          updated_at: p.updated_at || '',
+        };
+      });
+    }
+
+    searchInProducts(products, query) {
+      const queryLower = query.toLowerCase().trim();
+      const queryWords = queryLower.split(/\s+/).filter((word) => word.length > 0);
+      const results = [];
+      
+      // ===== BLACK FRIDAY SPECIAL SEARCH - REMOVE AFTER BLACK FRIDAY =====
+      // Check if query is related to Black Friday
+      const isBlackFridayQuery = (queryLower.includes('black') && queryLower.includes('friday')) || 
+                                  queryLower === 'blackfriday' || 
+                                  queryLower === 'black-friday';
+      // ===== END BLACK FRIDAY SPECIAL SEARCH =====
+
+      console.log('🔍 Total products to search:', products.length);
+
+      for (const product of products) {
+        // Skip products that don't have essential data for display
+        if (!product.title || !product.url || !product.price || product.price === '0' || product.price === '0.00') {
+          continue;
+        }
+
+        // Skip products with invalid URLs (drafts, unpublished, etc.)
+        if (!product.url.startsWith('/products/')) {
+          continue;
+        }
+
+        // Skip products that are truly unavailable (drafts, unpublished, etc.)
+        // Note: available: false just means out of stock but still for sale
+        // We only skip if there's no valid URL or essential data
+
+        // Skip products without featured images (likely drafts/unpublished)
+        if (!product.featured_image) {
+          continue;
+        }
+
+        let score = 0;
+        let matchFound = false;
+        
+        // ===== BLACK FRIDAY SPECIAL SEARCH - REMOVE AFTER BLACK FRIDAY =====
+        // If user searches for "black friday", include all products with black-friday tags
+        if (isBlackFridayQuery && this.isBlackFridayProduct(product)) {
+          score += 200; // High score for Black Friday products when searching Black Friday
+          matchFound = true;
+        }
+        // ===== END BLACK FRIDAY SPECIAL SEARCH =====
+
+        // Helper function to check if all query words are found in text
+        const containsAllWords = (text) => {
+          if (!text) return false;
+          const textLower = text.toLowerCase();
+          return queryWords.every((word) => textLower.includes(word));
+        };
+
+        // Helper function to check if any query words are found in text
+        const containsAnyWord = (text) => {
+          if (!text) return false;
+          const textLower = text.toLowerCase();
+          return queryWords.some((word) => textLower.includes(word));
+        };
+
+        // Enhanced title matching with multiple scoring levels
+        if (product.title) {
+          const titleLower = product.title.toLowerCase();
+          const titleWords = titleLower.split(/\s+/);
+
+          // Exact match gets highest score
+          if (titleLower === queryLower) {
+            score += 200;
+            matchFound = true;
+          }
+          // Starts with query gets high score
+          else if (titleLower.startsWith(queryLower)) {
+            score += 150;
+            matchFound = true;
+          }
+          // Contains all words gets good score
+          else if (containsAllWords(product.title)) {
+            score += 120;
+            matchFound = true;
+
+            // Bonus for word order match
+            const queryWords = queryLower.split(/\s+/);
+            let wordOrderBonus = 0;
+            for (let i = 0; i < Math.min(queryWords.length, titleWords.length); i++) {
+              if (titleWords[i] === queryWords[i]) {
+                wordOrderBonus += 10;
+              }
+            }
+            score += wordOrderBonus;
+          }
+          // Contains any word gets basic score
+          else if (containsAnyWord(product.title)) {
+            score += 80;
+            matchFound = true;
+          }
+          // Contains query as substring gets lower score
+          else if (titleLower.includes(queryLower)) {
+            score += 60;
+            matchFound = true;
+          }
+          // Fuzzy matching for typos and variations
+          else if (this.fuzzyMatch(queryLower, titleLower)) {
+            score += 40;
+            matchFound = true;
+          }
+        }
+
+        // Vendor matching
+        if (product.vendor && containsAnyWord(product.vendor)) {
+          score += 50;
+          matchFound = true;
+        }
+
+        // Product type matching
+        if (product.product_type && containsAnyWord(product.product_type)) {
+          score += 40;
+          matchFound = true;
+        }
+
+        // Tags matching
+        if (product.tags && containsAnyWord(product.tags)) {
+          score += 30;
+          matchFound = true;
+        }
+
+        // Handle matching
+        if (product.handle && containsAnyWord(product.handle)) {
+          score += 35;
+          matchFound = true;
+        }
+
+        if (matchFound) {
+          // Bonus for shorter titles (more specific)
+          score += Math.max(0, 50 - product.title.length);
+
+          // Bonus for exact word matches
+          if (product.title) {
+            const titleWords = product.title.toLowerCase().split(/\s+/);
+            const exactWordMatches = queryWords.filter((queryWord) =>
+              titleWords.some((titleWord) => titleWord === queryWord)
+            );
+            score += exactWordMatches.length * 10;
+          }
+
+          results.push({
+            ...product,
+            relevanceScore: score,
+            price: parseFloat(product.price) || 0,
+            compare_at_price: product.compare_at_price ? parseFloat(product.compare_at_price) : null,
+          });
+        }
+      }
+
+      console.log('🔍 Filtered results after data validation:', results.length);
+      return results.sort((a, b) => b.relevanceScore - a.relevanceScore).slice(0, 100);
+    }
+
+    showLoading() {
+      if (this.loading) this.loading.style.display = 'flex';
+      if (this.results) this.results.style.display = 'none';
+      if (this.noResults) this.noResults.style.display = 'none';
+    }
+
+    hideLoading() {
+      if (this.loading) this.loading.style.display = 'none';
+    }
+
+    showNoResults() {
+      this.hideLoading();
+      if (this.results) this.results.style.display = 'none';
+      if (this.noResults) this.noResults.style.display = 'flex';
+    }
+
+    hideNoResults() {
+      if (this.noResults) this.noResults.style.display = 'none';
+    }
+
+    clearResults() {
+      if (this.results) {
+        this.results.innerHTML = '';
+        this.results.classList.remove('show');
+      }
+      if (this.stats) {
+        this.stats.style.display = 'none';
+      }
+      this.hideLoading();
+      this.showNoResults(); // Show initial state
+    }
+
+    highlightSearchTerm(text, searchTerm) {
+      if (!searchTerm || !text) return text;
+      const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    formatPrice(price) {
+      if (!price) return '';
+      const numPrice = typeof price === 'string' ? parseFloat(price) : price;
+      return new Intl.NumberFormat('nl-NL', {
+        style: 'currency',
+        currency: 'EUR',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      }).format(numPrice);
+    }
+
+    debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // Caching methods
+    getCachedResults(key) {
+      try {
+        const cached = localStorage.getItem(key);
+        if (cached) {
+          const { data, timestamp, expiry } = JSON.parse(cached);
+          if (Date.now() < timestamp + expiry) {
+            return data;
+          } else {
+            localStorage.removeItem(key);
+          }
+        }
+      } catch (error) {
+        console.warn('Cache read error:', error);
+      }
+      return null;
+    }
+
+    cacheResults(key, data, expiry) {
+      try {
+        const cacheData = {
+          data,
+          timestamp: Date.now(),
+          expiry,
+        };
+        localStorage.setItem(key, JSON.stringify(cacheData));
+      } catch (error) {
+        console.warn('Cache write error:', error);
+      }
+    }
+
+    // Analytics tracking
+    trackSearch(query, resultCount) {
+      try {
+        // Track search queries for analytics
+        const searchData = {
+          query: query.toLowerCase(),
+          resultCount,
+          timestamp: Date.now(),
+          userAgent: navigator.userAgent,
+        };
+
+        // Store in localStorage for analytics
+        const searches = JSON.parse(localStorage.getItem('search_analytics') || '[]');
+        searches.push(searchData);
+
+        // Keep only last 100 searches
+        if (searches.length > 100) {
+          searches.splice(0, searches.length - 100);
+        }
+
+        localStorage.setItem('search_analytics', JSON.stringify(searches));
+
+        // Send to analytics if available
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'search', {
+            search_term: query,
+            results_count: resultCount,
+          });
+        }
+      } catch (error) {
+        console.warn('Analytics tracking error:', error);
+      }
+    }
+
+    // Push search to Shopify API for analytics (async, non-blocking)
+    async pushSearchToShopifyAPI(query, resultCount) {
+      try {
+        // Use the search page method for analytics tracking
+        // This creates a "virtual" search that Shopify can track
+        const searchPageUrl = `/search?q=${encodeURIComponent(query)}`;
+
+        // Use a hidden iframe to trigger the search page load
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.style.width = '0';
+        iframe.style.height = '0';
+        iframe.src = searchPageUrl;
+        document.body.appendChild(iframe);
+
+        // Log success
+        console.log('✅ Search pushed to Shopify analytics:', query);
+
+        // Remove iframe after a short delay
+        setTimeout(() => {
+          if (iframe.parentNode) {
+            iframe.parentNode.removeChild(iframe);
+          }
+        }, 2000);
+      } catch (error) {
+        // Silently fail - this is just for analytics
+        console.debug('Shopify analytics push failed (non-critical):', error.message);
+      }
+    }
+
+    // Get popular search terms
+    getPopularSearches() {
+      try {
+        const searches = JSON.parse(localStorage.getItem('search_analytics') || '[]');
+        const searchCounts = {};
+
+        searches.forEach((search) => {
+          const term = search.query.toLowerCase();
+          searchCounts[term] = (searchCounts[term] || 0) + 1;
+        });
+
+        return Object.entries(searchCounts)
+          .sort(([, a], [, b]) => b - a)
+          .slice(0, 5)
+          .map(([term]) => term);
+      } catch (error) {
+        console.warn('Popular searches error:', error);
+        return [];
+      }
+    }
+
+    // Fuzzy matching for typos and variations
+    fuzzyMatch(query, text, threshold = 0.6) {
+      if (!query || !text) return false;
+
+      const queryWords = query.split(/\s+/);
+      const textWords = text.split(/\s+/);
+
+      let totalScore = 0;
+      let matches = 0;
+
+      for (const queryWord of queryWords) {
+        let bestScore = 0;
+        for (const textWord of textWords) {
+          const score = this.calculateSimilarity(queryWord, textWord);
+          if (score > bestScore) {
+            bestScore = score;
+          }
+        }
+        totalScore += bestScore;
+        if (bestScore > threshold) {
+          matches++;
+        }
+      }
+
+      return matches > 0 && totalScore / queryWords.length > threshold;
+    }
+
+    // Calculate similarity between two strings (Levenshtein distance based)
+    calculateSimilarity(str1, str2) {
+      const longer = str1.length > str2.length ? str1 : str2;
+      const shorter = str1.length > str2.length ? str2 : str1;
+
+      if (longer.length === 0) return 1.0;
+
+      const distance = this.levenshteinDistance(longer, shorter);
+      return (longer.length - distance) / longer.length;
+    }
+
+    // Levenshtein distance calculation
+    levenshteinDistance(str1, str2) {
+      const matrix = [];
+
+      for (let i = 0; i <= str2.length; i++) {
+        matrix[i] = [i];
+      }
+
+      for (let j = 0; j <= str1.length; j++) {
+        matrix[0][j] = j;
+      }
+
+      for (let i = 1; i <= str2.length; i++) {
+        for (let j = 1; j <= str1.length; j++) {
+          if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+            matrix[i][j] = matrix[i - 1][j - 1];
+          } else {
+            matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j] + 1);
+          }
+        }
+      }
+
+      return matrix[str2.length][str1.length];
+    }
+
+    // Show search analytics dashboard
+    showAnalytics() {
+      this.hideLoading();
+      this.hideNoResults();
+
+      const searches = JSON.parse(localStorage.getItem('search_analytics') || '[]');
+      const searchCounts = {};
+      const totalSearches = searches.length;
+
+      // Count search terms
+      searches.forEach((search) => {
+        const term = search.query.toLowerCase();
+        searchCounts[term] = (searchCounts[term] || 0) + 1;
+      });
+
+      // Get top searches
+      const topSearches = Object.entries(searchCounts)
+        .sort(([, a], [, b]) => b - a)
+        .slice(0, 10);
+
+      // Calculate average results
+      const avgResults =
+        searches.length > 0 ? Math.round(searches.reduce((sum, s) => sum + s.resultCount, 0) / searches.length) : 0;
+
+      // Get recent searches
+      const recentSearches = searches.slice(-5).reverse();
+
+      const analyticsHTML = `
+        <div class="search-analytics">
+          <h3>🔍 Search Analytics</h3>
+          <div class="analytics-stats">
+            <div class="stat-item">
+              <strong>${totalSearches}</strong>
+              <span>Total Searches</span>
+            </div>
+            <div class="stat-item">
+              <strong>${avgResults}</strong>
+              <span>Avg Results</span>
+            </div>
+            <div class="stat-item">
+              <strong>${Object.keys(searchCounts).length}</strong>
+              <span>Unique Terms</span>
+            </div>
+          </div>
+          
+          <div class="analytics-sections">
+            <div class="top-searches">
+              <h4>Top Search Terms</h4>
+              <ol>
+                ${topSearches
+                  .map(
+                    ([term, count]) => `<li><span class="term">${term}</span> <span class="count">${count}x</span></li>`
+                  )
+                  .join('')}
+              </ol>
+            </div>
+            
+            <div class="recent-searches">
+              <h4>Recent Searches</h4>
+              <ul>
+                ${recentSearches
+                  .map(
+                    (search) =>
+                      `<li><span class="term">${search.query}</span> <span class="results">${search.resultCount} results</span></li>`
+                  )
+                  .join('')}
+              </ul>
+            </div>
+          </div>
+          
+          <div class="analytics-actions">
+            <button onclick="window.searchModalInstance.clearAnalytics()" class="btn-clear">Clear Data</button>
+            <button onclick="window.searchModalInstance.exportAnalytics()" class="btn-export">Export Data</button>
+          </div>
+        </div>
+      `;
+
+      this.results.innerHTML = analyticsHTML;
+      this.results.classList.add('show');
+
+      // Add analytics styles
+      this.addAnalyticsStyles();
+    }
+
+    // Clear analytics data
+    clearAnalytics() {
+      if (confirm('Are you sure you want to clear all search analytics data?')) {
+        localStorage.removeItem('search_analytics');
+        this.showAnalytics(); // Refresh the view
+      }
+    }
+
+    // Export analytics data
+    exportAnalytics() {
+      const searches = JSON.parse(localStorage.getItem('search_analytics') || '[]');
+      const dataStr = JSON.stringify(searches, null, 2);
+      const dataBlob = new Blob([dataStr], { type: 'application/json' });
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(dataBlob);
+      link.download = `search-analytics-${new Date().toISOString().split('T')[0]}.json`;
+      link.click();
+    }
+
+    // Add analytics styles
+    addAnalyticsStyles() {
+      if (document.getElementById('analytics-styles')) return;
+
+      const style = document.createElement('style');
+      style.id = 'analytics-styles';
+      style.textContent = `
+        .search-analytics {
+          padding: 2rem;
+          background: var(--background-light);
+          border-radius: 8px;
+          margin: 1rem 0;
+        }
+        
+        .search-analytics h3 {
+          margin: 0 0 1.5rem 0;
+          color: var(--text-primary);
+        }
+        
+        .analytics-stats {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 1rem;
+          margin-bottom: 2rem;
+        }
+        
+        .stat-item {
+          text-align: center;
+          padding: 1rem;
+          background: var(--background-medium);
+          border-radius: 6px;
+        }
+        
+        .stat-item strong {
+          display: block;
+          font-size: 1.5rem;
+          color: var(--brand-primary);
+          margin-bottom: 0.25rem;
+        }
+        
+        .stat-item span {
+          font-size: 0.875rem;
+          color: var(--text-secondary);
+        }
+        
+        .analytics-sections {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          margin-bottom: 2rem;
+        }
+        
+        .analytics-sections h4 {
+          margin: 0 0 1rem 0;
+          color: var(--text-primary);
+        }
+        
+        .analytics-sections ol,
+        .analytics-sections ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .analytics-sections li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.5rem 0;
+          border-bottom: 1px solid var(--border-color);
+        }
+        
+        .term {
+          font-weight: 500;
+          color: var(--text-primary);
+        }
+        
+        .count,
+        .results {
+          font-size: 0.875rem;
+          color: var(--text-secondary);
+        }
+        
+        .analytics-actions {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+        }
+        
+        .btn-clear,
+        .btn-export {
+          padding: 0.5rem 1rem;
+          border: 1px solid var(--border-color);
+          border-radius: 6px;
+          background: var(--background-light);
+          color: var(--text-primary);
+          cursor: pointer;
+          transition: all var(--transition-fast);
+        }
+        
+        .btn-clear:hover {
+          background: #ff4444;
+          color: white;
+          border-color: #ff4444;
+        }
+        
+        .btn-export:hover {
+          background: var(--brand-primary);
+          color: white;
+          border-color: var(--brand-primary);
+        }
+        
+        @media (max-width: 768px) {
+          .analytics-sections {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+          }
+          
+          .analytics-stats {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+      `;
+
+      document.head.appendChild(style);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('search-modal')) {
+      window.searchModalInstance = new SearchModal();
+    }
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('[data-search-trigger]') || e.target.closest('[data-search-trigger]')) {
+        e.preventDefault();
+        if (window.searchModalInstance) {
+          window.searchModalInstance.open();
+        }
+      }
+    });
+  });
+</script>

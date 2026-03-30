@@ -1,0 +1,146 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Brendon serie",
+        "description": "Stoere zwarte mangohouten meubels"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Brendon.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Veel opbergruimte:</strong> perfect om je huis opgeruimd te houden.</li><li><strong>Zwart mangohout en staal:</strong> luxe materialen die zorgen voor een stoere uitstraling.</li><li><strong>Duurzaam design:</strong> meubels die bestand zijn tegen intensief gebruik.</li><li><strong>Industriële stijl:</strong> creëer eenvoudig een modern en robuust interieur.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/brendon-serie-1"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "brendon-serie-1",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/brendon-serie-1"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek onze Brendon-meubelserie",
+            "description": "<p>Ben je op zoek naar meubels die niet alleen praktisch zijn, maar ook een echte blikvanger in je interieur? Onze Brendon-meubelserie biedt een unieke combinatie van tijdloos design en een robuuste uitstraling. Met zwart mangohout en stoere stalen accenten breng je direct een industriële sfeer in huis.</p><p>De meubels uit onze Brendon-meubelserie combineren functionaliteit en stijl, ideaal voor wie een strak en georganiseerd huis wil inrichten. De meubels hebben de volgende voordelen:</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Bezoek onze showroom en laat je inspireren",
+            "description": "<p>Wil je de Brendon-meubelserie zelf ervaren? Kom dan langs in een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms</a>. Hier kun je de kwaliteit van het zwarte mangohout met eigen ogen zien en de meubels van dichtbij bekijken. Onze medewerkers staan klaar om je te adviseren en te helpen bij het maken van de perfecte keuze.</p><p><em><strong>Wacht niet langer en geef je interieur een krachtige upgrade. Bestel je favoriete Brendon-meubel direct en betaal pas bij levering.</strong></em></p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Ontdek de meubels uit de Brendon-serie",
+            "description": "<p>Bij De Meubel Importeur vind je verschillende mangohouten Brendon-meubels, elk met hun eigen unieke kenmerken:</p>"
+          }
+        },
+        "right_text_VrBEi3": {
+          "type": "right_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Vakkenkast:</strong> ideaal voor het tonen van boeken, decoraties of accessoires. Dankzij de mix van open vakken en gesloten compartimenten bepaal je zelf wat in het zicht staat en wat niet.</li><li><strong>Dressoir:</strong> een stijlvolle oplossing voor extra opbergruimte in je woonkamer of eetkamer. Voeg direct een modern accent toe aan je interieur.</li><li><strong>Tv-meubel:</strong> combineer praktisch gebruik met een strak design. Dit meubel biedt ruimte voor al je kabels, apparaten en accessoires.</li><li><strong>Kast:</strong> perfect voor extra opbergruimte. Robuust, elegant en een geweldige toevoeging aan elk interieur.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "right_textarea_AwQf8r",
+        "right_text_VrBEi3"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

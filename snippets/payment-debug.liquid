@@ -1,0 +1,59 @@
+{% comment %}
+  Payment Methods Debug
+  Shows all available payment methods for troubleshooting
+{% endcomment %}
+
+<div class="payment-debug">
+  <h3>Available Payment Methods Debug:</h3>
+  <p><strong>Total enabled payment types:</strong> {{ shop.enabled_payment_types.size }}</p>
+  
+  <h4>All enabled payment types:</h4>
+  <ul>
+    {%- for type in shop.enabled_payment_types -%}
+      <li><strong>{{ type }}</strong></li>
+    {%- endfor -%}
+  </ul>
+  
+  <h4>Looking for Bancontact variations:</h4>
+  <ul>
+    {%- for type in shop.enabled_payment_types -%}
+      {%- if type contains 'bancontact' or type contains 'bancontact' or type contains 'Bancontact' -%}
+        <li><strong>FOUND: {{ type }}</strong></li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+  
+  <h4>Payment methods with 'ban' in name:</h4>
+  <ul>
+    {%- for type in shop.enabled_payment_types -%}
+      {%- if type contains 'ban' -%}
+        <li><strong>{{ type }}</strong></li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% style %}
+  .payment-debug {
+    background: #f5f5f5;
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .payment-debug h3, .payment-debug h4 {
+    color: #333;
+    margin-top: 15px;
+  }
+  
+  .payment-debug ul {
+    margin: 10px 0;
+    padding-left: 20px;
+  }
+  
+  .payment-debug li {
+    margin: 5px 0;
+    font-family: monospace;
+  }
+{% endstyle %}

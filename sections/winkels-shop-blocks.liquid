@@ -1,0 +1,120 @@
+<!-- shop -->
+<section class="location-shop-wrp">
+  <div class="container">
+    {% if section.settings.headingg != blank %}
+      <div><h2 class="head-part">{{ section.settings.headingg }}</h2></div>
+    {% endif %}
+      <div class="location-shop-block">
+          <div class="row">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'text' %}
+                  <div class="col-md-4 col-sm-6">
+                      <div class="shop-box">
+                          <div class="box-img">
+                              <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+                          </div>
+                          <div class="detail">
+                              <h3>{{ block.settings.title }}</h3>
+                              <p>{{ block.settings.description }}</p>
+                              <a href="{{ block.settings.btn-link }}" class="btn-orange">{{ block.settings.btn-text }}</a>
+                          </div>
+                      </div>
+                  </div>
+               {% when 'textarea' %}
+                  <div class="col-md-4 col-sm-12">
+                      <div class="shop-user-box">
+                          <div class="user-img">
+                              <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+                          </div>
+                          <div class="detail">
+                              <h3>{{ block.settings.title }}</h3>
+                              {{ block.settings.description }}
+                              <span onclick="$crisp.push(['do', 'chat:show']);$crisp.push(['do', 'chat:open']);" class="btn-white">{{ block.settings.btn-text }}</span>
+                              <h6><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/check-icon_aa9286ba-7522-4608-b68b-c19b414ea7b3.svg?v=1736933326" alt=""> Nu online</h6>
+                          </div>
+                      </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End shop -->
+{% schema %}
+  {
+    "name": "Winkels Shop Blocks",
+    "settings": [
+      {
+        "type": "text",
+        "id": "headingg",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "shop block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "btn-text",
+            "label": "Button text"
+          },
+          {
+            "type": "url",
+            "id": "btn-link",
+            "label": "Button Link"
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "name": "chat block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "btn-text",
+            "label": "Button Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Winkels Shop Blocks"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,45 @@
+<!-- USP -->
+<section class="usp-wrp">
+  <div class="container">
+      <div class="usp-slider">
+        {% for block in section.blocks %}
+          <div>
+              <div class="usp-box">
+                  <img src="{{ block.settings.image | img_url: 'master' }}">
+                  <h4>{{ block.settings.title }}</h4>
+              </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+</section>
+<!-- End USP -->
+{% schema %}
+  {
+    "name": "Winkels USPs",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "image_picker",
+        "name":"block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Winkels USPs"
+      }
+    ]
+  }
+{% endschema %}

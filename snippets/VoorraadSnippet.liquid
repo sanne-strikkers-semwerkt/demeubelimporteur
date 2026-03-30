@@ -1,0 +1,821 @@
+{%- liquid
+  assign product_image = product.featured_media | default: 'product-1'
+  assign product_price = product.price | money
+
+  assign modal_title = modal_title | default: 'Vind een winkel'
+-%}
+
+<!-- FIX: Added data-product-available-mii to pass the product's stock status to JavaScript -->
+<div
+  class="margin-tops"
+  data-section-id="{{ section.id }}"
+  data-product-sku-mii="{{ product.selected_or_first_available_variant.sku | escape }}"
+  data-product-available-mii="{{ product.available }}"
+  data-product-variants='[{% if product.metafields.custom.subproducts.value %}{% comment %}Include main product variants first{% endcomment %}{% for variant in product.variants %}{% assign display_title = product.metafields.custom.product_variant_title | default: variant.title %}{% assign vimg = variant.featured_image | default: product.featured_image %}{% assign vurl = product.url | append: '?variant=' | append: variant.id %}{"id":{{ variant.id }},"title":{{ display_title | json }},"sku":{{ variant.sku | json }},"available":{{ variant.available }},"image":{% if vimg %}{{ vimg | image_url: width: 80, height: 80, crop: 'center' | json }}{% else %}null{% endif %},"url":{{ vurl | json }}}{% unless forloop.last %},{% endunless %}{% endfor %}{% if product.metafields.custom.subproducts.value.size > 0 %},{% endif %}{% for subproduct in product.metafields.custom.subproducts.value %}{% for variant in subproduct.variants %}{% assign display_title = subproduct.metafields.custom.product_variant_title | default: subproduct.title | default: variant.title %}{% assign vimg = subproduct.metafields.custom.product_variant_image.value | default: variant.featured_image | default: subproduct.featured_image %}{% assign vurl = subproduct.url | append: '?variant=' | append: variant.id %}{"id":{{ variant.id }},"title":{{ display_title | json }},"sku":{{ variant.sku | json }},"available":{{ variant.available }},"image":{% if vimg %}{{ vimg | image_url: width: 80, height: 80, crop: 'center' | json }}{% else %}null{% endif %},"url":{{ vurl | json }}}{% unless forloop.last %},{% endunless %}{% endfor %}{% unless forloop.last %},{% endunless %}{% endfor %}{% else %}{% for variant in product.variants %}{% assign display_title = product.metafields.custom.product_variant_title | default: variant.title %}{% assign vimg = variant.featured_image | default: product.featured_image %}{% assign vurl = product.url | append: '?variant=' | append: variant.id %}{"id":{{ variant.id }},"title":{{ display_title | json }},"sku":{{ variant.sku | json }},"available":{{ variant.available }},"image":{% if vimg %}{{ vimg | image_url: width: 80, height: 80, crop: 'center' | json }}{% else %}null{% endif %},"url":{{ vurl | json }}}{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}]'
+>
+  <button
+    id="open-showroom-modal-mii"
+    class="items-center font-bold mt-2 showroom-trigger-button flex gap-2 hover:underline"
+  >
+    <span id="showroom-status-circle" class="p-custom-w-1 bg-3aa759 border border-light rounded-circle"></span>
+    <span id="showroom-button-text-mii">Beschikbaarheid laden...</span>
+  </button>
+</div>
+<div id="showroom-modal-mii" class="showroom-modal-overlay" aria-hidden="true">
+  <div class="showroom-modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title-mii">
+    <div class="showroom-modal-header">
+      <h3 id="modal-title-mii" class="text-lg font-bold">{{ modal_title }}</h3>
+      <button class="showroom-modal-close btn-modal-close flex items-center gap-3 text-black" aria-label="Sluiten">
+        Sluiten <i class="fa fa-xmark"></i>
+      </button>
+    </div>
+    <div class="showroom-modal-body">
+      <div class="showroom-modal__product-info--v8">
+        <img
+          src="{{ product_image | image_url: width: 120 }}"
+          alt="{{ product_image.alt | escape }}"
+          class="showroom-modal__product-image--v8"
+          width="60"
+          height="60"
+        >
+        <div class="showroom-modal__product-details--v8">
+          <h3 class="text-lg font-bold showroom-modal__product-title--v8">{{ product.title | escape }}</h3>
+          <p class="showroom-modal__product-price--v8">{{ product_price }}</p>
+        </div>
+      </div>
+      <div class="showroom-modal-filter">
+        <div>
+          <input type="checkbox" id="stock-filter-mii" class="showroom-filter-checkbox">
+          <label for="stock-filter-mii" class=" font-bold">Toon alleen showrooms waar dit product te zien is</label>
+        </div>
+        <button id="geolocate-btn" class="geolocate-button btn-secondary-custom">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-location" viewBox="0 0 16 20">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 20C8 20 16 12 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12 8 20 8 20ZM8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12Z" fill="currentColor"></path>
+          </svg>
+          <span id="geolocate-text" class="font-semibold">Gebruik locatie</span>
+        </button>
+      </div>
+      <div
+        id="showroom-list-mii-modal"
+      ></div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const mainContainer = document.querySelector('[data-product-sku-mii]');
+    const productSku = mainContainer.dataset.productSkuMii;
+
+    // FIX: Read the product availability from the HTML data attribute we just added.
+    const productAvailable = mainContainer.dataset.productAvailableMii === 'true';
+    const productVariants = JSON.parse(mainContainer.dataset.productVariants || '[]');
+
+    const buttonTextSpan = document.getElementById('showroom-button-text-mii');
+    const openBtn = document.getElementById('open-showroom-modal-mii');
+    const statusCircle = document.getElementById('showroom-status-circle');
+    // Get showroom settings from theme customizer
+    const showroomSettings = {
+      grootebroek: {
+        enabled: {{ settings.showroom_grootebroek_enabled | default: true }},
+        name: '{{ settings.showroom_grootebroek_name | default: "Grootebroek" }}',
+        address: '{{ settings.showroom_grootebroek_address | default: "Industrieweg 7, 1613 KT Grootebroek" }}',
+        hours: {
+          0: '{{ settings.showroom_grootebroek_hours_sunday | default: "11:00 - 17:00" }}',
+          1: '{{ settings.showroom_grootebroek_hours_monday | default: "09:00 - 17:30" }}',
+          2: '{{ settings.showroom_grootebroek_hours_tuesday | default: "09:00 - 17:30" }}',
+          3: '{{ settings.showroom_grootebroek_hours_wednesday | default: "09:00 - 17:30" }}',
+          4: '{{ settings.showroom_grootebroek_hours_thursday | default: "09:00 - 17:30" }}',
+          5: '{{ settings.showroom_grootebroek_hours_friday | default: "09:00 - 17:30" }}',
+          6: '{{ settings.showroom_grootebroek_hours_saturday | default: "09:00 - 17:00" }}',
+        },
+        lat: {{ settings.showroom_grootebroek_lat | default: 52.7001 }},
+        lon: {{ settings.showroom_grootebroek_lon | default: 5.226 }},
+        url: '{{ settings.showroom_grootebroek_url | default: "https://www.google.nl/maps/place/De+Meubel+Importeur/@51.6236125,4.871771,17z/data=!3m1!4b1!4m6!3m5!1s0x47c69967ab9086ab:0x5d892bffbe55144e!8m2!3d51.6236092!4d4.8743459!16s%2Fg%2F11w_t5g3_k?entry=tts&g_ep=EgoyMDI1MDIxMS4wIPu8ASoASAFQAw%3D%3D" }}',
+        image: '{% if settings.showroom_grootebroek_image %}{{ settings.showroom_grootebroek_image | image_url: width: 600 }}{% else %}https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Scherm_afbeelding_2025-08-19_om_13.05.17.png?v=1755601549{% endif %}',
+      },
+      breda: {
+        enabled: {{ settings.showroom_breda_enabled | default: true }},
+        name: '{{ settings.showroom_breda_name | default: "Breda" }}',
+        address: '{{ settings.showroom_breda_address | default: "Spinveld 22a, 4815 HS Breda" }}',
+        hours: {
+          0: '{{ settings.showroom_breda_hours_sunday | default: "11:00 - 17:00" }}',
+          1: '{{ settings.showroom_breda_hours_monday | default: "09:00 - 17:30" }}',
+          2: '{{ settings.showroom_breda_hours_tuesday | default: "09:00 - 17:30" }}',
+          3: '{{ settings.showroom_breda_hours_wednesday | default: "09:00 - 17:30" }}',
+          4: '{{ settings.showroom_breda_hours_thursday | default: "09:00 - 17:30" }}',
+          5: '{{ settings.showroom_breda_hours_friday | default: "09:00 - 17:30" }}',
+          6: '{{ settings.showroom_breda_hours_saturday | default: "09:00 - 17:00" }}',
+        },
+        lat: {{ settings.showroom_breda_lat | default: 51.5697 }},
+        lon: {{ settings.showroom_breda_lon | default: 4.7597 }},
+        url: '{{ settings.showroom_breda_url | default: "https://www.google.nl/maps/place/De+Meubel+Importeur/@51.6236125,4.871771,17z/data=!3m1!4b1!4m6!3m5!1s0x47c69967ab9086ab:0x5d892bffbe55144e!8m2!3d51.6236092!4d4.8743459!16s%2Fg%2F11w_t5g3_k?entry=tts&g_ep=EgoyMDI1MDIxMS4wIPu8ASoASAFQAw%3D%3D" }}',
+        image: '{% if settings.showroom_breda_image %}{{ settings.showroom_breda_image | image_url: width: 600 }}{% else %}https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Scherm_afbeelding_2025-08-19_om_13.05.17.png?v=1755601549{% endif %}',
+      },
+      almelo: {
+        enabled: {{ settings.showroom_almelo_enabled | default: false }},
+        name: '{{ settings.showroom_almelo_name | default: "Almelo" }}',
+        address: '{{ settings.showroom_almelo_address | default: "Adres volgt binnenkort" }}',
+        hours: {
+          0: '{{ settings.showroom_almelo_hours_sunday | default: "Gesloten" }}',
+          1: '{{ settings.showroom_almelo_hours_monday | default: "09:00 - 17:00" }}',
+          2: '{{ settings.showroom_almelo_hours_tuesday | default: "09:00 - 17:00" }}',
+          3: '{{ settings.showroom_almelo_hours_wednesday | default: "09:00 - 17:00" }}',
+          4: '{{ settings.showroom_almelo_hours_thursday | default: "09:00 - 17:00" }}',
+          5: '{{ settings.showroom_almelo_hours_friday | default: "09:00 - 17:00" }}',
+          6: '{{ settings.showroom_almelo_hours_saturday | default: "09:00 - 17:00" }}',
+        },
+        lat: {{ settings.showroom_almelo_lat | default: 52.3508 }},
+        lon: {{ settings.showroom_almelo_lon | default: 6.6622 }},
+        url: '{{ settings.showroom_almelo_url | default: "#" }}',
+        image: '{% if settings.showroom_almelo_image %}{{ settings.showroom_almelo_image | image_url: width: 600 }}{% else %}https://via.placeholder.com/300x200?text=Almelo+Showroom{% endif %}',
+      }
+    };
+
+    // Filter enabled showrooms
+    // Defer showroom JavaScript execution for better performance
+    setTimeout(() => {
+        const showroomDetails = Object.values(showroomSettings).filter(showroom => showroom.enabled);
+
+        const modal = document.getElementById('showroom-modal-mii');
+    const closeBtn = modal.querySelector('.showroom-modal-close');
+    const container = document.getElementById('showroom-list-mii-modal');
+    const filterCheckbox = document.getElementById('stock-filter-mii');
+    const geolocateBtn = document.getElementById('geolocate-btn');
+    const geolocateText = document.getElementById('geolocate-text');
+    let storeData = [],
+      dataLoaded = false;
+
+    const getTodaysHours = (hoursObject) => {
+      const hoursToday = hoursObject[new Date().getDay()];
+      return hoursToday === 'Gesloten' ? 'Vandaag gesloten' : `Vandaag open van ${hoursToday} uur`;
+    };
+    const openModal = () => {
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (dataLoaded) renderShowroomList();
+    };
+    const closeModal = () => {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    const getDistance = (lat1, lon1, lat2, lon2) => {
+      const R = 6371,
+        dLat = ((lat2 - lat1) * Math.PI) / 180,
+        dLon = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+    };
+    const handleGeolocation = () => {
+      if (!navigator.geolocation) {
+        geolocateText.textContent = 'Geen GPS ondersteuning';
+        return;
+      }
+      geolocateText.textContent = 'Locatie zoeken...';
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          storeData.forEach((s) => (s.distance = getDistance(pos.coords.latitude, pos.coords.longitude, s.lat, s.lon)));
+          storeData.sort((a, b) => a.distance - b.distance);
+          geolocateText.textContent = 'Locatie gevonden';
+          geolocateBtn.classList.add('found');
+          renderShowroomList();
+        },
+        () => {
+          geolocateText.textContent = 'Locatie geweigerd';
+        }
+      );
+    };
+
+    const updateButtonText = (storesWithCurrentVariant, storesWithAnyVariant, isProductAvailable) => {
+      const currentInStore = storesWithCurrentVariant.length;
+      const anyVariantInStore = storesWithAnyVariant.length;
+      if (anyVariantInStore === 0) {
+        if (isProductAvailable) {
+          openBtn.style.display = 'none';
+        } else {
+          openBtn.style.display = 'flex';
+          openBtn.disabled = true;
+          openBtn.style.cursor = 'not-allowed';
+          openBtn.style.textDecoration = 'none';
+          statusCircle.classList.remove('bg-3aa759');
+          statusCircle.classList.add('bg-orange');
+          buttonTextSpan.textContent = 'Tijdelijk uitverkocht';
+        }
+      } else {
+        openBtn.style.display = 'flex';
+        statusCircle.classList.remove('bg-orange');
+        statusCircle.classList.add('bg-3aa759');
+        openBtn.disabled = false;
+        openBtn.style.cursor = 'pointer';
+        openBtn.style.textDecoration = '';
+
+        if (currentInStore > 0) {
+          if (currentInStore === 1) {
+            buttonTextSpan.textContent = `Bekijk in onze winkel te ${storesWithCurrentVariant[0]}`;
+          } else {
+            buttonTextSpan.textContent = 'Bekijk in onze winkels';
+          }
+        } else {
+          buttonTextSpan.textContent = 'Bekijk andere maten in de winkel';
+        }
+      }
+    };
+
+    const renderShowroomList = () => {
+      let filteredStores = storeData.filter((store) => (filterCheckbox.checked ? store.inShowroom : true));
+      
+      // Sort alphabetically by name (unless sorted by distance)
+      if (!filteredStores.some(store => store.distance !== null)) {
+        filteredStores.sort((a, b) => a.name.localeCompare(b.name));
+      }
+      
+      if (filteredStores.length === 0) {
+        container.innerHTML = '<p class="loading-status">Geen showrooms gevonden die aan uw criteria voldoen.</p>';
+      } else {
+        container.innerHTML = filteredStores
+          .map((store) => {
+            const distanceHTML = store.distance
+              ? `<p class="showroom-distance">${store.distance.toFixed(1)} km</p>`
+              : '';
+            return `
+              <div class="showroom-item-modal" data-status="${store.inShowroom ? 'available' : 'unavailable'}">
+                <div class="showroom-details-header">
+                  <div class="store-info">
+                    <p class="store-name">Winkel ${store.name}</p>
+                    ${distanceHTML}
+                    <p class="store-address">${store.address}</p>
+                    <p class="store-hours">${getTodaysHours(store.hours)}</p>
+                  </div>
+                  <span class="store-image" style="background-image: url('${store.image}');" aria-label="Showroom ${
+              store.name
+            }" role="img"></span>
+                </div>
+                ${(store.variants && store.variants.length > 0) ? `
+                <div class="showroom-variants-block">
+                  <span class="variant-label">Beschikbare varianten:</span>
+                  <ul class="quicklinks-list showroom-variant-list">
+                    ${store.variants.map(function(v) {
+                      var pillCls = 'quicklinks-pill' + (v.showUnavailable ? ' is-unavailable' : '');
+                      var imgHtml = v.image ? '<img class="quicklinks-pill__image rounded-full" src="' + v.image + '" alt="" loading="lazy" width="32" height="32">' : '';
+                      var inner = imgHtml + '<span class="quicklinks-pill__title">' + v.title + '</span>';
+                      var pillHtml = v.url ? '<a href="' + v.url + '" class="' + pillCls + '">' + inner + '</a>' : '<span class="' + pillCls + '">' + inner + '</span>';
+                      return '<li>' + pillHtml + '</li>';
+                    }).join('')}
+                  </ul>
+                </div>
+                ` : ''}
+                <div class="flex items-center justify-between">
+                  <p class="status">
+                    <span class="status-dot ${store.inShowroom ? 'available' : 'unavailable'}"></span>
+                    ${store.inShowroom ? 'In de winkel' : 'Niet in de winkel'}
+                  </p>
+                  <a href="${
+                    store.url
+                  }" class="btn-orange text-lg px-2 py-1 font-semibold btn-modal-route flex items-center gap-2 max-w-fit font-semibold" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-location-dot"></i>Bekijk route
+                  </a>
+                </div>
+              </div>`;
+          })
+          .join('');
+      }
+    };
+    const loadShowroomData = () => {
+      const jsonUrl = "{{ 'showroom_voorraad_mii.json' | asset_url }}";
+      fetch(jsonUrl)
+        .then((response) => response.json())
+        .then((showroomData) => {
+          // Flow: 1) Variants from metafield custom.subproducts. 2) Sheet → JSON: SKU → showrooms. 3) Per store: show ALL variants; grayscale + strikethrough when not in this store or out of stock.
+          var skuToShowrooms = {};
+          showroomData.forEach(function(item) {
+            skuToShowrooms[item.sku] = item.showrooms || [];
+          });
+          // Current variant in showroom only when its exact SKU is in the JSON.
+          var storesWithProduct = [];
+          showroomDetails.forEach(function(detail) {
+            var currentVariantInStockHere = productVariants.some(function(v) {
+              if (v.sku !== productSku) return false;
+              return v.available && v.sku && skuToShowrooms[v.sku] && skuToShowrooms[v.sku].indexOf(detail.name) !== -1;
+            });
+            if (currentVariantInStockHere) storesWithProduct.push(detail.name);
+          });
+          // Showrooms where any variant (incl. other sizes) is in voorraad — so we still show the button and modal when only other maten are in store.
+          var storesWithAnyVariant = [];
+          showroomDetails.forEach(function(detail) {
+            var anyVariantHere = productVariants.some(function(v) {
+              return v.sku && skuToShowrooms[v.sku] && skuToShowrooms[v.sku].indexOf(detail.name) !== -1;
+            });
+            if (anyVariantHere) storesWithAnyVariant.push(detail.name);
+          });
+
+          storeData = showroomDetails.map(function(detail) {
+            var variantsForStore = productVariants.map(function(v) {
+              var inJson = v.sku && skuToShowrooms[v.sku] && skuToShowrooms[v.sku].indexOf(detail.name) !== -1;
+              var inStore = inJson;
+              var inThisStore = inStore && v.available;
+              return {
+                title: v.title,
+                available: v.available,
+                image: v.image,
+                url: v.url,
+                inThisStore: inThisStore,
+                showUnavailable: !inThisStore
+              };
+            });
+            var currentVariantData = variantsForStore[productVariants.findIndex(function(v) { return v.sku === productSku; })];
+            var inShowroomForCurrentVariant = currentVariantData ? currentVariantData.inThisStore : false;
+            return {
+              name: detail.name,
+              address: detail.address,
+              hours: detail.hours,
+              lat: detail.lat,
+              lon: detail.lon,
+              url: detail.url,
+              image: detail.image,
+              inShowroom: inShowroomForCurrentVariant,
+              variants: variantsForStore,
+              distance: null
+            };
+          });
+
+          var currentVariant = productVariants.find(function(v) { return v.sku === productSku; });
+          var currentVariantAvailable = currentVariant ? currentVariant.available : productAvailable;
+          updateButtonText(storesWithProduct, storesWithAnyVariant, currentVariantAvailable);
+          dataLoaded = true;
+        })
+        .catch((error) => {
+          buttonTextSpan.textContent = 'Fout bij laden';
+          openBtn.disabled = true;
+          console.error('Fout bij laden MII showroom data:', error);
+        });
+    };
+
+    loadShowroomData();
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+    filterCheckbox.addEventListener('change', renderShowroomList);
+    geolocateBtn.addEventListener('click', handleGeolocation);
+  });
+    }, 1000); // Defer showroom script execution by 1 second
+</script>
+
+<style>
+  :root {
+    --brand-orange: #fb5a00;
+    --color-success: #008a00;
+    --color-error: #e60000;
+    --color-text-primary: #212121;
+    --color-text-secondary: #555;
+    --color-background-light: #fff;
+    --color-border: #f1f1f1;
+    --spacing-unit: 4px;
+    --main-padding: calc(var(--spacing-unit) * 3);
+    --content-padding: calc(var(--spacing-unit) * 3);
+    --item-gap: calc(var(--spacing-unit) * 4);
+    --border-radius: 8px;
+    
+    /* Typography Scale */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Consistent Spacing */
+    --space-xs: calc(var(--spacing-unit) * 1);   /* 4px */
+    --space-sm: calc(var(--spacing-unit) * 2);   /* 8px */
+    --space-md: calc(var(--spacing-unit) * 3);   /* 12px */
+    --space-lg: calc(var(--spacing-unit) * 4);   /* 16px */
+    --space-xl: calc(var(--spacing-unit) * 6);   /* 24px */
+    --space-2xl: calc(var(--spacing-unit) * 8);  /* 32px */
+    
+    /* Button Sizes */
+    --btn-padding-sm: var(--space-sm) var(--space-md);
+    --btn-padding-md: var(--space-md) var(--space-lg);
+    --btn-padding-lg: var(--space-lg) var(--space-xl);
+  }
+  .store-info {
+    width: 100%;
+  }
+ 
+
+  .showroom-trigger-button {
+    color: var(--color-text-primary);
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: underline;
+    height: auto;
+    width: fit-content;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    padding: var(--space-sm) 0;
+  }
+
+  .showroom-trigger-button:hover {
+    text-decoration: underline;
+  }
+
+  .showroom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .showroom-modal-overlay[aria-hidden='false'] {
+    opacity: 1;
+    visibility: visible;
+  }
+  .showroom-modal-content {
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 95%;
+    max-width: 850px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .showroom-modal-overlay[aria-hidden='false'] .showroom-modal-content {
+    transform: scale(1);
+  }
+
+  .showroom-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--content-padding) var(--main-padding);
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+    gap: var(--item-gap);
+  }
+  .showroom-modal-header h3 {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+  }
+  .btn-modal-close {
+    padding: var(--space-sm);
+    background: none;
+    border: none;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    cursor: pointer;
+  }
+
+  .showroom-modal-body {
+    padding: var(--content-padding) var(--main-padding);
+    overflow-y: auto;
+    background: #f1f1f1;
+  }
+  .showroom-modal__product-info--v8 {
+    display: flex;
+    align-items: center;
+    gap: var(--item-gap);
+    background: var(--color-background-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--content-padding);
+    margin-bottom: var(--main-padding);
+  }
+  .showroom-modal__product-image--v8 {
+    border-radius: calc(var(--spacing-unit) * 1);
+    object-fit: cover;
+    flex-shrink: 0;
+    border: none;
+  }
+  .showroom-modal__product-details--v8 p {
+    margin: 0;
+  }
+
+  .showroom-modal__product-title--v8 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .showroom-modal__product-price--v8 {
+    color: var(--brand-orange);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+  }
+
+  .showroom-modal-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--item-gap);
+    padding-bottom: var(--content-padding);
+  }
+  .showroom-modal-filter label {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    cursor: pointer;
+  }
+  div.showroom-modal-filter > div {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 2);
+  }
+  .showroom-filter-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand-orange);
+  }
+  .geolocate-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    padding: var(--btn-padding-sm);
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease;
+  }
+
+  .geolocate-button:hover {
+    background-color: var(--color-border);
+  }
+  .geolocate-button .icon {
+    width: 16px;
+    height: 20px;
+  }
+  .geolocate-button.found {
+    color: var(--color-success);
+  }
+
+  #showroom-list-mii-modal {
+    display: flex;
+    flex-direction: column;
+    gap: var(--item-gap);
+  }
+  .showroom-item-modal {
+    background-color: var(--color-background-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--content-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--item-gap);
+  }
+  .showroom-details-header,
+  .showroom-stock-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--item-gap);
+    align-items: center;
+  }
+  .store-name {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-sm) 0;
+  }
+  .store-address,
+  .store-hours,
+  .showroom-distance {
+    font-size: var(--font-size-sm);
+    margin: var(--space-xs) 0;
+    color: var(--color-text-secondary);
+  }
+  .showroom-distance {
+    color: var(--brand-orange);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+  }
+  .status-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+  .status-dot.available {
+    background-color: var(--color-success);
+  }
+  .status-dot.unavailable {
+    background-color: var(--color-error);
+  }
+  .loading-status,
+  .error-status {
+    padding: var(--space-2xl);
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    font-style: italic;
+  }
+  .store-image {
+    width: 100%;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--border-radius);
+  }
+  .btn-secondary-custom {
+    color: var(--color-text-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--btn-padding-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    background: var(--color-background-light);
+    width: fit-content;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn-secondary-custom:hover {
+    background-color: var(--color-border);
+    border-color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 750px) {
+    .showroom-modal-content {
+      width: 100%;
+      max-height: 100vh;
+      max-width: 95vw;
+      overflow: hidden;
+    }
+    .store-image {
+      min-height: 89px;
+    }
+    .showroom-details-header,
+    .showroom-stock-info {
+      grid-template-columns: 2fr 1fr;
+    }
+    .showroom-stock-info {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  /* --- RESPONSIVE ADJUSTMENTS FOR LARGER SCREENS --- */
+  @media (min-width: 750px) {
+    .showroom-details-header {
+      grid-template-columns: 2fr 1fr;
+      align-items: stretch;
+    }
+    .showroom-stock-info {
+      grid-template-columns: 1fr 1fr;
+    }
+    .btn-modal-route {
+      width: auto;
+      justify-self: end;
+    }
+    .store-image {
+      min-height: 100px;
+      height: 100%;
+    }
+    /* --- FONT SCALING FOR DESKTOP --- */
+    .showroom-modal__product-title--v8 {
+      font-size: var(--font-size-xl);
+    }
+    .showroom-modal__product-price--v8 {
+      font-size: var(--font-size-lg);
+    }
+    .showroom-modal-filter label {
+      font-size: var(--font-size-lg);
+    }
+    .store-name {
+      font-size: var(--font-size-xl);
+    }
+    .store-address,
+    .store-hours,
+    .showroom-distance {
+      font-size: var(--font-size-base);
+    }
+    .status {
+      font-size: var(--font-size-base);
+    }
+    .btn-modal-route {
+      font-size: var(--font-size-base);
+      padding: var(--btn-padding-md);
+    }
+  }
+
+  .bg-3aa759 {
+    background: #3aa759;
+  }
+  /* MODIFICATION: Added class for orange background */
+  .bg-orange {
+    background-color: var(--brand-orange);
+  }
+  .p-custom-w-1 {
+    padding: var(--space-xs) !important;
+  }
+
+
+  .showroom-variants-block .variant-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+  }
+  .showroom-variants-block .quicklinks-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+  }
+  .showroom-variants-block .quicklinks-list li {
+    margin: 0;
+  }
+  .showroom-variants-block .quicklinks-pill {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 12px 0 4px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    border: 1px solid #e3e3e3;
+    white-space: nowrap;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    min-width: fit-content;
+  }
+  .showroom-variants-block a.quicklinks-pill {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .showroom-variants-block .quicklinks-pill__image {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .showroom-variants-block .quicklinks-pill__title {
+    color: #212121;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: capitalize;
+  }
+  .showroom-variants-block .quicklinks-pill.is-unavailable {
+    text-decoration: line-through;
+    color: #999;
+    filter: grayscale(1);
+    opacity: 0.85;
+  }
+  .showroom-variants-block .quicklinks-pill.is-unavailable .quicklinks-pill__title {
+    color: #999;
+  }
+
+</style>

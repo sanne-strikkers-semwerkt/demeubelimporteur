@@ -1,0 +1,131 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "location_banner_VXgTNg": {
+      "type": "location-banner",
+      "settings": {
+        "image": "shopify://shop_images/location-banner-bg.png",
+        "title": "Winkel Grootebroek",
+        "link": "https://maps.app.goo.gl/HwHS1S9ZsKgc8t4D7",
+        "button": "Bekijk de route",
+        "text": "Adres: Industrieweg 7, 1613 KT Grootebroek"
+      }
+    },
+    "location_detail_GYGAeY": {
+      "type": "location-detail",
+      "blocks": {
+        "text_BXKe3R": {
+          "type": "text",
+          "settings": {
+            "title-aboveDesc": "In onze winkel in Grootebroek vind je een selectie van onze online collectie. Niet alle meubelen die op de website staan zijn te bezichtigen. Onze adviseurs helpen je graag bij het kiezen van een meubelen. Na je bestelling zorgen wij ervoor dat je meubel zo snel mogelijk bij je thuis wordt bezorgd.",
+            "title": "Liever je meubelen online bestellen?",
+            "title-belowDesc": "",
+            "btn-label": "Bekijk alle meubelen",
+            "btn-link": "https://www.demeubelimporteur.nl/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "text_BXKe3R"
+      ],
+      "settings": {
+        "text": "Bij De Meubel Importeur Grootebroek vind je onze ruime winkel met een gevarieerde collectie meubelen. Van eettafels tot kasten en van salontafels tot tv-meubels, je kunt het hier allemaal in het echt bekijken. Er is volop gratis parkeergelegenheid, dus kom vooral even langs!",
+        "heading1": "Uitstekende service",
+        "text1": "Wil je weten welke maten het beste passen of welke modellen aansluiten bij je andere meubels? Onze medewerkers delen graag hun kennis over de collectie en geven praktisch advies. We denken met je mee, zonder dat je je verplicht hoeft te voelen tot een aankoop.",
+        "heading2": "Praktische informatie",
+        "text2": "Onze winkel is goed te vinden aan de Industrieweg in Grootebroek en heeft een ruim, gratis parkeerterrein voor de deur. Mangohout moet je eigenlijk in het echt zien en voelen om een goede keuze te kunnen maken. Daarom ben je van harte welkom om langs te komen. Onder het genot van een kop koffie bekijk je op je gemak de verschillende mogelijkheden!",
+        "image": "shopify://shop_images/dmi-paasweekend-grootebroek.jpg",
+        "heading3": "Openingstijden",
+        "text3": "<li>Maandag:  <span> 09:00 - 17:30</span>\n</li>\n                                <li>Dinsdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Woensdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Donderdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Vrijdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Zaterdag:  <span>09:00 - 17:00</span>\n</li>\n                                <li>Zondag:  <span>11:00 - 17:00</span>\n</li>\n<br>\n<li><b>Openingstijden Paasweekend:</b></li>\n<li>3 april (Goede Vrijdag):<br> 09:00 - 17:30\n</li>\n<li>4 april (Zaterdag):<br> 09:00 - 17:00\n</li><li>5 april (Eerste Paasdag):<br> 11:00 - 17:00\n</li>\n<li>6 april (Tweede Paasdag):<br> 09:00 - 17:30\n</li>",
+        "heading4": "Contact",
+        "text4": "Voor vragen of het maken van een afspraak zijn we bereikbaar op:",
+        "phone-link": "tel:+31228785 883",
+        "phone": "0228 - 785 883",
+        "mail-link": "mailto:info@demeubelimporteur.nl",
+        "mail": "info@demeubelimporteur.nl"
+      }
+    },
+    "location_gallery_h7KBF3": {
+      "type": "location-gallery",
+      "settings": {
+        "video": "",
+        "image0": "shopify://shop_images/MangohoutendressoirKensi140cm3deuren.webp",
+        "image": "shopify://shop_images/Mangohouten_Salontafel_Tara_70_en_90_cm.jpg",
+        "image1": "shopify://shop_images/Mangohouten_Eettafel_Duncan_160_cm.jpg"
+      }
+    },
+    "location_contact_GUmXw8": {
+      "type": "location-contact",
+      "disabled": true,
+      "settings": {
+        "heading": "Maak een afspraak met onze specialist voor advies opmaat.",
+        "image": "shopify://shop_images/location-contact.png"
+      }
+    },
+    "usp_wrp_6xd6r9": {
+      "type": "usp-wrp",
+      "blocks": {
+        "text_TcrHWE": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon1.svg",
+            "text": "Snelle levering met eigen transport"
+          }
+        },
+        "text_yMFreJ": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon2.svg",
+            "text": "Grootste assortiment van Nederland"
+          }
+        },
+        "text_t6KbNF": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon3.svg",
+            "text": "Altijd 1 jaar garantie op al jouw meubels"
+          }
+        },
+        "text_ELMRGK": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon4.svg",
+            "text": "Klanten geven ons een 4,9 van de 5 sterren!"
+          }
+        }
+      },
+      "block_order": [
+        "text_TcrHWE",
+        "text_yMFreJ",
+        "text_t6KbNF",
+        "text_ELMRGK"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "location_banner_VXgTNg",
+    "location_detail_GYGAeY",
+    "location_gallery_h7KBF3",
+    "location_contact_GUmXw8",
+    "usp_wrp_6xd6r9"
+  ]
+}

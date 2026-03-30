@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Emma serie",
+        "description": "Duurzame elegantie voor jouw interieur"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Emma.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam materiaalgebruik:</strong> mangohout is een <a href=\"https://www.demeubelimporteur.nl/blogs/news/mangohout-een-duurzame-houtsoort-die-ontbossing-tegengaat\"><span style=\"text-decoration:underline\">milieuvriendelijke keuze die ontbossing tegengaat</span></a>.</li><li><strong>Ongeëvenaarde stevigheid:</strong> perfect voor dagelijks gebruik in drukke gezinnen.</li><li><strong>Tijdloos design:</strong> de warme kleurtinten en natuurlijke patronen passen in ieder interieur.</li><li><strong>Veelzijdigheid:</strong> geschikt voor eetkamers, woonkamers en andere ruimtes.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/emma-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "emma-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/emma-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Emma-meubelserie",
+            "description": "<p>Ben je op zoek naar meubels die jouw interieur naar een hoger niveau tillen? Maak kennis met onze Emma-meubelserie: een stijlvolle collectie meubels van mangohout die kracht, elegantie en duurzaamheid combineren. Met deze meubels kies je niet alleen voor kwaliteit, maar draag je ook bij aan een betere wereld. Laat je verrassen door de natuurlijke schoonheid en ongeëvenaarde stevigheid van de Emma-meubels - perfect voor een landelijk interieur met een moderne twist. </p>"
+          }
+        },
+        "left_textarea_Eg8e7Y": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "De eetkamerbank: een pronkstuk in jouw huis",
+            "description": "<p>Eén van de populairste meubels uit onze Emma-meubelserie is de eetkamerbank. Deze stevige bank biedt volop ruimte voor het hele gezin en creëert een gezellige sfeer in je eetkamer. Het minimalistische design zorgt ervoor dat de bank perfect aansluit bij andere meubelstukken, terwijl de natuurlijke uitstraling van het mangohout direct warmte toevoegt aan de ruimte.</p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Waarom de Emma-meubelserie in jouw interieur?",
+            "description": "<p>Onze Emma-meubels zijn ontworpen voor iedereen die waarde hecht aan duurzaamheid en kwaliteit. De meubels zijn gemaakt van mangohout en bieden daarom niet alleen een tijdloze uitstraling, maar ook een bewuste keuze. Mangohout is namelijk een bijproduct van de fruitteelt en wordt pas verwerkt nadat de boom geen vruchten meer geeft. Zo draag jij met je keuze bij aan het tegengaan van ontbossing en een verantwoorde omgang met natuurlijke grondstoffen.</p>"
+          }
+        },
+        "right_textarea_i4U4tw": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Kom zelf de Emma-meubelserie ontdekken",
+            "description": "<p>Wil je de charme van onze Emma-meubelserie zelf ervaren? Kom dan eens langs bij een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">winkels</a>. Hier kun je de collectie van dichtbij bekijken en de kwaliteit zelf voelen. Onze specialisten staan klaar om je te adviseren en te helpen bij het vinden van meubels die perfect passen bij jouw interieur.</p><p><em><strong>Wacht niet langer en schaf vandaag nog jouw favoriete Emma-meubel aan! Betalen hoeft pas aan de deur.</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_Eg8e7Y",
+        "right_textarea_AwQf8r",
+        "right_textarea_i4U4tw"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

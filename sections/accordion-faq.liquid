@@ -1,0 +1,122 @@
+<section class="furniture-faq-wrp">
+    <div class="container">
+        <div class="faq-title">
+          {% if section.settings.accordion-heading != blank %}
+            <h2>{{ section.settings.accordion-heading }}</h2>
+          {% endif %}
+          {% if section.settings.btn-text != blank %}
+            <a href="{{ section.settings.btn-link }}" class="btn-orange">{{ section.settings.btn-text }}</a>
+          {% endif %}
+        </div>
+      {% if section.blocks %}
+        <div class="accordion" id="accordionExample">
+            <div class="row">
+              {% assign total = section.blocks.size %}
+              {% assign half = total | plus: 1 | divided_by: 2 %}
+          
+              <div class="col-md-6 col-sm-6">
+                <div class="accordion" id="faqAccordionLeft">
+                  {% for block in section.blocks %}
+                    {% if forloop.index0 < half %}
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-{{ block.id }}">
+                          <button class="accordion-button collapsed" type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#collapse-{{ block.id }}"
+                                  aria-expanded="false"
+                                  aria-controls="collapse-{{ block.id }}">
+                            {{ block.settings.question }}
+                          </button>
+                        </h2>
+                        <div id="collapse-{{ block.id }}"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="heading-{{ block.id }}"
+                             data-bs-parent="#faqAccordionLeft">
+                          <div class="accordion-body">
+                            {{ block.settings.answer }}
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+          
+              <div class="col-md-6 col-sm-6">
+                <div class="accordion" id="faqAccordionRight">
+                  {% for block in section.blocks %}
+                    {% if forloop.index0 >= half %}
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-{{ block.id }}">
+                          <button class="accordion-button collapsed" type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#collapse-{{ block.id }}"
+                                  aria-expanded="false"
+                                  aria-controls="collapse-{{ block.id }}">
+                            {{ block.settings.question }}
+                          </button>
+                        </h2>
+                        <div id="collapse-{{ block.id }}"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="heading-{{ block.id }}"
+                             data-bs-parent="#faqAccordionRight">
+                          <div class="accordion-body">
+                            {{ block.settings.answer }}
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+        </div>
+      {% endif %}
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Accordion FAQs",
+    "settings": [
+      {
+        "type": "text",
+        "id": "accordion-heading",
+        "label": "Accordion Section Heading"
+      },
+      {
+        "type": "text",
+        "id": "btn-text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn-link",
+        "label": "Button Link"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "FAQ",
+        "type": "FAQ",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "FAQ Heading" 
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "FAQ Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Accordion FAQs"
+      }
+    ]
+  }
+{% endschema %}

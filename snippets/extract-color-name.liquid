@@ -1,0 +1,25 @@
+{%- comment -%}
+  Extract color name from variant title
+  Accepts:
+  - variant_title: {String} variant title (e.g. "90 cm - Zwart" or "Beige - Links")
+  Returns: color name if found, empty string otherwise
+{%- endcomment -%}
+{%- assign color_name = '' -%}
+{%- assign parts = variant_title | split: ' - ' -%}
+{%- if parts.size > 1 -%}
+  {%- assign second_part = parts[1] | strip | downcase -%}
+  {%- assign first_part = parts[0] | strip | downcase -%}
+  {%- comment -%} Check if second part (after " - ") is a known color {%- endcomment -%}
+  {%- if second_part == 'beige' or second_part == 'zwart' or second_part == 'black' or second_part == 'wit' or second_part == 'white' or second_part == 'grijs' or second_part == 'gray' or second_part == 'grey' or second_part == 'donkergrijs' or second_part == 'lichtgrijs' or second_part == 'blauw' or second_part == 'blue' or second_part == 'rood' or second_part == 'red' or second_part == 'groen' or second_part == 'green' or second_part == 'geel' or second_part == 'yellow' or second_part == 'oranje' or second_part == 'orange' or second_part == 'paars' or second_part == 'purple' or second_part == 'violet' or second_part == 'roze' or second_part == 'pink' or second_part == 'bruin' or second_part == 'brown' or second_part == 'turquoise' or second_part == 'nude' or second_part == 'crème' or second_part == 'cream' or second_part == 'taupe' or second_part == 'terracotta' or second_part == 'bordeaux' or second_part == 'navy' or second_part == 'mint' or second_part == 'lavendel' or second_part == 'lavender' or second_part == 'mustard' or second_part == 'khaki' or second_part == 'olijf' or second_part == 'olive' -%}
+    {%- assign color_name = parts[1] | strip -%}
+  {%- elsif first_part == 'beige' or first_part == 'zwart' or first_part == 'black' or first_part == 'wit' or first_part == 'white' or first_part == 'grijs' or first_part == 'gray' or first_part == 'grey' or first_part == 'donkergrijs' or first_part == 'lichtgrijs' or first_part == 'blauw' or first_part == 'blue' or first_part == 'rood' or first_part == 'red' or first_part == 'groen' or first_part == 'green' or first_part == 'geel' or first_part == 'yellow' or first_part == 'oranje' or first_part == 'orange' or first_part == 'paars' or first_part == 'purple' or first_part == 'violet' or first_part == 'roze' or first_part == 'pink' or first_part == 'bruin' or first_part == 'brown' or first_part == 'turquoise' or first_part == 'nude' or first_part == 'crème' or first_part == 'cream' or first_part == 'taupe' or first_part == 'terracotta' or first_part == 'bordeaux' or first_part == 'navy' or first_part == 'mint' or first_part == 'lavendel' or first_part == 'lavender' or first_part == 'mustard' or first_part == 'khaki' or first_part == 'olijf' or first_part == 'olive' -%}
+    {%- assign color_name = parts[0] | strip -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign first_part = parts[0] | strip | downcase -%}
+  {%- if first_part == 'beige' or first_part == 'zwart' or first_part == 'black' or first_part == 'wit' or first_part == 'white' or first_part == 'grijs' or first_part == 'gray' or first_part == 'grey' or first_part == 'donkergrijs' or first_part == 'lichtgrijs' or first_part == 'blauw' or first_part == 'blue' or first_part == 'rood' or first_part == 'red' or first_part == 'groen' or first_part == 'green' or first_part == 'geel' or first_part == 'yellow' or first_part == 'oranje' or first_part == 'orange' or first_part == 'paars' or first_part == 'purple' or first_part == 'violet' or first_part == 'roze' or first_part == 'pink' or first_part == 'bruin' or first_part == 'brown' or first_part == 'turquoise' or first_part == 'nude' or first_part == 'crème' or first_part == 'cream' or first_part == 'taupe' or first_part == 'terracotta' or first_part == 'bordeaux' or first_part == 'navy' or first_part == 'mint' or first_part == 'lavendel' or first_part == 'lavender' or first_part == 'mustard' or first_part == 'khaki' or first_part == 'olijf' or first_part == 'olive' -%}
+    {%- assign color_name = parts[0] | strip -%}
+  {%- endif -%}
+{%- endif -%}
+{{ color_name }}
+

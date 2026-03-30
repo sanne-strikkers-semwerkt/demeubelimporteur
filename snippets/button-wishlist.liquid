@@ -1,0 +1,39 @@
+{% comment %}
+  Shopify Wishlist
+  Usage:
+    - Markup: {%- render 'button-wishlist', product: product -%}
+    - Place this snippet inside your existing product card snippet
+
+  Parameters:
+    - product: <Shopify product> (required)
+{% endcomment %}
+
+{%- if product.handle != blank -%}
+{% if template contains 'product'  %}
+  <!-- <span class="wishlist_text">Wishlist</span> -->
+  {% endif %}
+  <button type="button" class="btn-heart" aria-label="Add to wishlist" button-wishlist data-product-handle="{{ product.handle }}">
+    <style scoped>
+      .icon {
+        fill: transparent;
+        stroke: #000000;
+        transition: fill 0.3s ease;
+      }
+
+      .active {
+        fill: #deaaff;
+        stroke: #deaaff;
+        color: #f4b1c1;
+      }
+      .pd-wishlist button.btn-heart.active .icon #image0 {
+/*           filter: invert(44%) sepia(93%) saturate(7432%) hue-rotate(353deg) brightness(107%) contrast(132%); */
+/*         filter: invert(92%) sepia(58%) saturate(2827%) hue-rotate(280deg) brightness(91%) contrast(101%); */
+        filter: invert(95%) sepia(15%) saturate(2358%) hue-rotate(291deg) brightness(93%) contrast(192%);
+      }
+    </style>
+
+    {%- render 'icon-heart1' -%} 
+    
+    <!-- <span class="wishlist-text product-interaction-title">Wishlist</span> -->
+  </button>
+{%- endif -%}

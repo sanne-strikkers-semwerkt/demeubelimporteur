@@ -1,0 +1,601 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "faq_section_zhH9mU": {
+      "type": "faq-section",
+      "blocks": {
+        "spacer_CHeTxh": {
+          "type": "spacer",
+          "settings": {
+            "heading": "<strong>Algemeen</strong>"
+          }
+        },
+        "accordion_Mr8xDU": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "Hoe kan ik jullie het beste bereiken?",
+            "acc-desc": "<p>Je kunt ons bereiken door het contactformulier op de <a href=\"#\">contactpagina</a> in te vullen of te bellen met 0228 785883.</p>"
+          }
+        },
+        "accordion_CHiTRa": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "Wat zijn jullie openingstijden?",
+            "acc-desc": "<p>Wij zijn telefonisch bereikbaar op maandag t/m vrijdag van 09:00 uur tot 17:30 uur, zaterdag van 09:00 uur tot 17:00 uur en op zondagen van 11:00 uur tot 17:00 uur.</p>\n                                    <p>Je kunt ook onze producten bekijken in onze winkel. Onze showroom is gevestigd op het adres: Industrieweg 7, 1613 KT Grootebroek. Je kunt voor de deur gratis parkeren.</p>\n                                    <p>Onze showroom is geopend op: Maandag t/m zaterdag van 09:00 uur tot 17:30 uur en op zondagen van 11:00 uur tot 17:00 uur.</p>"
+          }
+        },
+        "spacer_LteXxY": {
+          "type": "spacer",
+          "settings": {
+            "heading": "Levering"
+          }
+        },
+        "accordion_qTbKmz": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOE LANG IS DE LEVERTIJD?",
+            "acc-desc": "<p>                              We hebben veel producten die direct uit voorraad leverbaar zijn. Dan kunnen wij het product binnen 1-2 weken leveren. Mocht het product niet uit voorraad leverbaar zijn dan staat er bij het artikel aangegeven                         vanaf welke datum deze weer op voorraad is.                                </p>                               <p>Let op! *Levertijden zijn verwachte levertijden, kunnen mogelijk afwijken. Voor bezorgingen in België, hou rekening met mogelijk een extra week levertijd.</p>           <p>               De levertijden aangegeven op de website zijn altijd verwachtingen en die proberen we altijd zoveel mogelijk aan te houden. In deze levertijden proberen wij natuurlijk al deze factoren door te rekenen, maar dat is\n                                        helaas niet altijd mogelijk.\n                                    </p>"
+          }
+        },
+        "accordion_6wdFr9": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WAT ZIJN DE BEZORGKOSTEN?",
+            "acc-desc": "<p>Dit verschilt per product, bij ieder product wordt aangegeven wat de bezorgkosten per artikel zijn in de checkout.</p>\n\n                                    <p>\n                                        Bezorgkosten worden op basis van gewicht berekend. Hoe meer meubels, hoe meer verzendkosten. Echter is het wel vaak zo dat hoe meer meubels, hoe minder snel de bezorgkosten mee zullen stijgen. Het is dan per slot\n                                        van rekening wel een rit, maar er is nog steeds ruimte in de bakwagen ingenomen en de bakwagen is ook zwaarder.\n                                    </p>\n\n                                    <p>Bij het afrekenen van de bestelling worden de transportkosten automatisch berekend bij de checkout.</p>"
+          }
+        },
+        "accordion_KjM8cz": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOE WORDT MIJN BESTELLING GELEVERD?",
+            "acc-desc": "<p>\n                                        Onze vervoerder levert de meubels via een eenmans levering tot aan de eerste drempel mits de locatie goed bereikbaar is. In de praktijk betekent dit dat de bezorger met een karretje over een goed verhard pad bij\n                                        de eerste deur moet kunnen komen (zonder obstakels) Indien mogelijk plaatsen zij het artikel verpakt in de gang.\n                                    </p>\n\n                                    <p>Ben je woonachtig in een flatgebouw, of appartementen complex en is er een een lift aanwezig in het gebouw waar de producten goed inpassen dan levert de vervoerder af tot in de gang.</p>\n\n                                    <p>Indien je woonachtig bent op een verdieping zonder lift dan levert de vervoerder tot de eerste deur.</p>"
+          }
+        },
+        "accordion_T6TKwD": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WORDEN DE MEUBELEN GEMONTEERD?",
+            "acc-desc": "<p>\n                                        De meubelen worden niet gemonteerd. Er zijn een aantal meubelen die volledig gemonteerd geleverd worden en een aantal bestaan uit een bouwpakket. De klant dient de meubelen zelf uit te pakken en op de gewenste\n                                        plek te plaatsen.\n                                    </p>"
+          }
+        },
+        "accordion_a4MiMC": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WANNEER EN OP WELK TIJDSTIP WORDT MIJN BESTELLING GELEVERD?",
+            "acc-desc": "<p>Onze vervoerder neemt telefonisch contact met je op om een afspraak voor levering te maken, zij spreken een dag en tijdsblok van maximaal 3 uur af.</p>"
+          }
+        },
+        "accordion_wPeKe4": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "KAN IK MIJN BESTELLING OOK OPHALEN?",
+            "acc-desc": "<p>De meubels worden bij je thuis bezorgd, je kan de meubels niet ophalen.</p>"
+          }
+        },
+        "accordion_bXbPHj": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "ALS IK MEERDERE PRODUCTEN BESTEL MET VERSCHILLENDE LEVERTIJDEN, WORDT HET DAN SAMEN OF APART GELEVERD?",
+            "acc-desc": "<p>De bestellingen worden zoveel mogelijk compleet geleverd om het milieu te helpen en jou in één keer tevreden te stellen.</p>\n\n                                    <p>Mochten de producten verschillen van levertijden en zitten hier enkele weken tussen, dan is het mogelijk om een splitlevering in te zetten.</p>\n\n                                    <p>\n                                        Het kan voorkomen dat als de transporteur in de buurt is en extra service wilt verlenen door de order al voor een gedeelte te leveren. Voor het naleveren van meubelen zullen geen extra verzendkosten worden\n                                        berekend.\n                                    </p>"
+          }
+        },
+        "accordion_MjgMYq": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOUDEN JULLIE ARTIKELEN VAST?",
+            "acc-desc": "<p>\n                                        Mocht er een meubel zijn die je besteld hebt op voorraad zijn, maar je wilt deze tegelijkertijd geleverd hebben met de overige bestelde meubels die niet op voorraad zijn of wil je een voorradig meubel later laten\n                                        bezorgen, dan houden wij het voorradige meubel niet vast. Dit doen wij zodat andere klanten die hetzelfde meubel besteld hebben en deze direct willen ontvangen niet lang op hun bestelling moeten wachten. Het kan\n                                        hierdoor mogelijk zijn dat het meubel langer op zich kan laten wachten. Dit geldt ook voor orders die op afroep staan. Heeft u een richtdatum of een maand dan kunnen wij dat bij je bestelling noteren zodat dit\n                                        makkelijker te plannen is met de binnenstromende voorraad.\n                                    </p>"
+          }
+        },
+        "accordion_Erbhiw": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "KAN IK EEN UITGESTELDE LEVERING AANVRAGEN?",
+            "acc-desc": "<p>\n                                        Jazeker! Wij koppelen je bestelde product(en) aan een container die in de beoogde periode binnenkomt. Mocht je bijvoorbeeld een voorradig product pas over 3 maanden geleverd willen hebben, dan bestellen wij het\n                                        desbetreffende product voor de container die tegen die tijd binnenkomt.\n                                    </p>"
+          }
+        },
+        "accordion_XgQUU9": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "BEZORGEN JULLIE IN HEEL NEDERLAND, DUITSLAND EN BELGIË?",
+            "acc-desc": "<p>\n                                        Wij bezorgen door heel Nederland op de Waddeneilanden na. In het geval dat levering op één van de Nederlandse Waddeneilanden nodig blijkt te zijn. (Texel, Vlieland, Terschelling, Ameland en Schiermonnikoog)\n                                        worden er extra leverkosten in rekening gebracht.\n                                    </p>\n                                    <p>\n                                        Voor België bezorgen wij enkel alleen in Vlaanderen. Naar Duitsland bezorgen wij echter alleen in het grensgebied met Nederland. Wij streven er altijd naar de orders in België en Duitsland binnen de 14 dagen te\n                                        leveren. Helaas kan dit enkel nog wel eens langer duren. Wij doen onze uiterste best alle meubelen zo snel mogelijk bij je te krijgen.\n                                    </p>"
+          }
+        },
+        "spacer_AMbKYc": {
+          "type": "spacer",
+          "settings": {
+            "heading": "Betaling"
+          }
+        },
+        "accordion_ayJDBQ": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WANNEER EN HOE MOET IK BETALEN?",
+            "acc-desc": "<p>\n                                        Bij het plaatsen van de bestelling via de website kun je bij het afrekenen keuze maak uit vijf verschillende betaalmethodes. Waaronder ook betalen bij aflevering. Het is dan mogelijk om per pin of contant te\n                                        betalen bij levering.\n                                    </p>"
+          }
+        },
+        "accordion_pQM8Xr": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOEVEEL MOET IK BETALEN?",
+            "acc-desc": "<p>Tijdens het bestelproces op de website is in het winkelmandje te zien wat de kosten zijn van je bestelling. Je ontvangt ook een orderbevestiging per e-mail met daarin het totaalbedrag van de bestelling.</p>"
+          }
+        },
+        "accordion_pykBHi": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "IS HET MOGELIJK OM KORTING TE KRIJGEN?",
+            "acc-desc": "<p>Nee, het is niet mogelijk om korting te krijgen. Ook niet bij het bestellen van meerdere producten. Onze prijzen zijn dusdanig scherp geprijsd dat er geen extra kortingen verleend kunnen worden.</p>"
+          }
+        },
+        "accordion_qQqDyi": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOELANG DUURT HET VOORDAT IK EEN COMPENSATIE/RETOURBEDRAG ZAL ONTVANGEN?",
+            "acc-desc": "<p>Is je bestelling niet naar wens en wil je deze retourneren? Dat kan. Na aanmelding van je retour zullen wij het retourbedrag exclusief de retourkosten binnen 14 dagen terugstorten.</p>\n\n                                    <p>Zie voor meer informatie de pagina <a href=\"#\">Retouren</a> op onze website.</p>\n\n                                    <p>Ook als je, om wat voor reden dan ook, recht hebt op een compensatie, zullen wij binnen 14 dagen na het vaststellen hiervan het juiste bedrag terugstorten.</p>"
+          }
+        },
+        "spacer_BCJDrm": {
+          "type": "spacer",
+          "settings": {
+            "heading": "Garantie en service"
+          }
+        },
+        "accordion_ApBe3q": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "IK HEB EEN KLACHT, WAAR KAN IK TERECHT?",
+            "acc-desc": "<p>Hiervoor zul je contact moeten opnemen met de service afdeling. Zij zullen dan in overleg met je op zoek gaan naar de juiste oplossing.</p>\n\n                                    <p>Zij zijn te bereiken per mail; dit kunt u sturen naar: <a href=\"#\">service@demeubelimporteur.nl</a> </p>\n\n                                    <p>Graag ontvangen zij de onderstaande gegevens:</p>\n\n                                    <p>Naam</p>\n\n                                    <p>Ordernummer</p>\n\n                                    <p>Foto van de schade/ het probleem</p>\n\n                                    <p>Foto van etiket op (beide) dozen</p>\n\n                                    <p>Foto van kleine witte stickertje op het uitgepakte meubel (bij tafels aan onderkant blad, bij (buffet-)kasten aan de achterkant, etc.)</p>\n\n                                    <p>Heb je ergens anders een klacht over? Breng deze dan onder onze aandacht door te bellen met 0228-785 883 of mail naar <a href=\"#\">info@demeubelimporteur.nl.</a> </p>"
+          }
+        },
+        "accordion_EYK3ba": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "ALS IK EEN PRODUCT AFHAAL EN SERVICE NODIG HEB, WORDT DAT DAN BEZORGD OF MOET IK DAT OPHALEN?",
+            "acc-desc": "<p>De benodigde service wordt bij je bezorgd; dit hoeft dus niet te worden opgehaald bij het magazijn.</p>"
+          }
+        },
+        "accordion_mB7aAe": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WAT ALS IK MIJN MEUBEL ZELF GA EXPORTEREN?",
+            "acc-desc": "<p>\n                                        Ga je de meubelen zelf exporteren naar bijvoorbeeld een vakantiewoning in het buitenland dan adviseren wij je de meubelen vooraf te controleren. Mocht er na het exporteren schade of gebreken geconstateerd worden\n                                        op het meubel kunnen wij hier geen garantie voor verlenen.\n                                    </p>"
+          }
+        },
+        "accordion_J7e6Jq": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "LEVEREN JULLIE GARANTIE OP DE WERKING VAN HET HOUT & HOUTWORM?",
+            "acc-desc": "<p>Wij leveren geen garantie op de werking van het hout. Dit komt doordat het een natuurlijke eigenschap is die niet is aan te passen of weg te nemen.</p>\n\n                                    <p>\n                                        Daarbij hebben wij geen inzicht in welke omgeving onze meubels terecht komen. Als de omgeving waarin, bijvoorbeeld een tafel, te vochtig is, kan het hout gaan werken en losspringen op de lijmnaden of kromtrekken.\n                                        Als de omgeving te droog is, kunnen er scheuren of splinters in het meubel ontstaan.\n                                    </p>\n\n                                    <p>Garantie geven op de werking van het hout is dus erg gecompliceerd en onmogelijk. Daarom bieden wij, net zoals vele anderen, dit niet aan.</p>\n\n                                    <p>Als je meer wilt weten over de mogelijke werking van mangohout, scroll dan nog even door en lees de stukjes onder het kopje \"Eigenschappen mangohout\"!</p>\n\n                                    <p>\n                                        Op houtworm kunnen wij garantie leveren wanneer dit fenomeen direct bij ons wordt gemeld wanneer het meubel is geleverd. Het is namelijk een mogelijkheid dat er al bij levering kleine gaatjes en zaagsel zijn te\n                                        zien. Wordt het gemeld binnen een maand, dan gaan we natuurlijk nog kijken wat we voor je kunnen betekenen.\n                                    </p>\n\n                                    <p>\n                                        Kom je later pas deze gaatjes of zaagsel tegen? Dan kunnen wij helaas niet traceren waar de houtworm vandaan komt; uit India (herkomstland van onze meubels) of dat het kevertje zelf je huis is binnengevlogen. Het\n                                        is dus erg belangrijk het direct te melden wanneer je zaagsel en kleine gaatjes tegenkomt in het meubel.\n                                    </p>\n\n                                    <p>\n                                        Het is erg lastig om garantie te geven op natuurlijke proces, zoals werking van het hout, en op natuurlijke beestjes, zoals houtworm. Dit is voor ons namelijk overmacht. Al zouden wij natuurlijk wel erg graag\n                                        invloed op deze factoren willen hebben! Wanneer wij geen garantie kunnen geven, staan wij je natuurlijk bij met zo goed mogelijk advies of handige tips!\n                                    </p>\n\n                                    <p>\n                                        Ga je een meubel door middel van een verbouwing of verhuizing later gebruiken/openmaken? Dan raden wij aan het meubel van te voren te controleren! Een klant heeft verder altijd het recht om binnen de twee maanden\n                                        een melding te maken van een eventueel verkeerd geleverd product of schade.\n                                    </p>"
+          }
+        },
+        "accordion_GJDGXm": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "LEVEREN JULLIE GARANTIE OP DE GEBRUIKSSPOREN VAN DE MEUBELEN?",
+            "acc-desc": "<p>Onze meubelen kunnen gebruikssporen gaan vertonen. Wij bieden geen garantie op deze gebruikssporen. Heb je verdere vragen over ons garantiebeleid neem gerust contact op met de klantenservice.</p>"
+          }
+        },
+        "spacer_Y8mD7i": {
+          "type": "spacer",
+          "settings": {
+            "heading": "Onderhoud"
+          }
+        },
+        "accordion_apkYkm": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "ZIJN DE MEUBELS BEHANDELD?",
+            "acc-desc": "<p>\n                                        Al onze producten zijn voorzien van een afwerking waardoor je de meubels eenvoudig met een vochtige doek en niet agressief schoonmaakmiddel kunt afnemen. De tafel hoeft niet bij aankomst weer behandeld te worden\n                                        of dergelijken.\n                                    </p>"
+          }
+        },
+        "accordion_x9YNbM": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "KAN IK DE MEUBELS ZELF BEHANDELEN?",
+            "acc-desc": "<p>\n                                        Je kunt de meubels een beschermende laag bieden met bijenwas, dit kun je kopen bij een drogisterij, bouwmarkt of online. Echter is dit pas nodig na ongeveer 5-6 jaar van intensief gebruik. De laag blijft er lang\n                                        op en beschermt goed. De tafel zal na een aantal jaren wat doffer uitslaan, dan kan er een nieuwe laag bijenwas overheen.\n                                    </p>\n\n                                    <p>De tafel is dus erg makkelijk! Bescherming door de waslaag (geen vocht, vuiligheid of kringen) en af te nemen met een lichtvochtige doek! Herhaaldelijke behandeling is ook niet nodig.</p>"
+          }
+        },
+        "accordion_jNjizW": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "MIJN MEUBEL IS WIT UITGESLAGEN WAT NU?",
+            "acc-desc": "<p>De meubelen kunnen witte vlekken vertonen. Dit kan voorkomen bij het zwart behandeld mangohout. Dit is namelijk afkomstig van het zoute water.</p>\n\n                                    <p>\n                                        Doordat de meubelen per containers verscheept worden en de containers niet geheel luchtdicht zijn wil er nog wel eens water bij komen. De meubelen zijn hier tegen beschermd met een speciaal goedje. Door de\n                                        reactie van dit middel en zeezout slaan de meubelen wit uit. Dit is meestal met een reinigingsmiddel weg te poetsen of door een onderhoudsset te gebruiken. Deze kunnen wij je kosteloos opsturen.\n                                    </p>"
+          }
+        },
+        "spacer_tArqDR": {
+          "type": "spacer",
+          "settings": {
+            "heading": "Eigenschappen mangohout"
+          }
+        },
+        "accordion_RchHXc": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WAT VOOR UITSTRALING EN KLEUR HEEFT MANGOHOUT?",
+            "acc-desc": "<p>\n                                        Mangohout staat bekend om een rustieke uitstraling. Mangohout is een exotische houtsoort. Dit betekent dat er een warme gloed en ook bruine gloed is terug te vinden in het hout. Iedere plank heeft zijn eigen\n                                        uitstraling. Dit maakt elk meubel uniek!\n                                    </p>\n\n                                    <p>\n                                        Elke plank kan natuurlijk wel een afwijking vertonen. Niks in de natuur is natuurlijk helemaal perfect en hetzelfde. De planken kunnen wat donkerder of lichter uitslaan, knoesten en 'kopscheurtjes' bevatten of\n                                        andere oneffenheden en afwijkingen vertonen. Helaas kunnen wij hier geen verandering in brengen, gezien het een natuurproduct is en wij niks aan de natuur kunnen aanpassen.\n                                    </p>"
+          }
+        },
+        "accordion_z78DNw": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WAT ZIJN DE KENMERKEN VAN MANGOHOUT?",
+            "acc-desc": "<p>\n                                        Onze meubels zijn gemaakt van mangohout. In de meubels zijn glooiingen en de welbekende zaagsporen terug te vinden. De glooiingen komen voornamelijk voor in de tafelbladen. Bij de productie van de tafelbladen\n                                        probeert men de natuurlijke vorm zoveel mogelijk in stand te houden. Hierdoor krijgt de tafel een speels en een natuurlijk karakter. In het tafelblad zijn ook de zaagsporen terug te vinden. Dit zijn de zaagsneden\n                                        verdeeld over de planken. Deze worden in het tafelblad gelaten om de tafel een robuuste uitstraling te geven.\n                                    </p>\n\n                                    <p>\n                                        De zwarte meubelen worden gezandstraald. Dit maakt het blad erg robuust en stoer! Het blad kan hierdoor wat ruwer zijn. De natuurlijke eigenschappen zullen in de planken terug te vinden zijn. Denk hierbij aan de\n                                        knoesten of groeven in de planken.\n                                    </p>\n\n                                    <p>\n                                        Tevens kun je in het hout zwarte of gele ''vlekken'' tegen komen. Dit is afkomstig van de schimmels en bacteriën die in de houten planken leven. Dit is niet tegen te gaan en kan/zal altijd voorkomen in de houten\n                                        planken. Wel geeft dit juist extra karakter aan de houten planken.\n                                    </p>"
+          }
+        },
+        "accordion_wkpEJH": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "KAN MIJN MEUBEL GAAN WERKEN?",
+            "acc-desc": "<p>\n                                        Hout is een hygroscopisch materiaal en kan hierdoor gaan werken. Hierdoor kan een meubel mogelijke kromtrekkingen, schotelen, splinters, scheurtjes of uitvallende knoesten vertonen. Dit hoort echter bij een\n                                        houten meubel.\n                                    </p>\n\n                                    <p>Als een meubel op kort termijn is gaan werken kan dit duiden op een onjuiste luchtvochtigheid in huis.</p>"
+          }
+        },
+        "accordion_n7ByAA": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOE WORDEN DEZE MEUBELEN GEMAAKT?",
+            "acc-desc": "<p>Al onze meubels worden handgemaakt in India. Elk meubel is dus uniek en heeft een eigen karakter. Zowel het hout als het staal zijn echte ambachtsproducten.</p>\n\n                                    <p>\n                                        Daarbij wordt er natuurlijk rekening mee gehouden dat het meubel een industrieel meubel is. Dit betekent dat de meubels allemaal een eigen onderscheiding hebben. Het moet natuurlijk stoer, robuust en krachtig\n                                        zijn.\n                                    </p>\n\n                                    <p>\n                                        Dit houdt ook in dat niet elk meubel haaks en perfect is en het dus niet altijd helemaal netjes met, bijvoorbeeld, het stalen frame aansluit. Afmetingen en geometrische kunnen daarom ook op enkele millimeters\n                                        afwijken\n                                    </p>"
+          }
+        },
+        "spacer_DrmtPg": {
+          "type": "spacer",
+          "settings": {
+            "heading": "Overige vragen"
+          }
+        },
+        "accordion_h4GjhG": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HEBBEN JULLIE OOK EEN SHOWROOM?",
+            "acc-desc": "<p>Ja, je kunt onze producten bekijken in onze winkel. Onze showroom is gevestigd op het adres: Industrieweg 7, 1613 KT Grootebroek. Je kunt voor de deur gratis parkeren.</p>\n\n                                    <p>De actuele openingstijden van onze showroom vind je op onze <a href=\"#\">contactpagina.</a> </p>"
+          }
+        },
+        "accordion_KRCJKR": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "IS MAATWERK MOGELIJK?",
+            "acc-desc": "<p>Helaas is er bij ons geen mogelijkheid tot het leveren van maatwerk.</p>"
+          }
+        },
+        "accordion_4EGAFh": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "JE VRAAG NIET BEANTWOORD?",
+            "acc-desc": "<p><a href=\"#\">Neem contact met ons op</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "spacer_CHeTxh",
+        "accordion_Mr8xDU",
+        "accordion_CHiTRa",
+        "spacer_LteXxY",
+        "accordion_qTbKmz",
+        "accordion_6wdFr9",
+        "accordion_KjM8cz",
+        "accordion_T6TKwD",
+        "accordion_a4MiMC",
+        "accordion_wPeKe4",
+        "accordion_bXbPHj",
+        "accordion_MjgMYq",
+        "accordion_Erbhiw",
+        "accordion_XgQUU9",
+        "spacer_AMbKYc",
+        "accordion_ayJDBQ",
+        "accordion_pQM8Xr",
+        "accordion_pykBHi",
+        "accordion_qQqDyi",
+        "spacer_BCJDrm",
+        "accordion_ApBe3q",
+        "accordion_EYK3ba",
+        "accordion_mB7aAe",
+        "accordion_J7e6Jq",
+        "accordion_GJDGXm",
+        "spacer_Y8mD7i",
+        "accordion_apkYkm",
+        "accordion_x9YNbM",
+        "accordion_jNjizW",
+        "spacer_tArqDR",
+        "accordion_RchHXc",
+        "accordion_z78DNw",
+        "accordion_wkpEJH",
+        "accordion_n7ByAA",
+        "spacer_DrmtPg",
+        "accordion_h4GjhG",
+        "accordion_KRCJKR",
+        "accordion_4EGAFh"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Veelgestelde vragen",
+        "description": "De antwoorden op de meest voorkomende vragen over onze producten hebben we hier onder voor je op een rij gezet. Staat je vraag er niet tussen? Neem dan gerust contact met ons op."
+      }
+    },
+    "about_us_banner_Kk6gFH": {
+      "type": "about-us-banner",
+      "name": "About us Banner",
+      "settings": {
+        "banner-bg-img": "shopify://shop_images/about-banner.png",
+        "banner-title": "Wie zijn wij?",
+        "banner-description": "<p>Unieke, duurzame meubels voor de scherpste prijs van Nederland, dat is waar we bij De Meubel Importeur voor staan. Of je nu je favoriete meubels shopt in onze webshop of langskomt bij een van onze winkels, je vindt bij ons altijd de <strong>perfecte meubels voor een aantrekkelijke prijs.</strong></p>"
+      }
+    },
+    "about_us_wrp_iWdBT6": {
+      "type": "about-us-wrp",
+      "blocks": {
+        "list_PQNay3": {
+          "type": "list",
+          "settings": {
+            "sec-list": "De goedkoopste mangohouten meubelspecialist van Nederland en België!"
+          }
+        },
+        "list_TErcwb": {
+          "type": "list",
+          "settings": {
+            "sec-list": "Op voorraad? Binnen 5 werkdagen in huis."
+          }
+        },
+        "list_DKEMmp": {
+          "type": "list",
+          "settings": {
+            "sec-list": "Bezichtigen mogelijk in een van onze showrooms."
+          }
+        },
+        "list_KjgeQH": {
+          "type": "list",
+          "settings": {
+            "sec-list": "1 jaar garantie op alle artikelen."
+          }
+        },
+        "list_drXK8C": {
+          "type": "list",
+          "settings": {
+            "sec-list": "Veilig betalen tijdens levering."
+          }
+        },
+        "list_t4VWyj": {
+          "type": "list",
+          "settings": {
+            "sec-list": "Uitsluitend FSC-gekeurd hout afkomstig van mangoboomgaarden."
+          }
+        }
+      },
+      "block_order": [
+        "list_PQNay3",
+        "list_TErcwb",
+        "list_DKEMmp",
+        "list_KjgeQH",
+        "list_drXK8C",
+        "list_t4VWyj"
+      ],
+      "name": "About us Image with Text",
+      "settings": {
+        "title": "Waarom De Meubel Importeur?",
+        "section-desc": "Iedereen verdient meubels met een mooi design, van hoge kwaliteit. Bij De Meubel Importeur zorgen we daarvoor, zonder gedoe en met oog voor duurzaamheid.",
+        "aboutus-img": "shopify://shop_images/dmi-almelo-winkel-showroom.jpg"
+      }
+    },
+    "usp_beam_wrp_VJDApt": {
+      "type": "usp-beam-wrp",
+      "blocks": {
+        "usp_B89DfY": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "Geen risico, betaal pas bij levering",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
+          }
+        },
+        "usp_Lec6CB": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "Goedkoopste van",
+            "show_country_logos": true,
+            "country-logo-1": "shopify://shop_images/nederland-icon.svg",
+            "country-name-1": "Nederland",
+            "country-logo-2": "shopify://shop_images/belgie-icon.svg",
+            "country-name-2": "België"
+          }
+        },
+        "usp_h9J7Ge": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "Altijd 1 jaar garantie",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
+          }
+        },
+        "usp_4j88MR": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "9,6 uit 2,000+ reviews",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
+          }
+        }
+      },
+      "block_order": [
+        "usp_B89DfY",
+        "usp_Lec6CB",
+        "usp_h9J7Ge",
+        "usp_4j88MR"
+      ],
+      "name": "USP Beam Wrap",
+      "settings": {
+        "in-center": true
+      }
+    },
+    "mission_vision_wrp_jjEMUp": {
+      "type": "mission-vision-wrp",
+      "name": "Mission Vision",
+      "settings": {
+        "mission-title": "Onze missie",
+        "mission-desc": "<p>Bij De Meubel Importeur maken we unieke meubels van duurzaam mangohout, altijd voor de beste prijs. Ons doel? De goedkoopste mangohouten meubelspecialist van Nederland en België zijn.</p>",
+        "video-src-link": "https://www.youtube.com/watch?v=M0TXMPcyjkc",
+        "vision-title": "Onze visie",
+        "vision-desc": "<p>Duurzaamheid staat bij ons centraal. Daarom werken we rechtstreeks samen met een gespecialiseerde fabriek, waar vakmensen van mangohout uit India unieke meubels maken. Elk stuk heeft een eigen karakter en voegt warmte toe aan jouw interieur</p><p>In India telen kwekers mangobomen voor hun vruchten. Wanneer een boom geen mango’s meer draagt, maakt hij plaats voor een jonge boom. Vroeger werd dat hout vaak verbrand, maar dat is slecht voor het milieu. Wij geven het hout een tweede leven in de vorm van meubels. Zo help jij met jouw aankoop mee <a href=\"/blogs/news/mangohout-een-duurzame-houtsoort-die-ontbossing-tegengaat\" title=\"Mangohout: een duurzame houtsoort die ontbossing tegengaat\">ontbossing</a> tegen te gaan! Bovendien is mangohout sterk, duurzaam en heeft het een warme uitstraling. Elke plank laat een andere nerf en kleurschakering zien. Dat maakt elk meubelstuk net even anders. Precies dat geeft jouw interieur karakter!</p>",
+        "mv-bg-image": "shopify://shop_images/shop-box-bg.png",
+        "box-desc": "<p>Van kasten en tafels tot stoelen en eetkamerbanken, bij De Meubel Importeur vind je alles om je huis sfeervol in te richten. Met een ruim assortiment, persoonlijk advies en volop inspiratie maken we van jouw huis een thuis.</p>",
+        "btnText": "Shop nu",
+        "btnLink": "https://www.demeubelimporteur.nl/collections/all"
+      }
+    },
+    "about_blog_wrp_4hpPCz": {
+      "type": "about-blog-wrp",
+      "name": "Blog Banner",
+      "settings": {
+        "blog-banner-img": "shopify://shop_images/about-blog-img.jpg",
+        "blog-title": "Van boom tot meubelstuk",
+        "blog-desc": "Benieuwd welke reis ons mangohout precies aflegt voordat het als meubel in jouw interieur staat te pronken?",
+        "blog-redirectText": "Lees meer over de reis van mangohout",
+        "blog-redirectLink": "shopify://blogs/news/van-boom-tot-meubelstuk-een-kijkje-in-de-oorsprong-van-mangohout"
+      }
+    },
+    "about_contact_wrp_AHGKjR": {
+      "type": "about-contact-wrp",
+      "name": "Contact Us",
+      "settings": {
+        "contact-content-title": "Dit is De Meubel Importeur",
+        "contact-content-desc": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.</p><p>Je vindt ons inmiddels in twee showrooms in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>",
+        "contact-info-heading": "Kamer van Koophandel",
+        "contact-info-desc": "<p>De Meubel Importeur staat ingeschreven bij de Kamer van Koophandel met het KvK-nummer 82625964 en het BTW-nummer NL862544130B01.</p>",
+        "contact-info-title": "Contactgegevens",
+        "contact-no": "785 883",
+        "email-address": "info@demeubelimporteur.nl",
+        "contact-info-short-title": "De Meubel Importeur is onderdeel van Furniture Connect",
+        "contact-info-short-desc": "Furniture Connect B.V. specialiseert zich in de online verkoop van huis- en tuinartikelen."
+      }
+    },
+    "about_reviews_wrp_bkiKbq": {
+      "type": "about-reviews-wrp",
+      "name": "Reviews",
+      "settings": {
+        "reviews-heading": "Reviews voor De Meubel Importeur",
+        "rateus-btn-text": "Beoordeel ons",
+        "rateus-btn-link": "https://www.webwinkelkeur.nl/webshop/DeMeubelimporteur_1214608/reviews",
+        "webwinkelkeur_id": "1214608",
+        "webwinkelkeur_public_code": "02e03ef20c068ec89d1d88b37ebf06e98f5b0c0f5cfabcaac6e043df03f11a79",
+        "max_reviews": 10
+      }
+    },
+    "visit_stores_wrp_8fMP4L": {
+      "type": "visit-stores-wrp",
+      "blocks": {
+        "location_hrfzFg": {
+          "type": "location",
+          "settings": {
+            "store-image": "shopify://shop_images/dmi-almelo-winkel-showroom.jpg",
+            "store-name": "Winkel Almelo",
+            "store-address": "Woonboulevard 12a, 7606 JA Almelo",
+            "view-store-text": "Bekijk winkel",
+            "view-store-link": "shopify://pages/winkel-almelo",
+            "route-text": "Route",
+            "route-link": "https://maps.app.goo.gl/JgXAif5u9xsUWBpMA"
+          }
+        },
+        "location_kqJcdx": {
+          "type": "location",
+          "settings": {
+            "store-image": "shopify://shop_images/dmi-breda-winkel-showroom.jpg",
+            "store-name": "Winkel Breda",
+            "store-address": "Spinveld 22a, 4815 HS Breda",
+            "view-store-text": "Bekijk winkel",
+            "view-store-link": "shopify://pages/winkel-oosterhout",
+            "route-text": "Route",
+            "route-link": "https://maps.app.goo.gl/JgXAif5u9xsUWBpMA"
+          }
+        },
+        "location_nGPEMf": {
+          "type": "location",
+          "settings": {
+            "store-image": "shopify://shop_images/dmi-grootebroek-winkel-showroom.jpg",
+            "store-name": "Winkel Grootebroek",
+            "store-address": "Industrieweg 7, 1613 KT Grootebroek",
+            "view-store-text": "Bekijk winkel",
+            "view-store-link": "shopify://pages/winkel-grootebroek",
+            "route-text": "Route",
+            "route-link": "https://maps.app.goo.gl/HwHS1S9ZsKgc8t4D7"
+          }
+        }
+      },
+      "block_order": [
+        "location_hrfzFg",
+        "location_kqJcdx",
+        "location_nGPEMf"
+      ],
+      "name": "Our Stores",
+      "settings": {
+        "store-location-heading": "Kom langs bij onze winkels"
+      }
+    },
+    "social_media_wrp_PQ3Xed": {
+      "type": "social-media-wrp",
+      "blocks": {
+        "social_media_hVzece": {
+          "type": "social-media",
+          "settings": {
+            "social-media-logo": "shopify://shop_images/facebook-icon.svg",
+            "social-media-app": "Facebook",
+            "social-media-link": "https://www.facebook.com/demeubelimporteur"
+          }
+        },
+        "social_media_3qdVA4": {
+          "type": "social-media",
+          "settings": {
+            "social-media-logo": "shopify://shop_images/insta-icon.svg",
+            "social-media-app": "Instagram",
+            "social-media-link": "https://www.instagram.com/demeubelimporteur/"
+          }
+        },
+        "social_media_HGVtaR": {
+          "type": "social-media",
+          "settings": {
+            "social-media-logo": "shopify://shop_images/icons8-tiktok_1.svg",
+            "social-media-app": "Tiktok",
+            "social-media-link": "https://www.tiktok.com/@demeubelimporteur"
+          }
+        }
+      },
+      "block_order": [
+        "social_media_hVzece",
+        "social_media_3qdVA4",
+        "social_media_HGVtaR"
+      ],
+      "name": "Social Media Bar",
+      "settings": {
+        "social-media-heading": "Volg ons op social media!"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_section_zhH9mU",
+    "about_us_banner_Kk6gFH",
+    "about_us_wrp_iWdBT6",
+    "usp_beam_wrp_VJDApt",
+    "mission_vision_wrp_jjEMUp",
+    "about_blog_wrp_4hpPCz",
+    "about_contact_wrp_AHGKjR",
+    "about_reviews_wrp_bkiKbq",
+    "visit_stores_wrp_8fMP4L",
+    "social_media_wrp_PQ3Xed"
+  ]
+}

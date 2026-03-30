@@ -1,0 +1,69 @@
+.sticky-add-to-cart-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 15px 0;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: var(--z-index-sticky-element); 
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sticky-add-to-cart-container.show {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.sticky-add-to-cart__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sticky-add-to-cart__product-info {
+  display: flex;
+  align-items: center;
+}
+
+.sticky-add-to-cart__image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 4px;
+}
+
+.sticky-add-to-cart__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-add-to-cart__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.sticky-add-to-cart__price {
+  margin: 0;
+  font-size: 14px;
+}
+
+.sticky-add-to-cart__actions {
+  display: flex;
+  align-items: center;
+}
+
+.sticky-add-to-cart__quantity {
+  margin-right: 15px;
+}
+
+/* Add styles for your buttons and select inputs as needed */
+.sticky-add-to-cart__button .btn-orange {
+    padding: 10px 20px;
+}

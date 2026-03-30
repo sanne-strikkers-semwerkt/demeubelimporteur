@@ -1,0 +1,379 @@
+{% comment %}
+  Renders cart notification
+
+  Accepts:
+  - color_scheme: {String} sets the color scheme of the notification (optional)
+  - desktop_menu_type: {String} passes the desktop menu type which allows us to use the right css class (optional)
+
+  Usage:
+  {% render 'cart-notification' %}
+{% endcomment %}
+
+<cart-notification>
+  <div class="cart-notification-wrapper">
+    <div
+      id="cart-notification"
+      class="cart-notification focus-inset"
+      aria-modal="true"
+      aria-label="{{ 'general.cart.item_added' | t }}"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="cart-notification__header">
+        <div class="for-notifications">
+          <h2 class="cart-notification__heading caption-large text-body">
+            {%- render 'icon-checkmark' -%}
+            {{ 'general.cart.item_added' | t }}
+          </h2>
+          <div id="cart-notification-product" class="cart-notification-product"></div>
+        </div>
+        <div class="for-notifications1">
+          <ul>
+            <li class="check-btn">
+              <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
+                <button class="btn-primary2 btn-atc-cross-sell-cart-pop-up" name="checkout">Naar bestellen</button>
+              </form>
+            </li>
+            <li><button type="button" class="btn-txt continue-shopping-btn">Verder winkelen</button></li>
+          </ul>
+          <button
+            type="button"
+            class="cart-notification__close modal__close-button link link--text focus-inset"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            <svg class="icon icon-close" aria-hidden="true" focusable="false">
+              <use href="#icon-close">
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="cart-notification-product" class="cart-notification-product"></div>
+      <div class="cart-notification__links">
+        <a
+          href="{{ routes.cart_url }}"
+          id="cart-notification-button"
+          class="button button--secondary button--full-width"
+        >
+          {{- 'general.cart.view_empty_cart' | t -}}
+        </a>
+        <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
+          <button class="button button--primary button--full-width btn-atc-cross-sell-cart-pop-up" name="checkout">
+            {{ 'sections.cart.checkout' | t }}
+          </button>
+        </form>
+        <button type="button" class="link button-label continue-shopping-btn">
+          {{ 'general.continue_shopping' | t }}
+        </button>
+      </div>
+      <div class="purchase-block notification">
+        <h2>Maak je aankoop compleet:</h2>
+        <div class="row">
+          {% if product.metafields.custom.cross_sell_products.value != blank %}
+            {% for items in product.metafields.custom.cross_sell_products.value %}
+              <div class="col-md-3 col-sm-12">
+                <div class="product-box">
+                  <div class="box-img box-img-2">
+                    {% comment %} MODIFICATION: Changed the requested image dimensions to match the new 4:3 aspect ratio {% endcomment %}
+                    <a
+                      href="{{ items.url }}"
+                      style="background-image: url('{{ items.featured_media | image_url: width: 400, height: 300, crop: 'center' }}');"
+                      aria-label="{{ items.title | escape }}"
+                    ></a>
+                  </div>
+                  <div class="description">
+                    <h3>
+                      <a href="{{ items.url }}">{{ items.title }}</a>
+                    </h3>
+                    {%- if items.compare_at_price > items.price -%}
+                      <p>
+                        Adviesprijs <span>{{ items.compare_at_price | money }}</span>
+                      </p>
+                    {% endif %}
+                    <h6>{{ items.price | money }}</h6>
+                    {%- if items.selected_or_first_available_variant.available -%}
+                      <form action="/cart/add" method="post">
+                        <input type="hidden" name="id" value="{{ items.variants.first.id }}">
+                        <button
+                          type="submit"
+                          class="atc-btn btn-atc-cross-sell-cart-popup"
+                          style="background: {{ settings.btn-color }};"
+                        >
+                          <i class="fal fa-plus"></i><i class="fa fa-shopping-cart"></i>
+                        </button>
+                      </form>
+                    {% else %}
+                      <button type="submit" class="sold-out-btn" style="background: {{ settings.btn-color }};" disabled>
+                        <i class="fal fa-plus"></i><i class="fa fa-shopping-cart"></i>
+                      </button>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            {%- for product in settings.collections.products limit: 4 -%}
+              <div class="col-md-3 col-sm-12">
+                <div class="product-box">
+                  <div class="box-img box-img-2">
+                    {% comment %} MODIFICATION: Changed the requested image dimensions to match the new 4:3 aspect ratio {% endcomment %}
+                    <a
+                      href="{{ product.url }}"
+                      style="background-image: url('{{ product.featured_media | image_url: width: 400, height: 300, crop: 'center' }}');"
+                      aria-label="{{ product.title | escape }}"
+                    ></a>
+                  </div>
+                  <div class="description">
+                    <h3>
+                      <a href="{{ product.url }}">{{ product.title }}</a>
+                    </h3>
+                    {%- if product.compare_at_price > product.price -%}
+                      <p>
+                        Adviesprijs <span>{{ product.compare_at_price | money }}</span>
+                      </p>
+                    {% endif %}
+                    <h6>{{ product.price | money }}</h6>
+                    {%- if product.selected_or_first_available_variant.available -%}
+                      <form action="/cart/add" method="post">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <button
+                          type="submit"
+                          class="atc-btn btn-atc-cross-sell-cart-popup"
+                          style="background: {{ settings.btn-color }};"
+                        >
+                          <i class="fal fa-plus"></i><i class="fa fa-shopping-cart"></i>
+                        </button>
+                      </form>
+                    {% else %}
+                      <button type="submit" class="sold-out-btn" style="background: {{ settings.btn-color }};" disabled>
+                        <i class="fal fa-plus"></i><i class="fa fa-shopping-cart"></i>
+                      </button>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</cart-notification>
+
+{% style %}
+    .cart-notification-wrapper {
+      display: none;
+    }
+
+    .cart-notification-wrapper[style*="display: block"],
+    .cart-notification-wrapper.is-opened {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-notification {
+      display: none;
+    }
+
+    .box-img-2 {
+      position: relative;
+      {% comment %} MODIFICATION: Changed padding-top from 100% to 75% to create a 4:3 aspect ratio (width:height) {% endcomment %}
+      padding-top: 75%;
+      height: 0;
+      overflow: hidden;
+      display: block;
+    }
+
+    .box-img-2 a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .btn-txt {
+      background: transparent;
+      border: 2px solid #3aa759;
+      color: #3aa759;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-weight: 500;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-txt:hover {
+      background: #3aa759;
+      color: white;
+      border-color: #3aa759;
+      transform: none;
+    }
+
+    .btn-txt:active {
+      transform: translateY(1px);
+    }
+
+    .continue-shopping-btn {
+      background: transparent;
+      border: 2px solid #3aa759;
+      color: #3aa759;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-weight: 500;
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .continue-shopping-btn:hover {
+      background: #3aa759;
+      color: white;
+      border-color: #3aa759;
+      transform: none;
+    }
+
+    .continue-shopping-btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-primary2 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 25px;
+      margin: 0;
+      display: block;
+      text-align: center;
+      border-radius: 10px;
+      background: #3aa759;
+      padding: 12px;
+  }
+
+    /* Fix primary buttons */
+    .btn-primary2, .btn-atc-cross-sell-cart-pop-up {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary2:hover, .btn-atc-cross-sell-cart-pop-up:hover {
+      transform: none;
+    }
+
+    /* Match product page price design: grey adviesprijs + strikethrough, orange current price, orange KORTING badge */
+    .cart-notification .product-price {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .cart-notification .product-price .original-price {
+      color: #6c757d;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .cart-notification .product-price .original-price b {
+      position: relative;
+      font-weight: 600;
+    }
+    .cart-notification .product-price .original-price b::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 115%;
+      height: 1px;
+      background: #e60000;
+      transform: rotate(355deg);
+      pointer-events: none;
+    }
+    .cart-notification .product-price .discount-label {
+      color: #fb5a00;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .cart-notification .product-price .discount-amount {
+      display: inline-block;
+      background: #fb5a00;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .cart-notification .stockss,
+    .cart-notification .weekss {
+      color: #3aa759;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0.25rem 0 0 0;
+    }
+{% endstyle %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Handle "Verder winkelen" button clicks
+    const continueShoppingBtns = document.querySelectorAll('.continue-shopping-btn');
+    const cartNotification = document.querySelector('#cart-notification');
+    const cartNotificationWrapper = document.querySelector('.cart-notification-wrapper');
+
+    continueShoppingBtns.forEach((btn) => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        closeCartNotification();
+      });
+    });
+
+    // Handle close button
+    const closeBtn = document.querySelector('.cart-notification__close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        closeCartNotification();
+      });
+    }
+
+    function closeCartNotification() {
+      if (cartNotification) {
+        cartNotification.classList.remove('active');
+        cartNotificationWrapper.classList.remove('is-opened');
+
+        // Hide the wrapper after animation
+        setTimeout(() => {
+          cartNotificationWrapper.style.display = 'none';
+        }, 300);
+      }
+    }
+
+    // Close on escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && cartNotificationWrapper.classList.contains('is-opened')) {
+        closeCartNotification();
+      }
+    });
+
+    // Close on backdrop click
+    cartNotificationWrapper.addEventListener('click', function (e) {
+      if (e.target === cartNotificationWrapper) {
+        closeCartNotification();
+      }
+    });
+  });
+</script>

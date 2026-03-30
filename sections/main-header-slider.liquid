@@ -1,0 +1,197 @@
+<div class="header-slider">
+                    <div class="container">
+                        <div class="top-slider">
+                          {% for block in section.blocks %}
+                            <div>
+                              <div class="slider-box">
+                                <h6>
+                                  {{ block.settings.text }}
+                                  {% if block.settings.show_country_logos == true %}
+                                    {% if block.settings.country-logo-1 != blank %}
+                                      <img src="{{ block.settings.country-logo-1 | img_url: 'small' }}" />
+                                    {% endif %}
+                                    {% if block.settings.country-name-1 != blank %}
+                                      {{ block.settings.country-name-1 }}
+                                    {% endif %}
+                                    {% if block.settings.country-logo-2 != blank %}
+                                       &  <img src="{{ block.settings.country-logo-2 | img_url: 'small' }}" />
+                                    {% endif %}
+                                    {% if block.settings.country-name-2 != blank %}
+                                      {{ block.settings.country-name-2 }}
+                                    {% endif %}
+                                  {% endif %}
+                                </h6>
+                              </div>
+                            </div>
+                          {% endfor %}
+                            <!-- <div>
+                                <div class="slider-box">
+                                    <h6>Goedkoopste van <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/nederland-icon_0c786eeb-706b-472d-877a-7e88eaa17aa6.svg?v=1750160316" alt="" /> Nederland & <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/belgie-icon_587292f0-ae96-4df8-abcd-212eff6f7435.svg?v=1750160378" alt="" /> België</h6>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="slider-box">
+                                    <h6>Altijd 1 jaar garantie</h6>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="slider-box">
+                                    <h6><b>9,6</b> uit <a href="#">2,000+ reviews</a></h6>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-info">
+                    <div class="container">
+                      {% if section.settings.alert-text != blank %}
+                        <div class="info-box">
+                            <h6>{{ section.settings.alert-text }} <a href="{{ section.settings.alert-link }}" class="arrow"> <i class="fas fa-angle-right"></i></a></h6>
+                            <a href="#" class="notification-close">
+                              <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/icon-close-white.svg?v=1752645033" alt="" />
+                            </a>
+                        </div>
+                      {% endif %}
+                    </div>
+                </div>
+            <script>
+    /* **** Slider ***** */
+            $(".top-slider").slick({
+                arrows: false,
+                loop: true,
+                dots: false,
+                autoplay: false,
+                autoplaySpeed: 4500,
+                speed: 500,
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 9999,
+                        settings: "unslick",
+                    },
+                    {
+                        breakpoint: 1199,
+                        settings: {
+                            slidesToShow: 3,
+                            settings: "slick",
+                        },
+                    },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 2,
+                        },
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                    {
+                        breakpoint: 575,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                    {
+                        breakpoint: 447,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                ],
+            });
+            /* ***** End Slider **** */
+  </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sectionSelector = '.alert-info';
+    var storageKey      = 'notificationClosed-{{ section.id }}';
+    var sectionEl = document.querySelector(sectionSelector);
+    if (!sectionEl) return;
+  
+    var closeBtn = sectionEl.querySelector('.notification-close');
+    if (!closeBtn) return;
+  
+    // On load: hide if previously closed in this session
+    if (sessionStorage.getItem(storageKey) === 'true') {
+      sectionEl.style.display = 'none';
+      return;
+    }
+  
+    // On click: hide & remember
+    closeBtn.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      sectionEl.style.display = 'none';
+      sessionStorage.setItem(storageKey, 'true');
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "Main header slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "alert-text",
+        "label": "Alert Text"
+      },
+      {
+        "type": "url",
+        "id": "alert-link",
+        "label": "Alert Link"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+         {
+        "type": "html",
+        "id": "text",
+        "label": "Title"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_country_logos",
+            "label": "Want country logos and name?",
+            "default": false
+          },
+          {
+            "type": "image_picker",
+            "id": "country-logo-1",
+            "label": "Country Logo 1",
+            "visible_if": "{{ block.settings.show_country_logos == true }}"
+          },
+          {
+            "type": "text",
+            "id": "country-name-1",
+            "label": "First Country Name",
+            "visible_if": "{{ block.settings.show_country_logos == true }}"
+          },
+          {
+            "type": "image_picker",
+            "id": "country-logo-2",
+            "label": "Country Logo 2",
+            "visible_if": "{{ block.settings.show_country_logos == true }}"
+          },
+          {
+            "type": "text",
+            "id": "country-name-2",
+            "label": "Second Country Name",
+            "visible_if": "{{ block.settings.show_country_logos == true }}"
+          }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "Main header slider"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,162 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Evan serie",
+        "description": "Moderne mangohouten meubels met Scandinavische allure"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Evan.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li>De meubels zijn gemaakt van mangohout van topkwaliteit, waardoor ze lang meegaan met minimaal <a href=\"https://www.demeubelimporteur.nl/collections/onderhoud\"><span style=\"text-decoration:underline\">onderhoud</span></a>.</li><li>Ze passen perfect bij uiteenlopende interieurstijlen, zoals industrieel, Scandinavisch en modern.</li><li>Bovendien bieden de meubels veel opbergruimte.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/evan-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "evan-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/evan-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Meubelserie Evan",
+            "description": "<p>Ben je op zoek naar meubels die stijl, functionaliteit en duurzaamheid naadloos combineren? Ontdek onze meubelserie Evan: een collectie moderne mangohouten meubels die je interieur een unieke en tijdloze uitstraling geeft. Deze serie is ontworpen met oog voor strakke lijnen, minimalisme en een gezellige sfeer. Ideaal voor gezinnen, of als je je woning simpelweg praktisch en elegant wilt inrichten.</p><p></p>"
+          }
+        },
+        "left_textarea_9YKYag": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Vind de perfecte wandkast voor jouw interieur",
+            "description": "<p>Het meest toonaangevende meubelstuk uit onze Evan-collectie is de wandkast. Je vindt deze in verschillende maten, met afwerkingen in drie stijlvolle kleuren:</p>"
+          }
+        },
+        "left_text_GVpkVb": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Zwarte wandkast</strong>: voegt een stoer, industrieel accent toe.</li><li><strong>Witte wandkast</strong>: ideaal voor een frisse, lichte look die je ruimte vergroot.</li><li><strong>Walnootkleurige wandkast</strong>: perfect voor een warme en natuurlijke sfeer.</li></ul>"
+          }
+        },
+        "left_textarea_RiDxHz": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "",
+            "description": "<p>De wandkasten uit onze Evan-collectie bieden niet alleen veel opbergruimte, maar zijn ook een stijlvolle toevoeging aan elke kamer. Met hun hoogwaardige afwerking en strakke lijnen zijn ze echte blikvangers.</p>"
+          }
+        },
+        "right_textarea_UTQDKa": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Stijlvol design met een vleugje industrieel",
+            "description": "<p>Onze meubelserie Evan combineert de natuurlijke warmte van mangohout met moderne Scandinavische vormen. Donkere tinten en strakke lijnen geven elk meubel een verfijnde en moderne uitstraling. Elk stuk is gemaakt van stevig mangohout, een duurzame houtsoort met een robuuste structuur en een levendig nerfpatroon. Of je nu een minimalistisch of industrieel interieur hebt, de Evan-collectie voegt meteen karakter toe aan jouw ruimte.</p>"
+          }
+        },
+        "right_textarea_gU78XP": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bezoek onze showroom en ontdek de Evan-collectie",
+            "description": "<p>Ben je benieuwd naar onze meubelserie Evan? Bezoek een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms</a> en ervaar zelf de kwaliteit en uitstraling van onze moderne mangohouten meubels. Laat je inspireren door de unieke sfeer en ontdek hoe de Evan-collectie jouw woning compleet maakt.</p><p>Weet je al welk Evan-meubel je in jouw interieur wilt plaatsen? Wacht niet langer! Hebben we jouw bestelling op voorraad, dan heb je die binnen vijf dagen in huis. Daarnaast heb je altijd één jaar garantie en betaal je pas bij levering. Zo loop je geen risico.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_9YKYag",
+        "left_text_GVpkVb",
+        "left_textarea_RiDxHz",
+        "right_textarea_UTQDKa",
+        "right_textarea_gU78XP"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

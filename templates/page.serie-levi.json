@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Levi serie",
+        "description": "Jouw interieur, jouw stijl"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Levi.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li>De walnootkleurige afwerking en het mangohout geven je interieur een rijke uitstraling die doet denken aan een vakantiewoning of hotel.</li><li>De meubels zijn gemaakt van duurzaam mangohout, zodat je met een goed gevoel kunt genieten.</li><li>De meubels zijn ideaal voor zowel grote als kleinere ruimtes, met volop opbergruimte.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/levi-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "levi-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/levi-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "De Levi-collectie",
+            "description": "<p>Wil je jouw interieur omtoveren tot een warme en stijlvolle ruimte die doet denken aan een luxe vakantiewoning? Maak kennis met onze Levi-collectie: een unieke reeks mangohouten meubels met een verfijnde walnootafwerking. Of je nu op zoek bent naar een elegant dressoir of een praktisch tv-meubel, deze collectie biedt precies wat je nodig hebt.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek onze Levi-meubels",
+            "description": "<p>De Levi-collectie is een onmisbare toevoeging aan jouw huis. Een greep uit onze Levi-collectie:</p><p></p>"
+          }
+        },
+        "left_text_7krj9n": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Nachtkastje</strong>: compact en elegant, ideaal voor je bedlampje en andere essentials.</li><li><strong>Side-meubel</strong>: praktisch en stijlvol, perfect voor een hal of woonkamerhoekje.</li><li><strong>Kast</strong>: ruim en veelzijdig, voor alles wat je netjes wilt opbergen.</li><li><strong>Dressoir</strong>: een decoratief én praktisch meubelstuk voor jouw accessoires of servies.</li><li><strong>Tv-meubel</strong>: een stevig en elegant middelpunt voor je woonkamer.</li><li><strong>Salontafel</strong>: functioneel en sfeervol, het perfecte middelpunt van je zithoek.</li><li><strong>Barmeubel</strong>: de eyecatcher voor jouw keuken of eetkamer, ideaal voor je favoriete dranken.</li></ul>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Stijl en functionaliteit in één",
+            "description": "<p>Onze Levi-collectie is ontworpen met oog voor detail en veelzijdigheid. Elk meubelstuk - van nachtkastje tot barmeubel - combineert een warme uitstraling met praktische opbergruimte. Dankzij het gebruik van milieuvriendelijk mangohout en de verfijnde walnootafwerking stralen deze meubels luxe en duurzaamheid uit. Perfect als je houdt van een gezellige sfeer met een vleugje verfijning.</p><p></p>"
+          }
+        },
+        "right_textarea_8dLCN9": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Beleef de Levi-collectie zelf in onze winkel",
+            "description": "<p>Benieuwd hoe de Levi-collectie in jouw interieur past? <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">Kom langs in een van onze winkels</a> en ontdek de meubels in het echt. Ervaar de warme uitstraling, voel de kwaliteit van het mangohout en laat je inspireren door onze stijlvolle opstellingen. Onze meubelspecialisten helpen je graag bij het maken van de juiste keuze voor jouw interieur.</p><p><em><strong>Wacht niet langer en ontdek de Levi-collectie vandaag nog! </strong></em><strong>Bestel jouw favoriete meubels online en betaal pas aan de deur, zonder aanbetaling.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "left_text_7krj9n",
+        "right_textarea_AwQf8r",
+        "right_textarea_8dLCN9"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

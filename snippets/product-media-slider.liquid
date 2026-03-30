@@ -1,0 +1,162 @@
+
+<div class="overview-product-slider">
+  <div class="slider product-slider-for">
+    {% for media in product.media %}
+      <div>
+        <div class="slider-box" style="position: relative;">
+          <img
+            src="{{ media.preview_image | img_url: 'master' }}"
+            width="720"
+            height="720"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+            loading="eager"
+            alt="{{ product.title | escape }}"
+            data-media-id="{{ section.id }}-{{ media.id }}"
+          >
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="product-slider-container">
+    {% render 'view-in-3d-button' %}
+
+    {% if product.media.size > 1 %}
+      <div class="slider product-slider-nav">
+        {% for media in product.media %}
+          <div>
+            <div
+              class="slider-box"
+              {% if media == product.selected_or_first_available_variant.featured_media
+                or product.selected_or_first_available_variant.featured_media == null
+                and forloop.index == 1
+              %}
+                aria-current="true"
+              {% endif %}
+              data-target="{{ section.id }}-{{ media.id }}"
+              data-media-position="{{ forloop.index }}"
+              aria-label="button"
+              media-type="{{ media.media_type }}"
+            >
+              <img
+                id="Thumbnail-{{ section.id }}-{{ forloop.index }}"
+                src="{{ media | image_url: width: 125 }}"
+                width="125"
+                height="125"
+                alt="{{ product.title | escape }}"
+              >
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  // Main product image slider - no asNavFor
+  $('.product-slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    asNavFor: '.product-slider-nav',
+    // asNavFor removed
+  });
+  $('.product-slider-nav').slick({
+    slidesToShow: 5,
+    slidesToScroll: 4,
+    asNavFor: '.product-slider-for',
+    dots: false,
+    arrows: false,
+    focusOnSelect: true,
+    variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 447,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 389,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+    ],
+  });
+  /* **** Slider ***** */
+  $('.top-slider').slick({
+    arrows: false,
+    loop: true,
+    dots: false,
+    autoplay: false,
+    autoplaySpeed: 4500,
+    speed: 500,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 9999,
+        settings: 'unslick',
+      },
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 3,
+          settings: 'slick',
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 447,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
+
+</script>

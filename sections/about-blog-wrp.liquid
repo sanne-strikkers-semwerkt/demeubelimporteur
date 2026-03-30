@@ -1,0 +1,60 @@
+<section class="about-blog-wrp">
+    <div class="container">
+        <div class="about-blog-block">
+            {% if section.settings.blog-banner-img != blank %}
+              <div class="blog-img">
+                  <img src="{{ section.settings.blog-banner-img | img_url: 'master'}}" alt="blog_image" />
+              </div>
+            {% endif %}
+            <div class="blog-content">
+              {% if section.settings.blog-title != blank %}
+                <h2>{{ section.settings.blog-title }}</h2>
+              {% endif %}
+              {% if section.settings.blog-desc != blank %}
+                <p>{{ section.settings.blog-desc }}</p>
+              {% endif %}
+              {% if section.settings.blog-redirectText != blank %}
+                <a href="{{ section.settings.blog-redirectLink }}">{{ section.settings.blog-redirectText }}</a>
+              {% endif %}
+                <h6>Blog</h6>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Blog Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "blog-banner-img",
+        "label": "Blog Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "blog-title",
+        "label": "Blog Title"
+      },
+      {
+        "type": "textarea",
+        "id": "blog-desc",
+        "label": "Blog Short Description"
+      },
+      {
+        "type": "text",
+        "id": "blog-redirectText",
+        "label": "Blog CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "blog-redirectLink",
+        "label": "Blog CTA Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog Banner"
+      }
+    ]
+  }
+{% endschema %}

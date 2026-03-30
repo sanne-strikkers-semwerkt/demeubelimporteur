@@ -1,0 +1,415 @@
+<div class="col-md-5 col-sm-12 px-0">
+  <div class="titlebar">
+    <h3>{{ section.settings.title }}</h3>
+  </div>
+
+  <div
+    class="checkout-block rounded-3xl"
+    style="
+      --tag-color: {{ settings.tag_color }};
+      --tag-background: {{ settings.tag_background }};
+      --tag-color2: {{ settings.tag_color2 }};
+    "
+  >
+    <div class="row gy-4">
+      {%- assign hidden_product_id = 15706174095694 -%}
+      {%- if product.metafields.custom.upsell_products.value != blank -%}
+        {%- comment %} Loop through the upsell products defined in the metafield {% endcomment -%}
+        {%- for item in product.metafields.custom.upsell_products.value -%}
+          {%- unless item.id == hidden_product_id -%}
+          <div class="col-12 p-0">
+            <div class="card product-card-custom shadow-sm">
+              <div class="row g-0">
+                <div class="col-5">
+                  <a href="{{ item.url }}" class="text-decoration-none">
+                    <div class="position-relative h-full">
+                      {%- assign featured_image = item.featured_media -%}
+                      <img
+                        src="{{ featured_image | image_url: width: 500 }}"
+                        alt="{{ featured_image.alt | escape }}"
+                        class="img-fluid"
+                        loading="lazy"
+                        width="{{ featured_image.width }}"
+                        height="{{ featured_image.height }}"
+                      >
+                      <div class="main-tags">
+                        {%- for coll in item.collections -%}
+                          {%- if coll.title == settings.collectionss.title -%}
+                            
+                            {% comment %} NA DE BLACKFRIDAY AANZETTEN {% endcomment %}
+                            {% comment %} <div class="collname">
+                              <span class="super">{{ settings.tag_title }}</span>
+                              <span class="sale">{{ settings.tag_title2 }}</span>
+                            </div> {% endcomment %}
+                          
+                            <div class="notification-bar" style="background:none!important; padding: 0px!important;border-radius: 10px!important;">
+                              <div class="notification-block">
+                                  <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+                                      <b>PAAS</b>
+                                      <span>DEALS</span>
+                                  </h6>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                        {%- endfor -%}
+
+                        {%- if item.compare_at_price > item.price -%}
+                          {%- capture discount -%}{{ item.compare_at_price | minus: item.price | money }}{%- endcapture -%}
+                          <label>{{ discount | remove: ',00€' }} korting</label>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+             <div class="col-7">
+  <a href="{{ item.url }}" class="text-decoration-none" style="color: inherit;">
+    <div class="card-body d-flex flex-column h-full gap-1 justify-between">
+      <span class="text-2xl md:text-2xl lg:text-3xl font-bold">{{ item.title }}</span>
+
+      <ul class="list-unstyled product-features small">
+        {%- if item.metafields.spec.lengte != blank -%}
+        <li>
+          <i class="fas fa-check-circle text-success me-2"></i><span
+            class="font-semibold">L<span class="font-light">x</span>B<span class="font-light">x</span>H:</span>
+          {{ item.metafields.spec.lengte }} x {{ item.metafields.spec.breedte }} x
+          {{ item.metafields.spec.hoogte }}
+        </li>
+        {%- endif -%}
+        {%- if item.metafields.spec.gewicht != blank -%}
+        <li>
+          <i class="fas fa-check-circle text-success me-2"></i><span class="font-semibold">Gewicht:</span> {{
+          item.metafields.spec.gewicht }}
+        </li>
+        {%- endif -%}
+        {%- if item.metafields.spec.garantie != blank -%}
+        <li>
+          <i class="fas fa-check-circle text-success me-2"></i><span class="font-semibold">Garantie:</span> {{
+          item.metafields.spec.garantie }}
+        </li>
+        {%- endif -%}
+      </ul>
+
+      <div>
+        <div class="product-overview-block2">
+          {%- if item.compare_at_price > item.price -%}
+          {%- assign discount_percentage = item.compare_at_price
+          | minus: item.price
+          | times: 100.0
+          | divided_by: item.compare_at_price
+          | round
+          -%}
+          <div class="flex items-center justify-center absolute mx-auto top--12 z-0">
+            <span class="badge badge-secondary w-fit px-2 text-xs md:text-sm py-2">Nu tijdelijk <span class="text-dmi"> {{
+                discount_percentage }}%</span> korting</span>
+          </div>
+          {%- endif -%}
+
+          <div class="product-price flex gap-3 items-end custom-pricing relative">
+            {%- if item.compare_at_price > item.price -%}
+            <span class="original-price text-muted font-light text-2xl md:text-3xl">
+              <b>{{ item.compare_at_price | money }}</b>
+            </span>
+            {%- endif -%}
+            <span class="current-price text-dmi text-3xl md:text-5xl font-bold">{{ item.price | money }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+                <div class="bg-light-dmi flex items-center justify-between px-4 font-semibold text-xxs py-2">
+                  <div
+                    class="delivery-info"
+                    data-stockinfo="{{ item.metafields.arena.stockinfo | escape }}"
+                  ></div>
+
+                  <a href="/pages/winkels" class="afhalen-info"
+                    ><i class="fa fa-store me-1" aria-hidden="true"></i>Ook in winkel af te halen
+                    <i
+                      class="fa fa-info rounded-full bg-white w-4 h-4 text-xs items-center text-center"
+                      aria-hidden="true"
+                    ></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment %}
+          START FALLBACK CODE
+          If no upsell products are set, loop through products from a fallback collection.
+          You need to add a setting in your schema called 'fallback_collection'.
+          Example schema setting:
+          {
+            "type": "collection",
+            "id": "fallback_collection",
+            "label": "Fallback Collection"
+          }
+        {% endcomment -%}
+        {%- assign fallback_collection = collections[section.settings.fallback_collection] -%}
+        {%- for item in fallback_collection.products limit: 5 -%}
+          {%- unless item.id == hidden_product_id -%}
+          <div class="col-12 p-0">
+            <div class="card product-card-custom shadow-sm">
+              <div class="row g-0">
+                <div class="col-5">
+                  <a href="{{ item.url }}" class="text-decoration-none">
+                    <div class="position-relative h-full">
+                      {%- assign featured_image = item.featured_media -%}
+                      <img
+                        src="{{ featured_image | image_url: width: 500 }}"
+                        alt="{{ featured_image.alt | escape }}"
+                        class="img-fluid"
+                        loading="lazy"
+                        width="{{ featured_image.width }}"
+                        height="{{ featured_image.height }}"
+                      >
+                      <div class="main-tags">
+                        {%- for coll in item.collections -%}
+                          {%- if coll.title == settings.collectionss.title -%}
+                           
+                            {% comment %} NA DE BLACKFRIDAY AANZETTEN {% endcomment %}
+                            {% comment %} <div class="collname">
+                              <span class="super">{{ settings.tag_title }}</span>
+                              <span class="sale">{{ settings.tag_title2 }}</span>
+                            </div> {% endcomment %}
+                          
+                            <div class="notification-bar" style="background:none!important; padding: 0px!important;border-radius: 10px!important;">
+                              <div class="notification-block">
+                                  <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+                                      <b>PAAS</b>
+                                      <span>DEALS</span>
+                                  </h6>
+                          </div>
+                        </div>
+                      {%- endif -%}
+                        {%- endfor -%}
+
+                        {%- if item.compare_at_price > item.price -%}
+                          {%- capture discount -%}{{ item.compare_at_price | minus: item.price | money }}{%- endcapture -%}
+                          <label>{{ discount | remove: ',00€' }} korting</label>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-7">
+                    <a href="{{ item.url }}" class="text-decoration-none">
+                  <div class="card-body d-flex flex-column h-full gap-1 justify-between">
+                    <span class="text-2xl md:text-3xl font-bold">{{ item.title }}</span>
+
+                    <ul class="list-unstyled product-features small">
+                      {%- if item.metafields.spec.lengte != blank -%}
+                        <li>
+                          <i class="fas fa-check-circle text-success me-2"></i
+                          ><span class="font-semibold"
+                            >L<span class="font-light">x</span>B<span class="font-light">x</span>H:</span
+                          >
+                          {{ item.metafields.spec.lengte }} x {{ item.metafields.spec.breedte }} x
+                          {{ item.metafields.spec.hoogte }}
+                        </li>
+                      {%- endif -%}
+                      {%- if item.metafields.spec.gewicht != blank -%}
+                        <li>
+                          <i class="fas fa-check-circle text-success me-2"></i
+                          ><span class="font-semibold">Gewicht:</span> {{ item.metafields.spec.gewicht }}
+                        </li>
+                      {%- endif -%}
+                      {%- if item.metafields.spec.garantie != blank -%}
+                        <li>
+                          <i class="fas fa-check-circle text-success me-2"></i
+                          ><span class="font-semibold">Garantie:</span> {{ item.metafields.spec.garantie }}
+                        </li>
+                      {%- endif -%}
+                    </ul>
+
+                    <div>
+                      <div class="product-overview-block2">
+                        {%- if item.compare_at_price > item.price -%}
+                          {%- assign discount_percentage = item.compare_at_price
+                            | minus: item.price
+                            | times: 100.0
+                            | divided_by: item.compare_at_price
+                            | round
+                          -%}
+                          <div class="flex items-center justify-center absolute mx-auto top--12 z-0">
+                            <span class="badge badge-secondary w-fit px-2 text-xs md:text-sm py-2"
+                              >Nu tijdelijk <span class="text-dmi"> {{ discount_percentage }}%</span> korting</span
+                            >
+                          </div>
+                        {%- endif -%}
+
+                        <div class="product-price flex gap-3 items-end custom-pricing relative">
+                          {%- if item.compare_at_price > item.price -%}
+                            <span class="original-price text-muted font-light text-2xl md:text-3xl">
+                              <b>{{ item.compare_at_price | money }}</b>
+                            </span>
+                          {%- endif -%}
+                          <span class="current-price text-dmi text-3xl md:text-5xl font-bold">{{ item.price | money }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                </div>
+
+                <div class="bg-light-dmi flex items-center justify-between px-4 font-semibold text-xxs py-2">
+                  <div
+                    class="delivery-info"
+                    data-stockinfo="{{ item.metafields.arena.stockinfo | escape }}"
+                  ></div>
+
+                  <a href="/pages/winkels" class="afhalen-info"
+                    ><i class="fa fa-store me-1" aria-hidden="true"></i>Ook in winkel af te halen
+                    <i
+                      class="fa fa-info rounded-full bg-white w-4 h-4 text-xs items-center text-center"
+                      aria-hidden="true"
+                    ></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {%- endunless -%}
+        {%- endfor -%}
+        {%- comment %} END FALLBACK CODE {% endcomment -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    function getMondayOfWeekFromToday(weeksFromToday) {
+      const today = new Date();
+      const targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + weeksFromToday * 7);
+      const day = targetDate.getDay();
+      const diffToMonday = day === 0 ? -6 : 1 - day;
+      const monday = new Date(targetDate);
+      monday.setDate(targetDate.getDate() + diffToMonday);
+
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${monday.getDate()} ${monthName}`;
+    }
+
+    function getMondayOfWeek(weekNumber, year = new Date().getFullYear()) {
+      const jan1 = new Date(year, 0, 1);
+      const jan1Day = jan1.getDay() || 7;
+      const offset = jan1Day <= 4 ? 1 - jan1Day : 8 - jan1Day;
+      const monday = new Date(year, 0, 1 + offset + (weekNumber - 1) * 7);
+
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${monday.getDate()} ${monthName}`;
+    }
+
+    const deliveryInfoElements = document.querySelectorAll('.delivery-info');
+
+    deliveryInfoElements.forEach((element) => {
+      const levertijdText = element.dataset.stockinfo;
+      if (!levertijdText) {
+        element.style.display = 'none';
+        return;
+      }
+
+      const rangeRegex = /tussen de\s+(\d+)\s+en\s+(\d+)\s+weken/i;
+      const vanafWeekRegex = /vanaf\s+week\s+(\d+)/i;
+      const singleWeekRegex = /(\d+)\s*weken?/i;
+
+      let updatedText = levertijdText;
+      let match;
+
+      if ((match = levertijdText.match(rangeRegex))) {
+        const earliestWeek = parseInt(match[1], 10);
+        const dateAndMonth = getMondayOfWeekFromToday(earliestWeek);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else if ((match = levertijdText.match(vanafWeekRegex))) {
+        const weekNumber = parseInt(match[1], 10);
+        const dateAndMonth = getMondayOfWeek(weekNumber);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else if ((match = levertijdText.match(singleWeekRegex))) {
+        const weeksFromNow = parseInt(match[1], 10);
+        const dateAndMonth = getMondayOfWeekFromToday(weeksFromNow);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else {
+        console.warn('No recognizable delivery format found in:', levertijdText);
+      }
+
+      element.innerHTML = `<i class="fa fa-truck me-1" aria-hidden="true"></i>${updatedText}`;
+    });
+  });
+</script>
+
+<style>
+  .product-card-custom {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .product-card-custom .img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .product-card-custom .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #212529;
+  }
+
+  .main-tags {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .main-tags .collname,
+  .main-tags label {
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .main-tags label {
+    background: #fb5a00 !important;
+    color: white !important;
+  }
+  .main-tags .collname {
+    color: var(--tag-color);
+    background: var(--tag-background);
+  }
+  .main-tags .collname .sale {
+    color: var(--tag-color2);
+  }
+
+  .badge-secondary {
+    color: #000;
+    background-color: #fff5d9;
+
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+  }
+
+  .product-features {
+    padding-left: 0;
+  }
+
+  .product-price .original-price {
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+
+  .delivery-info {
+    grid-column: 1 / -1;
+  }
+</style>

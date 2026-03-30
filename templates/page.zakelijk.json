@@ -1,0 +1,228 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "zakelijk_hero": {
+      "type": "zakelijk-hero",
+      "settings": {
+        "heading": "Thuisgevoel, ook op kantoor met meubels van De Meubel Importeur",
+        "button_text": "Ontdek de mogelijkheden",
+        "button_link": ""
+      }
+    },
+    "zakelijk_usp_top": {
+      "type": "zakelijk-usp",
+      "blocks": {
+        "usp_1": {
+          "type": "usp",
+          "settings": {
+            "text": "Geen risico, betaal achteraf",
+            "show_flags": false
+          }
+        },
+        "usp_2": {
+          "type": "usp",
+          "settings": {
+            "text": "Op voorraad = binnen 5 dagen in huis",
+            "show_flags": false
+          }
+        },
+        "usp_3": {
+          "type": "usp",
+          "settings": {
+            "text": "Goedkoopste van",
+            "show_flags": true
+          }
+        },
+        "usp_4": {
+          "type": "usp",
+          "settings": {
+            "text": "Altijd 1 jaar garantie",
+            "show_flags": false
+          }
+        }
+      },
+      "block_order": [
+        "usp_1",
+        "usp_2",
+        "usp_3",
+        "usp_4"
+      ],
+      "settings": {}
+    },
+    "zakelijk_about": {
+      "type": "zakelijk-about",
+      "settings": {
+        "heading": "Over De Meubel Importeur zakelijk",
+        "description": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.</p><p>Je vindt ons inmiddels in meerdere showrooms in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>"
+      }
+    },
+    "zakelijk_client_logos": {
+      "type": "zakelijk-client-logos",
+      "settings": {
+        "heading": "Deze bedrijven gingen je voor:"
+      }
+    },
+    "zakelijk_projects": {
+      "type": "zakelijk-projects",
+      "blocks": {
+        "project_1": {
+          "type": "project",
+          "settings": {
+            "title": "Inrichting Stichting Startbaan",
+            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
+          }
+        },
+        "project_2": {
+          "type": "project",
+          "settings": {
+            "title": "Kantoorinrichting van vakantiepark",
+            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
+          }
+        },
+        "project_3": {
+          "type": "project",
+          "settings": {
+            "title": "Vergaderruimte van Semwerkt",
+            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
+          }
+        }
+      },
+      "block_order": [
+        "project_1",
+        "project_2",
+        "project_3"
+      ],
+      "settings": {
+        "heading": "Onze projecten"
+      }
+    },
+    "zakelijk_contact_form": {
+      "type": "zakelijk-contact-form",
+      "settings": {
+        "heading": "Wij hebben alle kennis in huis, stel uw vragen aan onze expert.",
+        "button_text": "Verstuur"
+      }
+    },
+    "zakelijk_contact_cta": {
+      "type": "zakelijk-contact-cta",
+      "settings": {
+        "heading": "Neem vrijblijvend contact op",
+        "left_heading": "Bel Willem voor gratis interieuradvies!",
+        "left_phone": "0228 - 785 883",
+        "left_email": "zakelijk@demeubelimporteur.nl",
+        "right_heading": "Of chat met één van onze specialisten",
+        "right_status": "Nu online",
+        "right_button_text": "Start live chat",
+        "right_button_link": ""
+      }
+    },
+    "zakelijk_reviews": {
+      "type": "zakelijk-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "zak_review",
+          "settings": {
+            "rating": 4,
+            "author": "R. Verhulst",
+            "date": "23-04-2025   Review voor DeMeubelimporteur",
+            "text": "Verkoop ging wat slechter maar de afwikkeling was zeer goed."
+          }
+        },
+        "review_2": {
+          "type": "zak_review",
+          "settings": {
+            "rating": 5,
+            "author": "R. Coenen",
+            "date": "23-04-2025   Review voor DeMeubelimporteur",
+            "text": "Top service voor een mooie prijs!"
+          }
+        },
+        "review_3": {
+          "type": "zak_review",
+          "settings": {
+            "rating": 5,
+            "author": "E Postma",
+            "date": "23-04-2025   Review voor DeMeubelimporteur",
+            "text": "Alleen de stoelen zijn nog niet binnen maar we zijn tot heden zeer tevreden goede service en ook goed advies hopelijk komen de stoelen eerder dan week 33 verder alles goed"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "heading": "Reviews voor De Meubel Importeur"
+      }
+    },
+    "zakelijk_usp_bottom": {
+      "type": "zakelijk-usp",
+      "blocks": {
+        "usp_bottom_1": {
+          "type": "usp",
+          "settings": {
+            "text": "Geen risico, betaal achteraf",
+            "show_flags": false
+          }
+        },
+        "usp_bottom_2": {
+          "type": "usp",
+          "settings": {
+            "text": "Op voorraad = binnen 5 dagen in huis",
+            "show_flags": false
+          }
+        },
+        "usp_bottom_3": {
+          "type": "usp",
+          "settings": {
+            "text": "Goedkoopste van",
+            "show_flags": true
+          }
+        },
+        "usp_bottom_4": {
+          "type": "usp",
+          "settings": {
+            "text": "Altijd 1 jaar garantie",
+            "show_flags": false
+          }
+        }
+      },
+      "block_order": [
+        "usp_bottom_1",
+        "usp_bottom_2",
+        "usp_bottom_3",
+        "usp_bottom_4"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "zakelijk_hero",
+    "zakelijk_usp_top",
+    "zakelijk_about",
+    "zakelijk_client_logos",
+    "zakelijk_projects",
+    "zakelijk_contact_form",
+    "zakelijk_contact_cta",
+    "zakelijk_reviews",
+    "zakelijk_usp_bottom"
+  ]
+}

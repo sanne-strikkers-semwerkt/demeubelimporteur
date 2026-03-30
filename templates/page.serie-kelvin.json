@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Kelvin serie",
+        "description": "Industriële meubels met karakter"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Kelvin.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li>Mangohout is stevig en gaat jarenlang mee, zelfs bij intensief gebruik.</li><li>De natuurlijke nerf van mangohout zorgt ervoor dat elk meubelstuk uniek is. Geen enkel meubel is hetzelfde.</li><li>De mix van warme houttinten en zwart staal geeft je interieur een moderne, industriële uitstraling.</li><li>De meubels zijn niet alleen mooi, maar ook praktisch en ontworpen voor dagelijks gebruik.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/kelvin-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "kelvin-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/kelvin-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de Kelvin-collectie",
+            "description": "<p>Wil je een interieur dat zowel praktisch als stijlvol is? Ontdek onze Kelvin-collectie, een prachtige meubelserie waarin robuust mangohout en strak zwart staal samenkomen. Deze collectie is speciaal ontworpen voor liefhebbers van een industriële woonstijl en biedt de perfecte balans tussen stoer design en warme accenten.</p><p></p>"
+          }
+        },
+        "left_textarea_zrktej": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Waarom kiezen voor de Kelvin-collectie?",
+            "description": "<p>Elk Kelvin-meubel uit onze collectie is zorgvuldig ontworpen om jouw interieur te verrijken en tegelijkertijd praktische opbergruimte te bieden. Kies uit:</p>"
+          }
+        },
+        "left_text_XF44yf": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Dressoir<br/></strong>Onze Kelvin-dressoirs combineren opbergruimte met een opvallend design. Ideaal voor het organiseren van spullen zoals servies, boeken of accessoires, terwijl het tafelblad ruimte biedt voor decoratieve items.</li><li><strong>Tv-meubel<br/></strong>Een stijlvolle toevoeging aan je woonkamer. Onze Kelvin tv-meubels zorgen voor een opgeruimde uitstraling en bieden ruimte voor al je multimedia-apparatuur.</li><li><strong>Kast<br/></strong>De kasten uit onze Kelvin-collectie zijn zowel praktisch als decoratief. Gebruik ze om boeken, planten of persoonlijke items tentoon te stellen.</li></ul>"
+          }
+        },
+        "right_textarea_NEFCmM": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bij welke interieurstijlen past de Kelvin-collectie?",
+            "description": "<p>Onze mangohouten Kelvin-collectie straalt een tijdloze eenvoud uit, gecombineerd met de warme uitstraling van hout en de strakke lijnen van zwart staal. Of je nu een minimalistisch loftinterieur hebt of een urban uitstraling wilt toevoegen aan je woning, deze serie past naadloos in jouw ruimte.</p>"
+          }
+        },
+        "right_textarea_RnDW4a": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Maak jouw interieur compleet",
+            "description": "<p>Onze Kelvin-collectie biedt alles wat je nodig hebt om een stoere, warme sfeer in huis te creëren. De industriële meubels met mangohout en zwart staal passen perfect in een loftstijl-interieur of een ruimte met een rauwe, urban uitstraling. Of je nu kiest voor het dressoir, tv-meubel of de kast, elk meubelstuk uit deze serie is een statement op zich.</p><p><em><strong>Wil je de Kelvin-collectie eerst in het echt zien? Kom langs in een van onze </strong></em><a href=\"https://www.demeubelimporteur.nl/pages/winkels\"><strong>showrooms</strong></a><em><strong> en laat je inspireren door de prachtige combinatie van robuuste materialen en verfijnd design.</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_zrktej",
+        "left_text_XF44yf",
+        "right_textarea_NEFCmM",
+        "right_textarea_RnDW4a"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

@@ -1,0 +1,383 @@
+{%- style -%}
+  .button-component-{{ section.id }} {
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  {%- if section.settings.margin_top > 0 -%}
+    .button-component-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .button-component-{{ section.id }} {
+        margin-top: {{ section.settings.margin_top }}px;
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.margin_bottom > 0 -%}
+    .button-component-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .button-component-{{ section.id }} {
+        margin-bottom: {{ section.settings.margin_bottom }}px;
+      }
+    }
+  {%- endif -%}
+
+  .button-component-{{ section.id }} .button-component__button {
+    {%- if section.settings.button_width > 0 -%}
+      width: {{ section.settings.button_width }}%;
+      max-width: 100%;
+    {%- endif -%}
+
+    {%- if section.settings.font_size > 0 -%}
+      font-size: {{ section.settings.font_size | times: 0.875 | round: 0 }}px;
+      @media screen and (min-width: 750px) {
+        font-size: {{ section.settings.font_size }}px;
+      }
+    {%- endif -%}
+
+    {%- if section.settings.use_custom_colors -%}
+      {%- if section.settings.background_gradient != blank -%}
+        background: {{ section.settings.background_gradient }};
+      {%- elsif section.settings.background_color != blank -%}
+        background-color: {{ section.settings.background_color }};
+      {%- endif -%}
+
+      {%- if section.settings.text_color != blank -%}
+        color: {{ section.settings.text_color }};
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.border_thickness > 0 -%}
+      border: {{ section.settings.border_thickness }}px {{ section.settings.border_style }};
+      {%- if section.settings.border_color != blank -%}
+        border-color: {{ section.settings.border_color }};
+      {%- endif -%}
+    {%- else -%}
+      border: none;
+    {%- endif -%}
+
+    {%- if section.settings.border_radius > 0 -%}
+      border-radius: {{ section.settings.border_radius }}px;
+    {%- endif -%}
+
+    {%- if section.settings.padding_top > 0 or section.settings.padding_bottom > 0 or section.settings.padding_left > 0 or section.settings.padding_right > 0 -%}
+      padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px;
+    {%- endif -%}
+  }
+
+  {%- if section.settings.use_custom_colors -%}
+    {%- if section.settings.hover_background_color != blank or section.settings.hover_background_gradient != blank or section.settings.hover_text_color != blank or section.settings.hover_border_color != blank -%}
+      .button-component-{{ section.id }} .button-component__button:hover {
+        {%- if section.settings.hover_background_gradient != blank -%}
+          background: {{ section.settings.hover_background_gradient }};
+        {%- elsif section.settings.hover_background_color != blank -%}
+          background-color: {{ section.settings.hover_background_color }};
+        {%- endif -%}
+
+        {%- if section.settings.hover_text_color != blank -%}
+          color: {{ section.settings.hover_text_color }};
+        {%- endif -%}
+
+        {%- if section.settings.hover_border_color != blank and section.settings.border_thickness > 0 -%}
+          border-color: {{ section.settings.hover_border_color }};
+        {%- endif -%}
+      }
+    {%- endif -%}
+  {%- endif -%}
+{%- endstyle -%}
+
+<div class="button-component-{{ section.id }}{% unless section.settings.full_width %} page-width{% endunless %}">
+  {%- if section.settings.button_label != blank -%}
+    <a
+      {% if section.settings.button_link == blank %}
+        role="link" aria-disabled="true"
+      {% else %}
+        href="{{ section.settings.button_link }}"
+      {% endif %}
+      class="button-component__button{% unless section.settings.use_custom_colors %} button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      {% if section.settings.open_in_new_tab %}
+        target="_blank"
+        rel="noopener noreferrer"
+      {% endif %}
+    >
+      {{- section.settings.button_label | escape -}}
+    </a>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Knop",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Knop tekst",
+      "default": "Klik hier"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Knop link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "Open in nieuw tabblad",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_colors",
+      "label": "Gebruik aangepaste kleuren",
+      "default": false,
+      "info": "Schakel dit in om aangepaste kleuren, borders en gradients te gebruiken"
+    },
+    {
+      "type": "select",
+      "id": "button_style_secondary",
+      "label": "Knop stijl",
+      "info": "Alleen actief als aangepaste kleuren uitgeschakeld zijn",
+      "options": [
+        {
+          "value": "false",
+          "label": "Primair"
+        },
+        {
+          "value": "true",
+          "label": "Secundair"
+        }
+      ],
+      "default": "false"
+    },
+    {
+      "type": "header",
+      "content": "Kleuren"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Achtergrond gradient",
+      "info": "Optioneel: gradient heeft voorrang op achtergrondkleur"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Achtergrondkleur",
+      "info": "Gebruikt alleen als geen gradient is ingesteld"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Tekstkleur"
+    },
+    {
+      "type": "header",
+      "content": "Border"
+    },
+    {
+      "type": "range",
+      "id": "border_thickness",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Border dikte",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "border_style",
+      "label": "Border stijl",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Volledig"
+        },
+        {
+          "value": "dashed",
+          "label": "Gestippeld"
+        },
+        {
+          "value": "dotted",
+          "label": "Puntjes"
+        },
+        {
+          "value": "double",
+          "label": "Dubbele lijn"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border kleur"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Hover effecten"
+    },
+    {
+      "type": "color_background",
+      "id": "hover_background_gradient",
+      "label": "Hover achtergrond gradient"
+    },
+    {
+      "type": "color",
+      "id": "hover_background_color",
+      "label": "Hover achtergrondkleur"
+    },
+    {
+      "type": "color",
+      "id": "hover_text_color",
+      "label": "Hover tekstkleur"
+    },
+    {
+      "type": "color",
+      "id": "hover_border_color",
+      "label": "Hover border kleur"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding boven",
+      "default": 0,
+      "info": "0 = gebruik standaard padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding rechts",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding onder",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding links",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Uitlijning",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Gecentreerd"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "button_width",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Knop breedte",
+      "info": "0 = automatische breedte",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Font grootte",
+      "info": "0 = gebruik standaard font grootte",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Volle breedte",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Marges"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge boven",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge onder",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Knop"
+    }
+  ]
+}
+{% endschema %}
+

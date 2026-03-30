@@ -1,0 +1,63 @@
+<section class="location-gallery-wrp">
+  <div class="container">
+      <div class="row">
+        {% if section.settings.video != blank %}
+          <div class="col-md-6 col-sm-12">
+              <div class="gallery-box">
+                  <iframe src='{{ section.settings.video }}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+              </div>
+          </div>
+        {% else %}
+          {% if section.settings.image0 != blank %}
+          <div class="col-md-4 col-sm-12">
+              <div class="gallery-box">
+                  <img src="{{ section.settings.image0 | img_url: 'master' }}" alt="">
+              </div>
+          </div>
+        {% endif %}
+        {% endif %}
+          <div class="{% if section.settings.video != blank %} col-md-3 {% else %} col-md-4 {% endif %} col-sm-12">
+              <div class="gallery-box">
+                  <img src="{{ section.settings.image | img_url: 'master' }}" alt="">
+              </div>
+          </div>
+          <div class="{% if section.settings.video != blank %} col-md-3 {% else %} col-md-4 {% endif %} col-sm-12">
+              <div class="gallery-box">
+                  <img src="{{ section.settings.image1 | img_url: 'master' }}" alt="">
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Location gallery",
+    "settings": [
+      {
+          "type": "url",
+          "id": "video",
+          "label": "Video"
+        },
+      {
+          "type": "image_picker",
+          "id": "image0",
+          "label": "Image"
+        },
+      {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+      {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Location gallery"
+      }
+    ]
+  }
+{% endschema %}

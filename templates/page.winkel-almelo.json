@@ -1,0 +1,132 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "location_banner_VXgTNg": {
+      "type": "location-banner",
+      "settings": {
+        "image": "shopify://shop_images/location-banner-bg.png",
+        "title": "Winkel Almelo",
+        "link": "https://www.google.com/maps/place/De+Meubel+Importeur+-+Opent+Binnenkort!/@52.341131,6.6417973,17z/data=!3m1!4b1!4m6!3m5!1s0x47b809d043cbb71b:0xf118905ef182c583!8m2!3d52.341131!4d6.6417973!16s%2Fg%2F11mkv675nr?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D",
+        "button": "Bekijk de route",
+        "text": "Adres: Woonboulevard 12a, 7606 JA Almelo"
+      }
+    },
+    "location_detail_GYGAeY": {
+      "type": "location-detail",
+      "blocks": {
+        "text_R7iaC7": {
+          "type": "text",
+          "settings": {
+            "title-aboveDesc": "In onze winkel in Almelo vind je een selectie van onze online collectie. Niet alle meubelen die op de website staan zijn te bezichtigen. Onze adviseurs helpen je graag bij het kiezen van een meubelen. Na je bestelling zorgen wij ervoor dat je meubel zo snel mogelijk bij je thuis wordt bezorgd.",
+            "title": "Liever je meubels online bestellen?",
+            "title-belowDesc": "",
+            "btn-label": "Bekijk alle meubelen",
+            "btn-link": "https://www.demeubelimporteur.nl/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "text_R7iaC7"
+      ],
+      "custom_css": [],
+      "settings": {
+        "text": "Bij De Meubel Importeur Almelo vind je een collectie meubelen in allerlei stijlen en modellen. Er zit altijd wel iets bij dat goed past bij wat je zoekt. Je parkeert gratis voor de deur, waardoor je makkelijk even binnenloopt om alles met eigen ogen te bekijken. Houd er wel rekening mee dat je meubels niet direct kunt meenemen. Bestel je ze bij onze specialisten, dan bezorgen wij ze netjes bij je thuis.",
+        "heading1": "Uitstekende service",
+        "text1": "Onze medewerkers helpen je graag bij het vinden van passende meubels voor jouw interieur. We geven advies over de mogelijkheden binnen onze collectie en denken mee over praktische oplossingen voor je woonruimte. Dit doen we natuurlijk geheel vrijblijvend. Je beslist zelf of je tot aankoop overgaat.",
+        "heading2": "Praktische informatie",
+        "text2": "De winkel is goed bereikbaar en biedt ruime, gratis parkeergelegenheid direct voor de deur. We begrijpen dat je meubels graag eerst wilt zien en voelen, voordat je een keuze maakt. Daarom nodigen we je uit om langs te komen en rustig rond te kijken. Onder het genot van een kopje koffie kun je de collectie bekijken en al je vragen stellen aan onze medewerkers.",
+        "image": "shopify://shop_images/dmi-paasweekend-almelo.jpg",
+        "heading3": "Openingstijden",
+        "text3": "<li>Maandag:  <span> 11:00 - 18:00</span>\n</li>\n                                <li>Dinsdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Woensdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Donderdag: <span> 10:00 - 20:00</span>\n</li>\n                                <li>Vrijdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Zaterdag:  <span>10:00 - 17:00</span>\n</li>\n                                <li>Zondag:  <span>12:00 - 17:00</span>\n</li>\n<br>\n<li><b>Openingstijden Paasweekend:</b></li>\n<li>3 april (Goede Vrijdag):<br> 10:00 - 18:00\n</li>\n<li>4 april (Zaterdag):<br> 10:00 - 17:00\n</li><li>5 april (Eerste Paasdag):<br> 12:00 - 17:00\n</li>\n<li>6 april (Tweede Paasdag):<br> 10:00 - 17:00\n</li>",
+        "heading4": "Contact",
+        "text4": "Voor vragen of het maken van een afspraak zijn we bereikbaar op:",
+        "phone-link": "tel:+31228785 883",
+        "phone": "0228 - 785 883",
+        "mail-link": "mailto:info@demeubelimporteur.nl",
+        "mail": "info@demeubelimporteur.nl"
+      }
+    },
+    "location_gallery_h7KBF3": {
+      "type": "location-gallery",
+      "settings": {
+        "video": "",
+        "image0": "shopify://shop_images/dmi-almelo-winkel-4.jpg",
+        "image": "shopify://shop_images/dmi-almelo-winkel-5.jpg",
+        "image1": "shopify://shop_images/dmi-almelo-winkel-6.jpg"
+      }
+    },
+    "location_contact_GUmXw8": {
+      "type": "location-contact",
+      "disabled": true,
+      "settings": {
+        "heading": "Maak een afspraak met onze specialist voor advies opmaat.",
+        "image": "shopify://shop_images/location-contact.png"
+      }
+    },
+    "usp_wrp_6xd6r9": {
+      "type": "usp-wrp",
+      "blocks": {
+        "text_TcrHWE": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon1.svg",
+            "text": "Snelle levering met eigen transport"
+          }
+        },
+        "text_yMFreJ": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon2.svg",
+            "text": "Grootste assortiment van Nederland"
+          }
+        },
+        "text_t6KbNF": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon3.svg",
+            "text": "Altijd 1 jaar garantie op al jouw meubels"
+          }
+        },
+        "text_ELMRGK": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon4.svg",
+            "text": "Klanten geven ons een 4,9 van de 5 sterren!"
+          }
+        }
+      },
+      "block_order": [
+        "text_TcrHWE",
+        "text_yMFreJ",
+        "text_t6KbNF",
+        "text_ELMRGK"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "location_banner_VXgTNg",
+    "location_detail_GYGAeY",
+    "location_gallery_h7KBF3",
+    "location_contact_GUmXw8",
+    "usp_wrp_6xd6r9"
+  ]
+}

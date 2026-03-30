@@ -1,0 +1,61 @@
+<section class="usp-wrp">
+    <div class="container">
+        <div class="usp-slider">
+          {% for block in section.blocks %}
+            <div>
+                <div class="usp-box">
+                    <img src="{{ block.settings.image | img_url: 'master' }}" width="56" height="26" alt="{{ block.settings.text | escape }}">
+                    <h4>{{ block.settings.text }}</h4>
+                </div>
+            </div>
+          {% endfor %}
+            <!-- <div>
+                <div class="usp-box">
+                    <img src="images/usp-icon2.svg">
+                    <h4>Grootste assortiment van Nederland</h4>
+                </div>
+            </div>
+            <div>
+                <div class="usp-box">
+                    <img src="images/usp-icon3.svg">
+                    <h4>Altijd 1 jaar garantie op al jouw meubels</h4>
+                </div>
+            </div>
+            <div>
+                <div class="usp-box">
+                    <img src="images/usp-icon4.svg">
+                    <h4>Klanten geven ons een 4,9 van de 5 sterren!</h4>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "USP",
+    "settings": [],
+    "blocks": [
+    {
+      "type": "text",
+      "name": "Images",
+      "settings": [
+         {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        },
+         {
+        "type": "text",
+        "id": "text",
+        "label": "Text"
+        }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "USP"
+      }
+    ]
+  }
+{% endschema %}

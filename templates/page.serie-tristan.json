@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Tristan serie",
+        "description": "Stoere mangohouten meubels voor een tijdloos interieur"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Tristan.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li>Duurzaam en stevig</li><li>Tijdloze uitstraling</li><li>Veelzijdig design</li><li>Ruime opbergmogelijkheden</li><li>Uniek karakter</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/tristan-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "tristan-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/tristan-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Tristan-collectie",
+            "description": "<p>Ben je op zoek naar meubels die je interieur een unieke uitstraling geven? Onze Tristan-collectie combineert de warme, natuurlijke schoonheid van mangohout met de industriële kracht van zwart staal. Of je nu je slaapkamer, woonkamer of hal wilt upgraden, met de mangohouten meubels uit de Tristan-serie haal je een stijlvolle en praktische oplossing in huis.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Kies de meubels die bij jou passen",
+            "description": "<p>De Tristan-serie biedt alles wat je zoekt in een meubel. In ons assortiment vind je de volgende Tristan-meubels:</p>"
+          }
+        },
+        "left_text_KYXHWh": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Nachtkastje</strong>: een compact meubelstuk dat je slaapkamer compleet maakt. Ideaal voor je leeslamp, boeken of andere essentials.</li><li><strong>Tv-meubel</strong>: een robuust meubelstuk om je televisie op te plaatsen, met voldoende ruimte voor apparatuur en accessoires. Ook verkrijgbaar in het zwart.</li><li><strong>Kastje</strong>: een veelzijdig meubel voor extra opbergruimte in de hal, woonkamer of slaapkamer.</li><li><strong>Dressoir</strong>: een echte blikvanger die niet alleen ruimte biedt, maar ook je interieur een stijlvolle boost geeft. Het dressoir is ook beschikbaar in het zwart.</li></ul>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "De perfecte balans tussen natuur en industrie",
+            "description": "<p>Bij De Meubel Importeur werken we direct samen met de fabriek in India. Onze Tristan-collectie is dan ook met zorg ontworpen door echte experts, speciaal voor wie houdt van natuurlijke materialen en een robuuste uitstraling. Mangohout staat bekend om zijn opvallende nerfstructuur en warme tinten, terwijl het zwarte staal zorgt voor een stoer en modern accent. Samen vormen ze een tijdloze combinatie die perfect past bij zachte, natuurlijke kleuren zoals beige en groen.</p><p>Maar deze meubels zijn meer dan alleen mooi. De Tristan-serie biedt ook praktisch gemak. Met veel opbergruimte en een stevige constructie zijn deze meubels gemaakt om je jarenlang te ondersteunen, met slechts <a href=\"https://www.demeubelimporteur.nl/collections/onderhoud\"><span style=\"text-decoration:underline\">minimaal onderhoud</span></a>. Zo voeg je niet alleen stijl, maar ook functionaliteit toe aan je interieur.</p>"
+          }
+        },
+        "right_textarea_ngqKmR": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Beleef de Tristan-collectie in onze winkels",
+            "description": "<p>Wil je de kwaliteit en uitstraling van de mangohouten meubels uit onze Tristan-serie zelf ervaren? Bezoek een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\" target=\"_blank\">showrooms</a>! Hier kun je de collectie in het echt bekijken en voelen. Weet je al welk meubel jouw favoriet is? Bestel dan direct; je betaalt pas bij levering en een aanbetaling is niet nodig. Zo koop je de mooiste mangohouten meubels altijd zonder risico bij De Meubel Importeur!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "left_text_KYXHWh",
+        "right_textarea_AwQf8r",
+        "right_textarea_ngqKmR"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

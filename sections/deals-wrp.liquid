@@ -1,0 +1,90 @@
+<section class="deals-wrp">
+                <div class="container">
+                    <div class="titlebar">
+                        <h2>{{ section.settings.title }}</h2>
+                    </div>
+                    <div class="deals-slider">
+                      {% for block in section.blocks %}
+                        <div>
+                          <a href="{{ block.settings.url }}">
+                            <div class="deals-box">
+                                <div class="box-img">
+                                    <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.alt | escape }}">
+                                </div>
+                              <h4>{{ block.settings.heading }}</h4>
+                                <a href="{{ block.settings.url }}" class="btn-orange">{{ block.settings.text }}</a>
+                            </div>
+                          </a>
+                        </div>
+                      {% endfor %}
+                        <!-- <div>
+                            <div class="deals-box">
+                                <div class="box-img">
+                                    <img src="images/deals-img2.jpg" alt="">
+                                </div>
+                                <h4>Splinter nieuwe modellen</h4>
+                                <a href="#" class="btn-orange">Shop nu</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="deals-box">
+                                <div class="box-img">
+                                    <img src="images/deals-img3.jpg" alt="">
+                                </div>
+                                <h5>Luxe stoelen voor de aller beste prijs</h5>
+                                <a href="#" class="btn-orange">Shop nu</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+{% schema %}
+  {
+    "name": "Deals section",
+    "settings": [
+      {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "text",
+      "name": "Images",
+      "settings": [
+         {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        },
+        {
+        "type": "text",
+        "id": "alt",
+        "label": "Alt text"
+        },
+         {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+        },
+         {
+        "type": "text",
+        "id": "text",
+        "label": "Button text"
+        },
+         {
+        "type": "url",
+        "id": "url",
+        "label": "Button link"
+        }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "Deals section"
+      }
+    ]
+  }
+{% endschema %}

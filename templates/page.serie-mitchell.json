@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Mitchell serie",
+        "description": "Stoer en functioneel"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/alys-serie.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Stevig en duurzaam</strong>: het hoogwaardige mangohout zorgt voor een lange levensduur en behoudt zijn natuurlijke uitstraling.</li><li><strong>Tijdloze, stoere look</strong>: het samenspel van licht afgewerkt hout en zwart staal geeft de meubels een industriële uitstraling die niet snel uit de mode raakt.</li><li><strong>Veel opbergruimte</strong>: van speelgoed en elektronica tot servies en knutselspullen, alles vindt een plek.</li><li><strong>Veelzijdigheid</strong>: geschikt voor verschillende ruimtes en stijlen, van woonkamer tot hal.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/mitchell-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "mitchell-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/mitchell-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de Mitchell-meubelserie",
+            "description": "<p>Ben je op zoek naar meubels die jouw interieur een stoere uitstraling geven en tegelijkertijd praktisch zijn? De Mitchell-meubelserie biedt precies wat je nodig hebt. Deze collectie combineert de warme uitstraling van robuust mangohout met de strakke elegantie van zwart staal. Of je nu je woonkamer, eetkamer of hal wilt inrichten, deze meubels voegen stijl en functionaliteit toe aan elke ruimte.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Voeg karakter toe aan je woning",
+            "description": "<p>De Mitchell-meubelserie is speciaal ontworpen voor liefhebbers van een robuuste woonstijl. De combinatie van mangohout en staal komt prachtig tot zijn recht in een interieur met bakstenen muren, betonvloeren en andere natuurlijke materialen. Neem bijvoorbeeld het Mitchell-dressoir: een stijlvol meubel met meerdere laden en vakken, perfect om spullen overzichtelijk op te bergen. Dit meubelstuk is niet alleen praktisch, maar ook een stoere blikvanger in je interieur.</p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Kom langs en ervaar het zelf",
+            "description": "<p>Onze Mitchell-meubels bieden een unieke mix van stijl en gebruiksgemak. Benieuwd of de Mitchell-meubels bij jouw interieur passen? Bezoek een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms </a>en laat je inspireren. Onze adviseurs staan klaar om je te helpen bij het maken van de perfecte keuze.</p><p><em><strong>Wacht niet langer en ontdek vandaag nog de Mitchell-meubelserie! Bestel direct online of kom langs in een van onze </strong></em><a href=\"https://www.demeubelimporteur.nl/pages/winkels\"><strong>showrooms</strong></a><em><strong> en geef je interieur de stoere upgrade die het verdient.</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "right_textarea_AwQf8r"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

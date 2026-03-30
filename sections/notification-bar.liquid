@@ -1,0 +1,58 @@
+<section id="notification-section-{{ section.id }}" class="notification-bar">
+  <div class="container">
+    {% if section.settings.notification-text != blank %}
+      <div class="notification-block about-us">
+        <h6>
+          {{ section.settings.notification-text }} 
+          {% comment %} <a class="arrow" href="{{ section.settings.notification-link }}">
+            <i class="fa fa-angle-right"></i>
+          </a> {% endcomment %}
+        </h6>
+        <a href="#" class="notification-close">
+          <i class="fa fa-times"></i>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sectionSelector = '#notification-section-{{ section.id }}';
+    var storageKey      = 'notificationClosed-{{ section.id }}';
+  
+    var sectionEl = document.querySelector(sectionSelector);
+    if (!sectionEl) return;
+  
+    var closeBtn = sectionEl.querySelector('.notification-close');
+    if (!closeBtn) return;
+  
+    // On load: hide if previously closed in this session
+    if (sessionStorage.getItem(storageKey) === 'true') {
+      sectionEl.style.display = 'none';
+      return;
+    }
+  
+    // On click: hide & remember
+    closeBtn.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      sectionEl.style.display = 'none';
+      sessionStorage.setItem(storageKey, 'true');
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "Notification Bar",
+    "settings": [
+      {
+        "type": "html",
+        "id": "notification-text",
+        "label": "Notification Text"
+      }
+    ],
+    "presets": [{
+      "name": "Notification Bar"
+    }]
+  }
+{% endschema %}

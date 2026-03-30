@@ -1,0 +1,297 @@
+{% if section.settings.enable_banner %}
+<section class="black-friday-banner" style="background: linear-gradient(to right, {{ section.settings.gradient_color_start }}, {{ section.settings.gradient_color_end }});">
+  <div class="container">
+    <div class="banner-content">
+      {% if section.settings.button_text != blank %}
+      <button class="banner-button" style="background-color: {{ section.settings.button_bg_color }}; color: {{ section.settings.button_text_color }};">
+        {{ section.settings.button_text }}
+      </button>
+      {% endif %}
+      
+      {% if section.settings.main_text != blank %}
+      <span class="banner-text" style="color: {{ section.settings.main_text_color }};">
+        {{ section.settings.main_text }}
+      </span>
+      {% endif %}
+      
+      {% if section.settings.enable_countdown %}
+      <div class="countdown-wrapper" style="color: {{ section.settings.countdown_label_color }};">
+        <span class="countdown-label">{{ section.settings.countdown_label }}</span>
+        <div class="countdown-box" style="background-color: {{ section.settings.countdown_box_color }};">
+          <span style="color: {{ section.settings.countdown_text_color }};" id="countdown-hours">00</span>
+          <span class="countdown-unit" style="color: {{ section.settings.countdown_text_color }};">{{ section.settings.countdown_hours_label }}</span>
+        </div>
+        <span class="countdown-connector">{{ section.settings.countdown_connector }}</span>
+        <div class="countdown-box" style="background-color: {{ section.settings.countdown_box_color }};">
+          <span style="color: {{ section.settings.countdown_text_color }};" id="countdown-minutes">00</span>
+          <span class="countdown-unit" style="color: {{ section.settings.countdown_text_color }};">{{ section.settings.countdown_minutes_label }}</span>
+        </div>
+        <span class="countdown-valid">{{ section.settings.countdown_valid_text }}</span>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% if section.settings.enable_countdown %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const endTime = new Date('{{ section.settings.countdown_end_date }}').getTime();
+    const distance = endTime - now;
+
+    if (distance < 0) {
+      document.querySelector('.black-friday-banner').style.display = 'none';
+      return;
+    }
+
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    const hoursElement = document.getElementById('countdown-hours');
+    const minutesElement = document.getElementById('countdown-minutes');
+
+    if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+    if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 60000); // Update every minute
+});
+</script>
+{% endif %}
+
+<style>
+.black-friday-banner {
+  padding: 15px 0;
+  background: linear-gradient(to right, #FFD700, #FF8C00);
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.banner-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.banner-button:hover {
+  transform: scale(1.05);
+}
+
+.banner-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.countdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.countdown-label {
+  font-weight: 600;
+}
+
+.countdown-box {
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.countdown-box span:first-child {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.countdown-unit {
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.countdown-connector {
+  font-weight: 600;
+}
+
+.countdown-valid {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .banner-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .banner-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  
+  .banner-text {
+    font-size: 16px;
+  }
+  
+  .countdown-wrapper {
+    font-size: 12px;
+  }
+}
+</style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Black Friday Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Banner Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_banner",
+      "label": "Enable Banner",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "gradient_color_start",
+      "label": "Gradient Start Color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "color",
+      "id": "gradient_color_end",
+      "label": "Gradient End Color",
+      "default": "#FF8C00"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "BLACK FRIDAY DEALS!"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FF8C00"
+    },
+    {
+      "type": "header",
+      "content": "Main Text Settings"
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Main Text",
+      "default": "Sla je NU slag!"
+    },
+    {
+      "type": "color",
+      "id": "main_text_color",
+      "label": "Main Text Color",
+      "default": "#8B4513"
+    },
+    {
+      "type": "header",
+      "content": "Countdown Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_countdown",
+      "label": "Enable Countdown",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countdown_label",
+      "label": "Countdown Label",
+      "default": "Nog"
+    },
+    {
+      "type": "text",
+      "id": "countdown_hours_label",
+      "label": "Hours Label",
+      "default": "uur"
+    },
+    {
+      "type": "text",
+      "id": "countdown_minutes_label",
+      "label": "Minutes Label",
+      "default": "minuten"
+    },
+    {
+      "type": "text",
+      "id": "countdown_connector",
+      "label": "Countdown Connector",
+      "default": "en"
+    },
+    {
+      "type": "text",
+      "id": "countdown_valid_text",
+      "label": "Valid Text",
+      "default": "geldig!"
+    },
+    {
+      "type": "text",
+      "id": "countdown_end_date",
+      "label": "Countdown End Date (YYYY-MM-DD HH:MM:SS)",
+      "info": "Format: 2024-11-29 23:59:59",
+      "default": "2024-11-29 23:59:59"
+    },
+    {
+      "type": "color",
+      "id": "countdown_label_color",
+      "label": "Countdown Label Color",
+      "default": "#FF8C00"
+    },
+    {
+      "type": "color",
+      "id": "countdown_box_color",
+      "label": "Countdown Box Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "countdown_text_color",
+      "label": "Countdown Text Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Black Friday Banner"
+    }
+  ]
+}
+{% endschema %}
+

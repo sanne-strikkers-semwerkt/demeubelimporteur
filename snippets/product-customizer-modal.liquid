@@ -1,0 +1,730 @@
+{% if product.metafields.custom.related_products %}
+  {%- assign all_related_products = product.metafields.custom.related_products.value | default: '' -%}
+{% else %}
+  {% assign all_related_products = [product] %}
+{% endif %}
+
+<style>
+  :root {
+    --brand-color: #fb5a00;
+    --brand-color-hover: #e05000;
+    --text-dark: #121212;
+    --text-light: #ffffff;
+    --border-color: #e5e5e5;
+    --background-light: #f5f5f5;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  .customizer-modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .customizer-modal.is-open {
+    display: block;
+    opacity: 1;
+  }
+  .customizer-modal__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #f6f6f6;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+  }
+  .customizer-modal.is-open .customizer-modal__content {
+    transform: translateY(0);
+  }
+  .customizer-modal__header {
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    background: var(--text-light);
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+  }
+  .customizer-modal__header h3 {
+    margin: 0;
+    font-weight: 600;
+    white-space: nowrap;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 15px;
+  }
+  .customizer-modal__close-btn {
+    background: var(--background-light);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .customizer-modal__close-btn:hover {
+    background-color: var(--brand-color);
+    color: var(--text-light);
+    transform: rotate(90deg);
+  }
+  .customizer-modal__main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .customizer-modal__preview {
+    flex: 6;
+    background-color: var(--text-light);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease-in-out;
+  }
+
+  .custom-fa-icon-info {
+    background: white;
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    min-height: 25px;
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .customizer-modal__config-wrapper {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    border-left: 1px solid var(--border-color);
+  }
+  .customizer-modal__options {
+    padding: 30px 40px;
+    overflow-y: auto;
+    background: #f6f6f6;
+    flex-grow: 1;
+  }
+  .options-group {
+    margin-bottom: 25px;
+  }
+  .options-group__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .customizer-modal__footer {
+    margin-top: auto;
+    padding: 10px 20px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+  }
+  .final-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  .add-to-cart-btn {
+    background-color: var(--brand-color);
+    color: var(--text-light);
+    width: fit-content;
+    padding: 8px 20px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    line-height: 25px;
+    margin: 0;
+    text-align: center;
+    border-radius: 10px;
+    background: #3aa759;
+  }
+
+  .add-to-cart-btn:hover {
+    background: #2f8a49;
+    color: #fff;
+  }
+  #button-notice {
+    padding: 0.85rem 1rem;
+    font-size: 11px;
+    line-height: calc(1.25 / 0.875);
+    color: #92400e;
+    background-color: #fffbeb;
+    border-radius: 0.5rem;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .add-to-cart-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  .option-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .option-btn {
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .option-btn:hover {
+    border-color: var(--text-dark);
+  }
+  .option-btn.is-active {
+    border-color: var(--brand-color) !important;
+    background-color: var(--brand-color) !important;
+    color: var(--text-light) !important;
+  }
+  .option-btn.is-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--background-light);
+  }
+  @media (max-width: 768px) {
+    .customizer-modal__content {
+      overflow-y: auto;
+    }
+    .customizer-modal__header {
+      position: sticky;
+      top: 0;
+    }
+    .customizer-modal__main {
+      flex-direction: column;
+      height: 100%;
+    }
+    .customizer-modal__preview {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+      flex-basis: auto;
+    }
+    .customizer-modal__config-wrapper {
+      border-left: none;
+      flex-basis: auto;
+      height: auto;
+    }
+    .customizer-modal__options {
+      padding: 25px 20px;
+    }
+    .customizer-modal__footer {
+      box-shadow: none;
+      position: sticky;
+      width: 100%;
+      bottom: 0;
+    }
+  }
+
+  .image-spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-spinner.visible {
+    opacity: 1;
+  }
+
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top-color: var(--brand-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .customizer-modal__preview {
+    position: relative; /* Ensure spinner positions correctly */
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-thumbnail {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    .header-thumbnail {
+      display: block;
+    }
+  }
+</style>
+
+<div id="product-customizer-modal" class="customizer-modal" aria-hidden="true">
+  <div class="customizer-modal__content" role="dialog" aria-modal="true">
+    <header class="customizer-modal__header">
+      <div class="header-content">
+        <img
+          src="{{ product.featured_image | image_url: width: 50 }}"
+          alt="{{ product.title }}"
+          class="header-thumbnail"
+        >
+        <h3 id="customizer-title">{{ product.title }}</h3>
+      </div>
+      <button class="customizer-modal__close-btn" aria-label="Close customizer">&times;</button>
+    </header>
+
+    <div class="customizer-modal__main">
+      <div
+        class="customizer-modal__preview"
+        style="background-image: url('{{ product.featured_image | image_url: width: 1024 }}')"
+      >
+        <div class="image-spinner" id="image-spinner" aria-hidden="true">
+          <div class="spinner"></div>
+        </div>
+
+        <!-- Image is background -->
+      </div>
+
+      <div class="customizer-modal__config-wrapper">
+        <div id="button-notice">
+          <i class="fa fa-info custom-fa-icon-info"></i>
+          Is de knop niet klikbaar? De gekozen combinatie is helaas niet beschikbaar. Probeer een andere optie.
+        </div>
+
+        <div class="customizer-modal__options">
+          <!-- Options will be dynamically generated by JavaScript -->
+        </div>
+
+        <footer class="customizer-modal__footer">
+          <div class="final-price" id="customizer-price">{{ product.price | money }}</div>
+          <button class="add-to-cart-btn" id="customizer-add-to-cart-btn">Plaats in winkelwagen</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.productCustomizerRawData = [
+    {% for related_product in all_related_products %}
+      {
+        "id": {{ related_product.selected_or_first_available_variant.id }},
+        "full_title": {{ related_product.title | json }},
+        "handle": {{ related_product.handle | json }},
+        "available": {{ related_product.available | json }},
+        "price": {{ related_product.price | money | json }},
+        "image": {{ related_product.featured_image | image_url: width: 1024 | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+<script>
+  $(document).ready(function () {
+    const modal = $('#product-customizer-modal');
+    const headerThumbnail = $('.header-thumbnail');
+
+    if (!modal.length) return;
+
+    if (!window.productCustomizerRawData || window.productCustomizerRawData.length <= 1) {
+      const openBtn = document.getElementById('open-customizer-btn');
+      if (openBtn) {
+        openBtn.style.display = 'none';
+      }
+      return;
+    }
+
+    function parseProductData(rawData) {
+      return rawData.map((product) => {
+        let title = product.full_title;
+        let parsedOptions = {};
+
+        title = title.trim().replace(/\s+/g, ' ');
+
+        if (title.toLowerCase().includes('eetkamerbank ')) {
+          let tempString = title.split(/eetkamerbank /i)[1].trim();
+          let parts = tempString.split(' ');
+          parsedOptions.option_model = parts[0];
+          parsedOptions.option_poot = parts.slice(1, -2).join(' ');
+          parsedOptions.option_formaat = parts.slice(-2).join(' ');
+          return { ...product, ...parsedOptions };
+        }
+
+        let tempTitle = title;
+
+        // Specific handling for "Bank Soren"
+        if (title.toLowerCase().includes('bank soren')) {
+          if (tempTitle.toLowerCase().includes('u-opstelling')) {
+            parsedOptions.option_model = 'U-opstelling';
+            tempTitle = tempTitle.replace(/u-opstelling/i, '').trim();
+          } else {
+            parsedOptions.option_model = 'Standard'; // Default for non-U-opstelling
+          }
+        }
+
+        const materialMatch = tempTitle.match(/^(\w+)/);
+        if (materialMatch) {
+          parsedOptions.option_materiaal = materialMatch[1];
+          tempTitle = tempTitle.substring(materialMatch[0].length).trim();
+        }
+
+        let thicknessMatch = tempTitle.match(/\((\d+cm)\)/i) || tempTitle.match(/(\d+cm)$/i);
+        if (thicknessMatch) {
+          parsedOptions.option_dikte = thicknessMatch[1];
+          tempTitle = tempTitle.replace(thicknessMatch[0], '').trim();
+        }
+
+        let sizeMatch = tempTitle.match(/(\d+(x\d+)?)\s*cm/i);
+        if (sizeMatch) {
+          parsedOptions.option_formaat = sizeMatch[1] + ' cm';
+          tempTitle = tempTitle.replace(sizeMatch[0], '').trim();
+        }
+
+        let deurenMatch = tempTitle.match(/(\d+)\s*deuren/i) || tempTitle.match(/met\s*(\d+)\s*deuren/i);
+        if (deurenMatch) {
+          parsedOptions.option_deuren = deurenMatch[1] + ' deuren';
+          tempTitle = tempTitle.replace(deurenMatch[0], '').trim();
+        }
+
+        let ladesMatch = tempTitle.match(/(\d+)\s*lades/i);
+        if (ladesMatch) {
+          parsedOptions.option_lades = ladesMatch[1] + ' lades';
+          tempTitle = tempTitle.replace(ladesMatch[0], '').trim();
+        }
+
+        let onderstelMatch = tempTitle.match(/met\s+(.+?)\s+onderstel/i);
+        if (onderstelMatch) {
+          parsedOptions.option_onderstel = onderstelMatch[1];
+          tempTitle = tempTitle.replace(onderstelMatch[0], '').trim();
+        }
+
+        let directionMatch = tempTitle.match(/(links|rechts|u)/i);
+        if (directionMatch) {
+          parsedOptions.option_richting = directionMatch[0];
+          tempTitle = tempTitle.replace(directionMatch[0], '').trim();
+        }
+
+        const knownColors = [
+          'Zwart',
+          'Bruin',
+          'Naturel',
+          'Crème',
+          'Walnoot',
+          'Zand',
+          'Lichtgrijs',
+          'Donkergrijs',
+          'Wit',
+          'Lichtgroen',
+          'Donkergroen',
+          'Beige',
+          'Grijs',
+          'Cognac',
+          'Antraciet',
+          'Groen',
+          'Creme',
+          'Salmon',
+          'Sand',
+          'Natural',
+        ];
+        let colorMatch = tempTitle.match(new RegExp(`(${knownColors.join('|')})$`, 'i'));
+        if (colorMatch) {
+          parsedOptions.option_kleur = colorMatch[1];
+          tempTitle = tempTitle.replace(colorMatch[0], '').trim();
+        } else {
+          parsedOptions.option_kleur = 'Naturel';
+        }
+
+        const knownShapes = ['Rond', 'Ovaal', 'Rechthoek', 'Vierkant', 'Capsule', 'Deens ovaal'];
+        let shapeMatch = tempTitle.match(new RegExp(`(${knownShapes.join('|')})`, 'i'));
+        if (shapeMatch) {
+          parsedOptions.option_vorm = shapeMatch[1];
+          tempTitle = tempTitle.replace(shapeMatch[0], '').trim();
+        }
+
+        let titleWords = tempTitle.split(/\s+/).filter(Boolean);
+        if (titleWords.length > 0) parsedOptions.option_type = titleWords[0];
+        if (titleWords.length > 1) parsedOptions.option_model = titleWords[1];
+
+        return { ...product, ...parsedOptions };
+      });
+    }
+
+    const data = parseProductData(window.productCustomizerRawData);
+
+    let activeOptionKeys = [];
+
+    const elements = {
+      openBtn: $('#open-customizer-btn'),
+      closeBtn: $('.customizer-modal__close-btn'),
+      optionsContainer: $('.customizer-modal__options'),
+      previewImage: $('.customizer-modal__preview'),
+      title: $('#customizer-title'),
+      price: $('#customizer-price'),
+      addToCartBtn: $('#customizer-add-to-cart-btn'),
+    };
+    let currentSelections = {};
+    let currentlySelectedProduct = null;
+
+    const renderOptions = () => {
+      const allKeys = new Set();
+      data.forEach((p) => Object.keys(p).forEach((key) => key.startsWith('option_') && allKeys.add(key)));
+      activeOptionKeys = Array.from(allKeys).map((key) => key.replace('option_', ''));
+
+      const options = {};
+      activeOptionKeys.forEach((key) => {
+        options[key] = [...new Set(data.map((p) => p[`option_${key}`]).filter(Boolean))];
+      });
+
+      activeOptionKeys = activeOptionKeys.filter((key) => options[key].length > 1);
+
+      const order = [
+        'materiaal',
+        'type',
+        'vorm',
+        'model',
+        'poot',
+        'kleur',
+        'dikte',
+        'formaat',
+        'deuren',
+        'lades',
+        'onderstel',
+        'richting',
+      ];
+      activeOptionKeys.sort((a, b) => {
+        const indexA = order.indexOf(a);
+        const indexB = order.indexOf(b);
+        return (indexA === -1 ? Infinity : indexA) - (indexB === -1 ? Infinity : indexB);
+      });
+
+      const groupTitles = {
+        materiaal: 'Kies je Materiaal',
+        type: 'Kies je Type',
+        vorm: 'Kies je Vorm',
+        model: 'Kies je Model',
+        poot: 'Kies je Poot',
+        formaat: 'Kies je Formaat',
+        kleur: 'Kies jouw variant',
+        dikte: 'Kies je Dikte',
+        deuren: 'Kies je Deuren',
+        lades: 'Kies je Lades',
+        onderstel: 'Kies je Onderstel',
+        richting: 'Kies je Richting',
+      };
+
+      let html = '';
+      activeOptionKeys.forEach((key) => {
+        html += `<div class="options-group"><h4 class="options-group__title">${
+          groupTitles[key] || `Kies je ${key.charAt(0).toUpperCase() + key.slice(1)}`
+        }</h4><div class="option-buttons" data-option="${key}">`;
+        options[key].forEach((value) => {
+          html += `<button class="option-btn" data-value="${value}">${value}</button>`;
+        });
+        html += '</div></div>';
+      });
+      elements.optionsContainer.html(html);
+    };
+
+    const updateDisplay = () => {
+      currentlySelectedProduct = data.find((p) =>
+        activeOptionKeys.every((key) => p[`option_${key}`] === currentSelections[key])
+      );
+
+      if (currentlySelectedProduct) {
+        const spinner = $('#image-spinner');
+        spinner.addClass('visible');
+
+        const img = new Image();
+        img.onload = function () {
+          elements.previewImage.css('background-image', `url(${currentlySelectedProduct.image})`);
+          spinner.removeClass('visible');
+        };
+        img.onerror = function () {
+          spinner.removeClass('visible');
+        };
+        img.src = currentlySelectedProduct.image;
+
+        elements.title.text(currentlySelectedProduct.full_title);
+        elements.price.text(currentlySelectedProduct.price);
+        elements.addToCartBtn
+          .prop('disabled', !currentlySelectedProduct.available)
+          .text(currentlySelectedProduct.available ? 'Plaats in winkelwagen' : 'Uitverkocht');
+
+        headerThumbnail.attr('src', currentlySelectedProduct.image);
+        headerThumbnail.attr('alt', currentlySelectedProduct.full_title);
+      } else {
+        elements.addToCartBtn.prop('disabled', true).text('Maak een selectie');
+
+        let partialMatch = data[0];
+        for (let i = 0; i < activeOptionKeys.length; i++) {
+          const key = activeOptionKeys[i];
+          const candidate = data.find((p) => p[`option_${key}`] === currentSelections[key]);
+          if (candidate) {
+            partialMatch = candidate;
+            break;
+          }
+        }
+
+        spinner.addClass('visible');
+        const fallbackImg = new Image();
+        fallbackImg.onload = function () {
+          elements.previewImage.css('background-image', `url(${partialMatch.image})`);
+          spinner.removeClass('visible');
+        };
+        fallbackImg.onerror = function () {
+          spinner.removeClass('visible');
+        };
+        fallbackImg.src = partialMatch.image;
+        elements.title.text('{{ product.title | escape }}');
+        elements.price.text(data[0].price);
+
+        headerThumbnail.attr('src', partialMatch.image);
+        headerThumbnail.attr('alt', '{{ product.title | escape }}');
+      }
+    };
+
+    const updateButtonAvailability = () => {
+      activeOptionKeys.forEach((currentKey, index) => {
+        const precedingKeys = activeOptionKeys.slice(0, index);
+        const possibleValues = new Set(
+          data
+            .filter((p) => precedingKeys.every((key) => p[`option_${key}`] === currentSelections[key]))
+            .map((p) => p[`option_${currentKey}`])
+        );
+
+        elements.optionsContainer.find(`[data-option="${currentKey}"] .option-btn`).each(function () {
+          const $btn = $(this);
+          $btn.toggleClass('is-disabled', !possibleValues.has($btn.data('value')));
+        });
+      });
+    };
+
+    elements.optionsContainer.on('click', '.option-btn', function () {
+      const $this = $(this);
+      if ($this.hasClass('is-disabled') || $this.hasClass('is-active')) return;
+
+      const optionType = $this.parent().data('option');
+      const optionValue = $this.data('value');
+      const changedIndex = activeOptionKeys.indexOf(optionType);
+
+      currentSelections[optionType] = optionValue;
+      $this.siblings().removeClass('is-active');
+      $this.addClass('is-active');
+
+      for (let i = changedIndex + 1; i < activeOptionKeys.length; i++) {
+        const keyToClear = activeOptionKeys[i];
+        currentSelections[keyToClear] = null;
+        elements.optionsContainer.find(`[data-option="${keyToClear}"] .is-active`).removeClass('is-active');
+      }
+      updateButtonAvailability();
+      updateDisplay();
+    });
+
+    const setInitialState = () => {
+      const initialProduct = data.find((p) => p.handle === '{{ product.handle }}') || data[0];
+      activeOptionKeys.forEach((key) => {
+        currentSelections[key] = initialProduct[`option_${key}`];
+      });
+
+      elements.optionsContainer.find('.option-btn').removeClass('is-active');
+      Object.keys(currentSelections).forEach((key) => {
+        if (currentSelections[key]) {
+          elements.optionsContainer
+            .find(`[data-option="${key}"] [data-value="${currentSelections[key]}"]`)
+            .addClass('is-active');
+        }
+      });
+      updateButtonAvailability();
+      updateDisplay();
+    };
+
+    const openModal = () => {
+      modal.addClass('is-open');
+      $('body').css('overflow', 'hidden');
+      setInitialState();
+    };
+
+    const closeModal = () => {
+      modal.removeClass('is-open');
+      $('body').css('overflow', '');
+    };
+
+    elements.openBtn.on('click', openModal);
+    elements.closeBtn.on('click', closeModal);
+    modal.on('click', (e) => {
+      if ($(e.target).is(modal)) closeModal();
+    });
+
+    elements.addToCartBtn.on('click', function (e) {
+      e.preventDefault();
+      if (!currentlySelectedProduct || !currentlySelectedProduct.available) return;
+      const $this = $(this);
+      const originalText = $this.text();
+      $this.prop('disabled', true).text('Toevoegen...');
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: { items: [{ id: currentlySelectedProduct.id, quantity: 1 }] },
+        dataType: 'json',
+        success: function () {
+          $this.text('Toegevoegd!');
+          setTimeout(() => {
+            closeModal();
+            $this.prop('disabled', false).text(originalText);
+          }, 1500);
+        },
+        error: function (xhr) {
+          alert('Fout: ' + xhr.responseJSON.description);
+          $this.prop('disabled', false).text(originalText);
+        },
+      });
+    });
+
+    renderOptions();
+  });
+</script>

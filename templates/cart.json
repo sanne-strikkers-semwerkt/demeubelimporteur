@@ -1,0 +1,124 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "blocks": {
+        "subtotal_PbYQCa": {
+          "type": "subtotal",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal_PbYQCa"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "cart_related_products_hqar8Q": {
+      "type": "cart-related-products",
+      "name": "Upsell (Cart)",
+      "settings": {}
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 40
+      }
+    },
+    "cart_product_wrap_3RiNeC": {
+      "type": "cart-product-wrap",
+      "settings": {
+        "heading": "Andere kochten ook:",
+        "btn-text": "Verder winkelen",
+        "collection": "brendon-serie",
+        "btn-link": "shopify://collections/eettafelstoelen",
+        "btn-color": "#3aa759"
+      }
+    },
+    "usp_wrp_bJFh8E": {
+      "type": "usp-wrp",
+      "blocks": {
+        "text_YNUj3C": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/wallet-alt-svgrepo-com.svg",
+            "text": "Geen risico, betaal pas bij levering"
+          }
+        },
+        "text_qyk7Ci": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/truck-speed-svgrepo-com_1_4213e886-213f-4fa7-8c1b-446514533ecb.svg",
+            "text": "Op voorraad? Binnen 5 dagen in huis"
+          }
+        },
+        "text_U6M3Bz": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/check-badge-svgrepo-com_4.svg",
+            "text": "Goedkoopste van Nederland"
+          }
+        },
+        "text_W6E8qk": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/thumb-up-gross-line-symbol-svgrepo-com.svg",
+            "text": "Op voorraad? Binnen 5 dagen in huis"
+          }
+        },
+        "text_Jfn9H3": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/star-sharp-svgrepo-com.svg",
+            "text": "9,6 uit 1000+ reviews"
+          }
+        }
+      },
+      "block_order": [
+        "text_YNUj3C",
+        "text_qyk7Ci",
+        "text_U6M3Bz",
+        "text_W6E8qk",
+        "text_Jfn9H3"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart_related_products_hqar8Q",
+    "cart-footer",
+    "cart_product_wrap_3RiNeC",
+    "usp_wrp_bJFh8E"
+  ]
+}

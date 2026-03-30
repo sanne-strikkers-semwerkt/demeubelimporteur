@@ -1,0 +1,21 @@
+{% comment %} {%- liquid
+  if cart == empty
+    render 'icon-cart-empty'
+  else
+    render 'icon-cart'
+  endif
+-%} 
+<span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+{%- if cart != empty -%}
+  <div class="cart-count-bubble">
+    {%- if cart.item_count < 100 -%}
+      <span aria-hidden="true">{{ cart.item_count }}</span>
+    {%- endif -%}
+    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+  </div>
+{%- endif -%}
+{% endcomment %}
+ <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/head-icon3.svg?v=1717136574" alt="">
+  {%- if cart != empty -%}
+    <span>{{ cart.item_count }}</span>
+  {% endif %}

@@ -1,0 +1,191 @@
+<section class="usp-beam-wrp {% if section.settings.in-center %}second-usp-beam-wrp{% endif %}">
+  <div class="container">
+    <ul class="usp-beam-container usp-beam-slider">
+      {% for block in section.blocks %}
+        {% if block.settings.usp-text != blank %}
+          <li class="usp-item">
+            <h6>
+              <span class="img-first-margin">
+                <img src='https://cdn.shopify.com/s/files/1/0563/8412/7158/files/check-icon.svg?v=1717136575' alt="Checkmark icon" />
+              </span>
+              {{ block.settings.usp-text }}
+              {% if block.settings.show_country_logos == true %}
+                {% if block.settings.country-logo-1 != blank %}
+                  <img src="{{ block.settings.country-logo-1 | image_url: width: 30, height: 30 }}" alt="{{ block.settings.country-name-1 | escape }}" />
+                {% endif %}
+                {% if block.settings.country-name-1 != blank %}
+                  {{ block.settings.country-name-1 }}
+                {% endif %}
+                {% if block.settings.country-logo-2 != blank %}
+                  &nbsp;&amp;&nbsp;<img src="{{ block.settings.country-logo-2 | image_url: width: 30, height: 30 }}" alt="{{ block.settings.country-name-2 | escape }}" />
+                {% endif %}
+                {% if block.settings.country-name-2 != blank %}
+                  {{ block.settings.country-name-2 }}
+                {% endif %}
+              {% endif %}
+            </h6>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.querySelector(".usp-beam-slider");
+  if (!slider) return;
+
+  let slickInstance = null;
+
+  function initializeSlick() {
+    const isMobile = window.innerWidth < 767;
+
+    if (isMobile && !slickInstance) {
+      // Use jQuery to initialize Slick
+      slickInstance = $('.usp-beam-slider').slick({
+        arrows: false,
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 3000
+      });
+    } else if (!isMobile && slickInstance) {
+      $('.usp-beam-slider').slick('unslick');
+      slickInstance = null;
+    }
+  }
+
+  initializeSlick();
+  window.addEventListener("resize", initializeSlick);
+});
+</script>
+
+<style>
+  .usp-beam-container {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center; /* Vertically align items */
+  }
+
+  /* --- Mobile First Styles --- */
+  @media (max-width: 767px) {
+    .usp-beam-container.slick-initialized .usp-item {
+       display: block; /* Slick will manage the display */
+    }
+    .usp-beam-container:not(.slick-initialized) .usp-item {
+      display: none;
+    }
+    .usp-beam-container:not(.slick-initialized) .usp-item:first-child {
+      display: flex; /* Show only the first one */
+      flex: 0 0 100%; /* Ensure it takes full width */
+      justify-content: center;
+    }
+  }
+
+  /* --- Common styles for Tablet & Desktop --- */
+  @media (min-width: 768px) {
+    .usp-beam-container {
+      justify-content: space-around;
+      flex-wrap: nowrap; /* Prevents items from wrapping to a new line */
+    }
+  }
+
+  /* --- Tablet Only Styles (e.g., 768px to 1023px) --- */
+  /* This targets tablets and hides any USP after the third one. */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .usp-beam-container .usp-item:nth-child(n+4) {
+      display: none;
+    }
+  }
+
+
+  .img-first-margin {
+    margin: 0 5px;
+  }
+
+  .usp-item h6 {
+    align-items: center;
+    color: #000;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+  }
+
+  .usp-item h6 span {
+    display: inline-flex;
+  }
+
+  .usp-item h6 img {
+     vertical-align: middle;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "USP Beam",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "in-center",
+        "label": "In Between",
+        "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "type": "usp",
+        "name": "USP Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "usp-text",
+            "label": "USP Title"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_country_logos",
+            "label": "Show country logos and name?",
+            "default": false
+          },
+          {
+            "type": "image_picker",
+            "id": "country-logo-1",
+            "label": "Country Logo 1"
+          },
+          {
+            "type": "text",
+            "id": "country-name-1",
+            "label": "First Country Name"
+          },
+          {
+            "type": "image_picker",
+            "id": "country-logo-2",
+            "label": "Country Logo 2"
+          },
+          {
+            "type": "text",
+            "id": "country-name-2",
+            "label": "Second Country Name"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "USP Beam"
+      }
+    ]
+  }
+{% endschema %}

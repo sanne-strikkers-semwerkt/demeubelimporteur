@@ -1,0 +1,146 @@
+<style>
+  .zakelijk-usp {
+    background-color: #fff5d9;
+    padding: 40px 0;
+  }
+  .zakelijk-usp-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .zakelijk-usp-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 200px;
+  }
+  .zakelijk-usp-item-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19.5px;
+    color: #000000;
+  }
+  .zakelijk-usp-item-flags {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 5px;
+  }
+  .zakelijk-usp-item-flag {
+    width: 13px;
+    height: 9px;
+    display: inline-block;
+  }
+  @media (max-width: 991px) {
+    .zakelijk-usp-list {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .zakelijk-usp-item {
+      width: 100%;
+    }
+  }
+</style>
+
+<section class="zakelijk-usp">
+  <div class="container">
+    <div class="zakelijk-usp-list">
+      {% for block in section.blocks %}
+        <div class="zakelijk-usp-item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <img src="{{ block.settings.icon | img_url: '30x30' }}" alt="" style="width: 30px; height: 30px;">
+          {% endif %}
+          <span class="zakelijk-usp-item-text">{{ block.settings.text }}</span>
+          {% if block.settings.show_flags %}
+            <div class="zakelijk-usp-item-flags">
+              {% if block.settings.flag_1 != blank %}
+                <img src="{{ block.settings.flag_1 | img_url: '13x9' }}" alt="" class="zakelijk-usp-item-flag">
+              {% endif %}
+              {% if block.settings.flag_2 != blank %}
+                <img src="{{ block.settings.flag_2 | img_url: '13x9' }}" alt="" class="zakelijk-usp-item-flag">
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Zakelijk USP",
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (optional)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "USP Text",
+          "default": "Geen risico, betaal achteraf"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_flags",
+          "label": "Show Country Flags",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "flag_1",
+          "label": "Flag 1 (e.g., Netherlands)"
+        },
+        {
+          "type": "image_picker",
+          "id": "flag_2",
+          "label": "Flag 2 (e.g., Belgium)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zakelijk USP",
+      "blocks": [
+        {
+          "type": "usp",
+          "settings": {
+            "text": "Geen risico, betaal achteraf"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "text": "Op voorraad = binnen 5 dagen in huis"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "text": "Goedkoopste van",
+            "show_flags": true
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "text": "Altijd 1 jaar garantie"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

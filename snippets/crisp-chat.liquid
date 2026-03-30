@@ -1,0 +1,134 @@
+<!-- Crisp Chat Widget -->
+<script type="text/javascript">
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = '33bb21c8-3790-4f28-963d-311d763ecbdb';
+  (function () {
+    d = document;
+    s = d.createElement('script');
+    s.src = 'https://client.crisp.chat/l.js';
+    s.async = 1;
+    d.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+{% raw %}
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+
+    $crisp.push(['on', 'session:loaded', function() {
+
+      function showCustomChatButton() {
+        var customButton = document.querySelector('.chat-custom-button');
+        if (customButton) {
+          customButton.style.display = 'block';
+        }
+      }
+
+      function hideCustomChatButton() {
+        var customButton = document.querySelector('.chat-custom-button');
+        if (customButton) {
+          customButton.style.display = 'none';
+        }
+      }
+
+      $crisp.push(['do', 'chat:hide']);
+
+      $crisp.push(['on', 'chat:opened', function() {
+        hideCustomChatButton();
+      }]);
+
+      $crisp.push(['on', 'chat:closed', function() {
+        showCustomChatButton();
+        $crisp.push(['do', 'chat:hide']);
+      }]);
+
+      showCustomChatButton();
+    }]);
+  });
+</script>
+{% endraw %}
+
+<a
+  class="btn-orange chat-custom-button"
+  href="javascript:void(0);"
+  onclick="$crisp.push(['do', 'chat:show']);$crisp.push(['do', 'chat:open']);"
+>
+  <i class="fa-solid fa-comment custom-chat-icon"></i>Chat
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const stickyCart = document.querySelector('.product-box-main');
+  const customChatButton = document.querySelector('.chat-custom-button');
+  const reviewsWidget = document.querySelector('.reviews-sticky-widget');
+  let wwkSidebar = document.getElementById('wwkSidebarMobile');
+  const showTrigger = document.querySelector('.product-overview-block');
+  const hideTrigger = document.querySelector('.site-footer');
+  if (!stickyCart || !showTrigger || !hideTrigger) {
+    console.warn('Sticky functionality disabled: one or more required elements were not found.');
+    return;
+  }
+  let isPastShowTrigger = false;
+  let isBeforeHideTrigger = true;
+  function updateSynchronizedElements() {
+    if (!wwkSidebar) {
+        wwkSidebar = document.getElementById('wwkSidebarMobile');
+    }
+      
+    const isStickyVisible = stickyCart.classList.contains('show');
+    const stickyCartHeight = isStickyVisible ? stickyCart.offsetHeight : 0;
+    const bottomPosition = `${stickyCartHeight}px`;
+
+    if (wwkSidebar) wwkSidebar.style.bottom = bottomPosition;
+    if (customChatButton) customChatButton.style.bottom = bottomPosition;
+    if (reviewsWidget) reviewsWidget.style.bottom = bottomPosition;
+  }
+  
+  function manageStickyVisibility() {
+    if (isPastShowTrigger && isBeforeHideTrigger) {
+      stickyCart.classList.add('show');
+    } else {
+      stickyCart.classList.remove('show');
+    }
+    updateSynchronizedElements();
+  }
+
+  const showObserver = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      isPastShowTrigger = !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
+      manageStickyVisibility();
+    },
+    { threshold: 0 }
+  );
+
+  const hideObserver = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      isBeforeHideTrigger = !entry.isIntersecting;
+      manageStickyVisibility();
+    },
+    { threshold: 0 }
+  );
+
+  const bodyObserver = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+          if (mutation.addedNodes.length > 0) {
+              const sidebarAdded = Array.from(mutation.addedNodes).some(node => node.id === 'wwkSidebarMobile');
+              if (sidebarAdded) {
+                  updateSynchronizedElements();
+                  break; 
+              }
+          }
+      }
+  });
+
+  showObserver.observe(showTrigger);
+  hideObserver.observe(hideTrigger);
+
+  bodyObserver.observe(document.body, { childList: true, subtree: true });
+
+  window.addEventListener('resize', updateSynchronizedElements);
+  updateSynchronizedElements();
+});
+</script>

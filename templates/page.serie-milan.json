@@ -1,0 +1,162 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Milan serie",
+        "description": "Tijdloos design voor jouw interieur"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Milan.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<p></p><ul><li><strong>Authentieke vintage-stijl</strong>: klassiek en tijdloos, met een vleugje moderne luxe.</li><li><strong>Veel opbergruimte</strong>: voor een opgeruimd en georganiseerd huis.</li><li><strong>Twee kleurenopties</strong>: kies voor naturel hout of een stoere zwarte afwerking.</li><li><strong>Past in elk interieur</strong>: van landelijke charme tot industriële elegantie.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/milan-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "milan-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/milan-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Milan-meubelserie",
+            "description": "<p>Ben je op zoek naar meubels die niet alleen praktisch zijn, maar ook een stijlvolle aanvulling vormen op je interieur? Onze Milan-meubelserie biedt alles wat je nodig hebt. Deze collectie combineert de klassieke charme van vintage-stijl meubels met de kracht en duurzaamheid van landelijke meubels van mangohout. Of je nu een warme, natuurlijke uitstraling wilt of een stoer, zwart accent in huis, de Milan-meubelserie past perfect in elke ruimte.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de Milan-collectie",
+            "description": "<p>Met de veelzijdige Milan-meubelserie geef je elke kamer een verfijnde uitstraling. Hier zijn de belangrijkste meubels die jouw huis compleet maken:</p>"
+          }
+        },
+        "left_text_m8Japq": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Salontafel</strong>: een eyecatcher in je woonkamer. Het stevige tafelblad van mangohout, en de zwarte stalen details geven een luxe vintage-uitstraling. Perfect voor je kopje koffie, afstandsbediening of een goed boek.</li><li><strong>Tv-meubel</strong>: een stijlvol meubel dat functionaliteit en design combineert. Het biedt ruime opbergmogelijkheden en een stevige basis voor je televisie.</li><li><strong>Buffetkast</strong>: het pronkstuk voor je eetkamer of keuken. Met open en gesloten vakken biedt deze kast voldoende ruimte voor servies, glaswerk of decoratie.</li><li><strong>Dressoir</strong>: praktisch en stijlvol. Dit meubel biedt royale opbergruimte voor al je spullen en vormt tegelijkertijd een opvallend element in je interieur.</li></ul>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Vintage-look, moderne kwaliteit",
+            "description": "<p>De Milan-meubelserie straalt vakmanschap en elegantie uit. Gemaakt van duurzaam mangohout en versterkt met robuust zwart staal, hebben de meubels een unieke uitstraling die doet denken aan de luxe van vroeger. Verkrijgbaar in twee kleuren - naturel en zwart - past deze serie zowel bij landelijke als industriële interieurs.</p><p></p>"
+          }
+        },
+        "right_textarea_LtKYFd": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Duurzaam en stijlvol met mangohout",
+            "description": "<p>Mangohout is een milieuvriendelijk materiaal dat perfect past in een stijlvol interieur. Het hout is afkomstig van mangobomen die geen vruchten meer produceren, waardoor het op een verantwoorde manier kan worden hergebruikt. Dankzij de karakteristieke nerfstructuur en warme kleuren heeft elk meubel een unieke en opvallende uitstraling.</p>"
+          }
+        },
+        "right_textarea_eEHpnw": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Beleef de Milan-serie zelf",
+            "description": "<p>Benieuwd hoe deze meubels in jouw interieur staan? Je bent van harte welkom in een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms</a>. Hier kun je de meubels van dichtbij bekijken en zelf de kwaliteit van het mangohout en de stoere stalen accenten ervaren.</p><p>Of bekijk de collectie online en kies direct jouw favoriet! Je betaalt pas bij de deur; een aanbetaling is niet nodig.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "left_text_m8Japq",
+        "right_textarea_AwQf8r",
+        "right_textarea_LtKYFd",
+        "right_textarea_eEHpnw"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

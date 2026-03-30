@@ -1,0 +1,71 @@
+{% assign hidden_product_id = 15706174095694 %}
+{% unless card_product.id == hidden_product_id %}
+<div class="col-md-3 col-sm-12">
+                    <div class="product-box coll-page">
+                      <a href="{{ card_product.url }}" class="box-img">
+                        <img srcset="
+                  {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                  {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+                "
+                src="{{ card_product.featured_media | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                alt="{{ card_product.title | escape }}"
+                class="motion-reduce"
+                loading="lazy"
+                width="{{ card_product.featured_media.width }}"
+                height="{{ card_product.featured_media.height }}" />
+                <div class="main-tags">
+              {%- for coll in card_product.collections -%}
+                {% if coll.title == settings.collectionss.title %}
+                {% comment %} NA DE BLACKFRIDAY AANZETTEN {% endcomment %}
+                  {% comment %} <div class="collname" style="color: {{ settings.tag_color }}; background: {{ settings.tag_background }};">
+                    <span class="super" style="color: {{ settings.tag_color }};">{{ settings.tag_title }}</span>{% if canonical_url contains '/cart' %} <br />{% endif %}
+                    <span class="sale" style="color: {{ settings.tag_color2 }};">{{ settings.tag_title2 }}</span>
+                  </div> {% endcomment %}
+                  <div class="notification-bar" style="background:none!important; padding: 0px!important;border-radius: 10px!important;">
+                    <div class="notification-block">
+                        <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+                            <b>PAAS</b>
+                            <span>DEALS</span>
+                        </h6>
+                </div>
+              </div>
+                {% endif %}
+              {% endfor %}
+              {%- if card_product.compare_at_price > card_product.price -%}
+              {% capture discount %}{{ card_product.compare_at_price_max | minus:card_product.price | money }}€{% endcapture %}
+                <label>€{{ discount | remove: ',00€' | remove: '€' }} korting</label>
+                {% endif %}
+              </div>
+              
+                      </a>
+                      <div class="description">
+                        <a href="{{ card_product.url }}"><h3>{{ card_product.title }}</h3></a>
+                        {%- if card_product.compare_at_price > card_product.price -%}
+                          <p>Adviesprijs <span>{{ card_product.compare_at_price | money }}</span></p>
+                        {% endif %}
+                        <h6>{{ card_product.price | money }}</h6>
+                        <!-- <a href="#"
+                          ><i class="fal fa-plus"></i>
+                          <i class="fa fa-shopping-cart"></i
+                        ></a> -->
+                        {%- if card_product.selected_or_first_available_variant.available -%}
+                        <form action="/cart/add" method="post">
+          <input type="hidden" name="id" value="{{ card_product.variants.first.id }}" />
+          <button type="submit"  class="atc-btn" style="background: {{ color }};"><i class="fal fa-plus"></i>
+                          <i class="fa fa-shopping-cart"></i
+                        ></button>
+        </form>
+                          {% else %}
+                        <button type="submit" style="background: {{ color }};"class="sold-out-btn" disabled><i class="fal fa-plus"></i>
+                          <i class="fa fa-shopping-cart"></i></button>
+                          {% endif %}
+                      </div>
+                    </div>
+                  </div>
+{% endunless %}

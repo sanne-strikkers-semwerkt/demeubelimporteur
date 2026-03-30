@@ -1,0 +1,1157 @@
+<!-- Product review -->
+<section class="product-review-wrp">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-12">
+        <div class="specificaties-block" id="specificaties">
+          <div class="titlebar">
+            <h3>Specificaties</h3>
+          </div>
+          <table class="table table-borderless">
+            <tbody>
+              {% if product.metafields.spec.garantie != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {%- if section.settings.garantie %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#garantie">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt=""
+                          >
+                        </button>
+                      {%- endif -%}
+                      Garantie</span
+                    >
+                  </td>
+                  <td>
+                    <span>{{ product.metafields.spec.garantie }}</span>
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.spec.materiaal != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {%- if section.settings.material %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#material">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt=""
+                          >
+                        </button>
+                      {%- endif -%}
+                      Materiaal</span
+                    >
+                  </td>
+                  <td>
+                    {% assign material_values = product.metafields.spec.materiaal
+                      | remove: '"'
+                      | remove: '['
+                      | remove: ']'
+                      | split: ','
+                    %}
+                    {% for material in material_values %}
+                      {% assign clean_material = material | strip %}
+                      {% comment %} Check if this is descriptive text (contains periods or descriptive words) {% endcomment %}
+                      {% assign is_descriptive = false %}
+                      {% if clean_material contains '.' or clean_material contains 'met een' or clean_material contains 'voorzien van' or clean_material.size > 40 %}
+                        {% assign is_descriptive = true %}
+                      {% endif %}
+                      
+                      {% if is_descriptive %}
+                        <span class="spec-description-text">{{- clean_material -}}</span>
+                      {% else %}
+                        <a
+                          href="/collections/all?filter.v.availability=1&filter.p.m.spec.materiaal={{ clean_material | url_encode }}"
+                          class="spec-filter-link"
+                        >
+                          {{- clean_material -}}
+                        </a>
+                      {% endif %}
+                      {%- unless forloop.last %} {% endunless %}
+                    {% endfor %}
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.spec.stijl != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {%- if section.settings.stijl %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#stijl">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt=""
+                          >
+                        </button>
+                      {%- endif -%}
+                      Stijl</span
+                    >
+                  </td>
+                  <td>
+                    <span>{{ product.metafields.spec.stijl | remove: '"' | remove: '[' | remove: ']' }}</span>
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.spec.breedte != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {%- if section.settings.breedte %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#breedte">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt=""
+                          >
+                        </button>
+                      {%- endif -%}
+                      Breedte</span
+                    >
+                  </td>
+                  <td>
+                    {% assign clean_breedte = product.metafields.spec.breedte | remove: '"' | remove: '[' | remove: ']' | strip %}
+                    <a
+                      href="/collections/all?filter.v.availability=1&filter.p.m.spec.breedte={{ clean_breedte | url_encode }}"
+                      class="spec-filter-link"
+                    >
+                      {{- clean_breedte -}}
+                    </a>
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.spec.diepte != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {%- if section.settings.diepte %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#diepte">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt=""
+                          >
+                        </button>
+                      {%- endif -%}
+                      Diepte</span
+                    >
+                  </td>
+                  <td>
+                    <span>{{ product.metafields.spec.diepte | remove: '"' | remove: '[' | remove: ']' }}</span>
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.spec.hoogte != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {%- if section.settings.hoogte %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#hoogte">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt=""
+                          >
+                        </button>
+                      {%- endif -%}
+                      Hoogte</span
+                    >
+                  </td>
+                  <td>
+                    <span>{{ product.metafields.spec.hoogte | remove: '"' | remove: '[' | remove: ']' }}</span>
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.spec.gewicht != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {%- if section.settings.gewicht %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#gewicht">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt=""
+                          >
+                        </button>
+                      {%- endif -%}
+                      Gewicht</span
+                    >
+                  </td>
+                  <td>
+                    <span>{{ product.metafields.spec.gewicht }}</span>
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.spec.lengte != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {%- if section.settings.lengte %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#lengte">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt=""
+                          >
+                        </button>
+                      {%- endif -%}
+                      Lengte</span
+                    >
+                  </td>
+                  <td>
+                    {% assign lengte_values = product.metafields.spec.lengte | split: ',' %}
+                    {% for lengte in lengte_values %}
+                      {% assign clean_lengte = lengte | strip %}
+                      <a
+                        href="/collections/all?filter.v.availability=1&filter.p.m.spec.lengte={{ clean_lengte | url_encode }}"
+                        class="spec-filter-link"
+                      >
+                        {{- clean_lengte -}}
+                      </a>
+                      {%- unless forloop.last %}, {% endunless %}
+                    {% endfor %}
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.spec.dikte_blad  != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {% if section.settings.dikte_blad %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#dikte_blad">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt="info"
+                          >
+                        </button>
+                      {% endif %}
+                      Dikte blad
+                    </span>
+                  </td>
+                  <td>
+                    <span>{{ product.metafields.spec.dikte_blad }}</span>
+                  </td>
+                </tr>
+              {% endif %}
+               {% if product.metafields.custom.dikte_rand_blad != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {% if section.settings.dikte_rand_blad %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#dikte_rand_blad">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt="info"
+                          >
+                        </button>
+                      {% endif %}
+                      Dikte rand blad
+                    </span>
+                  </td>
+                  <td>
+                    <span>{{ product.metafields.custom.dikte_rand_blad }}</span>
+                  </td>
+                </tr>
+              {% endif %}
+              {% if product.metafields.custom.montage != blank %}
+                <tr>
+                  <td>
+                    <span>
+                      {% if section.settings.montage %}
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#montage">
+                          <img
+                            src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/info-circle-solid.svg?v=1750928404"
+                            alt="info"
+                          >
+                        </button>
+                      {% endif %}
+                      Montage
+                    </span>
+                  </td>
+                  <td>
+                    <span>{{ product.metafields.custom.montage }}</span>
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+        <div class="description-block">
+          <div class="titlebar">
+            <h3>Omschrijving</h3>
+          </div>
+          <div class="detail">
+            <p>
+              {{ product.description }}
+            </p>
+          </div>
+          <a href="javascript:void(0);" class="btn-secondary">Toon meer <i class="fas fa-chevron-down"></i></a>
+        </div>
+
+        <div class="reviews-block" id="review-block-anchor">
+          <div class="titlebar">
+            <h3>Reviews</h3>
+          </div>
+          <div id="random_quotes"></div>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-12">
+        <div class="checkout-block">
+          <div class="titlebar">
+            <h3>{{ section.settings.title }}</h3>
+          </div>
+          {% if product.metafields.custom.upsell_products.value != blank %}
+            <div class="row">
+              {% for items in product.metafields.custom.upsell_products.value %}
+                <div class="col-md-6 col-sm-12">
+                  <div class="product-box coll-page">
+                    <a href="{{ items.url }}">
+                      <div class="box-img">
+                        <img
+                          srcset="
+                            {%- if items.featured_media.width >= 165 -%}{{ items.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                            {%- if items.featured_media.width >= 360 -%}{{ items.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                            {%- if items.featured_media.width >= 533 -%}{{ items.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                            {%- if items.featured_media.width >= 720 -%}{{ items.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                            {%- if items.featured_media.width >= 940 -%}{{ items.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                            {%- if items.featured_media.width >= 1066 -%}{{ items.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                            {{ items.featured_media | image_url }} {{ items.featured_media.width }}w
+                          "
+                          src="{{ items.featured_media | image_url: width: 533 }}"
+                          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                          alt="{{ items.featured_media.alt | escape }}"
+                          class="motion-reduce"
+                          {% unless lazy_load == false %}
+                            loading="lazy"
+                          {% endunless %}
+                          width="{{ items.featured_media.width }}"
+                          height="{{ items.featured_media.height }}"
+                        >
+                        <div class="main-tags">
+                          {%- for coll in items.collections -%}
+                            {% if coll.title == settings.collectionss.title %}
+                             
+                              {% comment %} NA DE BLACKFRIDAY AANZETTEN {% endcomment %}
+                              {% comment %} <div
+                                class="collname"
+                                style="color: {{ settings.tag_color }}; background: {{ settings.tag_background }};"
+                              >
+                                <span class="super" style="color: {{ settings.tag_color }};">
+                                  {{- settings.tag_title -}}
+                                </span>
+                                <span class="sale" style="color: {{ settings.tag_color2 }};">
+                                  {{- settings.tag_title2 -}}
+                                </span>
+                              </div> {% endcomment %}
+                            
+                              <div class="notification-bar" style="background:none!important; padding: 0px!important;border-radius: 10px!important;">
+                                <div class="notification-block">
+                                    <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+                                        <b>PAAS</b>
+                                        <span>DEALS</span>
+                                    </h6>
+                            </div>
+                          </div>
+                        {% endif %}
+                          {% endfor %}
+
+                          {%- if items.compare_at_price > items.price -%}
+                            {% capture discount %}{{ items.compare_at_price_max | minus:items.price | money }}€{% endcapture %}
+                            <label>€{{ discount | remove: ',00€' | remove: '€' }} korting</label>
+                          {% endif %}
+                        </div>
+                      </div>
+                      <div class="description">
+                        <h3>{{ items.title }}</h3>
+                        {% assign current_variant = items.selected_or_first_available_variant %}
+                        {% if current_variant.inventory_quantity > 0 %}
+                          <h5 class="stockss show-stock-desktop show-stock-tablet show-stock-mobile">
+                            Op voorraad (vandaag besteld, binnen 1-10 werkdagen bezorgd)
+                          </h5>
+                        {% endif %}
+                        {% if items.metafields.arena.stockinfo != blank and current_variant.inventory_quantity <= 0 %}
+                          {% if items.selected_or_first_available_variant.available == false %}
+                            <!-- Out of stock -->
+                          {% else %}
+                            <h5
+                              class="weekss show-delivery-weeks-desktop show-delivery-weeks-tablet show-delivery-weeks-mobile"
+                              data-levertijd="{{ items.metafields.arena.stockinfo }}"
+                            ></h5>
+                          {% endif %}
+                        {% endif %}
+                        {%- if items.compare_at_price > items.price -%}
+                          <p>
+                            Adviesprijs <span>{{ items.compare_at_price | money }}</span>
+                          </p>
+                        {% endif %}
+                        <h6>{{ items.price | money }},-</h6>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="row">
+              {% if section.settings.collection != blank %}
+                {% assign collection_handle = section.settings.collection %}
+                {% assign collection = collections[collection_handle] %}
+                {% if collection.products_count > 0 %}
+                  {% for product in collection.products limit: section.settings.products_limit %}
+                    <div class="col-md-6 col-sm-12">
+                      <div class="product-box coll-page">
+                        <a href="{{ product.url }}">
+                          <div class="box-img">
+                            <img
+                              srcset="
+                                {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                              "
+                              src="{{ product.featured_media | image_url: width: 533 }}"
+                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                              alt="{{ product.featured_media.alt | escape }}"
+                              class="motion-reduce"
+                              {% unless lazy_load == false %}
+                                loading="lazy"
+                              {% endunless %}
+                              width="{{ product.featured_media.width }}"
+                              height="{{ product.featured_media.height }}"
+                            >
+                            <div class="main-tags">
+                              {%- for coll in product.collections -%}
+                                {% if coll.title == settings.collectionss.title %}
+                                  
+                                  {% comment %} NA DE BLACKFRIDAY AANZETTEN {% endcomment %}
+                                  {% comment %} <div
+                                    class="collname"
+                                    style="color: {{ settings.tag_color }}; background: {{ settings.tag_background }};"
+                                  >
+                                    <span class="super" style="color: {{ settings.tag_color }};">
+                                      {{- settings.tag_title -}}
+                                    </span>
+                                    <span class="sale" style="color: {{ settings.tag_color2 }};">
+                                      {{- settings.tag_title2 -}}
+                                    </span>
+                                  </div> {% endcomment %}
+                                
+                                  <div class="notification-bar" style="background:none!important; padding: 0px!important;border-radius: 10px!important;">
+                                    <div class="notification-block">
+                                        <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+                                            <b>PAAS</b>
+                                            <span>DEALS</span>
+                                        </h6>
+                                </div>
+                              </div>
+                            {% endif %}
+                              {% endfor %}
+
+                              {%- if product.compare_at_price > product.price -%}
+                                {% capture discount %}{{ product.compare_at_price_max | minus:product.price | money }}€{% endcapture %}
+                                <label>€{{ discount | remove: ',00€' | remove: '€' }} korting</label>
+                              {% endif %}
+                            </div>
+                          </div>
+                          <div class="description">
+                            <h3>{{ product.title }}</h3>
+                            {% assign current_variant = product.selected_or_first_available_variant %}
+                            {% if current_variant.inventory_quantity > 0 %}
+                              <h5 class="stockss show-stock-desktop show-stock-tablet show-stock-mobile">
+                                Op voorraad (vandaag besteld, binnen 1-10 werkdagen bezorgd)
+                              </h5>
+                            {% endif %}
+                            {% if product.metafields.arena.stockinfo != blank
+                              and current_variant.inventory_quantity <= 0
+                            %}
+                              {% if product.selected_or_first_available_variant.available == false %}
+                                <!-- Out of stock -->
+                              {% else %}
+                                <h5
+                                  class="weekss show-delivery-weeks-desktop show-delivery-weeks-tablet show-delivery-weeks-mobile"
+                                  data-levertijd="{{ product.metafields.arena.stockinfo }}"
+                                ></h5>
+                              {% endif %}
+                            {% endif %}
+                            {%- if product.compare_at_price > product.price -%}
+                              <p>
+                                Adviesprijs <span>{{ product.compare_at_price | money }}</span>
+                              </p>
+                            {% endif %}
+                            <h6>{{ product.price | money }},-</h6>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- popup model code -->
+{% if section.settings.garantie %}
+  <div
+    class="modal fade description-modal"
+    id="garantie"
+    tabindex="-1"
+    aria-labelledby="garantieLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Garantie</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['garantie-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if section.settings.material %}
+  <div
+    class="modal fade description-modal"
+    id="material"
+    tabindex="-1"
+    aria-labelledby="materialLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Materiaal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['material-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if section.settings.stijl %}
+  <div class="modal fade description-modal" id="stijl" tabindex="-1" aria-labelledby="stijlLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Stijl</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['stijl-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if section.settings.breedte %}
+  <div
+    class="modal fade description-modal"
+    id="breedte"
+    tabindex="-1"
+    aria-labelledby="breedteLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Breedte</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['breedte-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if section.settings.diepte %}
+  <div class="modal fade description-modal" id="diepte" tabindex="-1" aria-labelledby="diepteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Diepte</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['diepte-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if section.settings.hoogte %}
+  <div class="modal fade description-modal" id="hoogte" tabindex="-1" aria-labelledby="hoogteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Hoogte</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['hoogte-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if section.settings.gewicht %}
+  <div
+    class="modal fade description-modal"
+    id="gewicht"
+    tabindex="-1"
+    aria-labelledby="gewichtLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Gewicht</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['gewicht-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if section.settings.lengte %}
+  <div class="modal fade description-modal" id="lengte" tabindex="-1" aria-labelledby="lengtetLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lengte</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['lengte-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if section.settings.montage %}
+  <div
+    class="modal fade description-modal"
+    id="montage"
+    tabindex="-1"
+    aria-labelledby="montageLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Montage</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511" alt="">
+          </button>
+        </div>
+        <div class="modal-body">
+          {{ section.settings['montage-text'] }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<script>
+  $(document).ready(function () {
+    // Function to remove empty or whitespace-only tags
+    function removeEmptyTags() {
+      $('.detail')
+        .contents()
+        .filter(function () {
+          // Check if the node is a text node and contains only whitespace or non-breaking spaces
+          if (this.nodeType === 3 && !/\S/.test(this.nodeValue.replace(/&nbsp;/g, ''))) {
+            return true;
+          }
+          // Check if the element is empty or contains only whitespace or non-breaking spaces
+          if (this.nodeType === 1) {
+            var $this = $(this);
+            if (
+              $this.is(':empty') ||
+              !$this
+                .text()
+                .trim()
+                .replace(/&nbsp;/g, '').length
+            ) {
+              return true;
+            }
+          }
+          return false;
+        })
+        .remove();
+    }
+
+    // Call the function on document ready
+    removeEmptyTags();
+
+    // Handle delivery time for product cards
+    function updateDeliveryTimes() {
+      $('.product-box .weekss').each(function () {
+        var $this = $(this);
+        var levertijdText = $this.data('levertijd');
+
+        if (levertijdText) {
+          var updatedText = processDeliveryTime(levertijdText);
+          $this.text(updatedText);
+        }
+      });
+    }
+
+    function processDeliveryTime(levertijdText) {
+      const rangeRegex = /tussen de\s+(\d+)\s+en\s+(\d+)\s+weken/i;
+      const singleWeekRegex = /(\d+)\s*weken?/i;
+      const vanafWeekRegex = /vanaf\s+week\s+(\d+)/i;
+
+      let updatedText = levertijdText;
+
+      if (rangeRegex.test(levertijdText)) {
+        let match = levertijdText.match(rangeRegex);
+        let earliestWeek = parseInt(match[1]);
+        let dateAndMonth = getMondayOfWeekFromToday(earliestWeek);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else if (vanafWeekRegex.test(levertijdText)) {
+        let match = levertijdText.match(vanafWeekRegex);
+        let weekNumber = parseInt(match[1]);
+        let dateAndMonth = getMondayOfWeek(weekNumber);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else if (singleWeekRegex.test(levertijdText)) {
+        let match = levertijdText.match(singleWeekRegex);
+        let weekNumber = parseInt(match[1]);
+        let dateAndMonth = getMondayOfWeek(weekNumber);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      }
+
+      return updatedText;
+    }
+
+    function getMondayOfWeekFromToday(weeksFromToday) {
+      let today = new Date();
+      let targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + weeksFromToday * 7);
+
+      // Get the Monday of the target week
+      let day = targetDate.getDay();
+      let diffToMonday = day === 0 ? -6 : 1 - day; // Adjust for Sunday = 0
+      let monday = new Date(targetDate);
+      monday.setDate(targetDate.getDate() + diffToMonday);
+
+      let mondayDay = monday.getDate();
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${mondayDay} ${monthName}`;
+    }
+
+    function getMondayOfWeek(weekNumber, year) {
+      year = year || new Date().getFullYear();
+      let jan1 = new Date(year, 0, 1);
+      let jan1Day = jan1.getDay();
+      let offset = jan1Day <= 4 ? 1 - jan1Day : 8 - jan1Day;
+      let monday = new Date(year, 0, 1 + offset + (weekNumber - 1) * 7);
+      let day = monday.getDate();
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' }); // Dutch month
+      return `${day} ${monthName}`;
+    }
+
+    // Call the function on document ready
+    updateDeliveryTimes();
+
+    dquote();
+
+    dquote();
+
+    function dquote() {
+      var quotes = [
+        {
+          name: 'kenzo',
+          quote:
+            'Zeer tevreden van de meubels ! Wat staan ze hier prachtig !<br>Ook dienst na verkoop niets op aan te merken !<br>Vlot bereikbaar, zeer snel feedback, behulpzaam en vriendelijk !<br>Een aanrader !',
+        },
+
+        { name: 'Peter', quote: 'Zeer nette en vlotte levering en betaalbaar' },
+
+        { name: 'Sjoerd', quote: 'Goede service, Korte levertijd, Prima volgens afspraak.' },
+
+        {
+          name: 'Henk',
+          quote:
+            'Wat een geweldige service en een fantastisch product! We genieten iedere dag weer opnieuw van dit prachtige product!',
+        },
+
+        {
+          name: 'Hans van der Post',
+          quote:
+            'Correct behandeld in toonzaal.Duidelijke afspraken qua levering en betaling. Tijdig op <br>de hoogte gebracht van datum feitelijke levering. Keurig eubels gemonteerd en alle <br>verpakking meegenomen. <br><br>Kortom: zeer prettig zakendoen met de Meubel Importeur',
+        },
+
+        {
+          name: 'Rob',
+          quote:
+            "Erg goede kwaliteit, snelle levering en het is allemaal zo in elkaar gezet. Zoals ze zo<br>mooi zeggen in het Nederlands 'een kind kan de was doen'",
+        },
+
+        {
+          name: 'Danielle',
+          quote:
+            'Super service! De levering verliep perfect, zelf een moment kunnen kiezen en van te<br>voren ook nog gebeld worden als de bezorger er bijna was. Heel blij met de eubels,<br>geweldige prijs kwaliteit verhouding! 3,5 jaar geleden al salontafels, een tv meubel en<br>een vakkenkast gekocht en nu de set compleet gemaakt met een eettafel en<br>dressoir!',
+        },
+
+        { name: 'Angelique Pouw', quote: 'Top service en alle keren goede kwaliteit!' },
+
+        { name: 'R', quote: 'Alles vlot verlopen, op tijd en volgens afspraak geleverd en de tafel is prachtig! :)' },
+
+        { name: 'remy', quote: 'Mooie kast, uitstekende kwaliteit en nette bezorging. Top' },
+
+        {
+          name: 'Dorus Klinkert',
+          quote:
+            'Netjes geleverd en gemonteerd afval meegenomen alles op zijn plaats gezet beveel<br>jullie zeker aan bij familie en vrienden',
+        },
+
+        { name: 'Casper Van Herwaarden', quote: 'Erg snelle levering en goede prijs-/kwaliteitverhouding!' },
+
+        { name: 'Maura', quote: 'Supermooi meubel, snelle levering en fijne service!' },
+
+        {
+          name: 'Anne Van H',
+          quote:
+            'Super goed bedrijf! Bestelling snel bezorgd. Goede service en mooie producten. Zou<br>er zeker weer bestellen.',
+        },
+
+        {
+          name: 'Dirk Weller',
+          quote:
+            'Alles ging naar wens, op tijd geleverd en voldoet volledig aan de verwachting en dat<br>voor die prijs .. 😉👍',
+        },
+      ];
+
+      var shownQuotes = JSON.parse(localStorage.getItem('shownQuotes')) || [];
+      var newQuotes = [];
+
+      while (newQuotes.length < 3) {
+        var dquote = quotes[Math.floor(Math.random() * quotes.length)];
+        if (!shownQuotes.includes(dquote.name)) {
+          newQuotes.push(dquote);
+          shownQuotes.push(dquote.name);
+        }
+        if (shownQuotes.length === quotes.length) {
+          shownQuotes = [];
+        }
+      }
+
+      localStorage.setItem('shownQuotes', JSON.stringify(shownQuotes));
+
+      var html = '';
+      newQuotes.forEach(function (dquote) {
+        html +=
+          '<div class="review-box">' +
+          '<h6><span>' +
+          '<img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Vector_4_e0f1a400-0cc9-4026-9216-0dbef3424057.svg?v=1718273262" alt="">' +
+          '<img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Vector_4_e0f1a400-0cc9-4026-9216-0dbef3424057.svg?v=1718273262" alt="">' +
+          '<img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Vector_4_e0f1a400-0cc9-4026-9216-0dbef3424057.svg?v=1718273262" alt="">' +
+          '<img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Vector_4_e0f1a400-0cc9-4026-9216-0dbef3424057.svg?v=1718273262" alt="">' +
+          '<img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Vector_4_e0f1a400-0cc9-4026-9216-0dbef3424057.svg?v=1718273262" alt="">' +
+          '</span>' +
+          '</h6>' +
+          '<ul><li class="re-name">' +
+          dquote['name'] +
+          '</li><li>Heeft dit artikel gekocht</li></ul>' +
+          '<div class="col">' +
+          '<p>' +
+          dquote['quote'] +
+          '</p>' +
+          '</div>' +
+          '</div>';
+      });
+
+      $('#random_quotes').html(html);
+    }
+  });
+</script>
+
+<style>
+  /* Stock Information Visibility Controls */
+  {% unless settings.show_stock_desktop %}
+    .show-stock-desktop {
+      display: none !important;
+    }
+  {% endunless %}
+
+  {% unless settings.show_stock_tablet %}
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .show-stock-tablet {
+        display: none !important;
+      }
+    }
+  {% endunless %}
+
+  {% unless settings.show_stock_mobile %}
+    @media (max-width: 767px) {
+      .show-stock-mobile {
+        display: none !important;
+      }
+    }
+  {% endunless %}
+
+  /* Delivery Weeks Visibility Controls */
+  {% unless settings.show_delivery_weeks_desktop %}
+    .show-delivery-weeks-desktop {
+      display: none !important;
+    }
+  {% endunless %}
+
+  {% unless settings.show_delivery_weeks_tablet %}
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .show-delivery-weeks-tablet {
+        display: none !important;
+      }
+    }
+  {% endunless %}
+
+  {% unless settings.show_delivery_weeks_mobile %}
+    @media (max-width: 767px) {
+      .show-delivery-weeks-mobile {
+        display: none !important;
+      }
+    }
+  {% endunless %}
+
+
+
+  /* List styling for description block ul elements */
+  .description-block .detail ul {
+    list-style-type: disc !important;
+    padding-left: 20px !important;
+  }
+
+  .description-block .detail ul li {
+    list-style-type: disc !important;
+    font-size: 15px;
+    display: list-item !important;
+    font-family: Poppins, sans-serif;
+  }
+
+  /* Specification table styling */
+  .specificaties-block table tbody tr:nth-child(odd) td:last-child {
+    background: #f1f1f1;
+  }
+
+  .specificaties-block table tbody tr:nth-child(even) td:last-child {
+    background: #ffffff;
+  }
+
+  .specificaties-block table tbody tr td:last-child {
+    border-radius: 0 4px 4px 0;
+    padding: 8px 12px;
+  }
+
+  /* Specification filter links styling */
+  .specificaties-block table tbody tr td:last-child a {
+    background: inherit;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .specificaties-block table tbody tr td:last-child a:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Specification span styling - same as links */
+  .specificaties-block table tbody tr td:last-child span {
+    background: inherit;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  /* Do NOT style descriptive text as clickable boxes */
+  .specificaties-block table tbody tr td:last-child span.spec-description-text {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    display: inline;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Specificaties section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection.settings.collection.label"
+    },
+    {
+      "type": "number",
+      "id": "products_limit",
+      "label": "Number of Products",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Specificaties Info Icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "garantie",
+      "label": "Garantie"
+    },
+    {
+      "type": "richtext",
+      "id": "garantie-text",
+      "label": "Garantie Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "material",
+      "label": "Materiaal"
+    },
+    {
+      "type": "richtext",
+      "id": "material-text",
+      "label": "Materiaal Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "stijl",
+      "label": "Stijl"
+    },
+    {
+      "type": "richtext",
+      "id": "stijl-text",
+      "label": "Stijl Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "breedte",
+      "label": "Breedte"
+    },
+    {
+      "type": "richtext",
+      "id": "breedte-text",
+      "label": "Breedte Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "diepte",
+      "label": "Diepte"
+    },
+
+    {
+      "type": "richtext",
+      "id": "diepte-text",
+      "label": "Diepte Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "hoogte",
+      "label": "Hoogte"
+    },
+    {
+      "type": "richtext",
+      "id": "hoogte-text",
+      "label": "Hoogte Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "gewicht",
+      "label": "Gewicht"
+    },
+    {
+      "type": "richtext",
+      "id": "gewicht-text",
+      "label": "Gewicht Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "lengte",
+      "label": "Lengte"
+    },
+    {
+      "type": "richtext",
+      "id": "lengte-text",
+      "label": "Lengte Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "dikte_blad",
+      "label": "Dikte blad"
+    },
+    {
+      "type": "richtext",
+      "id": "dikte_blad-text",
+      "label": "Dikte Blad Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "dikte_rand_blad",
+      "label": "Dikte rand blad"
+    },
+    {
+      "type": "richtext",
+      "id": "dikte_rand_blad-text",
+      "label": "Dikte Rand Blad Popup Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "montage",
+      "label": "Montage"
+    },
+    {
+      "type": "richtext",
+      "id": "montage-text",
+      "label": "Montage Popup Content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specificaties section"
+    }
+  ]
+}
+{% endschema %}

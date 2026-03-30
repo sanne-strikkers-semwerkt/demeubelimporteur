@@ -1,0 +1,113 @@
+{% comment %} <div class="notification-bar">
+    <div class="container">
+        <div class="notification-block">
+            <h6>
+                <b>PAAS</b>
+                <span>DEALS</span>
+            </h6>
+            <h5>Sla je NU slag!</h5>
+            <h4>Nog <span> <b id="hours">10</b> uur</span> en <span> <b id="minutes">5</b> minuten</span> geldig!</h4>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+<a href="/collections/black-friday-deals" style="text-decoration: none;">
+<div class="notification-bar">
+    <div class="container">
+        <div class="notification-block">
+            <h6>
+                <b>PAAS</b>
+                <span>DEALS</span>
+            </h6>
+            <h5>Wegens succes verlengd!</h5>
+            <h4>
+                Nog 
+                <span> <b id="hours">...</b> uur</span> 
+                en 
+                <span> <b id="minutes">...</b> minuten</span> 
+                geldig!
+            </h4>
+        </div>
+    </div>
+</div>
+</a>
+
+<script>
+    $(document).ready(function () {
+        function getSecondsUntilMidnight() {
+            // Get the current time in the user's local timezone
+            const now = new Date();
+
+            // Convert current time to UTC, then to NL timezone (GMT+1 or GMT+2 in DST)
+            const utcOffsetNL = now.getTimezoneOffset() / 60 + 1; // Default GMT+1 (Standard time)
+            const nlOffset = now.getMonth() >= 2 && now.getMonth() <= 9 ? 2 : 1; // Adjust for DST
+            const utcNow = now.getTime() + now.getTimezoneOffset() * 60000;
+            const nlNow = new Date(utcNow + nlOffset * 3600000);
+
+            // Calculate the time remaining until midnight
+            const nextMidnight = new Date(nlNow.getFullYear(), nlNow.getMonth(), nlNow.getDate() + 1, 0, 0, 0);
+            return (nextMidnight - nlNow) / 1000; // Return seconds
+        }
+
+        function updateTimerDisplay(secondsLeft) {
+            const hours = Math.floor(secondsLeft / 3600);
+            const minutes = Math.floor((secondsLeft % 3600) / 60);
+
+            // Update the #hours element
+            $("#hours").text(hours);
+
+            // Update the #minutes element
+            $("#minutes").text(minutes);
+        }
+
+        function startTimer() {
+            let secondsLeft = getSecondsUntilMidnight();
+
+            // Update the timer every second
+            const interval = setInterval(() => {
+                secondsLeft--;
+
+                if (secondsLeft <= 0) {
+                    clearInterval(interval); // Stop the interval
+                    resetTimer(); // Reset the timer
+                } else {
+                    updateTimerDisplay(secondsLeft);
+                }
+            }, 1000);
+        }
+
+        function resetTimer() {
+            startTimer(); // Restart the timer for the next day
+        }
+
+        // Initialize the timer
+        startTimer();
+    });
+</script>
+
+{% schema %}
+ {
+  "name": "Black Friday announcement",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Black friday counter",
+      "info": "add future date and time to end sale"
+    },
+    {
+      "type": "text",
+      "id": "datetime",
+      "label": "Date & time",
+      "info": "please add date & time (YYYY-MM-DD HH:mm:ss format), for example:(2024-11-15 15:00:00)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Black Friday announcement"
+    }
+  ]
+}
+{% endschema %}

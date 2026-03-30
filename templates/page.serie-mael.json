@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Mael serie",
+        "description": "Tijdloze meubels van mangohout"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/alys-serie.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li>Vintage look</li><li>Hoogwaardig mangohout</li><li>Zwarte stalen details</li><li>Veel opbergruimte</li><li>Stevig en duurzaam</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/mael-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "mael-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/mael-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de Mael-collectie",
+            "description": "<p>Ben je op zoek naar een perfecte combinatie van stijl en functionaliteit? Bij De Meubel Importeur bieden we de oplossing! Onze unieke Mael-collectie is speciaal ontworpen voor liefhebbers van de vintage industriële look. Met natuurlijk mangohout en zwart staal breng je karakter en authenticiteit in je interieur. Of je nu een eyecatcher zoekt of extra opbergruimte nodig hebt, de Mael-collectie heeft het allemaal.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Waarom kies jij voor Mael-meubels van mangohout?",
+            "description": "<p>Wat maakt de Mael-collectie onweerstaanbaar? Het geheim zit in de hoogwaardige materialen. Mangohout staat bekend om zijn duurzaamheid, warme tinten en unieke nerfstructuur. Dit natuurlijke materiaal vormt de basis voor de industriële uitstraling van de Mael-meubels. Het stevige zwarte staal zorgt voor een stoere en robuuste look die jarenlang meegaat zonder in te leveren op stijl.</p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Een kast die jouw interieur verrijkt",
+            "description": "<p>De kast uit onze Mael-collectie is een echte must-have. Dankzij het slimme ontwerp biedt deze kast zowel functionaliteit als stijl. Zet je mooiste accessoires op het tafelblad en berg minder fraaie spullen netjes op achter de deuren of lades. Gemaakt van stevig mangohout en afgewerkt met metalen accenten is deze kast niet alleen praktisch, maar ook een opvallend decoratief element.</p><p></p>"
+          }
+        },
+        "right_textarea_dBfzUN": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Ontdek de Mael-collectie in een van onze showrooms",
+            "description": "<p>Wil je de tijdloze schoonheid van de Mael-meubels zelf ervaren? Kom langs in een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms </a>en ontdek de kwaliteit en het vakmanschap van dichtbij. Ben je direct klaar voor een upgrade van je interieur? Bestel jouw favoriete meubel dan online en betaal bij levering.</p><p><em><strong>Zonder zorgen de mooiste mangohouten meubels bestellen? Dat doe je bij De Meubel Importeur.</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "right_textarea_AwQf8r",
+        "right_textarea_dBfzUN"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

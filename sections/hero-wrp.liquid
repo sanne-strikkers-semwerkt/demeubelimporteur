@@ -1,0 +1,145 @@
+{% comment %} <section class="hero-wrp" style="background-image: url('https://cdn.shopify.com/s/files/1/0563/8412/7158/files/winter-sale-snow-v2.jpg?v=1765369887'); background-position: center; background-repeat: no-repeat; background-size: cover;" {% if section.settings.banner-bg-color != blank %}style="background:{{ section.settings.banner-bg-color }};" {% endif %}>     {% endcomment %}
+{% comment %} <section class="hero-wrp" style="background-image: url('//www.demeubelimporteur.nl/cdn/shop/files/about-banner.png?v=1747307749'); background-position: center; background-repeat: no-repeat; background-size: cover;" {% if section.settings.banner-bg-color != blank %}style="background:{{ section.settings.banner-bg-color }};" {% endif %}> {% endcomment %}
+{% comment %} <section class="hero-wrp" style="background-image: url('//www.demeubelimporteur.nl/cdn/shop/files/dmi-lente-deals-hero-bg.jpg?v=1772438419'); background-position: center; background-repeat: no-repeat; background-size: cover;" {% if section.settings.banner-bg-color != blank %}style="background:{{ section.settings.banner-bg-color }};" {% endif %}> {% endcomment %}
+<section class="hero-wrp" style="background-image: url('//www.demeubelimporteur.nl/cdn/shop/files/dmi-lente-deals-hero-b2.jpg?v=1774256179'); background-position: center; background-repeat: no-repeat; background-size: cover;" {% if section.settings.banner-bg-color != blank %}style="background:{{ section.settings.banner-bg-color }};" {% endif %}>
+   <img src="{{ section.settings.image | img_url: 'master' }}" width="932" height="317" loading="eager"  alt="" class="hero-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+              {% if section.settings.enable-banner %}
+                  <div class="sale-info">
+                      <div class="sale-box" {% if section.settings.sale-background != blank %}style="background:{{ section.settings.sale-background }};" {% endif %}>
+                        {% if section.settings.sale-image != blank %}
+                          <img src="{{ section.settings.sale-image | img_url: 'master' }}" width="200" height="130" alt="">
+                        {% else %}
+                            <h6 {% if section.settings.super-color != blank %}style="color:{{ section.settings.super-color }};"{% endif %}>{{ section.settings.super-text }}
+                              <span {% if section.settings.sale-color != blank %}style="color:{{  section.settings.sale-color }};"{% endif %}>{{ section.settings.sale-text }}</span></h6>
+                        {% endif %}
+                      </div>
+                  </div>
+              {% endif %}
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="description">
+                    <h2 {% if section.settings.text-color != blank %}style="color:{{ section.settings.text-color }};" {% endif %}>{{ section.settings.text }}</h2>
+                  <!-- Tot 60% korting <span>op tafels, stoelen en kasten.</span> -->
+                  <div class="mobile-center">
+                    <a href="{{ section.settings.button-link }}" class="btn-orange">{{ section.settings.button-label }}</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% style %}
+  .hero-wrp .description .btn-orange{
+    {% if section.settings.btn-text !=blank %} 
+      color: {{ section.settings.btn-text }};
+      {% endif %}
+    {% if section.settings.btn-background != blank %}
+      background:{{ section.settings.btn-background }};
+      {% endif %}
+  }
+  .hero-wrp .description .btn-orange:hover{
+    {% if section.settings.btn-background-hover !=blank %}
+      background:{{ section.settings.btn-background-hover }};
+    {% endif %}
+  }
+{% endstyle %}
+{% schema %}
+  {
+    "name": "Main banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "html",
+        "id": "text",
+        "label": "Text"
+      },
+       {
+        "type": "color",
+        "id": "banner-bg-color",
+        "label": "Banner background color"
+      },
+      {
+        "type": "color",
+        "id": "text-color",
+        "label": "Text color"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "button-label",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button-link",
+        "label": "Button link"
+      },
+      {
+        "type": "color",
+        "id": "btn-background",
+        "label": "Button background color"
+      },
+      {
+        "type": "color",
+        "id": "btn-background-hover",
+        "label": "Button background hover effect color"
+      },
+      {
+        "type": "color",
+        "id": "btn-text",
+        "label": "Button text color"
+      },
+      {
+        "type": "header",
+        "content": "Sale Label"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable-banner",
+        "label": "Activeer super sale banner"
+      },
+      {
+        "type": "color",
+        "id": "sale-background",
+        "label": "Super sale background color"
+      },
+      {
+        "type": "image_picker",
+        "id": "sale-image",
+        "label": "Sale Image",
+        "info": "If you would like to display text, please leave this field empty."
+      },
+      {
+        "type": "text",
+        "id": "super-text",
+        "label": "Super Text"
+      },
+      {
+        "type": "color",
+        "id": "super-color",
+        "label": "Super label color"
+      },
+      {
+        "type": "text",
+        "id": "sale-text",
+        "label": "sale Text"
+      },
+      {
+        "type": "color",
+        "id": "sale-color",
+        "label": "Sale label color"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Main banner"
+      }
+    ]
+  }
+{% endschema %}

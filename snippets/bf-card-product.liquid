@@ -1,0 +1,95 @@
+{% assign hidden_product_id = 15706174095694 %}
+{% unless card_product.id == hidden_product_id %}
+<div class="col-6 col-sm-6 col-md-4">
+  <div class="product-box">
+    <a href="{{ card_product.url }}">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/offer-label.svg?v=1731582452"
+        alt=""
+        class="offer-label-img"
+      >
+      <div class="box-img bf-card-overlay">
+        <img src="{{ card_product.featured_media | img_url: 'master' }}" alt="">
+      </div>
+      <style>
+        .box-img.bf-card-overlay {
+          position: relative !important;
+          overflow: visible !important;
+        }
+        .box-img.bf-card-overlay img {
+          display: block;
+          width: 100%;
+          height: auto;
+          position: relative;
+          z-index: 0;
+        }
+        .box-img.bf-card-overlay::after {
+          content: '' !important;
+          position: absolute !important;
+          top: 5px !important;
+          left: 5px !important;
+          right: 5px !important;
+          bottom: 5px !important;
+          border-radius: 9px;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.6) 15%,
+            rgba(0, 0, 0, 0.3) 25%,
+            rgba(0, 0, 0, 0.15) 35%,
+            rgba(0, 0, 0, 0.05) 45%,
+            transparent 55%
+          ) !important;
+          pointer-events: none !important;
+          z-index: 1;
+        }
+      </style>
+      <div class="description">
+        <h3>{{ card_product.title }}</h3>
+        {%- if settings.show_variant_count -%}
+          {%- assign variant_count = 0 -%}
+          {%- if card_product.metafields.custom.subproducts != blank -%}
+            {%- assign subproduct_urls = card_product.metafields.custom.subproducts.value | compact -%}
+            {%- assign variant_count = subproduct_urls.size | plus: 1 -%}
+          {%- else -%}
+            {%- assign variant_count = card_product.variants.size -%}
+          {%- endif -%}
+          {%- if variant_count > 1 -%}
+            <span class="variant-count">{{ variant_count }} varianten</span>
+          {%- endif -%}
+        {%- endif -%}
+        <p>
+          {% if card_product.compare_at_price != blank %}
+            Adviesprijs <span>{{ card_product.compare_at_price | money }},-</span>
+
+           
+            {% if card_product.metafields.custom.onze_prijs != blank %}
+              <b>Onze prijs <span>{{ card_product.metafields.custom.onze_prijs }}</span></b>
+            {% endif %}
+          {% else %}
+            {% if card_product.metafields.custom.onze_prijs != blank %}
+              <b
+                >Onze prijs <span>{{ card_product.metafields.custom.onze_prijs }}</span>
+              </b>
+            {% endif %}
+          {% endif %}
+        </p>
+        <div>
+          <h5 style="margin:0 !important;">Black Friday prijs</h5>
+          <h6 style="margin:0 !important;">{{ card_product.price | money }},-</h6>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<style>
+  .variant-count {
+    display: block;
+    font-size: {{ settings.variant_count_font_size }}px;
+    font-weight: {{ settings.variant_count_font_weight }};
+    color: rgba(var(--color-foreground), 0.7);
+    margin-bottom: 0.5rem;
+  }
+</style>
+{% endunless %}

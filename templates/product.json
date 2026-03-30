@@ -1,0 +1,463 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "new-product",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "volumeboost_volume_discounts_offer_table_block_pGypwf": {
+          "type": "shopify://apps/hulk-discounts/blocks/offer_table_block/25745434-52e7-4378-88f1-890df18a0110",
+          "settings": {}
+        },
+        "subproducts_qUedqB": {
+          "type": "subproducts",
+          "settings": {
+            "subproducts-title": "Kies jouw variant"
+          }
+        },
+        "care_kit_D7Jrfr": {
+          "type": "care-kit",
+          "settings": {
+            "care-kit-title": "Bescherm jouw nieuwe meubel(en)"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "usps_6fypew": {
+          "type": "usps",
+          "settings": {
+            "usp1": "Geen risico, betaal pas bij levering",
+            "usp2": "Goedkoopste van Nederland & België",
+            "usp3": "Altijd 1 jaar garantie",
+            "usp4": "9,5 uit 2.500+ reviews",
+            "usp5": ""
+          }
+        },
+        "payment_icons_FyJrcD": {
+          "type": "payment-icons",
+          "disabled": true,
+          "settings": {
+            "payment-icon-1": "shopify://shop_images/payment-icon1.svg",
+            "payment-icon-2": "shopify://shop_images/payment-icon2.svg",
+            "payment-icon-3": "shopify://shop_images/payment-icon3.svg",
+            "payment-icon-4": "shopify://shop_images/payment-icon4.svg"
+          }
+        },
+        "chat_box_yVBiFL": {
+          "type": "chat-box",
+          "settings": {
+            "chat-image": "shopify://shop_images/question-chat.svg",
+            "chat-title": "Heb je een vraag?",
+            "chat-description": "Chat met één van onze specialisten",
+            "chat-btn": "Start een chat"
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "volumeboost_volume_discounts_offer_table_block_pGypwf",
+        "subproducts_qUedqB",
+        "care_kit_D7Jrfr",
+        "quantity_selector",
+        "description",
+        "usps_6fypew",
+        "payment_icons_FyJrcD",
+        "chat_box_yVBiFL"
+      ],
+      "settings": {}
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "product_specifications_hjhrPd": {
+      "type": "new-specification",
+      "blocks": {
+        "specification_PkcchJ": {
+          "type": "specification",
+          "name": "Breedte",
+          "settings": {
+            "label": "Breedte",
+            "spec_key": "custom",
+            "custom_metafield": "spec.breedte",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_XLy37M": {
+          "type": "specification",
+          "name": "Diepte",
+          "settings": {
+            "label": "Diepte",
+            "spec_key": "custom",
+            "custom_metafield": "custom.diepte",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_VrazBD": {
+          "type": "specification",
+          "name": "Hoogte",
+          "settings": {
+            "label": "Hoogte",
+            "spec_key": "custom",
+            "custom_metafield": "spec.hoogte",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_NeD3Rw": {
+          "type": "specification",
+          "name": "Poothoogte",
+          "settings": {
+            "label": "Poothoogte",
+            "spec_key": "custom",
+            "custom_metafield": "custom.poothoogte",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_U8M4W9": {
+          "type": "specification",
+          "name": "Zithoogte",
+          "settings": {
+            "label": "Zithoogte",
+            "spec_key": "custom",
+            "custom_metafield": "custom.zithoogte",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_W7x8ft": {
+          "type": "specification",
+          "name": "Zitdiepte",
+          "settings": {
+            "label": "Zitdiepte",
+            "spec_key": "custom",
+            "custom_metafield": "custom.zitdiepte",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_maQN3M": {
+          "type": "specification",
+          "name": "Zitbreedte",
+          "settings": {
+            "label": "Zitbreedte",
+            "spec_key": "custom",
+            "custom_metafield": "custom.zitbreedte",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_HzGhjH": {
+          "type": "specification",
+          "name": "Zitcomfort",
+          "settings": {
+            "label": "Zitcomfort",
+            "spec_key": "custom",
+            "custom_metafield": "custom.zitcomfort",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_WA36cJ": {
+          "type": "specification",
+          "name": "Diameter",
+          "settings": {
+            "label": "Diameter",
+            "spec_key": "custom",
+            "custom_metafield": "spec.diameter",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_hXpCtX": {
+          "type": "specification",
+          "name": "Vakken afmetingen",
+          "settings": {
+            "label": "Vakken afmetingen",
+            "spec_key": "custom",
+            "custom_metafield": "custom.spec.vakken_afmeting",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_7MMRAx": {
+          "type": "specification",
+          "name": "Dikte blad",
+          "settings": {
+            "label": "Dikte blad",
+            "spec_key": "dikte_blad",
+            "custom_metafield": "",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_gmkCJj": {
+          "type": "specification",
+          "name": "Dikte rand blad",
+          "settings": {
+            "label": "Dikte rand blad",
+            "spec_key": "dikte_rand_blad",
+            "custom_metafield": "",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_gpAm46": {
+          "type": "specification",
+          "name": "Gewicht",
+          "settings": {
+            "label": "Gewicht",
+            "spec_key": "gewicht",
+            "custom_metafield": "",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_6dfKMH": {
+          "type": "specification",
+          "name": "Aantal personen",
+          "settings": {
+            "label": "Aantal personen",
+            "spec_key": "custom",
+            "custom_metafield": "custom.spec.personen",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_jYTqMq": {
+          "type": "specification",
+          "name": "Kleur",
+          "settings": {
+            "label": "Kleur",
+            "spec_key": "kleur",
+            "custom_metafield": "",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_ir3rzy": {
+          "type": "specification",
+          "name": "Vorm",
+          "settings": {
+            "label": "Vorm",
+            "spec_key": "custom",
+            "custom_metafield": "spec.vorm",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_KC3Mg8": {
+          "type": "specification",
+          "name": "Materiaal",
+          "settings": {
+            "label": "Materiaal",
+            "spec_key": "material",
+            "custom_metafield": "",
+            "enable_filter": true,
+            "show_info_icon": true,
+            "popup_content": "<p>Het materiaal vormt de basis van de uitstraling, kwaliteit en het comfort van een meubel. Stoffen en lederen bekleding zorgen voor zachtheid en een warme sfeer, terwijl hout, metaal of kunststof bekendstaan om hun stevigheid en praktische eigenschappen.</p><p>Kies je voor natuurlijke materialen, dan kies je voor karakter. Zo wordt mangohout op authentieke wijze verwerkt, waardoor geen enkel meubelstuk exact hetzelfde is. Kleurnuances, houtnerven en structuren kunnen licht afwijken van de getoonde afbeeldingen. Juist deze variaties geven elk meubel een unieke en levendige uitstraling.</p>"
+          }
+        },
+        "specification_nrEJqB": {
+          "type": "specification",
+          "name": "Stijl",
+          "settings": {
+            "label": "Stijl",
+            "spec_key": "stijl",
+            "custom_metafield": "",
+            "enable_filter": true,
+            "show_info_icon": false,
+            "popup_content": ""
+          }
+        },
+        "specification_TywVhc": {
+          "type": "specification",
+          "name": "Montage",
+          "settings": {
+            "label": "Montage",
+            "spec_key": "montage",
+            "custom_metafield": "",
+            "enable_filter": true,
+            "show_info_icon": true,
+            "popup_content": "<p>De montage bepaalt of het meubel direct klaar is voor gebruik of dat je het zelf nog moet monteren. Wordt het gemonteerd geleverd, dan hoef je het alleen uit te pakken en neer te zetten. Bij levering als bouwpakket ontvang je een duidelijke handleiding en alle benodigde onderdelen.</p><p>Wil je het meubel liever laten monteren? Maak gebruik van onze montage service: wij zetten het meubel voor je in elkaar en nemen het verpakkingsmateriaal mee.</p>"
+          }
+        },
+        "specification_8xWKEg": {
+          "type": "specification",
+          "name": "Garantie",
+          "settings": {
+            "label": "Garantie",
+            "spec_key": "garantie",
+            "custom_metafield": "",
+            "enable_filter": true,
+            "show_info_icon": true,
+            "popup_content": "<p>Op al onze producten geldt standaard een garantietermijn van 1 jaar. Ontstaat er in die tijd een probleem door een fabricage- of materiaalfout? Dan zorgen wij zonder extra kosten voor herstel of vervanging. Zo ben je verzekerd van uitstekende kwaliteit én service, en kun je met een gerust hart genieten van je aankoop.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "specification_PkcchJ",
+        "specification_XLy37M",
+        "specification_VrazBD",
+        "specification_NeD3Rw",
+        "specification_U8M4W9",
+        "specification_W7x8ft",
+        "specification_maQN3M",
+        "specification_HzGhjH",
+        "specification_WA36cJ",
+        "specification_hXpCtX",
+        "specification_7MMRAx",
+        "specification_gmkCJj",
+        "specification_gpAm46",
+        "specification_6dfKMH",
+        "specification_jYTqMq",
+        "specification_ir3rzy",
+        "specification_KC3Mg8",
+        "specification_nrEJqB",
+        "specification_TywVhc",
+        "specification_8xWKEg"
+      ],
+      "settings": {
+        "title": "Bekijk ook eens:",
+        "collection": "zwarte-eettafels",
+        "products_limit": 5
+      }
+    },
+    "related_product_wrp_6XbnVP": {
+      "type": "related-product-wrp",
+      "disabled": true,
+      "settings": {
+        "title": "Dit heb je eerder bekeken",
+        "collection": "deens-ovale-eettafels"
+      }
+    },
+    "bought_together_products": {
+      "type": "bought-together-products",
+      "settings": {
+        "title": "Anderen kochten ook:",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false
+      }
+    },
+    "recent_viewed_gpwAPg": {
+      "type": "recent-viewed",
+      "settings": {
+        "title": "Dit heb je eerder bekeken:"
+      }
+    },
+    "usp_wrp_wRDFdV": {
+      "type": "usp-wrp",
+      "blocks": {
+        "text_rRG8VT": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/wallet-alt-svgrepo-com_1.svg",
+            "text": "Geen risico, betaal pas bij levering"
+          }
+        },
+        "text_JQmPRT": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/truck-speed-svgrepo-com_1_1.svg",
+            "text": "Op voorraad? Binnen 5 dagen in huis"
+          }
+        },
+        "text_PCE37F": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/check-badge-svgrepo-com_5.svg",
+            "text": "Goedkoopste van Nederland & België"
+          }
+        },
+        "text_hb7yMY": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/thumb-up-gross-line-symbol-svgrepo-com_1.svg",
+            "text": "Altijd 1 jaar garantie"
+          }
+        },
+        "text_8NdyiY": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/star-sharp-svgrepo-com_1.svg",
+            "text": "9,6 uit 1000+ reviews"
+          }
+        }
+      },
+      "block_order": [
+        "text_rRG8VT",
+        "text_JQmPRT",
+        "text_PCE37F",
+        "text_hb7yMY",
+        "text_8NdyiY"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "product_specifications_hjhrPd",
+    "related_product_wrp_6XbnVP",
+    "bought_together_products",
+    "recent_viewed_gpwAPg",
+    "usp_wrp_wRDFdV"
+  ]
+}

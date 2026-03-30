@@ -1,0 +1,104 @@
+<style>
+  .zakelijk-client-logos {
+    padding: 40px 0;
+    background-color: #fff5d9;
+  }
+  .zakelijk-client-logos h3 {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+  .zakelijk-client-logos-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+  }
+  .zakelijk-client-logo {
+    height: 28px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  .zakelijk-client-logo:hover {
+    opacity: 1;
+  }
+  @media (max-width: 767px) {
+    .zakelijk-client-logos-list {
+      gap: 20px;
+    }
+  }
+</style>
+
+<section class="zakelijk-client-logos">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <h3>{{ section.settings.heading }}</h3>
+    {% endif %}
+    <div class="zakelijk-client-logos-list">
+      {% for block in section.blocks %}
+        {% if block.settings.logo != blank %}
+          <div {{ block.shopify_attributes }}>
+            <img src="{{ block.settings.logo | img_url: '200x' }}" alt="{{ block.settings.company_name | default: 'Client logo' }}" class="zakelijk-client-logo">
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Zakelijk Client Logos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Deze bedrijven gingen je voor:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Client Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "company_name",
+          "label": "Company Name (for alt text)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zakelijk Client Logos",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,87 @@
+<section class="faq-wrp">
+                <div class="container">
+                    <div class="titlebar">
+                        <h2>{{ section.settings.title }}</h2>
+                        <p>{{ section.settings.description }}</p>
+                    </div>
+                
+                    <div class="accordion" id="accordionExample">
+                      {% assign amount = 0 %}
+                      {% assign amounts = 0 %}
+                      {%- for block in section.blocks -%}
+                  {%- case block.type -%}
+                    {% when 'spacer' %}
+                        <div class="feequently-about-content">
+                            <h6>{{ block.settings.heading }}</h6>
+                        </div>
+                      {% when 'accordion' %}
+                    {% capture amount %}{{ amount | plus:1 }}{% endcapture %}
+                    {% capture amounts %}{{ amounts | plus:1 }}{% endcapture %}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading1{{ amount }}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1{{ amounts }}" aria-expanded="true" aria-controls="collapse1{{ amounts }}">
+                                    {{ block.settings.acc-title }}
+                                </button>
+                            </h2>
+                            <div id="collapse1{{ amounts }}" class="accordion-collapse collapse" aria-labelledby="heading1{{ amount }}" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{ block.settings.acc-desc }}
+                                </div>
+                            </div>
+                        </div>
+                      {% endcase %}
+                      {% endfor %}
+                    </div>
+                </div>
+            </section>
+{% schema %}
+  {
+    "name": "Faq section",
+    "settings": [
+      {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Heading"
+        },
+      {
+          "type": "inline_richtext",
+          "id": "description",
+          "label": "Description"
+        }
+    ],
+    "blocks": [
+    {
+      "type": "spacer",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "acc-title",
+          "label": "Heading"
+        },
+        {
+          "type": "html",
+          "id": "acc-desc",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "Faq section"
+      }
+    ]
+  }
+{% endschema %}

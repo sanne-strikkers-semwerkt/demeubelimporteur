@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "newsletter_signup_banner_yEePdV": {
+      "type": "newsletter-signup-banner",
+      "name": "Newsletter SignUp Banner",
+      "settings": {
+        "banner-heading": "Krijg <span>€ 10,-</span> korting!",
+        "form-heading": "Schrijf je in voor onze nieuwsbrief en krijg een kortingscode t.w.v. <strong>€ 10,-</strong> direct in je mail!",
+        "btnText": "Aanmelden",
+        "form-conclusion": "Hoe we met je data omgaan kan je bekijken in onze <a href=\"/pages/privacy-verklaring\" title=\"/pages/privacy-verklaring\">privacyverklaring.</a> Je kan je te allen tijde weer afmelden."
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "logo_item_HhPDXp": {
+          "type": "logo_item",
+          "settings": {
+            "logo-part": "shopify://shop_images/logo.svg",
+            "texts": "De Meubel Importeur is expert in meubelen en lifestyle. Hier richt je je thuis en je leven in. Met inspiratie, persoonlijk advies en een groot assortiment. Van kasten tot tafels en van stoelen tot eetkamerbanken. Wij hebben ze in huis!",
+            "review-text": "2,000+ reviews",
+            "keurmerk-logo": "shopify://shop_images/wwk.svg"
+          }
+        },
+        "link_list_n67wJc": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Klantenservice",
+            "menu": "klantenservice"
+          }
+        },
+        "link_list2_nQwzci": {
+          "type": "link_list2",
+          "settings": {
+            "heading": "Assortiment",
+            "menu": "assortiment"
+          }
+        },
+        "link_list_qhVtHN": {
+          "type": "link_list",
+          "disabled": true,
+          "settings": {
+            "heading": "Assortiment",
+            "menu": "assortiment"
+          }
+        },
+        "contact_CwAwjf": {
+          "type": "contact",
+          "settings": {
+            "heading": " Onze winkels",
+            "address-img1": "shopify://shop_images/dmi-winkel-footer-almelo.jpg",
+            "address-title1": "Winkel Almelo",
+            "address1": "Woonboulevard 12a, 7606 JA Almelo",
+            "address1-btn-text": "Route & contact",
+            "address1-btn-link": "shopify://pages/winkel-almelo",
+            "address-img2": "shopify://shop_images/dmi-winkel-footer-breda.jpg",
+            "address-title2": "Winkel Breda",
+            "address2": "Spinveld 22a, 4815 HS Breda",
+            "address2-btn-text": "Route & contact",
+            "address2-btn-link": "shopify://pages/winkel-breda",
+            "address-img3": "shopify://shop_images/dmi-winkel-footer-grootebroek.jpg",
+            "address-title3": "Winkel Grootebroek",
+            "address3": "Industrieweg 7, 1613 KT Grootebroek",
+            "address3-btn-text": "Route & contact",
+            "address3-btn-link": "shopify://pages/winkel-grootebroek"
+          }
+        }
+      },
+      "block_order": [
+        "logo_item_HhPDXp",
+        "link_list_n67wJc",
+        "link_list2_nQwzci",
+        "link_list_qhVtHN",
+        "contact_CwAwjf"
+      ],
+      "settings": {
+        "copyright": "© 2026 De Meubel Importeur - Onderdeel van Kyda Shops B.V.",
+        "link-text": "Algemene voorwaarden",
+        "text-link": "shopify://pages/algemene-voorwaarden",
+        "link-text1": "Privacy & Cookies",
+        "text-link1": "shopify://pages/privacy-verklaring",
+        "social-text": "Wil je ons volgen?"
+      }
+    }
+  },
+  "order": [
+    "newsletter_signup_banner_yEePdV",
+    "footer"
+  ]
+}

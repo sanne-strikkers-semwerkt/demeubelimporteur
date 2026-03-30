@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/banner-image-bg.jpg",
+        "title": "Alys serie",
+        "description": "Functionele én stijlvolle eyecatchers"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/alys-serie.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Compact en praktisch design:<\/strong> ideaal voor kleinere ruimtes of om een leeg hoekje op te vullen.<\/li><li><strong>Tijdloze stijl:<\/strong> geschikt voor moderne en industriële interieurs.<\/li><li><strong>Sterk en duurzaam materiaal:<\/strong> meubels van hoogwaardig mangohout die jaren meegaan.<\/li><li><strong>Veelzijdig gebruik:<\/strong> geschikt in verschillende ruimtes, voor verschillende doeleinden.<\/li><\/ul>",
+        "button": "Bekijk de volledige serie",
+        "link": ""
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "alys-serie",
+        "button": "Bekijk de volledige serie",
+        "link": ""
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Geef je interieur een upgrade met de Alys-collectie",
+            "description": "<p>Wil jij jouw kleine ruimtes optimaal benutten zonder in te leveren op stijl? Onze Alys-collectie biedt de perfecte oplossing. Deze serie meubels van mangohout combineert praktisch gebruik met een tijdloos design. Of je nu een compact appartement hebt of een ruime loft, met onze Alys-meubels haal je functionele én stijlvolle eyecatchers in huis.<\/p><p>Of je nu gaat voor de warme houtkleur van het bijzettafeltje van naturel hout of de moderne look van een zwarte tafel, je kiest altijd voor kwaliteit en stijl.<\/p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de veelzijdigheid van Alys-meubels",
+            "description": "<p>De Alys-meubels zijn ontworpen met gemak in gedachten. Het gebruik van mangohout maakt ieder meubel uniek en zorgt voor een natuurlijke, warme uitstraling. Tegelijkertijd zijn de meubels sterk, stevig en ideaal voor dagelijks gebruik. Perfect voor wie een compact en flexibel meubelstuk zoekt.<\/p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Kom de Alys-meubels zelf ervaren",
+            "description": "<p>Wil je de meubels van de Alys-collectie met eigen ogen zien, voordat je een aankoop doet? Bezoek onze <a href=\"https:\/\/www.demeubelimporteur.nl\/pages\/contact\"><span style=\"text-decoration:underline\">showroom in Breda<\/span><\/a> en ervaar de kwaliteit en uitstraling van onze mangohouten meubels zelf. Ons team staat klaar om je te adviseren en te helpen bij het maken van de juiste keuze. Liever direct bestellen? Dat kan! Je betaalt pas aan de deur, zonder aanbetaling.<\/p><p><em><strong>Wacht niet langer! Bestel vandaag nog jouw Alys-meubel en maak je interieur compleet.<\/strong><\/em><\/p>"
+          }
+        },
+        "full_width_textblock_n9NwY3": {
+          "type": "full_width_textblock",
+          "settings": {
+            "heading": "Geef je interieur een upgrade met de Alys-collectie",
+            "description": "<p>Wil jij jouw kleine ruimtes optimaal benutten zonder in te leveren op stijl? Onze Alys-collectie biedt de perfecte oplossing. Deze serie meubels van mangohout combineert praktisch gebruik met een tijdloos design. Of je nu een compact appartement hebt of een ruime loft, met onze Alys-meubels haal je functionele én stijlvolle eyecatchers in huis.<\/p><p>Of je nu gaat voor de warme houtkleur van het bijzettafeltje van naturel hout of de moderne look van een zwarte tafel, je kiest altijd voor kwaliteit en stijl.<\/p>"
+          }
+        },
+        "full_width_listblock_WiU8zR": {
+          "type": "full_width_listblock",
+          "settings": {
+            "list-block": "<ul><li><strong>Tv-meubel:<\/strong> een functioneel meubelstuk dat niet alleen ruimte biedt voor uw televisie, maar ook voldoende opbergruimte heeft voor uw apparatuur en accessoires.<\/li><li><strong>Dressoir:<\/strong> dit ruime dressoir is perfect voor het opbergen van kleding, elektronica of andere gezinsbenodigdheden.<\/li><li><strong>Nachtkastje:<\/strong> dit compacte nachtkastje biedt precies de ruimte die u nodig heeft om uw slaapkamer netjes en overzichtelijk te houden.<\/li><li><strong>Kastje:<\/strong> dit veelzijdige kastje past in elke ruimte van uw huis en biedt extra opbergruimte waar nodig.<\/li><\/ul>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "right_textarea_AwQf8r",
+        "full_width_textblock_n9NwY3",
+        "full_width_listblock_WiU8zR"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "\/pages\/britt-serie\/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "\/pages\/ula-serie\/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "\/pages\/oscar-serie\/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

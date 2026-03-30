@@ -1,0 +1,72 @@
+<section class="about-us-wrp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="about-us-content">
+                  {% if section.settings.title != blank %}
+                    <h2>{{ section.settings.title }}</h2>
+                  {% endif %}
+                  {% if section.settings.section-desc %}
+                    <p>{{ section.settings.section-desc }}</p>
+                  {% endif %}
+                  {% if section.blocks != blank %}
+                    <ul>
+                      {% for block in section.blocks %}
+                        {% if block.settings.sec-list != blank %}
+                          <li>{{ block.settings.sec-list }}</li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              {% if section.settings.aboutus-img != blank %}
+                <div class="about-us-img">
+                    <img src="{{ section.settings.aboutus-img | img_url: 'master'}}" alt="" />
+                </div>
+              {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "About us Image with Text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title"
+      },
+      {
+        "type": "textarea",
+        "id": "section-desc",
+        "label": "Section Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "aboutus-img",
+        "label": "About us Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "list",
+        "name": "list",
+        "settings": [
+          {
+            "type": "text",
+            "id": "sec-list",
+            "label": "List"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "About us Image with Text"
+      }
+    ]
+  }
+{% endschema %}

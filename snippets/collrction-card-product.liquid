@@ -1,0 +1,103 @@
+{% assign hidden_product_id = 15706174095694 %}
+{% unless card_product.id == hidden_product_id %}
+<div
+  {% if canonical_url contains '/search?' %}
+  {% else %}
+    class="col-md-4 col-sm-12"
+  {% endif %}
+>
+  <div
+    class="product-box coll-page"
+    id="Product_box_{{ card_product.id }}"
+    data-stockinfo="{{ card_product.metafields.arena.stockinfo }}"
+  >
+    <a href="{{ card_product.url }}">
+      <div class="box-img">
+        <img
+          src="{{ card_product.featured_media | image_url: width: 400 }}"
+          alt="{{ card_product.title | escape }}"
+          class="motion-reduce"
+          loading="lazy"
+          width="400"
+          height="400"
+        >
+        <div class="main-tags">
+          {%- for coll in card_product.collections -%}
+            {% if coll.title == settings.collectionss.title %}
+
+
+              {% comment %} NA DE BLACKFRIDAY AANZETTEN {% endcomment %}
+              {% comment %} <div class="collname" style="color: {{ settings.tag_color }}; background: {{ settings.tag_background }};">
+                <span class="super" style="color: {{ settings.tag_color }};">{{ settings.tag_title }}</span>
+                <span class="sale" style="color: {{ settings.tag_color2 }};">{{ settings.tag_title2 }}</span>
+              </div> {% endcomment %}
+
+              <div class="notification-bar" style="background:none!important; padding: 0px!important;border-radius: 10px!important;">
+                <div class="notification-block">
+                    <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+                        <b>PAAS</b>
+                        <span>DEALS</span>
+                    </h6>
+            </div>
+          </div>
+          
+            {% endif %}
+          {% endfor %}
+          {%- if card_product.compare_at_price > card_product.price -%}
+            {% capture discount %}{{ card_product.compare_at_price_max | minus:card_product.price | money }}€{% endcapture %}
+            <label class="desk-label">€{{ discount | remove: ',00€' | remove: '€' }} korting</label>
+          {% endif %}
+        </div>
+      </div>
+      <div class="description">
+        <h3>{{ card_product.title }}</h3>
+        {%- if settings.show_variant_count -%}
+          {%- assign variant_count = 0 -%}
+          {%- if card_product.metafields.custom.subproducts != blank -%}
+            {%- assign subproduct_urls = card_product.metafields.custom.subproducts.value | compact -%}
+            {%- assign variant_count = subproduct_urls.size | plus: 1 -%}
+            {%- if variant_count > 1 -%}
+              <span class="variant-count">{{ variant_count }} varianten</span>
+            {%- endif -%}
+          {%- else -%}
+            {%- assign variant_count = card_product.variants.size -%}
+            {%- if variant_count > 1 -%}
+              <span class="variant-count">{{ variant_count }} varianten</span>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endif -%}
+        {% assign current_variant = card_product.selected_or_first_available_variant %}
+        {% if current_variant.inventory_quantity > 0 %}
+          <h5 class="stockss show-stock-desktop show-stock-tablet show-stock-mobile">
+            <!-- <b> -->
+            <!-- <i class="fas fa-check"></i> -->
+            Op voorraad
+            <!-- </b> -->
+            <!-- (vandaag besteld, binnen 1-5 dagen bezorgd) -->
+          </h5>
+        {% endif %}
+        {% if card_product.metafields.arena.stockinfo != blank and current_variant.inventory_quantity <= 0 %}
+          <h5 class="weekss show-delivery-weeks-desktop show-delivery-weeks-tablet show-delivery-weeks-mobile"></h5>
+        {% endif %}
+        {%- if card_product.compare_at_price > card_product.price -%}
+          <p>
+            Adviesprijs <span>{{ card_product.compare_at_price | money }}</span>
+          </p>
+        {% endif %}
+        {% comment %}
+          {% assign current_variant = card_product.selected_or_first_available_variant %}
+          {% if current_variant.inventory_quantity > 0 %}
+                <h5 class="stockss"><b><i class="fas fa-check"></i> Op voorraad</b> (vandaag besteld, binnen 1-10 werkdagen bezorgd)</h5>
+          {% endif %}
+        {% endcomment %}
+
+        <h6>{{ card_product.price | money }}</h6>
+        {%- if card_product.compare_at_price > card_product.price -%}
+          {% capture discount %}{{ card_product.compare_at_price_max | minus:card_product.price | money }}€{% endcapture %}
+          <label class="mob-label">€{{ discount | remove: ',00€' | remove: '€' }} korting</label>
+        {% endif %}
+      </div>
+    </a>
+  </div>
+</div>
+{% endunless %}

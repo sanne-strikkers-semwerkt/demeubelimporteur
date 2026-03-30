@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Donovan serie",
+        "description": "Duurzaamheid, functionaliteit en stijl in huis"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/alys-serie.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam en ecologisch verantwoord</strong>:   mangohout is een materiaal dat lang meegaat en milieuvriendelijk is.</li><li><strong>Stoer en stijlvol</strong>: de combinatie van zwart staal en natuurlijk hout geeft een krachtige industriële uitstraling.</li><li><strong>Open ontwerp</strong>: zorgt voor een luchtige en ruimtelijke sfeer, zelfs in compacte kamers.</li><li><strong>Veelzijdigheid</strong>: geschikt voor zowel grote als kleine ruimtes.</li><li><strong>Robuuste kwaliteit</strong>: stevige constructie die jarenlang meegaat.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/donovan-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "donovan-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/donovan-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Industriële mangohouten Donovan-meubels met karakter",
+            "description": "<p>Ben jij op zoek naar meubels die jouw moderne interieur een stoere uitstraling geven? Met onze Donovan-meubels haal je de perfecte balans tussen duurzaamheid, functionaliteit en stijl in huis. Laat je inspireren door de tijdloze charme van onze Donovan-serie en ontdek hoe deze meubels jouw interieur tot een hoger niveau tillen.</p>"
+          }
+        },
+        "left_textarea_JGXJg3": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Bezoek onze showroom en laat je inspireren",
+            "description": "<p>Wil je de Donovan-meubels eerst in het echt bewonderen? Kom langs in een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">winkels</a> en ervaar zelf de kwaliteit en uitstraling van onze industriële mangohouten meubels. Ontdek hoe mangohouten meubels jouw interieur verrijken en laat je adviseren door onze specialisten.</p><p><a href=\"https://www.demeubelimporteur.nl/pages/winkels\"><strong>Plan je bezoek</strong></a><em><strong> of bestel direct en maak van jouw interieur een stijlvolle, functionele ruimte met de Donovan-meubelserie. Bestel je jouw meubels online? Dan betaal je pas bij levering.</strong></em></p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Lage boekenkast: compact en praktisch",
+            "description": "<p>Heb je minder ruimte, maar wil je wel genieten van de industriële charme van onze Donovan-serie? De lage boekenkast biedt uitkomst. Dit compacte meubel is perfect voor kleine ruimtes of als subtiele aanvulling op je interieur. Gebruik hem om boeken, planten of decoratieve items een plek te geven en plaats een lamp, vaas of kunstwerk op de bovenkant voor een extra stijlvol effect.</p><p></p>"
+          }
+        },
+        "right_textarea_PbgQQK": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Grote Donovan-boekenkast: ruimte en design",
+            "description": "<p>De grote boekenkast uit onze Donovan-collectie is een statement piece in je woonkamer. Met meerdere open vakken en een stevig metalen frame biedt deze kast volop ruimte om boeken, decoraties en accessoires stijlvol te etaleren. Het luchtige ontwerp maakt deze kast geschikt voor zowel grote als kleine ruimtes, zonder dat het zwaar of overheersend aanvoelt.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_JGXJg3",
+        "right_textarea_AwQf8r",
+        "right_textarea_PbgQQK"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

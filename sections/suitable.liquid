@@ -1,0 +1,96 @@
+<!-- suitable -->
+            <section class="suitable-wrp">
+                <div class="container">
+                    <div class="suitable-block">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="detail">
+                                    <h3>{{ section.settings.title }}</h3>
+                                    <p>
+                                        {{ section.settings.description }}
+                                    </p>
+                                    <p>
+                                        {{ section.settings.description1 }}
+                                    </p>
+                                    <img src="{{ section.settings.image | img_url: 'master' }}" alt="" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="detail">
+                                    <h3>{{ section.settings.title1 }}</h3>
+                                    <p>
+                                        {{ section.settings.description2 }}
+                                    </p>
+                                    <p>
+                                        {{ section.settings.description3 }}
+                                    </p>
+                                    <p>
+                                        {{ section.settings.description4 }}
+                                    </p>
+                                    <p>
+                                        {{ section.settings.description5 }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End suitable -->
+{% schema %}
+  {
+    "name": "Suitable",
+    "settings": [
+      {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+      {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+      {
+          "type": "text",
+          "id": "description1",
+          "label": "Description"
+        },
+      {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+      {
+          "type": "text",
+          "id": "title1",
+          "label": "Title"
+        },
+      {
+          "type": "text",
+          "id": "description2",
+          "label": "Description"
+        },
+      {
+          "type": "text",
+          "id": "description3",
+          "label": "Description"
+        },
+      {
+          "type": "text",
+          "id": "description4",
+          "label": "Description"
+        },
+      {
+          "type": "text",
+          "id": "description5",
+          "label": "Description"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Suitable"
+      }
+    ]
+  }
+{% endschema %}

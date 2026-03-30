@@ -1,0 +1,185 @@
+{%- style -%}
+  .heading-component-{{ section.id }} {
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  .heading-component-{{ section.id }} .heading-component__text {
+    margin-bottom: 0;
+  }
+
+  {%- if section.settings.custom_color != blank -%}
+    .heading-component-{{ section.id }} .heading-component__text {
+      color: {{ section.settings.custom_color }};
+    }
+  {%- endif -%}
+
+  {%- if section.settings.custom_font_size > 0 -%}
+    .heading-component-{{ section.id }} .heading-component__text {
+      font-size: {{ section.settings.custom_font_size | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .heading-component-{{ section.id }} .heading-component__text {
+        font-size: {{ section.settings.custom_font_size }}px;
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.margin_top > 0 -%}
+    .heading-component-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .heading-component-{{ section.id }} {
+        margin-top: {{ section.settings.margin_top }}px;
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.margin_bottom > 0 -%}
+    .heading-component-{{ section.id }} {
+      margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .heading-component-{{ section.id }} {
+        margin-bottom: {{ section.settings.margin_bottom }}px;
+      }
+    }
+  {%- endif -%}
+{%- endstyle -%}
+
+<div class="heading-component-{{ section.id }}{% unless section.settings.full_width %} page-width{% endunless %}">
+  {%- case section.settings.heading_size -%}
+    {%- when 'h1' -%}
+      <h1 class="heading-component__text {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h1>
+    {%- when 'h2' -%}
+      <h2 class="heading-component__text {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- when 'h3' -%}
+      <h3 class="heading-component__text {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h3>
+    {%- when 'h4' -%}
+      <h4 class="heading-component__text {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h4>
+  {%- endcase -%}
+</div>
+
+{% schema %}
+{
+  "name": "Heading (H1-H4)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading tekst",
+      "default": "Voeg een heading toe"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading grootte",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Tekst uitlijning",
+      "options": [
+        {
+          "value": "left",
+          "label": "Links"
+        },
+        {
+          "value": "center",
+          "label": "Gecentreerd"
+        },
+        {
+          "value": "right",
+          "label": "Rechts"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "custom_color",
+      "label": "Aangepaste kleur",
+      "info": "Laat leeg om de standaard kleur te gebruiken"
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Aangepaste font grootte",
+      "info": "0 = gebruik standaard heading grootte (H1-H4)",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Volle breedte",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Marges"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge boven",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge onder",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Heading (H1-H4)"
+    }
+  ]
+}
+{% endschema %}
+

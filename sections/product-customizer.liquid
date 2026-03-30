@@ -1,0 +1,682 @@
+<div class="stl-grid-wrapper" data-section-id="{{ section.id }}">
+  {%- if section.settings.title != blank -%}
+    <h2 class="stl-grid-title">{{ section.settings.title | escape }}</h2>
+  {%- endif -%}
+
+  <div class="stl-grid" style="--stl-desktop-columns: {{ section.settings.columns_desktop }};">
+    {%- for block in section.blocks limit: section.settings.looks_to_show -%}
+      <div class="stl-item-wrapper">
+        <div class="stl-container" data-block-id="{{ block.id }}">
+          <div class="stl-image-area">
+            <div
+              class="stl-image-inner"
+              {% if block.settings.background_image %}
+                style="background-image: url('{{ block.settings.background_image | image_url: width: 1200 }}');"
+              {% endif %}
+            ></div>
+
+            {% for i in (1..8) %}
+              {%- assign product_setting = 'product_' | append: i -%}
+              {%- assign hotspot_x_setting = 'hotspot_x_' | append: i -%}
+              {%- assign hotspot_y_setting = 'hotspot_y_' | append: i -%}
+
+              {%- if block.settings[product_setting] != blank -%}
+                {%- assign product = all_products[block.settings[product_setting]] -%}
+                <button
+                  class="stl-hotspot pulse"
+                  aria-label="Show details for {{ product.title | escape }}"
+                  style="top: {{ block.settings[hotspot_y_setting] }}%; left: {{ block.settings[hotspot_x_setting] }}%;"
+                  data-product-image="{{ product.featured_image | image_url: width: 600 }}"
+                  data-product-title="{{ product.title | escape }}"
+                  data-product-price="{{ product.price | money }}"
+                  data-product-compare-price="{{ product.compare_at_price | money }}"
+                  data-product-url="{{ product.url | within: collection }}"
+                  aria-expanded="false"
+                  aria-controls="stl-details-{{ block.id }}"
+                >
+                  <span class="stl-hotspot-plus">+</span>
+                </button>
+              {%- endif -%}
+            {% endfor %}
+          </div>
+
+          <div class="stl-details-panel" id="stl-details-{{ block.id }}" role="dialog" aria-hidden="true">
+            <div class="stl-details-panel-inner">
+              <button class="stl-details-close-btn" aria-label="Close product details">&times;</button>
+              <div class="stl-details-content">
+                <img class="stl-details-image" src="" alt="" loading="lazy" width="100" height="100">
+                <div class="stl-details-text">
+                  <h3 class="stl-details-title"></h3>
+                  <p class="stl-details-price"></p>
+                  <a href="#" class="stl-details-btn">Bekijk product</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  :root {
+    --stl-border-radius: 14px;
+    --stl-hotspot-size: 36px;
+    --stl-primary-color: #B17F4A;
+    --stl-text-color: #111;
+  }
+
+  .stl-grid-wrapper {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1400px;
+  }
+
+  .stl-grid-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .stl-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--stl-desktop-columns, 3), 1fr);
+    gap: 25px;
+  }
+
+  .stl-item-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .stl-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 1 / 1.1;
+    border-radius: var(--stl-border-radius);
+  }
+
+  .stl-image-area {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--stl-border-radius);
+    overflow: hidden;
+    transition: filter 0.5s ease;
+  }
+
+  .stl-image-area.is-blurred {
+    filter: blur(4px);
+  }
+
+  .stl-image-inner {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: #f1f1f1;
+  }
+
+  .stl-hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: var(--stl-hotspot-size);
+    height: var(--stl-hotspot-size);
+    border-radius: 4px;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .stl-hotspot:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .stl-hotspot.is-active {
+    box-shadow: 0 0 0 3px white, 0 0 0 5px var(--stl-primary-color);
+    z-index: 12;
+  }
+
+  .stl-hotspot-plus {
+    font-size: 28px;
+    color: var(--stl-primary-color);
+    font-weight: 300;
+  }
+
+  .stl-details-panel {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .stl-container.is-active .stl-details-panel {
+    transform: translateY(-10px);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .stl-details-close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    background: var(--stl-text-color);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stl-details-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    -webkit-transition: opacity 0.4s ease 0.2s, -webkit-transform 0.4s ease 0.2s;
+    transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    opacity: 0;
+  }
+   .stl-container.is-active .stl-details-content {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  .stl-details-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .stl-details-text {
+    flex-grow: 1;
+  }
+
+  .stl-details-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .stl-details-price {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 0 12px;
+  }
+
+  .stl-details-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--stl-primary-color);
+    color: #fff !important;
+    text-decoration: none !important;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  @media (max-width: 992px) {
+    .stl-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .stl-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stl-grid-wrapper {
+      padding: 10px;
+    }
+  }
+
+  .pulse {
+    animation: pulse-animation 2s infinite;
+  }
+
+  @keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    }
+  }
+
+  @media (min-width: 993px) {
+    .stl-container {
+      overflow: visible;
+    }
+
+    .stl-details-panel {
+      bottom: auto;
+      left: 0;
+      top: 0;
+      right: auto;
+      width: 320px;
+      padding: 16px;
+      border: 1px solid #EAEAEA;
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, top 0.3s ease, left 0.3s ease;
+    }
+
+    .stl-container.is-active .stl-details-panel {
+      transform: scale(1);
+    }
+
+    .stl-details-content {
+      opacity: 1;
+      transform: none;
+    }
+
+    .stl-details-image {
+      width: 80px;
+      height: 80px;
+    }
+
+    .stl-details-close-btn {
+      top: 8px;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      font-size: 18px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const initShopTheLook = (stlWrapper) => {
+      const stlContainer = stlWrapper.querySelector('.stl-container');
+      if (!stlContainer) return;
+
+      const imageArea = stlContainer.querySelector('.stl-image-area');
+      const hotspots = stlContainer.querySelectorAll('.stl-hotspot');
+      const detailsPanel = stlContainer.querySelector('.stl-details-panel');
+      const closeBtn = detailsPanel.querySelector('.stl-details-close-btn');
+      let activeHotspot = null;
+
+      const updateDetailsPanel = (hotspot) => {
+        const panelImage = detailsPanel.querySelector('.stl-details-image');
+        const panelTitle = detailsPanel.querySelector('.stl-details-title');
+        const panelPrice = detailsPanel.querySelector('.stl-details-price');
+        const panelButton = detailsPanel.querySelector('.stl-details-btn');
+
+        panelImage.src = hotspot.dataset.productImage;
+        panelImage.alt = hotspot.dataset.productTitle;
+        panelTitle.textContent = hotspot.dataset.productTitle;
+        panelButton.href = hotspot.dataset.productUrl;
+
+        const price = hotspot.dataset.productPrice;
+        const comparePrice = hotspot.dataset.productComparePrice;
+        if (comparePrice && comparePrice !== price) {
+          panelPrice.innerHTML = `<span style="text-decoration: line-through; color: #777; margin-right: 8px;">${comparePrice}</span><span style="color: #c00; font-weight: 600;">${price}</span>`;
+        } else {
+          panelPrice.textContent = price;
+        }
+      };
+
+      const positionDesktopPopover = (hotspot) => {
+        const hotspotRect = hotspot.getBoundingClientRect();
+        const containerRect = stlContainer.getBoundingClientRect();
+        const panelWidth = detailsPanel.offsetWidth;
+        const panelHeight = detailsPanel.offsetHeight;
+        const offset = 20;
+
+        let top = hotspot.offsetTop - panelHeight - offset;
+        let left = hotspot.offsetLeft + hotspot.offsetWidth / 2 - panelWidth / 2;
+
+        if (top < 0) {
+          top = hotspot.offsetTop + hotspot.offsetHeight + offset;
+        }
+
+        if (left < 0) {
+          left = 10;
+        } else if (left + panelWidth > containerRect.width) {
+          left = containerRect.width - panelWidth - 10;
+        }
+
+        detailsPanel.style.top = `${top}px`;
+        detailsPanel.style.left = `${left}px`;
+      };
+
+      const closePanel = () => {
+        stlContainer.classList.remove('is-active');
+        imageArea.classList.remove('is-blurred');
+        detailsPanel.setAttribute('aria-hidden', 'true');
+        if (activeHotspot) {
+          activeHotspot.classList.remove('is-active');
+          activeHotspot.setAttribute('aria-expanded', 'false');
+          activeHotspot = null;
+        }
+      };
+
+      hotspots.forEach((hotspot) => {
+        hotspot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (activeHotspot === hotspot) {
+            closePanel();
+            return;
+          }
+
+          if (activeHotspot) {
+            activeHotspot.classList.remove('is-active');
+            activeHotspot.setAttribute('aria-expanded', 'false');
+          }
+
+          activeHotspot = hotspot;
+          updateDetailsPanel(hotspot);
+
+          const isDesktop = window.matchMedia('(min-width: 993px)').matches;
+          if (isDesktop) {
+            positionDesktopPopover(hotspot);
+          } else {
+            imageArea.classList.add('is-blurred');
+          }
+
+          stlContainer.classList.add('is-active');
+          hotspot.classList.add('is-active');
+          hotspot.setAttribute('aria-expanded', 'true');
+          detailsPanel.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      closeBtn.addEventListener('click', closePanel);
+
+      const resizeObserver = new ResizeObserver(() => {
+        if (activeHotspot && window.matchMedia('(min-width: 993px)').matches) {
+          positionDesktopPopover(activeHotspot);
+        }
+      });
+
+      resizeObserver.observe(stlContainer);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && stlContainer.classList.contains('is-active')) {
+          closePanel();
+        }
+      });
+    };
+
+    document.querySelectorAll('.stl-item-wrapper').forEach(initShopTheLook);
+
+    document.addEventListener('click', (e) => {
+      const activeContainer = document.querySelector('.stl-container.is-active');
+      if (activeContainer && !activeContainer.contains(e.target)) {
+        activeContainer.querySelector('.stl-details-close-btn').click();
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Shop The Look Grid",
+  "tag": "section",
+  "class": "shopify-section-shop-the-look-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop The Look"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on Desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "looks_to_show",
+      "label": "Number of Looks to Show",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "look_item",
+      "name": "Look",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "header",
+          "content": "Hotspot 1"
+        },
+        {
+          "type": "product",
+          "id": "product_1",
+          "label": "Product 1"
+        },
+        {
+          "type": "range",
+          "id": "hotspot_x_1",
+          "label": "Horizontal Position (X)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y_1",
+          "label": "Vertical Position (Y)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        },
+        {
+          "type": "header",
+          "content": "Hotspot 2"
+        },
+        {
+          "type": "product",
+          "id": "product_2",
+          "label": "Product 2"
+        },
+        {
+          "type": "range",
+          "id": "hotspot_x_2",
+          "label": "Horizontal Position (X)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 70
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y_2",
+          "label": "Vertical Position (Y)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        { "type": "header", "content": "Hotspot 3" },
+        { "type": "product", "id": "product_3", "label": "Product 3" },
+        {
+          "type": "range",
+          "id": "hotspot_x_3",
+          "label": "Horizontal Position (X)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y_3",
+          "label": "Vertical Position (Y)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 70
+        },
+        { "type": "header", "content": "Hotspot 4" },
+        { "type": "product", "id": "product_4", "label": "Product 4" },
+        {
+          "type": "range",
+          "id": "hotspot_x_4",
+          "label": "Horizontal Position (X)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y_4",
+          "label": "Vertical Position (Y)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 60
+        },
+        { "type": "header", "content": "Hotspot 5" },
+        { "type": "product", "id": "product_5", "label": "Product 5" },
+        {
+          "type": "range",
+          "id": "hotspot_x_5",
+          "label": "Horizontal Position (X)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 80
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y_5",
+          "label": "Vertical Position (Y)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 80
+        },
+        { "type": "header", "content": "Hotspot 6" },
+        { "type": "product", "id": "product_6", "label": "Product 6" },
+        {
+          "type": "range",
+          "id": "hotspot_x_6",
+          "label": "Horizontal Position (X)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y_6",
+          "label": "Vertical Position (Y)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 10
+        },
+        { "type": "header", "content": "Hotspot 7" },
+        { "type": "product", "id": "product_7", "label": "Product 7" },
+        {
+          "type": "range",
+          "id": "hotspot_x_7",
+          "label": "Horizontal Position (X)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 15
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y_7",
+          "label": "Vertical Position (Y)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 85
+        },
+        { "type": "header", "content": "Hotspot 8" },
+        { "type": "product", "id": "product_8", "label": "Product 8" },
+        {
+          "type": "range",
+          "id": "hotspot_x_8",
+          "label": "Horizontal Position (X)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 85
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y_8",
+          "label": "Vertical Position (Y)",
+          "min": 5,
+          "max": 95,
+          "step": 1,
+          "unit": "%",
+          "default": 15
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop The Look Grid",
+      "blocks": [{ "type": "look_item" }, { "type": "look_item" }, { "type": "look_item" }]
+    }
+  ]
+}
+{% endschema %}

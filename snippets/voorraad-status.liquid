@@ -1,0 +1,76 @@
+
+
+{%- if variant -%}
+  <div class="voorraad-status-component">
+    {%- if variant.inventory_quantity > 0 -%}
+      <h5 class="stock-status in-stock">
+        <i class="fas fa-check"></i> Op voorraad (vandaag besteld, binnen 1-10 werkdagen bezorgd)
+      </h5>
+    {%- elsif product.metafields.arena.stockinfo != blank -%}
+      <h5 class="stock-status out-of-stock weekss">
+      </h5>
+    {%- else -%}
+      <h5 class="stock-status unavailable">
+        Niet op voorraad
+      </h5>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function getMondayOfWeekFromToday(weeksFromToday) {
+      const today = new Date();
+      const targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (weeksFromToday * 7));
+      const day = targetDate.getDay();
+      const diffToMonday = (day === 0 ? -6 : 1 - day); // Adjust for Sunday being 0
+      const monday = new Date(targetDate);
+      monday.setDate(targetDate.getDate() + diffToMonday);
+      const mondayDay = monday.getDate();
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${mondayDay} ${monthName}`;
+    }
+
+    function getMondayOfWeek(weekNumber, year) {
+      year = year || new Date().getFullYear();
+      const jan1 = new Date(year, 0, 1);
+      let jan1Day = jan1.getDay();
+      // The first Monday of the year
+      let offset = (jan1Day <= 4) ? 1 - jan1Day : 8 - jan1Day;
+      const monday = new Date(year, 0, 1 + offset + (weekNumber - 1) * 7);
+      const day = monday.getDate();
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${day} ${monthName}`;
+    }
+
+    const levertijdText = {{ product.metafields.arena.stockinfo | json }};
+    const weekssElement = document.querySelector('h5.weekss');
+
+    if (levertijdText && weekssElement) {
+      const rangeRegex = /tussen de\s+(\d+)\s+en\s+(\d+)\s+weken/i;
+      const singleWeekRegex = /(\d+)\s*weken?/i;
+      const vanafWeekRegex = /vanaf\s+week\s+(\d+)/i;
+
+      let updatedText = levertijdText;
+
+      if (rangeRegex.test(levertijdText)) {
+        const match = levertijdText.match(rangeRegex);
+        const earliestWeek = parseInt(match[1]);
+        const dateAndMonth = getMondayOfWeekFromToday(earliestWeek);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else if (vanafWeekRegex.test(levertijdText)) {
+        const match = levertijdText.match(vanafWeekRegex);
+        const weekNumber = parseInt(match[1]);
+        const dateAndMonth = getMondayOfWeek(weekNumber);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else if (singleWeekRegex.test(levertijdText)) {
+        const match = levertijdText.match(singleWeekRegex);
+        const weekNumber = parseInt(match[1]);
+        const dateAndMonth = getMondayOfWeek(weekNumber);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      }
+
+      weekssElement.textContent = updatedText;
+    }
+  });
+</script>

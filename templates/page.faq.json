@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "faq_section_UQEP8F": {
+      "type": "faq-section",
+      "blocks": {
+        "accordion_HRFB7m": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOE LANG IS DE LEVERTIJD?",
+            "acc-desc": "<p>\n                                        We hebben veel producten die direct uit voorraad leverbaar zijn. Dan kunnen wij het product binnen 5 werkdagen leveren. Als het product niet uit voorraad leverbaar is dan staat er bij het artikel aangegeven vanaf welke datum deze weer op voorraad is. \n                                    </p>\n\n                                    <p>\nLet op! Al onze levertijden zijn verwachte levertijden. We proberen deze zoveel mogelijk aan te houden, maar door onverwachte omstandigheden is dat helaas niet altijd mogelijk. Onze spullen komen namelijk uit India via de zeeroute. Hierdoor zijn er veel externe factoren, waar wij geen invloed op hebben, maar die wel invloed hebben op onze levertijden. Denk bijvoorbeeld aan vertraagde containers.                                    </p>"
+          }
+        },
+        "accordion_jxLcEm": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "KAN IK MIJN BESTELLING OOK OPHALEN?",
+            "acc-desc": "<p>Het is niet mogelijk om meubels af te halen. Alle meubels worden bij je thuisbezorgd. Tijdens het afrekenen kun je de beschikbare leveropties bekijken en eventueel kiezen voor montage.</p>"
+          }
+        },
+        "accordion_pHaG6K": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WANNEER WORDT MIJN BESTELLING VERZONDEN?",
+            "acc-desc": "<p>\nBij voorradige producten is de levertijd 1 à 2 weken, maar soms leveren we binnen een week als de de omstandigheden dit toelaten. Af en toe leveren we zelfs al de volgende werkdag. Al onze levertijden zijn echter onder voorbehoud. We proberen deze zoveel mogelijk aan te houden, maar door onverwachte omstandigheden is dat helaas niet altijd mogelijk.                                    </p>\n\n                                    <p>Er wordt vooraf telefonisch contact met je opgenomen door onze vervoerder om een leverdag en tijdsblok af te spreken. \n</p>"
+          }
+        },
+        "accordion_MNnn98": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "KAN IK MIJN BESTELLING OOK VOLGEN?",
+            "acc-desc": "<p>\n                                        Je kunt via de <a href=\"https://www.demeubelimporteur.nl/pages/mijn-bestelling\">volg je bestelling</a> pagina de bestelling volgen. Op het moment dat de status ‘overgedragen aan vervoerder’ is, zal de vervoerder binnen enkele dagen contact met je opnemen om een leverdag en tijdsblok van maximaal 3 uur af te spreken.\n                                    </p>"
+          }
+        },
+        "accordion_TLDp6F": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOE WORDT MIJN BESTELLING GELEVERD?",
+            "acc-desc": "<p>\n                                        Onze vervoerder levert de meubels via een eenmans levering tot aan de eerste drempel, mits de locatie goed bereikbaar is. In de praktijk betekent dit dat de bezorger met een karretje over een goed verhard pad bij de eerste deur moet kunnen komen (zonder obstakels). Indien mogelijk plaatsen zij het artikel verpakt in de gang.\n                                    </p>\n\n                                    <p>\n                                        Woon je in een flatgebouw of appartementen complex en is er een lift aanwezig in het gebouw, waar de producten goed inpassen, dan levert de vervoerder af aan de voordeur.\n                                    </p>\n                                    <p>\n\nWoon je op een verdieping zonder lift, dan levert de vervoerder tot de eerste deur.\n                                    </p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_HRFB7m",
+        "accordion_jxLcEm",
+        "accordion_pHaG6K",
+        "accordion_MNnn98",
+        "accordion_TLDp6F"
+      ],
+      "settings": {
+        "title": "Verzending & Ophalen",
+        "description": ""
+      }
+    },
+    "collect_faq_wrap_mwgwB4": {
+      "type": "collect-faq-wrap",
+      "blocks": {
+        "accordion_JqFM7X": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOE LANG IS DE LEVERTIJD?",
+            "acc-desc": "<p>\n                                        We hebben veel producten die direct uit voorraad leverbaar zijn. Mocht het product niet uit voorraad leverbaar zijn dan staat er bij het artikel aangegeven vanaf welke datum deze weer op voorraad is. Al onze\n                                        levertijden zijn verwachte levertijden. Deze kunnen we helaas dus niet altijd garanderen. Daarbij komen onze spullen uit India via de zeeroute. Hierdoor zijn er veel externe factoren waar wij geen invloed op\n                                        kunnen uitoefenen, maar die wel veel invloed hebben op onze levertijden. Denk bijvoorbeeld aan vertraagde containers.\n                                    </p>\n\n                                    <p>\n                                        Let op! *Levertijden zijn verwachte levertijden, kunnen mogelijk afwijken. De levertijden aangegeven op de website zijn altijd verwachtingen en die proberen we altijd zoveel mogelijk aan te houden. In deze\n                                        levertijden proberen wij natuurlijk al deze factoren door te rekenen, maar dat is helaas niet altijd mogelijk. Daarom staat er ook altijd een sterretje (*) bij al onze levertijden van producten die niet voorradig\n                                        zijn.\n                                    </p>"
+          }
+        },
+        "accordion_pxjrNR": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "KAN IK MIJN BESTELLING OOK OPHALEN?",
+            "acc-desc": "<p>De meubels worden bij je thuis bezorgd, je kan de meubels niet ophalen.</p>"
+          }
+        },
+        "accordion_k79QDC": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "WANNEER WORDT MIJN BESTELLING VERZONDEN?",
+            "acc-desc": "<p>\n                                        Bij voorradige producten is de levertijd 1 a 2 weken maar soms leveren we binnen een week (5 werkdagen) mits de de omstandigheden dit natuurlijk toelaat. Heel af en toe leveren we zelfs al de volgende werkdag. Al\n                                        onze levertijden zijn echter onder voorbehoud. Dit door de chaotische omstandigheden veroorzaakt, door de pandemie en omdat alles via de zeeroute onze kant op laten komen. Tijdens de feestdagen is het natuurlijk\n                                        nog drukker. De levertijden aangegeven op de website zijn altijd verwachtingen en die proberen we altijd zoveel mogelijk aan te houden. In deze levertijden proberen wij natuurlijk al deze factoren door te\n                                        rekenen, maar dat is helaas niet altijd mogelijk.\n                                    </p>\n\n                                    <p>Er wordt vooraf telefonisch contact met je opgenomen oom een leverdag af te spreken door onze vervoerder.</p>"
+          }
+        },
+        "accordion_ELHHb3": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "KAN IK MIJN BESTELLING OOK VOLGEN?",
+            "acc-desc": "<p>\n                                        Je kunt via de <a href=\"https://www.demeubelimporteur.nl/pages/mijn-bestelling\">volg je bestelling</a> pagina de bestelling volgen. Op het moment dat de status ‘overgedragen aan vervoerder’ is zal de vervoerder binnen enkele dagen contact met je opnemen om een leverdag af te\n                                        spreken.\n                                    </p>"
+          }
+        },
+        "accordion_MKRPhY": {
+          "type": "accordion",
+          "settings": {
+            "acc-title": "HOE WORDT MIJN BESTELLING GELEVERD?",
+            "acc-desc": "<p>\n                                        Onze vervoerder levert de meubels via een eenmans levering tot aan de eerste drempel mits de locatie goed bereikbaar is. In de praktijk betekend dit dat de bezorger met een karretje over een goed verhard pad bij\n                                        de eerste deur moet kunnen komen (zonder obstakels).\n                                    </p>\n\n                                    <p>\n                                        Ben je woonachtig in een flatgebouw, of appartementen complex en is er een een lift aanwezig waar de producten goed inpassen dan levert de vervoerder af aan de voordeur. Indien je woonachtig bent op een\n                                        verdieping zonder lift dan levert de vervoerder tot de eerste deur.\n                                    </p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_JqFM7X",
+        "accordion_pxjrNR",
+        "accordion_k79QDC",
+        "accordion_ELHHb3",
+        "accordion_MKRPhY"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Verzending & Ophalen"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_section_UQEP8F",
+    "collect_faq_wrap_mwgwB4"
+  ]
+}

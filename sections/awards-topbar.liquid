@@ -1,0 +1,621 @@
+{%- if section.settings.enable_topbar -%}
+<section id="awards-notification-{{ section.id }}" class="notification-bar awards-notification">
+  <div class="container">
+    <div class="notification-block awards-block">
+      <div class="mobile-left-group">
+        {% if section.settings.show_badge %}
+          {% if section.settings.badge_image != blank %}
+            <div class="awards-badge-image">
+              <img src="{{ section.settings.badge_image | image_url: width: 100 }}" alt="Shopping Awards 25e editie" height="30">
+            </div>
+          {% else %}
+            <h6>
+              <b>{{ section.settings.badge_bold }}</b>
+              {% if section.settings.badge_normal != blank %}
+                <span>{{ section.settings.badge_normal }}</span>
+              {% endif %}
+            </h6>
+          {% endif %}
+        {% endif %}
+        
+        {% if section.settings.main_text != blank %}
+          <h5>{{ section.settings.main_text }}</h5>
+        {% endif %}
+      </div>
+      
+      <a href="{{ section.settings.vote_url }}" 
+         class="friday-link" 
+         target="_blank" 
+         rel="noopener">
+        {{ section.settings.button_text }}
+      </a>
+      
+      {% if section.settings.enable_close %}
+        <a href="#" class="notification-close">
+          <i class="fa fa-times"></i>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+  
+  {% if section.settings.enable_confetti %}
+    <canvas id="confetti-canvas-{{ section.id }}" class="confetti-canvas"></canvas>
+  {% endif %}
+</section>
+
+<style>
+  .notification-bar.awards-notification {
+    position: relative;
+    background: {{ section.settings.background_gradient }} !important;
+    {% if section.settings.enable_animation %}
+    background-size: 200% 200%;
+    animation: gradientShift {{ section.settings.animation_speed }}s ease infinite;
+    {% endif %}
+  }
+  
+  .notification-bar.awards-notification .notification-block {
+    justify-content: {{ section.settings.desktop_alignment }} !important;
+    text-align: {{ section.settings.desktop_text_align }};
+  }
+  
+  .notification-bar.awards-notification .mobile-left-group {
+    display: contents;
+  }
+  
+  .notification-bar.awards-notification .awards-badge-image {
+    display: flex;
+    align-items: center;
+  }
+  
+  .notification-bar.awards-notification .awards-badge-image img {
+    height: {{ section.settings.badge_image_height_desktop }}px;
+    width: auto;
+  }
+  
+  .notification-bar.awards-notification .notification-block h5 {
+    color: {{ section.settings.text_color }} !important;
+  }
+  
+  .notification-bar.awards-notification .notification-block h6 {
+    background-color: {{ section.settings.badge_bg_color }} !important;
+  }
+  
+  .notification-bar.awards-notification .notification-block h6 b {
+    color: {{ section.settings.badge_text_color }} !important;
+  }
+  
+  .notification-bar.awards-notification .notification-block h6 span {
+    color: {{ section.settings.badge_text_color }} !important;
+  }
+  
+  .notification-bar.awards-notification .friday-link {
+    background: {{ section.settings.button_bg_color }} !important;
+    color: {{ section.settings.button_text_color }} !important;
+    position: relative !important;
+  }
+  
+  .notification-bar.awards-notification .friday-link:hover {
+    background: {{ section.settings.button_hover_bg_color }} !important;
+  }
+  
+  .notification-bar.awards-notification .notification-close {
+    color: {{ section.settings.close_button_color }} !important;
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+  }
+  
+  .confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Animations */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  {% if section.settings.enable_pulse %}
+  .notification-bar.awards-notification .friday-link {
+    animation: pulse 2s ease-in-out infinite;
+  }
+  {% endif %}
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .notification-bar.awards-notification .container {
+      max-width: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .notification-bar.awards-notification .notification-block {
+      justify-content: space-between !important;
+      text-align: left !important;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 8px !important;
+    }
+    
+    .notification-bar.awards-notification .mobile-left-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+    
+    .notification-bar.awards-notification .awards-badge-image img {
+      height: {{ section.settings.badge_image_height_mobile }}px;
+    }
+    
+    .notification-bar.awards-notification .notification-block h5 {
+      font-size: 14px !important;
+      text-align: left !important;
+      margin: 0;
+    }
+    
+    .notification-bar.awards-notification .friday-link {
+      font-size: 13px !important;
+      padding: 3px 6px !important;
+      flex-shrink: 0;
+    }
+    
+    .notification-bar.awards-notification .notification-close {
+      font-size: 14px !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .notification-bar.awards-notification .notification-block h5 {
+      font-size: 12px !important;
+    }
+    
+    .notification-bar.awards-notification .friday-link {
+      font-size: 12px !important;
+    }
+  }
+  
+  #awards-notification-{{ section.id }}.hidden {
+    display: none !important;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sectionSelector = '#awards-notification-{{ section.id }}';
+    var storageKey = 'awardsNotificationClosed-{{ section.id }}';
+    var enableConfetti = {{ section.settings.enable_confetti | json }};
+    
+    var sectionEl = document.querySelector(sectionSelector);
+    if (!sectionEl) return;
+    
+    var closeBtn = sectionEl.querySelector('.notification-close');
+    
+    // Check if dismissed in this session
+    if (sessionStorage.getItem(storageKey) === 'true') {
+      sectionEl.classList.add('hidden');
+      return;
+    }
+    
+    // Close button functionality
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(evt) {
+        evt.preventDefault();
+        sectionEl.classList.add('hidden');
+        sessionStorage.setItem(storageKey, 'true');
+      });
+    }
+    
+    // Confetti animation
+    if (enableConfetti) {
+      const canvas = document.getElementById('confetti-canvas-{{ section.id }}');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      canvas.width = sectionEl.offsetWidth;
+      canvas.height = sectionEl.offsetHeight;
+      
+      const confettiColors = {{ section.settings.confetti_colors | json }};
+      const confettiPieces = [];
+      const confettiCount = {{ section.settings.confetti_count }};
+      
+      class ConfettiPiece {
+        constructor() {
+          this.reset();
+        }
+        
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height - canvas.height;
+          this.w = Math.random() * 8 + 3;
+          this.h = Math.random() * 8 + 3;
+          this.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+          this.rotation = Math.random() * 360;
+          this.speed = Math.random() * 1.5 + 0.5;
+          this.rotationSpeed = Math.random() * 4 - 2;
+          this.opacity = Math.random() * 0.4 + 0.3;
+        }
+        
+        update() {
+          this.y += this.speed;
+          this.rotation += this.rotationSpeed;
+          
+          if (this.y > canvas.height) {
+            this.reset();
+          }
+        }
+        
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.opacity;
+          ctx.translate(this.x + this.w / 2, this.y + this.h / 2);
+          ctx.rotate((this.rotation * Math.PI) / 180);
+          ctx.fillStyle = this.color;
+          ctx.fillRect(-this.w / 2, -this.h / 2, this.w, this.h);
+          ctx.restore();
+        }
+      }
+      
+      // Initialize confetti
+      for (let i = 0; i < confettiCount; i++) {
+        confettiPieces.push(new ConfettiPiece());
+      }
+      
+      function animateConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        confettiPieces.forEach(piece => {
+          piece.update();
+          piece.draw();
+        });
+        
+        requestAnimationFrame(animateConfetti);
+      }
+      
+      animateConfetti();
+      
+      // Resize canvas on window resize
+      window.addEventListener('resize', function() {
+        canvas.width = sectionEl.offsetWidth;
+        canvas.height = sectionEl.offsetHeight;
+      });
+    }
+  });
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Awards Top Bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_topbar",
+      "label": "Enable Top Bar",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "vote_url",
+      "label": "Vote URL"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show Badge",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_image",
+      "label": "Badge Image (25e-editie.png)",
+      "info": "Upload 25e-editie.png or leave empty to use text badge"
+    },
+    {
+      "type": "range",
+      "id": "badge_image_height_desktop",
+      "label": "Badge Image Height (Desktop)",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "badge_image_height_mobile",
+      "label": "Badge Image Height (Mobile)",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "default": 22,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "badge_bold",
+      "label": "Badge Bold Text (if no image)",
+      "default": "🏆 GENOMINEERD"
+    },
+    {
+      "type": "text",
+      "id": "badge_normal",
+      "label": "Badge Normal Text (if no image)",
+      "info": "Leave empty if not needed"
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Main Text",
+      "default": "Stem op De Meubelimporteur voor de Shopping Awards 2026!"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Stem nu"
+    },
+    {
+      "type": "header",
+      "content": "Layout & Positioning"
+    },
+    {
+      "type": "select",
+      "id": "desktop_alignment",
+      "label": "Desktop Alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        },
+        {
+          "value": "space-between",
+          "label": "Space Between"
+        },
+        {
+          "value": "space-around",
+          "label": "Space Around"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_align",
+      "label": "Desktop Text Alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_alignment",
+      "label": "Mobile Alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        },
+        {
+          "value": "space-between",
+          "label": "Space Between"
+        },
+        {
+          "value": "space-around",
+          "label": "Space Around"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_align",
+      "label": "Mobile Text Alignment",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_direction",
+      "label": "Mobile Layout Direction",
+      "options": [
+        {
+          "value": "row",
+          "label": "Horizontal (Row)"
+        },
+        {
+          "value": "column",
+          "label": "Vertical (Column)"
+        }
+      ],
+      "default": "row",
+      "info": "Stack elements vertically on mobile if needed"
+    },
+    {
+      "type": "header",
+      "content": "Styling & Colors"
+    },
+    {
+      "type": "text",
+      "id": "background_gradient",
+      "label": "Background Gradient",
+      "default": "linear-gradient(90deg, #FBBA00 0%, #FF5A00 100%)",
+      "info": "Use CSS gradient syntax"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Main Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge Text Color",
+      "default": "#ffc107"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#FBBA00"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Button Hover Background",
+      "default": "#FF5A00"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "close_button_color",
+      "label": "Close Button Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Animations"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animation",
+      "label": "Enable Background Animation",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "label": "Animation Speed (seconds)",
+      "min": 5,
+      "max": 20,
+      "step": 1,
+      "default": 10,
+      "unit": "s"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_pulse",
+      "label": "Enable Button Pulse",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Confetti"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_confetti",
+      "label": "Enable Confetti",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "confetti_count",
+      "label": "Confetti Amount",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 25
+    },
+    {
+      "type": "text",
+      "id": "confetti_colors",
+      "label": "Confetti Colors (JSON)",
+      "default": "[\"#FFD700\", \"#FFC107\", \"#FBBA00\", \"#FF9800\", \"#F9A825\", \"#FFB300\"]",
+      "info": "Enter colors as JSON array - Gold shades by default"
+    },
+    {
+      "type": "header",
+      "content": "Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_close",
+      "label": "Show Close Button",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Awards Top Bar"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}

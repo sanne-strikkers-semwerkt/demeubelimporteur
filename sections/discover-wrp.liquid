@@ -1,0 +1,114 @@
+<section class="discover-wrp">
+                <div class="container">
+                    <div class="titlebar">
+                        <h2>{{ section.settings.title }}</h2>
+                    </div>
+
+                    <div class="discover-slider">
+                      {%- for block in section.blocks -%}
+                        {% render 'card-collections',
+              card_collection: block.settings.collection,
+                      image: block.settings.image,
+              columns: columns
+            %}
+                      {% endfor %}
+                        <!-- <div>
+                            <div class="discover-box">
+                                <a href="product.html">
+                                    <div class="box-img">
+                                        <img src="images/discover-img2.png" alt="">
+                                    </div>
+                                    <div class="description">
+                                        <h4>Eetkamertafels</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- <div>
+                            <div class="discover-box">
+                                <a href="product.html">
+                                    <div class="box-img">
+                                        <img src="images/discover-img3.png" alt="">
+                                    </div>
+                                    <div class="description">
+                                        <h4>Eetkamerbanken</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- <div>
+                            <div class="discover-box">
+                                <a href="product.html">
+                                    <div class="box-img">
+                                        <img src="images/discover-img4.png" alt="">
+                                    </div>
+                                    <div class="description">
+                                        <h4>Salontafel</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- <div>
+                            <div class="discover-box">
+                                <a href="product.html">
+                                    <div class="box-img">
+                                        <img src="images/discover-img5.png" alt="">
+                                    </div>
+                                    <div class="description">
+                                        <h4>TV meubels</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- <div>
+                            <div class="discover-box">
+                                <a href="product.html">
+                                    <div class="box-img">
+                                        <img src="images/discover-img6.png" alt="">
+                                    </div>
+                                    <div class="description">
+                                        <h4>Vitrinekast</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+
+
+{% schema %}
+  {
+    "name": "Collection section",
+    "settings": [
+      {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "t:sections.collection-list.blocks.featured_collection.name",
+      "settings": [ 
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "image"
+          }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "Collection section"
+      }
+    ]
+  }
+{% endschema %}

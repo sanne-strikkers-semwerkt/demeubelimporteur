@@ -1,0 +1,284 @@
+{% assign is_black_friday_collection = false %}
+{% if section.settings.collection.handle == 'black-friday-deals' %}
+  {% assign is_black_friday_collection = true %}
+{% endif %}
+
+<style>
+  .product-slider .slick-slide {
+    padding-top: 4px !important;
+  }
+  
+  .variant-count {
+    display: block;
+    font-size: {{ settings.variant_count_font_size }}px;
+    font-weight: {{ settings.variant_count_font_weight }};
+    color: rgba(var(--color-foreground), 0.7);
+    margin-bottom: 0.5rem;
+  }
+</style>
+<section class="product-wrp{% if is_black_friday_collection %} black-friday-product-wrp{% endif %}">
+                <div class="container">
+                    <div class="product-slider">
+                      {%- if is_black_friday_collection -%}
+                        {% comment %} Black Friday Product Cards {% endcomment %}
+                        {%- for product in section.settings.collection.products -%}
+                          <div class="col-6 col-sm-6 col-md-4">
+                            <div class="product-box">
+                              <a href="{{ product.url }}">
+                                <img
+                                  src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/offer-label.svg?v=1731582452"
+                                  alt=""
+                                  class="offer-label-img"
+                                >
+                                <div class="box-img bf-card-overlay">
+                                  <img src="{{ product.featured_media | img_url: 'master' }}" alt="" >
+                                </div>
+                                <style>
+                                  .box-img.bf-card-overlay {
+                                    position: relative !important;
+                                    overflow: visible !important;
+                                    padding: 5px !important;
+                                    border-radius: 9px;
+                                  }
+                                  .box-img.bf-card-overlay.ready {
+                                    background: linear-gradient(90deg, #FBBA00 0%, #FF5A00 100%) !important;
+                                  }
+                                  .box-img.bf-card-overlay img {
+                                    display: block;
+                                    width: 100%;
+                                    height: auto;
+                                    position: relative;
+                                    z-index: 0;
+                                    border-radius: 4px;
+                                  }
+                                  .box-img.bf-card-overlay.ready::after {
+                                    content: '' !important;
+                                    position: absolute !important;
+                                    top: 5px !important;
+                                    left: 5px !important;
+                                    right: 5px !important;
+                                    bottom: 5px !important;
+                                    border-radius: 9px;
+                                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 15%, rgba(0, 0, 0, 0.3) 25%, rgba(0, 0, 0, 0.15) 35%, rgba(0, 0, 0, 0.05) 45%, transparent 55%) !important;
+                                    pointer-events: none !important;
+                                    z-index: 1;
+                                  }
+                                  @media (max-width: 767px) {
+                                    .box-img.bf-card-overlay {
+                                      padding: 4px !important;
+                                    }
+                                  }
+                                  @media (min-width: 768px) and (max-width: 1199px) {
+                                    .box-img.bf-card-overlay {
+                                      padding: 4px !important;
+                                    }
+                                  }
+                                </style>
+                                <div class="description">
+                                  <h1>{{ product.title }}</h1>
+                                  {%- if settings.show_variant_count -%}
+                                    {%- assign variant_count = 0 -%}
+                                    {%- if product.metafields.custom.subproducts != blank -%}
+                                      {%- assign subproduct_urls = product.metafields.custom.subproducts.value | compact -%}
+                                      {%- assign variant_count = subproduct_urls.size | plus: 1 -%}
+                                    {%- else -%}
+                                      {%- assign variant_count = product.variants.size -%}
+                                    {%- endif -%}
+                                    {%- if variant_count > 1 -%}
+                                      <span class="variant-count">{{ variant_count }} varianten</span>
+                                    {%- endif -%}
+                                  {%- endif -%}
+                                  <p>
+                                    {% if product.compare_at_price != blank %}
+                                      Adviesprijs <span>{{ product.compare_at_price | money }},-</span>
+                                      
+                                      {% if product.metafields.custom.onze_prijs != blank %}
+                                        <b>Onze prijs <span>{{ product.metafields.custom.onze_prijs }}</span></b>
+                                      {% endif %}
+                                    {% else %}
+                                      {% if product.metafields.custom.onze_prijs != blank %}
+                                        <b>Onze prijs <span>{{ product.metafields.custom.onze_prijs }}</span>
+                                        </b>
+                                      {% endif %}
+                                    {% endif %}
+                                  </p>
+                                  <div>
+                                    <h5 style="margin:0 !important;">Black Friday prijs</h5>
+                                    <h6 style="margin:0 !important;">{{ product.price | money }},-</h6>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      {%- else -%}
+                        {% comment %} Regular Product Cards {% endcomment %}
+                        {%- for product in section.settings.collection.products -%}
+                          {% render 'card-products',
+                            card_product: product,
+                            media_aspect_ratio: section.settings.image_ratio,
+                            image_shape: section.settings.image_shape,
+                            show_secondary_image: section.settings.show_secondary_image,
+                            show_vendor: section.settings.show_vendor,
+                            show_rating: section.settings.show_rating,
+                            show_quick_add: section.settings.enable_quick_add,
+                            section_id: section.id
+                          %}
+                        {% endfor %}
+                      {%- endif -%}
+                        <!-- <div>
+                            <div class="product-box">
+                                <a href="product-detail-chair.html">
+                                    <div class="box-img">
+                                        <img src="images/product-img2.jpg" alt="">
+                                        <label>-60%</label>
+                                    </div>
+                                    <div class="description">
+                                        <h3>Eetkamerstoel Bergen Grijs Fluweel</h3>
+                                        <p>Adviesprijs <span>€ 169,-</span></p>
+                                        <h6>€ 69,-</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>  
+                        <!-- <div>
+                            <div class="product-box">
+                                <a href="product-detail-chair.html">
+                                    <div class="box-img">
+                                        <img src="images/product-img3.jpg" alt="">
+                                        <label>-60%</label>
+                                    </div>
+                                    <div class="description">
+                                        <h3>Mangohouten TV Meubel Brendon 165 cm</h3>
+                                        <p>Adviesprijs <span>€ 899,-</span></p>
+                                        <h6>€ 379,-</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- <div>
+                            <div class="product-box">
+                                <a href="product-detail-chair.html">
+                                    <div class="box-img">
+                                        <img src="images/product-img4.jpg" alt="">
+                                        <label>-60%</label>
+                                    </div>
+                                    <div class="description">
+                                        <h3>Mangohouten Eettafel Ovaal Oscar 160x90 cm (6cm)</h3>
+                                        <p>Adviesprijs <span>€ 749,-</span></p>
+                                        <h6>€ 299,-</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+
+            
+ 
+<script>
+  $(document).ready(function () {
+    function getMondayOfWeek(weekNumber, year) {
+      year = year || new Date().getFullYear();
+      let jan1 = new Date(year, 0, 1);
+      let jan1Day = jan1.getDay();
+      let offset = (jan1Day <= 4) ? 1 - jan1Day : 8 - jan1Day;
+      let monday = new Date(year, 0, 1 + offset + (weekNumber - 1) * 7);
+      let day = monday.getDate();
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${day} ${monthName}`;
+    }
+
+    function getMondayOfWeekFromToday(weeksFromToday) {
+      let today = new Date();
+      let targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (weeksFromToday * 7));
+      let day = targetDate.getDay();
+      let diffToMonday = (day === 0 ? -6 : 1 - day);
+      let monday = new Date(targetDate);
+      monday.setDate(targetDate.getDate() + diffToMonday);
+      let mondayDay = monday.getDate();
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${mondayDay} ${monthName}`;
+    }
+
+    $('.description').each(function () {
+      let $item = $(this);
+      let levertijdText = $item.data('stockinfo');
+
+      if (!levertijdText) {
+        return;
+      }
+
+      const rangeRegex = /tussen de\s+(\d+)\s+en\s+(\d+)\s+weken/i;
+      const singleWeekRegex = /(\d+)\s*weken?/i;
+      const vanafWeekRegex = /vanaf\s+week\s+(\d+)/i;
+
+      let updatedText = '';
+
+      if (rangeRegex.test(levertijdText)) {
+        let match = levertijdText.match(rangeRegex);
+        let earliestWeek = parseInt(match[1]);
+        let dateAndMonth = getMondayOfWeekFromToday(earliestWeek);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else if (vanafWeekRegex.test(levertijdText)) {
+        let match = levertijdText.match(vanafWeekRegex);
+        let weekNumber = parseInt(match[1]);
+        let dateAndMonth = getMondayOfWeek(weekNumber);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      } else if (singleWeekRegex.test(levertijdText)) {
+        let match = levertijdText.match(singleWeekRegex);
+        let weekNumber = parseInt(match[1]);
+        let dateAndMonth = getMondayOfWeek(weekNumber);
+        updatedText = `Levering vanaf ${dateAndMonth}`;
+      }
+
+      if (updatedText) {
+        $item.find("h5.weekss").text(updatedText);
+      }
+    });
+  });
+
+  // Add gradient border once images are loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    var imgs = document.querySelectorAll('.black-friday-product-wrp .product-box .box-img img');
+    imgs.forEach(function(img){
+      var parent = img.closest('.box-img');
+      function markReady(){ if(parent) parent.classList.add('ready'); }
+      if (img.complete && img.naturalWidth > 0) {
+        markReady();
+      } else {
+        img.addEventListener('load', markReady, { once: true });
+        img.addEventListener('error', markReady, { once: true });
+      }
+    });
+  });
+  // In case of client-side filtering/sorting replaces content, re-run when DOM changes
+  var obs = new MutationObserver(function(){
+    document.querySelectorAll('.black-friday-product-wrp .product-box .box-img img:not([data-ready-checked])').forEach(function(img){
+      img.setAttribute('data-ready-checked','1');
+      var parent = img.closest('.box-img');
+      function markReady(){ if(parent) parent.classList.add('ready'); }
+      if (img.complete && img.naturalWidth > 0) { markReady(); }
+      else { img.addEventListener('load', markReady, { once: true }); img.addEventListener('error', markReady, { once: true }); }
+    });
+  });
+  obs.observe(document.querySelector('.product-slider') || document.body, { childList:true, subtree:true });
+</script>
+{% schema %}
+  {
+    "name": "Product grid",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "t:sections.featured-collection.settings.collection.label"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product grid"
+      }
+    ]
+  }
+{% endschema %}

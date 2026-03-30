@@ -1,0 +1,33 @@
+<span class="field-currency" style="display:none;">{{ cart.currency.symbol }}</span>
+
+{%- assign max_price_amount1 = filter.range_max | strip_html | escape -%}
+<div class="range-box" data-price-range-max="{{ max_price_amount1 | money_without_currency | remove: '.' }}" data-filter-label="{{ filter.label | escape }}">
+  <div class="slider-range"></div>
+  <ul>
+    <li><input type="text" class="min-value" name="{{ filter.min_value.param_name }}" id="{{ id_prefix }}{{ filter.label | escape }}-GTE"  {%- if filter.min_value.value -%}
+      value="{{ filter.min_value.value | money_without_currency }}" 
+      {% else %}
+      value="0"
+    {%- endif -%} data-max="{{ filter.range_max | money_without_currency }}"  data-min="0"></li>
+    <li><span class="line"></span></li>
+    <li><input type="text" class="max-value" name="{{ filter.max_value.param_name }}" id="{{ id_prefix }}{{ filter.label | escape }}-LTE" {%- if filter.max_value.value -%}
+      value="{{ filter.max_value.value | money_without_currency | remove: '.' }}" 
+      {% else %}
+      value="{{ max_price_amount1 | money_without_currency | remove: '.' }}"
+    {%- endif -%} data-max="{{ filter.range_max | money_without_currency }}"  data-min="0"></li>
+  </ul>
+</div>
+<script>
+  $(".slider-range").slider({
+     range: true,
+     min: 0,
+     value:79,
+     max: {{ max_price_amount1 | money_without_currency | remove: '.' }},
+     values: [ $("#Filter-{{ filter.label | escape }}-GTE").val() , $("#Filter-{{ filter.label | escape }}-LTE").val() ],
+     slide: function (event, ui) {
+        $(".min-value").val(ui.values[0]);
+        $(".max-value").val(ui.values[1]);
+          $('#FacetFiltersForm').trigger('submit');
+    },
+  });
+</script>

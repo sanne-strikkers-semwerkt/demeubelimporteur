@@ -1,0 +1,44 @@
+<section class="series-overview-banner" style="background-image: url('{{ section.settings.image | img_url: 'master' }}');">
+    <div class="container">
+        <div class="banner-detail">
+            <div class="breadcrumb">
+                <a href="#" class="btn-back" onclick="history.go(-1); return false;">Ga terug</a>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>Winkels</li>
+                </ul>
+            </div>
+            <div class="offset-md-6 col-md-6 col-sm-12">
+                <h3>{{ section.settings.title }}</h3>
+                <p>{{ section.settings.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Detail banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Select Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Detail banner"
+      }
+    ]
+  }
+{% endschema %}

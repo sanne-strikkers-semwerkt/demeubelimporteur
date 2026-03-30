@@ -1,0 +1,102 @@
+{%- liquid
+  assign bought_together = product.metafields.custom.bought_together_products.value
+-%}
+{%- if bought_together != blank and bought_together.size > 0 -%}
+<!-- Anderen kochten ook (custom.bought_together_products) -->
+<section class="related-product-wrp bought-together-section">
+  <div class="container">
+    <div class="related-product-block">
+      <div class="titlebar">
+        <h3>{{ section.settings.title }}</h3>
+      </div>
+      <div class="related-product-slider pb-24">
+        {%- for related_product in bought_together limit: 6 -%}
+          {% render 'cards-product',
+            card_product: related_product,
+            media_aspect_ratio: section.settings.image_ratio,
+            image_shape: section.settings.image_shape,
+            show_secondary_image: section.settings.show_secondary_image,
+            show_vendor: section.settings.show_vendor,
+            show_rating: section.settings.show_rating,
+            show_quick_add: section.settings.enable_quick_add,
+            section_id: section.id
+          %}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end Anderen kochten ook -->
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Anderen kochten ook",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "label": "Titel",
+        "default": "Anderen kochten ook:"
+      },
+      {
+        "type": "header",
+        "content": "Productkaart"
+      },
+      {
+        "type": "select",
+        "id": "image_ratio",
+        "label": "Afbeeldingsverhouding",
+        "default": "portrait",
+        "options": [
+          { "value": "adapt", "label": "Aanpassen" },
+          { "value": "portrait", "label": "Portret" },
+          { "value": "square", "label": "Vierkant" }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "image_shape",
+        "label": "Afbeeldingsvorm",
+        "default": "default",
+        "options": [
+          { "value": "default", "label": "Standaard" },
+          { "value": "arch", "label": "Boog" },
+          { "value": "blob", "label": "Blob" },
+          { "value": "bounded", "label": "Begrensd" },
+          { "value": "rounded", "label": "Afgerond" },
+          { "value": "rounded_rectangle", "label": "Afgeronde rechthoek" }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_secondary_image",
+        "label": "Tweede afbeelding tonen bij hover",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Leverancier tonen",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_rating",
+        "label": "Beoordeling tonen",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_quick_add",
+        "label": "Snel toevoegen inschakelen",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Anderen kochten ook"
+      }
+    ]
+  }
+{% endschema %}

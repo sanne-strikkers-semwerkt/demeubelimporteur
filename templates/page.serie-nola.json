@@ -1,0 +1,162 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Nola serie",
+        "description": "Stoer design en tijdloze elegantie"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Nola.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam en sterk</strong>: mangohout is een milieuvriendelijke keuze die lang meegaat.</li><li><strong>Industriële uitstraling</strong>: de perfecte mix van natuurlijke en moderne materialen.</li><li><strong>Unieke details</strong>: elk meubel is uniek dankzij de natuurlijke houtnerf.</li><li><strong>Veelzijdigheid</strong>: geschikt voor diverse ruimtes en interieurstijlen.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/nola-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "nola-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/nola-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de stoere elegantie van de Nola-meubelserie",
+            "description": "<p>Wil jij een interieur met karakter en vakmanschap? Dan zijn onze Nola-meubels van mangohout de perfecte keuze voor jouw woning. De Nola-meubelserie transformeert jouw interieur met zijn unieke combinatie van stoer design en tijdloze elegantie.</p><p></p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Waarom de Nola-meubelserie perfect bij jou past",
+            "description": "<p>De Nola-meubelserie is ontworpen met een duidelijke visie: stijlvol, functioneel en duurzaam. Gemaakt van robuust mangohout en afgewerkt met zwarte metalen accenten, straalt deze collectie een moderne, industriële sfeer uit. Het natuurlijke hout met zijn unieke nerf en warme tinten zorgt voor een gezellige en uitnodigende uitstraling, terwijl de metalen details een stoer randje toevoegen. Perfect voor liefhebbers van een minimalistisch en authentiek interieur.</p>"
+          }
+        },
+        "left_textarea_TzT68b": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Een collectie die jouw interieur compleet maakt",
+            "description": "<p>Onze Nola-meubels van mangohout zijn veelzijdig en praktisch. Ontdek enkele van de pronkstukken uit onze collectie:</p>"
+          }
+        },
+        "left_text_ULTLww": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Dressoir Nola</strong>: voeg opbergruimte en stijl toe aan je woonkamer, eetkamer of hal.</li><li><strong>Tv-meubel Nola</strong>: creëer een strak en georganiseerd entertainmenthoekje.</li></ul>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Laat je inspireren",
+            "description": "<p>Kies je voor mangohout, dan kies je voor duurzaamheid. Dit sterke materiaal is milieuvriendelijk en <a href=\"https://www.demeubelimporteur.nl/collections/onderhoud\"><span style=\"text-decoration:underline\">onderhoudsarm</span></a>, waardoor jouw meubels jarenlang meegaan met slechts minimaal onderhoud. Onze Nola-meubelserie is er dan ook voor iedereen die houdt van duurzame meubels met een stoere, maar toch warme uitstraling.</p><p></p>"
+          }
+        },
+        "right_textarea_MDyn3p": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bezoek onze showrooms en ervaar het zelf",
+            "description": "<p>Onze Nola-meubels van mangohout zijn veelzijdig en praktisch. Of je nu een modern appartement of een landelijke woning hebt, onze Nola-meubels passen perfect in jouw ruimte. Ben je nieuwsgierig geworden? Ontdek enkele van de pronkstukken uit onze collectie en kom langs in een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms</a> om de collectie met eigen ogen te bekijken. Hier ervaar je de kwaliteit en afwerking van dichtbij en ontvang je zo nodig advies van ons deskundige team.</p><p><em><strong>Wacht niet langer en realiseer jouw droominterieur! Bestel vandaag nog online of bezoek een van onze </strong></em><a href=\"https://www.demeubelimporteur.nl/pages/winkels\"><strong>showrooms</strong></a><em><strong>.</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "left_textarea_TzT68b",
+        "left_text_ULTLww",
+        "right_textarea_AwQf8r",
+        "right_textarea_MDyn3p"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

@@ -1,0 +1,90 @@
+{%- style -%}
+  .special-product-wrp .variant-count {
+    display: block;
+    font-size: {{ settings.variant_count_font_size }}px;
+    font-weight: {{ settings.variant_count_font_weight }};
+    color: rgba(var(--color-foreground), 0.7);
+    margin-bottom: 0.5rem;
+  }
+{%- endstyle -%}
+
+<section class="product-wrp special-product-wrp">
+                <div class="container">
+                    <div class="titlebar">
+                        <h2>{{ section.settings.title }}</h2>
+                    </div>
+                    <div class="product-slider">
+                      {%- if section.settings.collection != blank -%}
+                        {%- for product in section.settings.collection.products -%}
+                          {% render 'cards-product',
+                            card_product: product
+                          %}
+                        {%- endfor -%}
+                      {%- endif -%}
+                      <!-- <div>
+                            <div class="product-box">
+                                <a href="product-detail-chair.html">
+                                    <div class="box-img">
+                                        <img src="images/product-img6.jpg" alt="">
+                                    </div>
+                                    <div class="description">
+                                        <h3>Mangohouten Vakkenkast Brendon 90 cm</h3>
+                                        <p>Adviesprijs <span>€ 1.649,-</span></p>
+                                        <h6>€ 659,-</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- <div>
+                            <div class="product-box">
+                                <a href="product-detail-chair.html">
+                                    <div class="box-img">
+                                        <img src="images/product-img7.jpg" alt="">
+                                    </div>
+                                    <div class="description">
+                                        <h3>Mangohouten Vakkenkast Brendon 90 cm</h3>
+                                        <p>Adviesprijs <span>€ 1.649,-</span></p>
+                                        <h6>€ 659,-</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- <div>
+                            <div class="product-box">
+                                <a href="product-detail-chair.html">
+                                    <div class="box-img">
+                                        <img src="images/product-img8.jpg" alt="">
+                                    </div>
+                                    <div class="description">
+                                        <h3>Mangohouten Vakkenkast Brendon 90 cm</h3>
+                                        <p>Adviesprijs <span>€ 1.649,-</span></p>
+                                        <h6>€ 659,-</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+{% schema %}
+  {
+    "name": "Special products",
+    "settings": [
+      {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title"
+      },
+      {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured-collection.settings.collection.label"
+      }
+    ],
+    "presets": [
+      {
+        "name":"Special products"
+      }
+    ]
+  }
+{% endschema %}

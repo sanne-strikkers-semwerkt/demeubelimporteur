@@ -1,0 +1,190 @@
+<section class="suitable-wrp suitable-sec2-wrp">
+    <div class="container">
+        <div class="suitable-block">
+            <div class="row">
+                <div class="col-md-6 left-column">
+                    <div class="detail">
+                        {% for block in section.blocks %}
+                            {% if block.type == 'left_textarea' %}
+                                <h3>{{ block.settings.heading }}</h3>
+                                <p>{{ block.settings.description }}</p>
+                            {% elsif block.type == 'left_text' %}
+                                <ul>
+                                    {{ block.settings.list-block }}
+                                </ul>
+                            {% elsif block.type == 'left_image' %}
+                                <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-6 right-column">
+                    <div class="detail">
+                        {% for block in section.blocks %}
+                            {% if block.type == 'right_textarea' %}
+                                <h3>{{ block.settings.heading }}</h3>
+                                <p>{{ block.settings.description }}</p>
+                            {% elsif block.type == 'right_text' %}
+                                <ul>
+                                    {{ block.settings.list-block }}
+                                </ul>
+                            {% elsif block.type == 'right_image' %}
+                                <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                   {% for block in section.blocks %}
+                     {% if block.type == "full_width_textblock" %}
+                       <div class="col-md-12 full-width-block">
+                         <div class="detail">
+                           <h3>{{ block.settings.heading }}</h3>
+                            {{ block.settings.description }}
+                         </div>
+                       </div>
+                     {% elsif block.type == "full_width_listblock" %}
+                        <div class="col-md-12 full-width-block">
+                           <div class="detail">
+                             {{ block.settings.list-block }}
+                           </div>
+                        </div>
+                     {% elsif block.type == "full_width_image" %}
+                        <div class="col-md-12 full-width-block">
+                           <div class="detail">
+                             <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
+                           </div>
+                        </div>
+                     {% endif %}
+                   {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Suitable detail",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "left_textarea",
+      "name": "Left Column Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "left_text",
+      "name": "Left Column List Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "list-block",
+          "label": "Add List block"
+        }
+      ]
+    },
+    {
+      "type": "left_image",
+      "name": "Left Column Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "right_textarea",
+      "name": "Right Column Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "right_text",
+      "name": "Right Column List Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "list-block",
+          "label": "Add List block"
+        }
+      ]
+    },
+    {
+      "type": "right_image",
+      "name": "Right Column Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "full_width_textblock",
+      "name": "Full Width Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "full_width_listblock",
+      "name": "Full Width List Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "list-block",
+          "label": "Add List block"
+        }
+      ]
+    },
+    {
+      "type": "full_width_image",
+      "name": "Full Width Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Suitable detail"
+    }
+  ]
+}
+{% endschema %}

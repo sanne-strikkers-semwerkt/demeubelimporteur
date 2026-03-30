@@ -1,0 +1,375 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "awards_topbar_LgEwVR": {
+      "type": "awards-topbar",
+      "disabled": true,
+      "name": "Awards Top Bar",
+      "settings": {
+        "enable_topbar": false,
+        "vote_url": "https://www.stemshoppingawards.nl/?elected@vote=4028275",
+        "show_badge": true,
+        "badge_image": "shopify://shop_images/ShoppingAwards_logo-wit-retina.png",
+        "badge_image_height_desktop": 20,
+        "badge_image_height_mobile": 18,
+        "badge_bold": "🏆 GENOMINEERD",
+        "badge_normal": "",
+        "main_text": "Shopping Awards 2026",
+        "button_text": "Stem op ons →",
+        "desktop_alignment": "center",
+        "desktop_text_align": "center",
+        "mobile_alignment": "center",
+        "mobile_text_align": "center",
+        "mobile_direction": "row",
+        "background_gradient": "linear-gradient(135deg, #333333 0%, #333333 25%, #333333 50%, #333333 75%, #333333 100%)",
+        "text_color": "#fbba00",
+        "badge_bg_color": "#333333",
+        "badge_text_color": "#ffc107",
+        "button_bg_color": "#fbba00",
+        "button_hover_bg_color": "#fbba00",
+        "button_text_color": "#000000",
+        "close_button_color": "#ffffff",
+        "enable_animation": false,
+        "animation_speed": 8,
+        "enable_pulse": true,
+        "enable_confetti": false,
+        "confetti_count": 30,
+        "confetti_colors": "[\"#FFD700\", \"#FF6B6B\", \"#4ECDC4\", \"#45B7D1\", \"#FFA07A\", \"#98D8C8\", \"#F7DC6F\", \"#BB8FCE\"]",
+        "enable_close": false
+      }
+    },
+    "blackfriday_announcement_bar_ccaU6f": {
+      "type": "blackfriday-announcement-bar",
+      "disabled": true,
+      "settings": {
+        "datetime": ""
+      }
+    },
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_XDJCjc": {
+          "type": "announcement",
+          "settings": {
+            "text": "☃️ Door de winterse omstandigheden kan de levering in sommige gevallen iets langer duren.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_XDJCjc"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-3da00738-201e-48db-82c6-abada62b230b",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "text_QMjMzN": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "slide-text": "",
+            "slide-image-mob": "shopify://shop_images/check-icon.svg",
+            "slide-text-mob": "9,6 uit 1000+ reviews"
+          }
+        },
+        "text_zp4DFh": {
+          "type": "text",
+          "settings": {
+            "slide-image": "shopify://shop_images/check-icon.svg",
+            "slide-text": "Goedkoopste van Nederland & België 🇧🇪🇳🇱",
+            "slide-image-mob": "shopify://shop_images/check-icon.svg",
+            "slide-text-mob": "Geen risico, betaal pas bij levering"
+          }
+        },
+        "text_fKjQEw": {
+          "type": "text",
+          "settings": {
+            "slide-image": "shopify://shop_images/check-icon.svg",
+            "slide-text": "Altijd 1 jaar garantie",
+            "slide-image-mob": "shopify://shop_images/check-icon.svg",
+            "slide-text-mob": "Op voorraad? Binnen 5 dagen in huis."
+          }
+        },
+        "text_CHFENb": {
+          "type": "text",
+          "settings": {
+            "slide-image": "shopify://shop_images/check-icon.svg",
+            "slide-text": "Geen risico, betaal pas bij levering",
+            "slide-image-mob": "shopify://shop_images/check-icon.svg",
+            "slide-text-mob": "Goedkoopste van Nederland & België 🇧🇪🇳🇱"
+          }
+        },
+        "text_dwXRPg": {
+          "type": "text",
+          "settings": {
+            "slide-image": "shopify://shop_images/check-icon.svg",
+            "slide-text": "Op voorraad? Binnen 5 dagen in huis.",
+            "slide-image-mob": "shopify://shop_images/check-icon.svg",
+            "slide-text-mob": "Altijd 1 jaar garantie"
+          }
+        }
+      },
+      "block_order": [
+        "text_QMjMzN",
+        "text_zp4DFh",
+        "text_fKjQEw",
+        "text_CHFENb",
+        "text_dwXRPg"
+      ],
+      "custom_css": [
+        ".nav-btn span {/* background: linear-gradient(to right, #ed9484, #fde49b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; */ /* voor sommige moderne browsers */ color: #faba00; /* fallback */}"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/logo.svg",
+        "review-text": "2.000+ reviews",
+        "keurmerk-logo": "shopify://shop_images/wwk.svg",
+        "first-main": "Mijn account",
+        "link1": "/account/login",
+        "link-text1": "Inloggen",
+        "link2": "/account/register",
+        "link-text2": "Registreren",
+        "link3": "/cart",
+        "link-text3": "Winkelwagen",
+        "second-main": "Hulp",
+        "link4": "shopify://pages/winkels",
+        "link-text4": "Winkels",
+        "link5": "shopify://pages/veelgestelde-vragen",
+        "link-text5": "Veelgestelde vragen",
+        "link6": "shopify://blogs/news",
+        "link-text6": "Blog",
+        "menu": "redesign-header",
+        "menus": "redesign-2nd-menu",
+        "menusss": "redesign-mobile-menu",
+        "sticky_header_type": "none",
+        "blackfriday": ""
+      }
+    },
+    "usp_wrp_RNN8eq": {
+      "type": "usp-wrp",
+      "blocks": {
+        "text_kahm9Q": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/check-icon.svg",
+            "text": "Geen risico, betaal pas bij levering"
+          }
+        },
+        "text_kkKLrX": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/check-icon_e59023e0-7a69-439e-9955-490b38936b17.svg",
+            "text": "Goedkoopste van      Nederland &      België"
+          }
+        },
+        "text_ktcYzJ": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/check-icon.svg",
+            "text": "Altijd 1 jaar garantie"
+          }
+        },
+        "text_6tPyrQ": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/check-icon.svg",
+            "text": "9,6 uit 2,000+ reviews"
+          }
+        }
+      },
+      "block_order": [
+        "text_kahm9Q",
+        "text_kkKLrX",
+        "text_ktcYzJ",
+        "text_6tPyrQ"
+      ],
+      "disabled": true,
+      "name": "USP",
+      "settings": {}
+    },
+    "usp_beam_wrp_yE6gPP": {
+      "type": "usp-beam-wrp",
+      "blocks": {
+        "usp_9awFDH": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "Geen risico, betaal pas bij levering",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
+          }
+        },
+        "usp_bDUQdj": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "Goedkoopste van",
+            "show_country_logos": true,
+            "country-logo-1": "shopify://shop_images/nederland-icon.svg",
+            "country-name-1": "Nederland",
+            "country-logo-2": "shopify://shop_images/belgie-icon.svg",
+            "country-name-2": "België"
+          }
+        },
+        "usp_dcFFRk": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "10.000+ meubels uit voorraad leverbaar",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
+          }
+        },
+        "usp_Q7Kfkg": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
+          }
+        },
+        "usp_TDLctx": {
+          "type": "usp",
+          "settings": {
+            "usp-text": "9,5 uit 2.500+ reviews",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
+          }
+        }
+      },
+      "block_order": [
+        "usp_9awFDH",
+        "usp_bDUQdj",
+        "usp_dcFFRk",
+        "usp_Q7Kfkg",
+        "usp_TDLctx"
+      ],
+      "name": "USP Beam Wrap",
+      "settings": {
+        "in-center": false
+      }
+    },
+    "notification_bar_XpaPiQ": {
+      "type": "notification-bar",
+      "disabled": true,
+      "name": "Notification Bar",
+      "settings": {
+        "notification-text": "<span>Onze nieuwe winkel in  is nu geopend!</span>"
+      }
+    },
+    "custom_top_bar_dpFkQh": {
+      "type": "custom-top-bar",
+      "blocks": {
+        "usp_block_yibUXP": {
+          "type": "usp_block",
+          "settings": {
+            "icon_class": "fa fa-check",
+            "usp_text": "<p>Geen risico, betaal pas bij levering</p>",
+            "link_url": ""
+          }
+        },
+        "usp_block_aFkagf": {
+          "type": "usp_block",
+          "settings": {
+            "icon_class": "fa fa-check",
+            "usp_text": "<p>\n  Goedkoopste van \n  Nederland \n  <img src=\"//www.demeubelimporteur.nl/cdn/shop/files/nederland-icon_small.svg?v=1747380887\" style=\"height:14px; width:14px;\" alt=\"Nederland\"> \n  &amp; België \n  <img src=\"//www.demeubelimporteur.nl/cdn/shop/files/belgie-icon_small.svg?v=1747398157\" style=\"height:14px; width:14px;\" alt=\"België\">\n</p>",
+            "link_url": ""
+          }
+        },
+        "usp_block_3pUPcV": {
+          "type": "usp_block",
+          "settings": {
+            "icon_class": "fa fa-check",
+            "usp_text": "<p>Altijd 1 jaar garantie</p>",
+            "link_url": ""
+          }
+        },
+        "usp_block_xfwVaG": {
+          "type": "usp_block",
+          "settings": {
+            "icon_class": "fa fa-check",
+            "usp_text": "<p>9,6 uit 2,000+ reviews</p>",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "usp_block_yibUXP",
+        "usp_block_aFkagf",
+        "usp_block_3pUPcV",
+        "usp_block_xfwVaG"
+      ],
+      "disabled": true,
+      "name": "Top Bar (USPs)",
+      "settings": {
+        "show_top_bar": true,
+        "display_style": "top_bar",
+        "show_on_all_pages": true,
+        "show_on_homepage": true,
+        "show_on_product": true,
+        "show_on_collection": true,
+        "show_on_page": true,
+        "show_on_cart": true,
+        "show_on_desktop": true,
+        "show_on_tablet": true,
+        "show_on_mobile": true,
+        "desktop_alignment": "space-between",
+        "desktop_item_spacing": 30,
+        "max_width": 1200,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background_color": "#ffffff",
+        "text_color": "#333333",
+        "link_hover_color": "#000000",
+        "font_family": "primary",
+        "font_weight": "500",
+        "font_size": 16,
+        "text_uppercase": false,
+        "letter_spacing": 0.5,
+        "icon_position": "left",
+        "icon_color": "#fbba00",
+        "icon_size": 16,
+        "image_icon_width": 20,
+        "icon_spacing": 4,
+        "border_width": 0,
+        "border_color": "#f1f1f1",
+        "box_shadow": "none",
+        "tablet_behavior": "centered",
+        "mobile_animation_direction": "normal",
+        "mobile_item_spacing": 20,
+        "mobile_speed": 10,
+        "pause_animation_on_hover": true
+      }
+    }
+  },
+  "order": [
+    "awards_topbar_LgEwVR",
+    "blackfriday_announcement_bar_ccaU6f",
+    "announcement-bar",
+    "header",
+    "usp_wrp_RNN8eq",
+    "usp_beam_wrp_yE6gPP",
+    "notification_bar_XpaPiQ",
+    "custom_top_bar_dpFkQh"
+  ]
+}

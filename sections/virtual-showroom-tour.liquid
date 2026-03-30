@@ -1,0 +1,467 @@
+{% comment %}
+  Virtual Showroom Tour Section
+  Provides 360° view of physical showrooms using Google Street View
+{% endcomment %}
+
+<section class="virtual-showroom-tour color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="showroom-tour-header">
+      <h2 class="showroom-tour-title">{{ section.settings.heading | default: 'Bekijk onze showrooms in 360°' }}</h2>
+      <p class="showroom-tour-description">{{ section.settings.description | default: 'Ontdek onze fysieke showrooms vanuit je eigen huis' }}</p>
+    </div>
+
+    <div class="showroom-tour-grid">
+      {% for block in section.blocks %}
+        <div class="showroom-tour-item" {{ block.shopify_attributes }}>
+          <div class="showroom-tour-card">
+            <div class="showroom-tour-preview">
+              <div 
+                class="street-view-container" 
+                id="streetview-{{ forloop.index }}"
+                data-lat="{{ block.settings.latitude }}"
+                data-lng="{{ block.settings.longitude }}"
+                data-heading="{{ block.settings.heading_angle | default: 0 }}"
+                data-pitch="{{ block.settings.pitch_angle | default: 0 }}"
+                data-zoom="{{ block.settings.zoom_level | default: 1 }}"
+              ></div>
+              <div class="street-view-overlay">
+                <button class="street-view-btn" onclick="openStreetView({{ forloop.index }})">
+                  <i class="fa fa-street-view"></i>
+                  Bekijk 360° tour
+                </button>
+              </div>
+            </div>
+            
+            <div class="showroom-tour-info">
+              <h3>{{ block.settings.showroom_name }}</h3>
+              <p class="showroom-address">{{ block.settings.address }}</p>
+              <div class="showroom-hours">
+                <h4>Openingstijden:</h4>
+                <p>{{ block.settings.opening_hours }}</p>
+              </div>
+              <div class="showroom-actions">
+                <a href="{{ block.settings.directions_url | default: 'https://maps.google.com' }}" target="_blank" class="btn btn-secondary">
+                  <i class="fa fa-map-marker-alt"></i>
+                  Route
+                </a>
+                <a href="tel:{{ block.settings.phone }}" class="btn btn-primary">
+                  <i class="fa fa-phone"></i>
+                  Bellen
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .virtual-showroom-tour {
+    padding: 60px 0;
+  }
+
+  .showroom-tour-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .showroom-tour-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--color-foreground);
+  }
+
+  .showroom-tour-description {
+    font-size: 1.2rem;
+    color: var(--color-foreground);
+    opacity: 0.8;
+  }
+
+  .showroom-tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+  }
+
+  .showroom-tour-card {
+    background: var(--color-background);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .showroom-tour-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .showroom-tour-preview {
+    position: relative;
+    height: 250px;
+    background: #f5f5f5;
+  }
+
+  .street-view-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .street-view-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  .street-view-btn {
+    background: var(--color-button);
+    color: var(--color-button-text);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .street-view-btn:hover {
+    background: var(--color-button-hover);
+    transform: scale(1.05);
+  }
+
+  .showroom-tour-info {
+    padding: 25px;
+  }
+
+  .showroom-tour-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-foreground);
+  }
+
+  .showroom-address {
+    color: var(--color-foreground);
+    opacity: 0.8;
+    margin-bottom: 15px;
+  }
+
+  .showroom-hours h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--color-foreground);
+  }
+
+  .showroom-hours p {
+    color: var(--color-foreground);
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+
+  .showroom-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .btn-primary {
+    background: var(--color-button);
+    color: var(--color-button-text);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-foreground);
+    border: 2px solid var(--color-foreground);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .showroom-tour-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .showroom-tour-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  let streetViewInstances = {};
+
+  function initStreetView() {
+    if (typeof google === 'undefined') {
+      // Load Google Maps API
+      const script = document.createElement('script');
+      script.src = 'https://maps.googleapis.com/maps/api/js?key={{ section.settings.google_maps_api_key }}&libraries=geometry';
+      script.onload = initializeStreetViews;
+      document.head.appendChild(script);
+    } else {
+      initializeStreetViews();
+    }
+  }
+
+  function initializeStreetViews() {
+    document.querySelectorAll('.street-view-container').forEach((container, index) => {
+      const lat = parseFloat(container.dataset.lat);
+      const lng = parseFloat(container.dataset.lng);
+      const heading = parseFloat(container.dataset.heading);
+      const pitch = parseFloat(container.dataset.pitch);
+      const zoom = parseFloat(container.dataset.zoom);
+
+      const panorama = new google.maps.StreetViewPanorama(container, {
+        position: { lat: lat, lng: lng },
+        pov: { heading: heading, pitch: pitch },
+        zoom: zoom,
+        visible: false,
+        disableDefaultUI: true,
+        clickToGo: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true
+      });
+
+      streetViewInstances[index + 1] = panorama;
+    });
+  }
+
+  function openStreetView(index) {
+    const panorama = streetViewInstances[index];
+    if (panorama) {
+      panorama.setVisible(true);
+      // Optional: Open in fullscreen modal
+      openStreetViewModal(panorama);
+    }
+  }
+
+  function openStreetViewModal(panorama) {
+    // Create modal for fullscreen view
+    const modal = document.createElement('div');
+    modal.className = 'street-view-modal';
+    modal.innerHTML = `
+      <div class="street-view-modal-content">
+        <div class="street-view-modal-header">
+          <h3>360° Showroom Tour</h3>
+          <button class="close-modal" onclick="closeStreetViewModal()">&times;</button>
+        </div>
+        <div class="street-view-modal-body">
+          <div id="modal-streetview"></div>
+        </div>
+      </div>
+    `;
+
+    // Add modal styles
+    const style = document.createElement('style');
+    style.textContent = `
+      .street-view-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .street-view-modal-content {
+        width: 90%;
+        height: 90%;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .street-view-modal-header {
+        padding: 20px;
+        background: var(--color-button);
+        color: var(--color-button-text);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .street-view-modal-body {
+        height: calc(100% - 80px);
+      }
+      #modal-streetview {
+        width: 100%;
+        height: 100%;
+      }
+      .close-modal {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--color-button-text);
+      }
+    `;
+    document.head.appendChild(style);
+
+    document.body.appendChild(modal);
+
+    // Initialize panorama in modal
+    const modalContainer = document.getElementById('modal-streetview');
+    const modalPanorama = new google.maps.StreetViewPanorama(modalContainer, {
+      position: panorama.getPosition(),
+      pov: panorama.getPov(),
+      zoom: panorama.getZoom(),
+      visible: true,
+      disableDefaultUI: false
+    });
+  }
+
+  function closeStreetViewModal() {
+    const modal = document.querySelector('.street-view-modal');
+    if (modal) {
+      modal.remove();
+    }
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initStreetView);
+</script>
+
+{% schema %}
+{
+  "name": "Virtual Showroom Tour",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Bekijk onze showrooms in 360°"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Ontdek onze fysieke showrooms vanuit je eigen huis"
+    },
+    {
+      "type": "text",
+      "id": "google_maps_api_key",
+      "label": "Google Maps API Key",
+      "info": "Get your API key from Google Cloud Console"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "showroom",
+      "name": "Showroom",
+      "settings": [
+        {
+          "type": "text",
+          "id": "showroom_name",
+          "label": "Showroom Name",
+          "default": "Breda Showroom"
+        },
+        {
+          "type": "textarea",
+          "id": "address",
+          "label": "Address",
+          "default": "Industrieweg 7, 1613 KT Breda"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone Number",
+          "default": "0228 785883"
+        },
+        {
+          "type": "textarea",
+          "id": "opening_hours",
+          "label": "Opening Hours",
+          "default": "Ma-Vr: 09:00-17:30\nZa: 09:00-17:00\nZo: 11:00-17:00"
+        },
+        {
+          "type": "url",
+          "id": "directions_url",
+          "label": "Directions URL"
+        },
+        {
+          "type": "text",
+          "id": "latitude",
+          "label": "Latitude",
+          "default": "52.7001",
+          "info": "Get coordinates from Google Maps"
+        },
+        {
+          "type": "text",
+          "id": "longitude",
+          "label": "Longitude",
+          "default": "5.226"
+        },
+        {
+          "type": "range",
+          "id": "heading_angle",
+          "min": 0,
+          "max": 360,
+          "step": 5,
+          "unit": "°",
+          "label": "Initial Heading Angle",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pitch_angle",
+          "min": -90,
+          "max": 90,
+          "step": 5,
+          "unit": "°",
+          "label": "Initial Pitch Angle",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "zoom_level",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Zoom Level",
+          "default": 1
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Virtual Showroom Tour",
+      "blocks": [
+        {
+          "type": "showroom"
+        },
+        {
+          "type": "showroom"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

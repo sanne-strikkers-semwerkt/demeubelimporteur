@@ -1,0 +1,51 @@
+<section class="about-banner-wrp" style="background-image: url('{{ section.settings.banner-bg-img | img_url: 'master' }}');">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="#" class="btn-back">Ga terug</a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>{{ page.title }}</li>
+            </ul>
+        </div>
+        <div class="row">
+          {% if section.settings.banner-title != blank %}
+            <div class="col-md-4 col-sm-12">
+                <h2>{{ section.settings.banner-title }}</h2>
+            </div>
+          {% endif %}
+          {% if section.settings.banner-description != blank %}
+            <div class="col-md-8 col-sm-12">
+                <p>{{ section.settings.banner-description }}</p>
+            </div>
+          {% endif %}
+        </div>
+    </div>
+</section>
+{% render 'crisp-chat' %}
+{% schema %}
+  {
+    "name": "About us Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "banner-bg-img",
+        "label": "Banner Background Image"
+      },
+      {
+        "type": "text",
+        "id": "banner-title",
+        "label": "Banner Title"
+      },
+      {
+        "type": "richtext",
+        "id": "banner-description",
+        "label": "Banner Description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "About us Banner"
+      }
+    ]
+  }
+{% endschema %}

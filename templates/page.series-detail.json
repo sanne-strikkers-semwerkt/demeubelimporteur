@@ -1,0 +1,193 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/banner-image-bg.jpg",
+        "title": "Henderson-serie:",
+        "description": "Praktische gezinsmeubels voor duurzaam woonplezier"
+      }
+    },
+    "seriesdetails_BrmtcX": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_jzQBqw": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beeld-img1.jpg"
+          }
+        },
+        "block_bPLzdP": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beeld-img2.jpg"
+          }
+        },
+        "block_YMqCHB": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beeld-img3.jpg"
+          }
+        },
+        "block_L8ULbt": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beeld-img4.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_jzQBqw",
+        "block_bPLzdP",
+        "block_YMqCHB",
+        "block_L8ULbt"
+      ],
+      "settings": {
+        "html": "<ul><li>Gemaakt van hoogwaardig mangohout: staat bekend om zijn sterkte en lange levensduur.<\/li><li>Deze serie geeft een warme, natuurlijke uitstraling die je interieur een robuuste charme geeft.<\/li><li>Ideaal voor gezinnen: de duurzame Henderson-serie kan tegen een stootje.<\/li><li>De Henderson-serie is een stijlvolle serie die voldoende opbergruimte biedt zodat uw huis georganiseerd blijft.<\/li><\/ul>",
+        "button": "Bekijk de volledige collectie",
+        "link": ""
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "banken",
+        "button": "Bekijk de volledige collectie",
+        "link": ""
+      }
+    },
+    "detail_suitable_KNAyfV": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_bLaFQ3": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Duurzame mangohouten meubels voor drukke gezinnen",
+            "description": "<p>Meubels uit de Henderson-serie zijn gemaakt van hoogwaardig mangohout, een duurzaam materiaal dat bekendstaat om zijn sterkte en lange levensduur. Dit maakt deze meubelserie ideaal voor intensief gebruik in drukke huishoudens. Het stevige hout is niet alleen functioneel, maar heeft ook een warme, natuurlijke uitstraling die uw interieur een robuuste charme geeft.<\/p>"
+          }
+        },
+        "left_textarea_9PLiJN": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Praktische meubels met stijl en opbergruimte",
+            "description": "<p>De meubels uit onze Henderson-serie zijn niet alleen robuust, maar ook praktisch en stijlvol. Of u nu een opgeruimde woonkamer, een gezellige slaapkamer, of een georganiseerde hal wilt inrichten, deze serie biedt voor elke ruimte een oplossing:<\/p>"
+          }
+        },
+        "left_text_cMhidK": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Tv-meubel:<\/strong> een functioneel meubelstuk dat niet alleen ruimte biedt voor uw televisie, maar ook voldoende opbergruimte heeft voor uw apparatuur en accessoires.<\/li><li><strong>Dressoir:<\/strong> dit ruime dressoir is perfect voor het opbergen van kleding, elektronica of andere gezinsbenodigdheden.<\/li><li><strong>Nachtkastje:<\/strong> dit compacte nachtkastje biedt precies de ruimte die u nodig heeft om uw slaapkamer netjes en overzichtelijk te houden.<\/li><li><strong>Kastje:<\/strong> dit veelzijdige kastje past in elke ruimte van uw huis en biedt extra opbergruimte waar nodig.<\/li><\/ul>"
+          }
+        },
+        "right_textarea_h9ULMj": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Waarom kiezen voor meubels uit de Henderson-serie?",
+            "description": "<p>Onze veelzijdige Henderson-serie biedt meer dan alleen een stijlvol ontwerp. Deze mangohouten meubels zijn ontworpen met het gezinsleven als uitgangspunt. Elk stuk is functioneel, duurzaam en biedt volop opbergruimte, waardoor uw huis georganiseerd en praktisch blijft, zelfs tijdens de drukste dagen.<\/p>"
+          }
+        },
+        "right_image_zecjNn": {
+          "type": "right_image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/suitable-img.png"
+          }
+        },
+        "right_textarea_rmazBA": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Maak uw huis compleet met de Henderson-serie",
+            "description": "<p>Bent u klaar om uw huis in te richten met meubels die zowel functioneel als stijlvol zijn? De Henderson-serie biedt duurzame mangohouten meubels die passen bij elk druk huishouden. Bekijk nu ons assortiment en ontdek hoe Henderson-meubels uw woonruimte transformeren!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_bLaFQ3",
+        "left_textarea_9PLiJN",
+        "left_text_cMhidK",
+        "right_textarea_h9ULMj",
+        "right_image_zecjNn",
+        "right_textarea_rmazBA"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/popular-prd-img1.jpg",
+            "heading": "Glendale",
+            "text": "Praktische gezinsmeubels voor duurzaam woonplezier",
+            "button": "Bekijk serie",
+            "link": ""
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/popular-prd-img2.jpg",
+            "heading": "Brooklyn",
+            "text": "Praktische gezinsmeubels voor duurzaam woonplezier",
+            "button": "Bekijk serie",
+            "link": ""
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/popular-prd-img3.jpg",
+            "heading": "Florence",
+            "text": "Praktische gezinsmeubels voor duurzaam woonplezier",
+            "button": "Bekijk serie",
+            "link": ""
+          }
+        },
+        "block_gBjNHL": {
+          "type": "block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/popular-prd-img3.jpg",
+            "heading": "Florence",
+            "text": "Praktische gezinsmeubels voor duurzaam woonplezier",
+            "button": "Bekijk serie",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC",
+        "block_gBjNHL"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_BrmtcX",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_KNAyfV",
+    "popular_series_NVz6hJ"
+  ]
+}

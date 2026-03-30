@@ -1,0 +1,48 @@
+ <!-- New Code -->
+  <section class="offer-hero-wrp" style="background-image:url({{ section.settings.image | img_url: 'master' }});">
+      <div class="container">
+          <div class="offer-description">
+              <h2>{{ section.settings.text1 }}</h2>
+              <h3>{{ section.settings.text2 }}</h3>
+              <a href="{{ section.settings.button-link }}" class="btn-main">{{ section.settings.button-label }}</a>
+          </div>
+      </div>
+  </section>
+  <!-- End New Code -->
+{% schema %}
+  {
+    "name": "Black friday banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "text1",
+        "label": "Title 1"
+      },
+      {
+        "type": "text",
+        "id": "text2",
+        "label": "Title 2"
+      },
+      {
+        "type": "text",
+        "id": "button-label",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button-link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Black friday banner"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,162 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Kjeld serie",
+        "description": "Milieubewuste mangohouten meubels voor een industrieel interieur"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Kjeld.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam mangohout</strong>: milieuvriendelijk en uniek.</li><li><strong>Industriële uitstraling</strong>: stoere details en een tijdloze look.</li><li><strong>Slim ontwerp</strong>: praktische en minimalistische vormen.</li><li><strong>Tijdloos design</strong>: meubels die jarenlang meegaan.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/kjeld-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "kjeld-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/kjeld-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de stoere Kjeld-collectie",
+            "description": "<p>Ben je op zoek naar meubels die jouw interieur karakter geven en die tegelijkertijd duurzaam zijn? Onze Kjeld-collectie biedt de perfecte balans tussen stoer design en milieubewust vakmanschap. Deze meubelserie combineert de warme uitstraling van mangohout met industriële details van zwart metaal, ideaal als je houdt van een tijdloze, minimalistische inrichting.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Praktisch en stijlvol: ontdek onze Kjeld-meubels",
+            "description": "<p>In ons veelzijdige assortiment vind je verschillende meubels die perfect aansluiten op jouw industriële interieur:</p>"
+          }
+        },
+        "left_text_wAU49U": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Vakkenkast</strong>: geef je boeken, planten of decoratieve items een prominente plek.</li><li><strong>Tv-meubel</strong>: combineer praktische opbergruimte met een strak podium voor je televisie.</li><li><strong>Dressoir</strong>: een ruime en elegante opbergoplossing die een statement maakt in je woonkamer.</li><li><strong>Kast</strong>: een robuuste toevoeging aan zowel grote als kleine ruimtes.</li></ul>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Milieubewuste keuze met mangohout",
+            "description": "<p>Mangohout is een duurzame keuze die bijdraagt aan een <a href=\"https://www.demeubelimporteur.nl/blogs/news/met-mangohouten-meubels-richt-je-je-huis-milieubewust-in\"><span style=\"text-decoration:underline\">milieubewust</span></a> interieur. Dit sterke hardhout wordt gewonnen van mangobomen die hun vruchten niet meer dragen, waardoor het hout een tweede leven krijgt. De unieke houtnerven en warme tinten maken elk meubelstuk een eyecatcher.</p><p></p>"
+          }
+        },
+        "right_textarea_WEyPka": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Creëer jouw ideale sfeer",
+            "description": "<p>De robuuste meubels uit onze Kjeld-collectie komen het beste tot hun recht in een warme en uitnodigende setting. Denk aan een bakstenen muur, zacht licht en een vintage tapijt. Laat jouw creativiteit de vrije loop en maak jouw interieur uniek met industriële accessoires zoals metalen lampen of een stoere klok.</p>"
+          }
+        },
+        "right_textarea_PdVriM": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Ervaar de Kjeld-collectie zelf",
+            "description": "<p>Wil je de meubels uit onze Kjeld-collectie van dichtbij bekijken? Bezoek een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">winkels</a> en ontdek de kwaliteit en uitstraling zelf. Heb jij je favoriete meubelstuk al gespot? Wacht dan niet langer bestel het direct. Je betaalt pas bij de levering - een aanbetaling is niet nodig.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "left_text_wAU49U",
+        "right_textarea_AwQf8r",
+        "right_textarea_WEyPka",
+        "right_textarea_PdVriM"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

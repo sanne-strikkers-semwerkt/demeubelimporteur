@@ -1,0 +1,84 @@
+{% style %}
+.hero-banner{background-image: url("https://cdn.shopify.com/s/files/1/0563/8412/7158/files/woonmaanddeals-bg.webp?v=1727775830");background-size: cover;background-position: center;background-repeat: no-repeat;margin: 0 0 60px 0;padding: 33px 0 0;}
+.hero-banner .hero-block{display: flex;align-items: flex-start;justify-content: center;gap: 44px;}
+.hero-banner .hero-block .box-img img{max-width: 100%;}
+.hero-banner .hero-block h2{color: #fff;text-shadow: 2px 2px 0px #FB5A00;font-family: "Zilla Slab";font-size: 64px;font-style: normal;font-weight: 700;line-height: normal;margin: 0;}
+.hero-banner .hero-block h3{color: #000;font-family: "Zilla Slab";font-size: 64px;font-style: normal;font-weight: 700;line-height: normal;margin: 0 0 16px;}
+.hero-banner .hero-block .btn-primary{background-color: #000;color: #fff;display: table;width: fit-content;padding: 12px 30px;}
+.hero-banner .hero-block .box-img {max-width: 281px;}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .hero-banner .hero-block .box-img {max-width: 250px;}
+    .hero-banner .hero-block h2{font-size: 41px;}
+    .hero-banner .hero-block h3{font-size: 41px;}
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .hero-banner .hero-block .box-img {max-width: 200px;}
+    .hero-banner .hero-block h2{font-size: 41px;}
+    .hero-banner .hero-block h3{font-size: 41px;}
+}
+@media (max-width: 767px) {
+    .hero-banner{padding: 27px 0 35px;background-image: url("https://cdn.shopify.com/s/files/1/0563/8412/7158/files/hero-banner-mobile-bg.png?v=1727775820");}
+    .hero-banner .hero-block{flex-flow: column;gap: 0;align-items: center;}
+    .hero-banner .hero-block .box-img {max-width: 150px;margin: 0 auto;}
+    .hero-banner .hero-block h2{font-size: 41px;text-align: center;}
+    .hero-banner .hero-block h3{font-size: 41px;text-align: center;}
+    .hero-banner .hero-block .btn-primary{margin: 0 auto;}
+ }
+{% endstyle %}
+<section class="hero-banner">
+    <div class="container">
+        <div class="hero-block">
+            <div class="box-img">
+                <img src="{{ section.settings.image | img_url: 'master' }}" alt="">
+            </div>
+            <div class="detail">
+                {% if section.settings.text1 != blank %}
+                  <h2>{{ section.settings.text1 }}</h2>
+                {% endif %}
+                {% if section.settings.text2 != blank %}
+                  <h3>{{ section.settings.text2 }}</h3>
+                {% endif %}
+                {% if section.settings.button-link != blank %}
+                  <a href="{{ section.settings.button-link }}" class="btn-primary">{{ section.settings.button-label }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Main banner 2",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "text1",
+        "label": "Title 1"
+      },
+      {
+        "type": "text",
+        "id": "text2",
+        "label": "Title 2"
+      },
+      {
+        "type": "text",
+        "id": "button-label",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "button-link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Main banner 2"
+      }
+    ]
+  }
+{% endschema %}

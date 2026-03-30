@@ -1,0 +1,631 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "logo_width": 90,
+    "favicon": "shopify://shop_images/beeldmerk-de-meubelimporteur_32x32_9886d4f7-2e69-489e-91ab-2ca5b56b8b3b.webp",
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "type_body_font": "assistant_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "animations_reveal_on_scroll": true,
+    "animations_hover_elements": "none",
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "scheme-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collectionss": "paas-deals",
+    "tag_title": "PAAS",
+    "tag_title2": "DEALS",
+    "tag_color": "#dd7cff",
+    "tag_color2": "#f8e3ff",
+    "tag_background": "#000000",
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "scheme-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "show_stock_desktop": false,
+    "show_stock_tablet": false,
+    "show_stock_mobile": false,
+    "show_delivery_weeks_desktop": false,
+    "show_delivery_weeks_tablet": false,
+    "show_delivery_weeks_mobile": false,
+    "show_variant_count": true,
+    "blog_card_style": "standard",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "scheme-2",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 5,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "scheme-4",
+    "sold_out_badge_color_scheme": "scheme-3",
+    "brand_headline": "",
+    "brand_description": "<p></p>",
+    "brand_image_width": 100,
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": true,
+    "cart_type": "notification",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "eetkamerbanken",
+    "collections": "eetkamerbanken",
+    "btn-color": "#3aa759",
+    "cart_color_scheme": "scheme-1",
+    "showroom_grootebroek_address": "Industrieweg 7, 1613 KT Grootebroek",
+    "showroom_grootebroek_url": "shopify://pages/winkel-grootebroek",
+    "showroom_grootebroek_image": "shopify://shop_images/dmi-grootebroek-winkel-showroom.jpg",
+    "showroom_breda_url": "shopify://pages/winkel-breda",
+    "showroom_breda_image": "shopify://shop_images/winkel-breda.jpg",
+    "showroom_oosterhout_name": "Grootebroek",
+    "showroom_oosterhout_address": "Industrieweg 7, 1613 KT Grootebroek",
+    "showroom_oosterhout_hours_sunday": "11:00 - 17:00",
+    "showroom_oosterhout_hours_monday": "09:00 - 17:30",
+    "showroom_oosterhout_hours_tuesday": "09:00 - 17:30",
+    "showroom_oosterhout_hours_wednesday": "09:00 - 17:30",
+    "showroom_oosterhout_hours_thursday": "09:00 - 17:30",
+    "showroom_oosterhout_hours_friday": "09:00 - 17:30",
+    "showroom_oosterhout_hours_saturday": "09:00 - 17:30",
+    "showroom_oosterhout_url": "shopify://pages/winkel-grootebroek",
+    "showroom_oosterhout_image": "shopify://shop_images/winkel-grootebroek.webp",
+    "showroom_almelo_enabled": true,
+    "showroom_almelo_address": "Woonboulevard 12a, 7606 JA Almelo",
+    "showroom_almelo_url": "shopify://pages/winkel-almelo",
+    "showroom_almelo_image": "shopify://shop_images/winkel-almelo.webp",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "volg-je-bestelling": {
+        "type": "volg-je-bestelling",
+        "blocks": {
+          "text_tdbmGE": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/step-4.svg",
+              "heading": "Vul je ordernummer in",
+              "desc": "Het ordernummer wordt in de mail van bestelling weergegeven."
+            }
+          },
+          "text_8jEG64": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/step-5.svg",
+              "heading": "Vul je e-mail adres in",
+              "desc": "Vul het e-mail adres in dat je gebruikt hebt voor de bestelling."
+            }
+          },
+          "text_ykkHCV": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/step-6.svg",
+              "heading": "Druk op zoeken",
+              "desc": "Je bestelgegevens worden opgehaald."
+            }
+          }
+        },
+        "block_order": [
+          "text_tdbmGE",
+          "text_8jEG64",
+          "text_ykkHCV"
+        ],
+        "settings": {
+          "description": "<b style=\"display: block; background: #fb5a00; border-radius: 10px; padding: 10px; color: #fff; font-size: 14px;\">In verband met een storing is het op dit moment niet mogelijk om je bestelling te volgen. Onze excuses voor het ongemak. </b> <br> <br>\n\nVul je ordernummer en e-mail adres in en klik op de \"Zoeken\" knop om actuele bestelstatus te volgen. Het ordernummer kun je vinden op je ontvangstbewijs en in de bevestigings-e-mail."
+        }
+      },
+      "mijn-bestelling": {
+        "type": "mijn-bestelling",
+        "blocks": {
+          "text_NTCXEL": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/stap1.png",
+              "heading": "Vul je ordernummer in",
+              "desc": "Het ordernummer wordt in de mail van bestelling weergegeven."
+            }
+          },
+          "text_NKwxhH": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/stap2.png",
+              "heading": "Vul je e-mail adres in",
+              "desc": "Vul het e-mail adres in dat je gebruikt hebt voor de bestelling."
+            }
+          },
+          "text_XwJndN": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/stap3.png",
+              "heading": "Druk op zoeken",
+              "desc": "Je bestelgegevens worden opgehaald."
+            }
+          }
+        },
+        "block_order": [
+          "text_NTCXEL",
+          "text_NKwxhH",
+          "text_XwJndN"
+        ],
+        "settings": {
+          "description": ""
+        }
+      },
+      "usp-wrp": {
+        "type": "usp-wrp",
+        "blocks": {
+          "text_7eaFR6": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/icon-wallet.svg",
+              "text": "Geen risico, betaal pas bij levering"
+            }
+          },
+          "text_7tMVN4": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/icon-checkmark-certificate.svg",
+              "text": "Goedkoopste van Nederland & België"
+            }
+          },
+          "text_bcHgh6": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/icon-truck.svg",
+              "text": "10.000+ meubels uit voorraad leverbaar"
+            }
+          },
+          "text_HFKbtP": {
+            "type": "text",
+            "settings": {
+              "image": "shopify://shop_images/icon-star.svg",
+              "text": "9.5 uit 2.500+ reviews"
+            }
+          }
+        },
+        "block_order": [
+          "text_7eaFR6",
+          "text_7tMVN4",
+          "text_bcHgh6",
+          "text_HFKbtP"
+        ],
+        "settings": {}
+      },
+      "search-modal": {
+        "type": "search-modal",
+        "settings": {}
+      },
+      "welcome-back-modal": {
+        "type": "welcome-back-modal",
+        "settings": {
+          "enabled": true,
+          "delay_seconds": 10,
+          "frequency": "once_per_day",
+          "max_per_day": 1,
+          "heading": "Welkom terug!",
+          "message": "We hebben {count} {items} voor je opgeslagen:",
+          "empty_message": "Je winkelwagen is leeg",
+          "btn_primary_text": "Bekijk winkelwagen",
+          "btn_secondary_text": "Sluiten",
+          "logo": "shopify://shop_images/logo.svg",
+          "enable_tracking": true,
+          "goal_popup_show": "welcome_back_popup_show",
+          "goal_cart_view": "welcome_back_cart_view",
+          "goal_product_click": "welcome_back_product_click",
+          "goal_modal_close": "welcome_back_close_modal"
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "558381514691908246": {
+        "type": "shopify://apps/volume-discounts/blocks/app-embed/25745434-52e7-4378-88f1-890df18a0110",
+        "disabled": false,
+        "settings": {}
+      },
+      "10533623496951086041": {
+        "type": "shopify://apps/criteo-sales-growth-ads/blocks/theme-extension/b74e0e19-7ecc-4a61-b469-888ea2cdf8f5",
+        "disabled": true,
+        "settings": {}
+      },
+      "6251270934270006384": {
+        "type": "shopify://apps/stape-server-gtm/blocks/gtm/7e13c847-7971-409d-8fe0-29ec14d5f048",
+        "disabled": false,
+        "settings": {}
+      },
+      "8194965531299925038": {
+        "type": "shopify://apps/webwinkelkeur/blocks/sidebar/c3ac2bcb-63f1-40d3-9622-f307cd559ad3",
+        "disabled": false,
+        "settings": {}
+      },
+      "3999180998444345382": {
+        "type": "shopify://apps/convert-experiences/blocks/convert-tracking/2eacdd19-b384-4180-b32c-b323a6d9e27e",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "10840395464443086010": {
+        "type": "shopify://apps/alia/blocks/customer-app-frame/51f1d398-3e41-44da-b81e-defd5804b292",
+        "disabled": false,
+        "settings": {}
+      },
+      "14123083684202085021": {
+        "type": "shopify://apps/taggrs-server-side-tracking/blocks/star_rating/dbd54950-2cfd-40dc-92f3-1e13eef2f809",
+        "disabled": false,
+        "settings": {}
+      },
+      "14683066315989353456": {
+        "type": "shopify://apps/checkout-cod-fee/blocks/cod_fee_cart_cleanup_embed/019cdd17-e90f-7d27-b75b-5334ba6fe7b8",
+        "disabled": false,
+        "settings": {}
+      }
+    },
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-2": {
+        "settings": {
+          "background": "#f1f1f1",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#f1f1f1",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-3": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-4": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-5": {
+        "settings": {
+          "background": "#334fb4",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#334fb4",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-3da00738-201e-48db-82c6-abada62b230b": {
+        "settings": {
+          "background": "#fbba00",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "logo_width": 90,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#f1f1f1",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#f1f1f1",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-3": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-4": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-5": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "animations_reveal_on_scroll": true,
+      "animations_hover_elements": "none",
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "scheme-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "left",
+      "collection_card_color_scheme": "scheme-2",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 0,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 4,
+      "collection_card_shadow_blur": 5,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "left",
+      "blog_card_color_scheme": "scheme-2",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 0,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 4,
+      "blog_card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 5,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "scheme-4",
+      "sold_out_badge_color_scheme": "scheme-3",
+      "brand_headline": "",
+      "brand_description": "<p></p>",
+      "brand_image_width": 100,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "cart_type": "notification",
+      "show_vendor": false,
+      "show_cart_note": false,
+      "cart_drawer_collection": "",
+      "cart_color_scheme": "scheme-1",
+      "sections": {
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        }
+      }
+    }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".collname .super {/* background: linear-gradient(to right, #ed9484, #fde49b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; */ /* voor sommige moderne browsers */ color: #faba00; /* fallback */}"
+    ]
+  }
+}

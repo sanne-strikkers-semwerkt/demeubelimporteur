@@ -1,0 +1,99 @@
+<section class="visit-stores-wrp">
+    <div class="container">
+      {% if section.settings.store-location-heading != blank %}
+        <h2>{{ section.settings.store-location-heading }}</h2>
+      {% endif %}
+      {% if section.blocks != blank %}
+        <div class="row">
+          {% for block in section.blocks %}
+            <div class="col-md-6 col-sm-12 mb-4">
+                <div class="visit-stores-box">
+                  {% if block.settings.store-image != blank %}
+                    <div class="box-img">
+                        <img src="{{ block.settings.store-image | img_url: '400x' }}" loading="lazy" alt="" />
+                    </div>
+                  {% endif %}
+                    <div class="box-content">
+                        {% if block.settings.store-name != blank %}
+                          <h3>{{ block.settings.store-name }}</h3>
+                        {% endif %}
+                        {% if block.settings.store-address != blank %}
+                          <p><b>Adres:</b> {{ block.settings.store-address }}</p>
+                        {% endif %}
+                        <ul>
+                          {% if block.settings.view-store-text != blank %}
+                            <li><a href="{{ block.settings.view-store-link }}" class="btn-orange">{{ block.settings.view-store-text }}</a></li>
+                          {% endif %}
+                          {% if block.settings.route-text != blank %}
+                            <li><a href="{{ block.settings.route-link }}" class="btn-map"><i class="fas fa-map-marker-alt"></i> {{ block.settings.route-text }}</a></li>
+                          {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Our Stores",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store-location-heading",
+        "label": "Store Location Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "location",
+        "name": "location",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "store-image",
+            "label": "Store Image"
+          },
+          {
+            "type": "text",
+            "id": "store-name",
+            "label": "Store Name"
+          },
+          {
+            "type": "textarea",
+            "id": "store-address",
+            "label": "Store Address"
+          },
+          {
+            "type": "text",
+            "id": "view-store-text",
+            "label": "CTA Button Text"
+          },
+          {
+            "type": "url",
+            "id": "view-store-link",
+            "label": "CTA Button Link"
+          },
+          {
+            "type": "text",
+            "id": "route-text",
+            "label": "Route Text"
+          },
+          {
+            "type": "url",
+            "id": "route-link",
+            "label": "Route Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Our Stores"
+      }
+    ]
+  }
+{% endschema %}

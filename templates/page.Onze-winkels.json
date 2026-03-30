@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "winkels_banner_qNdbMP": {
+      "type": "winkels-banner",
+      "settings": {}
+    },
+    "winkels_shop_blocks_6wKwr7": {
+      "type": "winkels-shop-blocks",
+      "blocks": {
+        "text_xQ9Xwg": {
+          "type": "text",
+          "settings": {
+            "title": "Winkel Almelo",
+            "description": "Woonboulevard 12a <br>7606 JA Almelo",
+            "image": "shopify://shop_images/winkel-almelo.jpg",
+            "btn-text": "Bekijk de winkel",
+            "btn-link": "shopify://pages/winkel-almelo"
+          }
+        },
+        "text_VpgL3P": {
+          "type": "text",
+          "settings": {
+            "title": "Winkel Breda",
+            "description": "Spinveld 22a<br>4815 HS Breda",
+            "image": "shopify://shop_images/winkel-breda-tijdelijk.jpg",
+            "btn-text": "Bekijk de winkel",
+            "btn-link": "shopify://pages/winkel-breda"
+          }
+        },
+        "text_q36aEd": {
+          "type": "text",
+          "settings": {
+            "title": "Winkel Grootebroek",
+            "description": "Industrieweg 7 <br> 1613 KT Grootebroek",
+            "image": "shopify://shop_images/winkel-grootebroek.jpg",
+            "btn-text": "Bekijk de winkel",
+            "btn-link": "shopify://pages/winkel-grootebroek"
+          }
+        },
+        "textarea_R8etkb": {
+          "type": "textarea",
+          "disabled": true,
+          "settings": {
+            "title": "Chat met één van onze specialisten",
+            "description": "<p>Of vind antwoord op je vraag op onze <a href=\"/pages/veelgestelde-vragen\" title=\"/pages/veelgestelde-vragen\">veelgestelde vragen pagina</a></p>",
+            "image": "shopify://shop_images/shop-user.png",
+            "btn-text": "Chat nu"
+          }
+        }
+      },
+      "block_order": [
+        "text_xQ9Xwg",
+        "text_VpgL3P",
+        "text_q36aEd",
+        "textarea_R8etkb"
+      ],
+      "settings": {
+        "headingg": ""
+      }
+    },
+    "winkels_discover_4cUpFG": {
+      "type": "winkels-discover",
+      "blocks": {
+        "image_picker_geLiKy": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Eetkamerstoelen",
+            "image": "shopify://shop_images/discover-img1.png"
+          }
+        },
+        "image_picker_DQDi7Q": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Eetkamertafels",
+            "image": "shopify://shop_images/discover-img2.png"
+          }
+        },
+        "image_picker_rxNrGz": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Eetkamerbanken",
+            "image": "shopify://shop_images/discover-img3.png"
+          }
+        },
+        "image_picker_XpQNG6": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Salontafel",
+            "image": "shopify://shop_images/discover-img4.png"
+          }
+        },
+        "image_picker_zdch3A": {
+          "type": "image_picker",
+          "settings": {
+            "title": "TV meubels",
+            "image": "shopify://shop_images/discover-img5.png"
+          }
+        },
+        "image_picker_BJhPmg": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Vitrinekast",
+            "image": "shopify://shop_images/discover-img6.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_geLiKy",
+        "image_picker_DQDi7Q",
+        "image_picker_rxNrGz",
+        "image_picker_XpQNG6",
+        "image_picker_zdch3A",
+        "image_picker_BJhPmg"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Ontdek ons assortiment"
+      }
+    },
+    "discover_wrp_LzaYmc": {
+      "type": "discover-wrp",
+      "blocks": {
+        "featured_collection_MMUYax": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "eettafels",
+            "image": "shopify://shop_images/eettafels.webp"
+          }
+        },
+        "featured_collection_TBECaq": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "eettafelstoelen",
+            "image": "shopify://shop_images/eetkamerstoelen_940ad425-0875-4e6c-8cb9-a9025adfa87f.png"
+          }
+        },
+        "featured_collection_kA4wyR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tv-meubels",
+            "image": "shopify://shop_images/britt-serie_0bfdbe40-290e-4d31-b8ee-1df8e8b8777f.webp"
+          }
+        },
+        "featured_collection_jBWrhn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "salontafels",
+            "image": "shopify://shop_images/salontafels.webp"
+          }
+        },
+        "featured_collection_rPdhhH": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "buffetkasten",
+            "image": "shopify://shop_images/buffetkasten.webp"
+          }
+        },
+        "featured_collection_eBkULT": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dressoirs",
+            "image": "shopify://shop_images/dressoirs.png"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_MMUYax",
+        "featured_collection_TBECaq",
+        "featured_collection_kA4wyR",
+        "featured_collection_jBWrhn",
+        "featured_collection_rPdhhH",
+        "featured_collection_eBkULT"
+      ],
+      "settings": {
+        "title": "Ontdek ons assortiment"
+      }
+    },
+    "detail_suitable_EXG9mr": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_bTebPJ": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Kom onze meubels in het echt bekijken",
+            "description": "<p>Voordat je je nieuwe meubels bestelt, is het begrijpelijk dat je die in het echt wilt zien. Op een <a href=\"https://www.demeubelimporteur.nl/collections/banken\">bank</a> wil je eerst even proefzitten en koop je een <a href=\"https://www.demeubelimporteur.nl/collections/kasten\">kast</a> of <a href=\"https://www.demeubelimporteur.nl/collections/tafels\">tafel</a>, dan wil je zelf de kwaliteit van het hout ervaren. Gelukkig is dat bij ons geen enkel probleem! Of jij nu liever online shopt of de voorkeur geeft aan het bezoeken van een echte winkel, De  Meubel Importeur biedt uitkomst.</p>"
+          }
+        },
+        "left_textarea_k6cykV": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Wat zijn de voordelen van in het echt een meubelwinkelbezoeken?",
+            "description": "<p>Met online je meubels bestellen is in principe niets mis. Zeker niet bij De Meubel Importeur, want bij ons geniet je sowieso een jaar garantie en betaal je pas achteraf bij levering. Toch snappen we dat fysiek shoppen ook zo zijn voordelen biedt:<br/>- Je ziet direct hoe een meubel oogt en voelt: kleuren of olieglans kunnen op<br/>     een foto afwijken. In het echt heb je daar geen last van.<br/>- Je ziet meteen hoe groot het meubel is: door in het echt je nieuwe meubels te zien, kun je beter inschatten hoe ze in jouw interieur passen.<br/>- Je stelt je vragen ter plekke: onze interieurspecialisten staan voor je klaar en geven je graag persoonlijk advies.</p>"
+          }
+        },
+        "right_textarea_GYr7mB": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Waar vind je de winkels van De Meubel Importeur?",
+            "description": "<p>Onze winkels zijn door heel Nederland te vinden, dus is er altijd een locatie bij jou in de buurt. Kom bij ons langs in <a href=\"https://www.demeubelimporteur.nl/pages/winkel-grootebroek\">Noord-Holland</a>, <a href=\"https://www.demeubelimporteur.nl/pages/winkel-oosterhout\">Noord-Brabant </a>of <a href=\"https://www.demeubelimporteur.nl/pages/winkel-almelo\">Overijssel </a>en ervaar zelf de kwaliteit van onze  hoogwaardige meubels. Houd er wel rekening mee dat je de meubels niet direct mee kunt nemen. Bestel je ze in de winkel, dan bezorgen wij ze netjes bij je thuis.</p>"
+          }
+        },
+        "right_textarea_ARLg7c": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Vragen?",
+            "description": "<p>Neem contact met ons op door te mailen naar info@demeubelimporteur.nl.</p><p></p><p></p><p></p><p></p><p><br/><br/><br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_bTebPJ",
+        "left_textarea_k6cykV",
+        "right_textarea_GYr7mB",
+        "right_textarea_ARLg7c"
+      ],
+      "settings": {}
+    },
+    "winkels_usps_xztHVF": {
+      "type": "winkels-usps",
+      "blocks": {
+        "image_picker_fVXVq8": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Snelle levering met eigen transport",
+            "image": "shopify://shop_images/usp-icon1.svg"
+          }
+        },
+        "image_picker_WB8Qxr": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Grootste assortiment van Nederland",
+            "image": "shopify://shop_images/usp-icon2.svg"
+          }
+        },
+        "image_picker_jdGELd": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Altijd 1 jaar garantie op al jouw meubels",
+            "image": "shopify://shop_images/usp-icon3.svg"
+          }
+        },
+        "image_picker_i3VPUM": {
+          "type": "image_picker",
+          "settings": {
+            "title": "Klanten geven ons een 4,9 van de 5 sterren!",
+            "image": "shopify://shop_images/usp-icon4.svg"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_fVXVq8",
+        "image_picker_WB8Qxr",
+        "image_picker_jdGELd",
+        "image_picker_i3VPUM"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "winkels_banner_qNdbMP",
+    "winkels_shop_blocks_6wKwr7",
+    "winkels_discover_4cUpFG",
+    "discover_wrp_LzaYmc",
+    "detail_suitable_EXG9mr",
+    "winkels_usps_xztHVF"
+  ]
+}

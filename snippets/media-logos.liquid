@@ -1,0 +1,73 @@
+{% comment %}
+  Media Logos Component - Small version for header
+{% endcomment %}
+
+<div class="media-logos-header">
+  <div class="media-logo-item">
+    <img src="{{ '100p-nl-logo.svg' | asset_url }}" alt="100NL" class="logo-100nl-header" width="auto" height="24">
+  </div>
+  <div class="media-logo-item">
+    <img src="{{ 'Slam_logo.png' | asset_url }}" alt="Slam!" class="logo-slam-header" width="auto" height="24">
+  </div>
+</div>
+
+<style>
+  .media-logos-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .webwinkelkeur-img {
+display: flex;
+align-items: center;
+ gap: 20px;
+}
+
+  .media-logo-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-100nl-header,
+  .logo-slam-header {
+    height: 15px;
+    width: auto;
+  }
+
+  .logo-100nl-header:hover,
+  .logo-slam-header:hover {
+    opacity: 1;
+  }
+
+  /* Hide main header version on mobile - similar to webwinkelkeur */
+  @media screen and (max-width: 768px) {
+    .media-logos-header {
+      display: none;
+    }
+.media-logos-header {
+flex-direction: row;
+}
+    .drawer-navbar-nav .reviews-info .webwinkelkeur-img img {
+max-height: 22px;
+  }
+
+  /* Mobile menu specific styling - show in mobile drawer */
+  .media-logos-mobile {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .media-logos-mobile .media-logos-header {
+    gap: 10px;
+    display: flex !important; /* Override the mobile hide rule */
+  }
+
+  .media-logos-mobile .logo-100nl-header,
+  .media-logos-mobile .logo-slam-header {
+    height: 15px;
+  }
+
+</style>

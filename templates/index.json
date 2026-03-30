@@ -1,0 +1,611 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "hero_wrp_48FnPU": {
+      "type": "hero-wrp",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/dmi-homepage-banner.jpg",
+        "text": "Super Sale bij De Meubel Importeur!<span>Topkwaliteit meubelen voor bodemprijzen</span>",
+        "banner-bg-color": "#faba00",
+        "text-color": "#000000",
+        "button-label": "Shop nu",
+        "button-link": "https://www.demeubelimporteur.nl/collections/super-sale",
+        "btn-background": "#fb5a00",
+        "btn-background-hover": "#e15100",
+        "btn-text": "#ffffff",
+        "enable-banner": true,
+        "sale-background": "#000000",
+        "sale-image": "shopify://shop_images/super-sale_1.png",
+        "super-text": "Super",
+        "super-color": "#faba00",
+        "sale-text": "sale",
+        "sale-color": "#ffffff"
+      }
+    },
+    "hero_wrp_XTC8CY": {
+      "type": "hero-wrp",
+      "disabled": true,
+      "custom_css": [
+        ".hero-subtitle {font-size: 36px;}",
+        "@media (max-width: 991px) {.hero-subtitle {font-size: 23px; }}",
+        "@media (min-width: 992px) and (max-width: 1200px) {.hero-subtitle {font-size: 26px; }}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/dmi-super-sale-hero-image-2.gif",
+        "text": "Super Sale bij De Meubel Importeur<span class=\"hero-subtitle\">Topkwaliteit meubelen voor de laagste prijs van Nederland &amp; België</span>",
+        "banner-bg-color": "#faba00",
+        "text-color": "#000000",
+        "button-label": "Shop nu",
+        "button-link": "shopify://collections/super-sale",
+        "btn-background": "#fb5a00",
+        "btn-background-hover": "#e15100",
+        "btn-text": "#ffffff",
+        "enable-banner": true,
+        "sale-background": "#000000",
+        "sale-image": "shopify://shop_images/super-sale_1.png",
+        "super-text": "Super",
+        "super-color": "#faba00",
+        "sale-text": "sale",
+        "sale-color": "#ffffff"
+      }
+    },
+    "hero_wrp_3iA48c": {
+      "type": "hero-wrp",
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 1200px) {.hero-subtitle {font-size: 36px; line-height: 48px; margin-top: 10px; }}"
+      ],
+      "name": "Oktober Woonmaand",
+      "settings": {
+        "image": "shopify://shop_images/dmi-oktober-woonmaand-rosa-v2.jpg",
+        "text": "Oktober Woonmaand bij De Meubel Importeur<span class=\"hero-subtitle\">Topkwaliteit meubelen voor de laagste prijs Nederland &amp; België</span>",
+        "banner-bg-color": "#faba00",
+        "text-color": "#000000",
+        "button-label": "Shop nu",
+        "button-link": "shopify://collections/oktober-woonmaand",
+        "btn-background": "#fb5a00",
+        "btn-background-hover": "#e15100",
+        "btn-text": "#ffffff",
+        "enable-banner": false,
+        "sale-background": "#000000",
+        "sale-image": "shopify://shop_images/dmi-oktober-woonmaand-label-transparant.png",
+        "super-text": "Super",
+        "super-color": "#faba00",
+        "sale-text": "Sale",
+        "sale-color": "#ffffff"
+      }
+    },
+    "hero_wrp_MEPD9r": {
+      "type": "hero-wrp",
+      "custom_css": [],
+      "name": "Super Sale",
+      "settings": {
+        "image": "shopify://shop_images/dmi-paasdeals-2026-header-v2.jpg",
+        "text": "Paas Deals bij De Meubel Importeur<span class=\"hero-subtitle\">Topkwaliteit meubelen voor haas(t) niks 🐰</span>",
+        "banner-bg-color": "#f8e3ff",
+        "text-color": "#ba00fb",
+        "button-label": "Shop nu",
+        "button-link": "shopify://collections/paas-deals",
+        "btn-background": "#fb5a00",
+        "btn-background-hover": "#e15100",
+        "btn-text": "#ffffff",
+        "enable-banner": false,
+        "sale-background": "#000000",
+        "sale-image": "shopify://shop_images/lente-deals-label_1e2be7d4-a991-4744-8a68-34d19c68d686.png",
+        "super-text": "December",
+        "super-color": "#faba00",
+        "sale-text": "Sale",
+        "sale-color": "#ffffff"
+      }
+    },
+    "main_banner_2_RBBwdL": {
+      "type": "main-banner-2",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/britt.webp",
+        "text1": "De beste December",
+        "text2": "woonmaand deals!",
+        "button-label": "Bekijk alle deals",
+        "button-link": "shopify://collections/super-sale"
+      }
+    },
+    "blackfriday_banner_7pdcAK": {
+      "type": "blackfriday-banner",
+      "disabled": true,
+      "name": "Black Friday 2025",
+      "settings": {
+        "image": "shopify://shop_images/offer-hero-bg.jpg",
+        "text1": "Laatste kans op de Black Friday Deals",
+        "text2": "Tot 70% korting!",
+        "button-label": "Sla nu je slag!",
+        "button-link": "shopify://collections/black-friday-deals"
+      }
+    },
+    "blackfriday_banner_NmaRDC": {
+      "type": "blackfriday-banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/offer-hero-bg.jpg",
+        "text1": "Laatste kans: Black Friday Deals",
+        "text2": "Tot 70% korting!",
+        "button-label": "Sla NU je slag!",
+        "button-link": "shopify://collections/black-friday-2024"
+      }
+    },
+    "black_friday_deals_product_grid_kPkMGG": {
+      "type": "Black-Friday-Deals-product-grid",
+      "disabled": true,
+      "settings": {
+        "collection": "black-friday-deals"
+      }
+    },
+    "spacer_component_xheJRk": {
+      "type": "spacer-component",
+      "name": "Spacer",
+      "settings": {
+        "spacer_height": 40,
+        "spacer_height_mobile": 0
+      }
+    },
+    "special_product_wrp_qmYdte": {
+      "type": "special-product-wrp",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "collection": "december-sale"
+      }
+    },
+    "discover_wrp_xfFGWU": {
+      "type": "discover-wrp",
+      "blocks": {
+        "featured_collection_DwzxMR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "eettafels",
+            "image": "shopify://shop_images/eettafels.webp"
+          }
+        },
+        "featured_collection_DjQtVn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "eetkamerstoelen",
+            "image": "shopify://shop_images/eetkamerstoelen_940ad425-0875-4e6c-8cb9-a9025adfa87f.png"
+          }
+        },
+        "featured_collection_Rn34tQ": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "britt-serie",
+            "image": "shopify://shop_images/britt-serie_0bfdbe40-290e-4d31-b8ee-1df8e8b8777f.webp"
+          }
+        },
+        "featured_collection_FBLRwW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tv-meubels",
+            "image": "shopify://shop_images/britt-serie_0bfdbe40-290e-4d31-b8ee-1df8e8b8777f.webp"
+          }
+        },
+        "featured_collection_QMCM3c": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "salontafels",
+            "image": "shopify://shop_images/salontafels.webp"
+          }
+        },
+        "featured_collection_6ncfWJ": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "deens-ovale-eettafels",
+            "image": "shopify://shop_images/deensovaal.png"
+          }
+        },
+        "featured_collection_fBkJVP": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "buffetkasten",
+            "image": "shopify://shop_images/buffetkasten.webp"
+          }
+        },
+        "featured_collection_DDtCVw": {
+          "type": "featured_collection",
+          "disabled": true,
+          "settings": {
+            "collection": "mangohouten-eettafels",
+            "image": "shopify://shop_images/eettafels.webp"
+          }
+        },
+        "featured_collection_ERfCjE": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dressoirs",
+            "image": "shopify://shop_images/dressoirs.png"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_DwzxMR",
+        "featured_collection_DjQtVn",
+        "featured_collection_Rn34tQ",
+        "featured_collection_FBLRwW",
+        "featured_collection_QMCM3c",
+        "featured_collection_6ncfWJ",
+        "featured_collection_fBkJVP",
+        "featured_collection_DDtCVw",
+        "featured_collection_ERfCjE"
+      ],
+      "settings": {
+        "title": "Ontdek ons assortiment"
+      }
+    },
+    "furniture_wrp_b6Kjak": {
+      "type": "furniture-wrp",
+      "settings": {
+        "heading": "Mangohout onderhouden",
+        "text": "Gebruik de Wood Care Kit om je houten meubel(en) in topconditie te houden!",
+        "care-image": "shopify://shop_images/care-img.png",
+        "price": "€22,-",
+        "button-text": "Shop nu",
+        "button-link": "shopify://products/meubel-importeur-care-kit-matt-polish",
+        "truck-img": "shopify://shop_images/truck-icon.svg",
+        "image-text": "Binnen 5 werkdagen bezorgd"
+      }
+    },
+    "special_product_wrp_dYywGp": {
+      "type": "special-product-wrp",
+      "settings": {
+        "title": "Direct uit voorraad leverbaar",
+        "collection": "op-voorraad"
+      }
+    },
+    "deals_wrp_f6mGiz": {
+      "type": "deals-wrp",
+      "blocks": {
+        "text_HPpAAB": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/dmi-super-sale-home-2026-banner-v2.jpg",
+            "alt": "Super Sale",
+            "heading": "",
+            "text": "Shop nu",
+            "url": "shopify://collections/super-sale"
+          }
+        },
+        "text_eWXXiY": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/uitgelicht-britt.jpg",
+            "alt": "Britt serie",
+            "heading": "Populair: Britt serie",
+            "text": "Shop nu",
+            "url": "shopify://collections/britt-serie"
+          }
+        },
+        "text_wJRkcn": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/uitgelicht-eetkamerstoelen.jpg",
+            "alt": "Luxe stoelen",
+            "heading": "Luxe stoelen vanaf € 39,-",
+            "text": "Shop nu",
+            "url": "shopify://collections/eetkamerstoelen"
+          }
+        },
+        "text_JQmYjg": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/mick-serie-3.webp",
+            "alt": "Mick serie",
+            "heading": "Nieuw: Mick serie",
+            "text": "Shop nu",
+            "url": "shopify://collections/mick-serie"
+          }
+        },
+        "text_Wbz3Ex": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/MI-HA0010157-sfeerfoto.png",
+            "alt": "Banken",
+            "heading": "Stijlvolle banken",
+            "text": "Shop nu",
+            "url": "shopify://collections/banken"
+          }
+        },
+        "text_pGykdf": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/deals-img2_eb061877-2034-4746-9597-df5387bb6dff.jpg",
+            "alt": "",
+            "heading": "Splinter nieuwemodellen",
+            "text": "Shop nu",
+            "url": "shopify://collections/britt-serie"
+          }
+        },
+        "text_NR4mPX": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/deals-img3_0491daf9-2b84-46c9-9081-76951281febf.jpg",
+            "alt": "Luxe stoelen",
+            "heading": "Luxe stoelen voor de aller beste prijs",
+            "text": "Shop nu",
+            "url": "shopify://collections/eettafelstoelen"
+          }
+        }
+      },
+      "block_order": [
+        "text_HPpAAB",
+        "text_eWXXiY",
+        "text_wJRkcn",
+        "text_JQmYjg",
+        "text_Wbz3Ex",
+        "text_pGykdf",
+        "text_NR4mPX"
+      ],
+      "settings": {
+        "title": "Uitgelichte collecties"
+      }
+    },
+    "about_reviews_wrp_Jc6TP7": {
+      "type": "about-reviews-wrp",
+      "name": "Reviews",
+      "settings": {
+        "reviews-heading": "Reviews voor De Meubel Importeur",
+        "rateus-btn-text": "Beoordeel ons",
+        "rateus-btn-link": "https://www.webwinkelkeur.nl/webshop/DeMeubelimporteur_1214608/reviews",
+        "webwinkelkeur_id": "1214608",
+        "webwinkelkeur_public_code": "02e03ef20c068ec89d1d88b37ebf06e98f5b0c0f5cfabcaac6e043df03f11a79",
+        "max_reviews": 15
+      }
+    },
+    "collapsible_content_LV3per": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_MeQzJG": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Mangohouten meubels in mijn interieur?",
+            "icon": "none",
+            "row_content": "<p>Je huis moet als thuis voelen. Een plek waar je kunt ontspannen, jezelf kunt zijn en zonder schaamte meezingt met je favoriete nummers. Hoe je die sfeer creëert, verschilt per persoon. Maar als je houdt van warmte en karakter, dan zijn mangohouten meubels een perfecte keuze. Mangohout is sterk, duurzaam en geeft je interieur een natuurlijke, sfeervolle uitstraling. Het past in vrijwel elke woonstijl en laat zich moeiteloos combineren, zelfs met meubels van andere houtsoorten. Dankzij het robuuste uiterlijk en de metalen accenten van de meubels uit ons assortiment ontstaat er een stoer, maar gezellig geheel.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_gGT89q": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Wat is mangohout?",
+            "icon": "none",
+            "row_content": "<p>Is mangohout nieuw voor je? Dit zijn de belangrijkste kenmerken:<br/><br/>➤ Deze tropische hardhoutsoort komt oorspronkelijk uit Azië.</p><p>➤ Het is sterk en kan prima tegen een stootje.</p><p>➤ Het is een restproduct, waardoor het een duurzame keuze is.</p><p>➤ De warme kleur, opvallende nerftekeningen, knoesten en zaagsneden geven het een unieke uitstraling.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_7Ejfpc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Waarom mangohouten meubels van De Meubel Importeur?",
+            "icon": "none",
+            "row_content": "<p>Bij De Meubel Importeur scoor je <strong>mangohouten meubels voor een scherpe prijs</strong>. Hoe dat kan? We halen onze meubels direct uit de fabriek, zonder tussenpersonen of dure kantoren. Zo besparen we kosten en profiteer jij van de beste deals. Dankzij onze nauwe samenwerking met de producent hebben we al meer dan 12.000 klanten blij gemaakt met stijlvolle mangohouten meubels.</p><p>We houden de laatste interieurtrends in de gaten en breiden ons assortiment voortdurend uit. Zo vind je bij ons altijd de nieuwste designs voor een betaalbare prijs.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_kDTqdi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Wat verkopen we allemaal?",
+            "icon": "none",
+            "row_content": "<p>In ons assortiment vind je verschillende soorten mangohouten meubels:</p><p>✔ <a href=\"https://www.demeubelimporteur.nl/collections/eettafels\"><span style=\"text-decoration:underline\">Eettafels</span></a>, salontafels, <a href=\"https://www.demeubelimporteur.nl/collections/mangohouten-bijzettafels\"><span style=\"text-decoration:underline\">bijzettafels</span></a>, sidetables en bureaus</p><p>✔ <a href=\"https://www.demeubelimporteur.nl/collections/eettafelstoelen\"><span style=\"text-decoration:underline\">Eetkamerstoelen</span></a> en eetkamerbanken</p><p>✔ TV-meubels, <a href=\"https://www.demeubelimporteur.nl/collections/buffetkasten\"><span style=\"text-decoration:underline\">buffetkasten</span></a>, <a href=\"https://www.demeubelimporteur.nl/collections/dressoirs\"><span style=\"text-decoration:underline\">dressoirs</span></a>, boekenkasten, vakkenkasten, nachtkastjes en <a href=\"https://www.demeubelimporteur.nl/collections/vitrinekasten\"><span style=\"text-decoration:underline\">vitrinekasten</span></a></p><p>✔ Wandrekken</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_MeQzJG",
+        "collapsible_row_gGT89q",
+        "collapsible_row_7Ejfpc",
+        "collapsible_row_kDTqdi"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "caption": "",
+        "heading": "De mooiste mangohouten meubels voor thuis",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "accordion_faq_P7M8np": {
+      "type": "accordion-faq",
+      "blocks": {
+        "faq_z8xkR4": {
+          "type": "FAQ",
+          "settings": {
+            "question": "Wat is mangohout?",
+            "answer": "<p>Mangohout is het hout dat afkomstig is van de mangoboom (Mangifera indica). Het is vooral bekend als een duurzaam en milieuvriendelijk alternatief voor tropisch hardhout, omdat de bomen pas worden gekapt wanneer ze geen vruchten meer dragen of te oud zijn om nog productief te zijn. Hierdoor wordt de boom niet enkel voor zijn hout, maar ook voor zijn vruchten benut.</p>"
+          }
+        },
+        "faq_KiAQHz": {
+          "type": "FAQ",
+          "settings": {
+            "question": "Waarom mangohouten meubels?",
+            "answer": "<p>Mangohouten meubels zijn de laatste jaren erg populair geworden, en dat is niet zomaar. Er zijn meerdere redenen waarom veel mensen kiezen voor meubels van mangohout:</p>"
+          }
+        },
+        "faq_wf8wfV": {
+          "type": "FAQ",
+          "settings": {
+            "question": "Waarom mangohouten meubels van De Meubel Importeur",
+            "answer": "<p>Bij De Meubel Importeur scoor je mangohouten meubels voor een scherpe prijs. Hoe dat kan? We halen onze meubels direct uit de fabriek, zonder tussenpersonen of dure kantoren. Zo besparen we kosten en profiteer jij van de beste deals. Dankzij onze nauwe samenwerking met de producent hebben we al meer dan 12.000 klanten blij gemaakt met stijlvolle mangohouten meubels.</p><p>We houden de laatste interieurtrends in de gaten en breiden ons assortiment voortdurend uit. Zo vind je bij ons altijd de nieuwste designs voor een betaalbare prijs.</p>"
+          }
+        },
+        "faq_Hhadtk": {
+          "type": "FAQ",
+          "settings": {
+            "question": "Mangohouten meubels in mijn interieur?",
+            "answer": "<p>Je huis moet als thuis voelen. Een plek waar je kunt ontspannen, jezelf kunt zijn en zonder schaamte meezingt met je favoriete nummers. Hoe je die sfeer creëert, verschilt per persoon. Maar als je houdt van warmte en karakter, dan zijn mangohouten meubels een perfecte keuze. Mangohout is sterk, duurzaam en geeft je interieur een natuurlijke, sfeervolle uitstraling. Het past in vrijwel elke woonstijl en laat zich moeiteloos combineren, zelfs met meubels van andere houtsoorten. Dankzij het robuuste uiterlijk en de metalen accenten van de meubels uit ons assortiment ontstaat er een stoer, maar gezellig geheel.</p>"
+          }
+        },
+        "faq_UYCWay": {
+          "type": "FAQ",
+          "settings": {
+            "question": "Hoe lang is de levertijd?",
+            "answer": "<p>We hebben veel producten die direct uit voorraad leverbaar zijn. Dan kunnen wij het product binnen 1-2 weken leveren. Mocht het product niet uit voorraad leverbaar zijn dan staat er bij het artikel aangegeven vanaf welke datum deze weer op voorraad is.</p><p>Let op! Levertijden zijn verwachte levertijden en kunnen mogelijk afwijken. Hou voor bezorgingen in België rekening met mogelijk een extra week levertijd.</p><p>De levertijden op de website zijn altijd verwachtingen. We proberen deze zoveel mogelijk aan te houden, maar door onverwachte omstandigheden is dat helaas niet altijd mogelijk.</p>"
+          }
+        },
+        "faq_ppxbzU": {
+          "type": "FAQ",
+          "settings": {
+            "question": "Hoe kan ik betalen?",
+            "answer": "<p>Bij het plaatsen van een bestelling via de website kun je bij het afrekenen kiezen uit vijf verschillende betaalmethodes. Een van de opties is om te betalen bij aflevering. Het is dan mogelijk om met pin of contant te betalen aan de deur.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_z8xkR4",
+        "faq_KiAQHz",
+        "faq_wf8wfV",
+        "faq_Hhadtk",
+        "faq_UYCWay",
+        "faq_ppxbzU"
+      ],
+      "name": "Accordion FAQs",
+      "settings": {
+        "accordion-heading": "De mooiste mangohouten meubels voor thuis",
+        "btn-text": "Alle veelgestelde vragen",
+        "btn-link": "shopify://pages/veelgestelde-vragen"
+      }
+    },
+    "usp_wrp_niLx3g": {
+      "type": "usp-wrp",
+      "blocks": {
+        "text_9nGNPj": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/wallet-alt-svgrepo-com_1.svg",
+            "text": "Geen risico, betaal pas bij levering"
+          }
+        },
+        "text_eFhGrw": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/truck-speed-svgrepo-com_1_1.svg",
+            "text": "Op voorraad? Binnen 5 dagen in huis"
+          }
+        },
+        "text_DR7rE9": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/check-badge-svgrepo-com_5.svg",
+            "text": "Goedkoopste van Nederland"
+          }
+        },
+        "text_htjGVP": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/thumb-up-gross-line-symbol-svgrepo-com_1.svg",
+            "text": "Altijd 1 jaar garantie"
+          }
+        },
+        "text_7V44KX": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/star-sharp-svgrepo-com_1.svg",
+            "text": "9,6 uit 1000+ reviews"
+          }
+        }
+      },
+      "block_order": [
+        "text_9nGNPj",
+        "text_eFhGrw",
+        "text_DR7rE9",
+        "text_htjGVP",
+        "text_7V44KX"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "newsletter_signup_banner_yzXHUJ": {
+      "type": "newsletter-signup-banner",
+      "disabled": true,
+      "name": "Newsletter SignUp Banner",
+      "settings": {
+        "banner-heading": "Krijg € 10,- korting!",
+        "form-heading": "Schrijf je in voor onze nieuwsbrief en krijg een kortingscode t.w.v. <strong>€ 10,-</strong> direct in je mail!",
+        "btnText": "Aanmelden",
+        "form-conclusion": "Hoe we met je data omgaan kan je bekijken in onze <a href=\"#\">privacyverklaring.</a> Je kan je te allen tijde weer afmelden."
+      }
+    }
+  },
+  "order": [
+    "featured_collection",
+    "hero_wrp_48FnPU",
+    "hero_wrp_XTC8CY",
+    "hero_wrp_3iA48c",
+    "hero_wrp_MEPD9r",
+    "main_banner_2_RBBwdL",
+    "blackfriday_banner_7pdcAK",
+    "blackfriday_banner_NmaRDC",
+    "black_friday_deals_product_grid_kPkMGG",
+    "spacer_component_xheJRk",
+    "special_product_wrp_qmYdte",
+    "discover_wrp_xfFGWU",
+    "furniture_wrp_b6Kjak",
+    "special_product_wrp_dYywGp",
+    "deals_wrp_f6mGiz",
+    "about_reviews_wrp_Jc6TP7",
+    "collapsible_content_LV3per",
+    "accordion_faq_P7M8np",
+    "usp_wrp_niLx3g",
+    "newsletter_signup_banner_yzXHUJ"
+  ]
+}

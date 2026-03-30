@@ -1,0 +1,182 @@
+
+<div class="track-main">
+  <h2 class="th-title">Volg je bestelling</h2>
+   {% if canonical_url contains "?order" %}
+        {% else %}
+   <div class="track-body">
+        <div class="container">
+          <div class="track-fold">
+            <p>{{ section.settings.description }}</p>
+             <form class="track_form">
+              <div class="form-group">
+                <label>Ordernummer</label>
+                <input type="text" class="form-control" name="order" required oninvalid="this.setCustomValidity('Vul een ordernummer in')" oninput="this.setCustomValidity('')" id="order_number">
+                <p class="invalid_order">Vul een ordernummer in</p>
+              </div>
+              <div class="form-group">
+                <label>E-mailadres</label>
+                 <input type="text" class="form-control" name="email" required oninvalid="this.setCustomValidity('Vul een e-mailadres in')" oninput="this.setCustomValidity('')" id="email_add">
+                <p class="invalid_email">Vul een e-mailadres in</p>
+              </div>
+              <button type="submit" class="btn-submit">Zoeken</button>
+            </form>
+            <div class="track-step">
+        
+              {% assign count = 1 %}
+             {% for block in section.blocks %} 
+              <div class="step">
+                <figure><img src="{{ block.settings.image | img_url: 'master' }}" alt=""/></figure>
+                <div class="tsinfo">
+                  <label>STAP {{ count }}</label>
+                  <h4>{{ block.settings.heading }}</h4>
+                  <p>{{ block.settings.desc }}</p>
+                </div>
+              </div>
+               {% assign count = count | plus: 1 %}
+              {% endfor %}
+            
+            </div>
+          </div>
+            </div>
+      </div>
+   {% endif %}
+        <!-- hide show content -->
+          <div class="track-order-main" style="display:none;">
+           <div class="container">
+            <div class="track-order" style="display:none;">
+              <h4 class="to-title">Hallo Peter Mulders,</h4>
+              <p class="to-info">Bedankt voor je bestelling bij De Meubel Importeur. We doen ons uiterste best om je bestelling zo snel mogelijk bij je af te leveren. Hierbij proberen we je zo goed mogelijk op de hoogte te houden van de status. Je bestelling wordt geleverd op het moment dat alle producten op voorraad zijn.</p>
+            
+            </div>
+            <div class="invalid-order" style="display:none;">
+              <h4 class="title">Combinatie niet gevonden</h4>
+              <p class="info">De combinatie van ordernummer en e-mailadres konden we niet vinden. Je kunt het ordernummer vinden in je bevestigings-mail.</p>
+              <p class="info">Heb je je order recent gedaan (in de afgelopen 24 uur) dan kan het zijn dat je order nog verwerkt moet worden. Kom dan later terug.</p>
+              <a href="/pages/volg-je-bestelling-1" class="bwebshop">Opnieuw proberen</a>
+            </div>
+            <div class="order-complete" style="display:none;">
+              <h4>Hallo Petra van Veen,</h4>
+              <p>Je order is afgerond. Is er iets niet naar wens? Neem dan <a href="/pages/contact">contact</a> met ons op.</p>
+            </div>  
+          </div>
+          </div>
+        <!-- hide show content -->
+</div>
+<script>
+  $('.track_form #order_number').on('input', function(){
+    $('.track_form .form-group .invalid_order').removeAttr("style");
+  });
+  $('.track_form #email_add').on('input', function(){
+    $('.track_form .form-group .invalid_email').removeAttr("style");
+  });
+   $(document).ready(function(){  
+     var current_url = window.location.href;
+      if(current_url.includes("?order")){
+        var temp = current_url.split("?");
+        var temp_var = temp['1'].split("&");
+        
+        var ref = temp_var['0'].replace("order=","");
+        var email = temp_var['1'].replace("email=","");
+        email = email.replace("%40","@");
+         $(function () {
+               $.ajax({
+                 type: "GET",
+                 crossDomain: true,
+                 url: "https://public.jongstratransport.nl/order_tracking",
+                 data: { reference: ref, email: email },
+                 cors: true,
+                 dataType: "json",
+                 success: function (data){
+                   var to_name = data['to']['name'];
+                   var zipcode = data['to']['zip'];
+                   var items = data['items'];
+                   var status = data['status'];
+                   var html = "";
+                   $(".track-body").css("display","none");
+                   if(status == "finished"){
+                       $(".track-order-main").css("display","block");
+                       $(".track-order-main .order-complete").css("display","block");
+                       $(".track-order-main .order-complete h4").html("Hallo "+to_name+",");
+
+                   }else {
+                       $(".track-order-main").css("display","block");
+                       $(".track-order-main .track-order").css("display","block");
+                       $(".track-order-main .track-order .to-title").html("Hallo "+to_name+",");
+                       html = html+"<table><tr><th></th><th>Product</th><th>SKU</th><th>Status</th></tr>";
+                       $.each(items,function(key,value){
+                           var stock_status = value.stock_status;
+                           var delivery_number = value.delivery_number;
+                           var stock_date = value.stock_date;
+                           var product_status = "";
+                           if(stock_status == "wait"){
+                             product_status = "Niet voorraad, week "+stock_date+" aankomst magazijn";
+                           }else if(delivery_number == ""){
+                              product_status = "Op voorraad, niet uitgeleverd transporteur"; 
+                           }else{
+                             if(status == "partial_scheduled"){
+                              product_status = "Op voorraad, niet uitgeleverd transporteur"; 
+                             }else if(status == "delivery"){
+                               product_status = "Uitgeleverd aan transporteur";
+                             }else if(status == "partial_delivery"){
+                               product_status = "Uitgeleverd aan transporteur";
+                             } 
+                           }
+                         var redirection = product_status.replaceAll(' ', '-');
+                         html= html+'<tr><td><figure><img src="{{ 'delivery-truck.png' | asset_url }}" alt=""></figure></td><td><p>'+value.name+'</p></td><td><span>'+value.sku+'</span></td><td><p>'+product_status+' <a href="https://levering.jongstratransport.nl/delivery/?number='+delivery_number+'&zip='+zipcode+'" target="_blank" class="'+redirection+'" style="display:none;"><img src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/information-button_1.svg?v=1700475105" alt=""/></a></p></td></tr>';
+                       });
+                      html= html+"</table>";
+                     $('.track-order-main .track-order .order-table.table-responsive').html(html);
+                      $(".Uitgeleverd-aan-transporteur").css("display","inline-block");
+
+                   }
+                 },
+                 error: function (statuscode, message) {
+                    $(".track-body").css("display","none");
+                   $(".track-order-main").css("display","block");
+                     $(".track-order-main .invalid-order").css("display","block");
+                 }
+               });
+           });
+      }
+    });
+</script>
+{% schema %}
+  {
+    "name": "Order Tracking section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Page Description"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "text",
+      "name": "Page step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Step Title"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Step Description"
+        }
+      ]
+    }
+  ],
+    "presets" : [
+     {
+       "name" : "Order Tracking section"
+     }
+    ]
+  }
+{% endschema %}

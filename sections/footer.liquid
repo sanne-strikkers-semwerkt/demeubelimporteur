@@ -1,0 +1,712 @@
+{%- style -%}
+  .footer {
+    margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer {
+      margin-top: {{ section.settings.margin_top }}px;
+    }
+
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="bekend-van-section">
+  <div class="container">
+    <div class="bekend-van-content">
+      <h3>Bekend van</h3>
+      <div class="media-logos">
+        <div class="media-logo">
+          <img src="{{ '100p-nl-logo.svg' | asset_url }}" alt="100NL" class="logo-100nl">
+        </div>
+        <div class="media-logo">
+          <img src="{{ 'Slam_logo.png' | asset_url }}" alt="Slam!" class="logo-slam">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-block">
+    <div class="container">
+      <div class="row">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {% when 'logo_item' %}
+              <div class="col-md-6 col-sm-6">
+                <div class="foot-logo">
+                  <a href="https://www.demeubelimporteur.nl/"
+                    ><img
+                      src="{{ block.settings.logo-part | img_url:'master' }}"
+                      width="163"
+                      height="47"
+                      alt=""
+                      class="logo-img"
+                  ></a>
+                  <p>
+                    {{ block.settings.texts }}
+                  </p>
+                  <div class="rating-block">
+                    <div class="rating-box">
+                      <a href="https://www.webwinkelkeur.nl/webshop/DeMeubelimporteur_1214608/reviews" target="_blank">
+                        <h5>{{ shop.metafields.custom.webwinkelkeur | split: ',' | last }}</h5>
+                      </a>
+                      <a href="https://www.webwinkelkeur.nl/webshop/DeMeubelimporteur_1214608/reviews" target="_blank">
+                        <h6>
+                          <span>
+                            <img
+                              src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/star-icon.svg?v=1717136575"
+                              width="14"
+                              height="13"
+                              alt=""
+                            >
+                            <img
+                              src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/star-icon.svg?v=1717136575"
+                              width="14"
+                              height="13"
+                              alt=""
+                            >
+                            <img
+                              src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/star-icon.svg?v=1717136575"
+                              width="14"
+                              height="13"
+                              alt=""
+                            >
+                            <img
+                              src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/star-icon.svg?v=1717136575"
+                              width="14"
+                              height="13"
+                              alt=""
+                            >
+                            <img
+                              src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/star-icon.svg?v=1717136575"
+                              width="14"
+                              height="13"
+                              alt=""
+                            >
+                          </span>
+                          {{ shop.metafields.custom.webwinkelkeur | split: ',' | first }} reviews
+                        </h6>
+                      </a>
+                    </div>
+                    <a href="https://www.webwinkelkeur.nl/webshop/DeMeubelimporteur_1214608/reviews" target="_blank">
+                      <img src="{{ block.settings.keurmerk-logo | img_url:'master' }}" width="114" height="36" alt=""
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            {%- when 'link_list' -%}
+              <div class="col-md-1 col-sm-6">
+                <div class="quicklinks">
+                  <h3>{{ block.settings.heading }}</h3>
+                  <ul>
+                    {%- for link in block.settings.menu.links -%}
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            {%- when 'link_list2' -%}
+              <div class="col-md-1 col-sm-6">
+                <div class="quicklinks">
+                  <h3>{{ block.settings.heading }}</h3>
+                  <ul>
+                    {%- for link in block.settings.menu.links -%}
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            {%- when 'contact' -%}
+              <div class="col-md-4 col-sm-6">
+                <div class="ourstore-block">
+                  <h3>{{ block.settings.heading }}</h3>
+                  <ul>
+                    <li>
+                      <img src="{{ block.settings.address-img1 | img_url: '400x' }}" loading="lazy" alt="">
+                      <div>
+                        <h5>{{ block.settings['address-title1'] }}</h5>
+                        <h6>{{ block.settings.address1 }}</h6>
+                        <a href="{{ block.settings.address1-btn-link }}">
+                          {{- block.settings['address1-btn-text'] }}
+                          <!-- Route &amp; contact -->
+                        </a>
+                      </div>
+                    </li>
+                    <li>
+                      <img src="{{ block.settings.address-img2 | img_url: '400x' }}" loading="lazy" alt="">
+                      <div>
+                        <h5>{{ block.settings['address-title2'] }}</h5>
+                        <h6>{{ block.settings.address2 }}</h6>
+                        <a href="{{ block.settings.address2-btn-link }}">
+                          {{- block.settings['address2-btn-text'] }}
+                          <!-- Route &amp; contact -->
+                        </a>
+                      </div>
+                    </li>
+                    {%- if block.settings.address3 != blank -%}
+                    <li>
+                      <img src="{{ block.settings.address-img3 | img_url: '400x' }}" loading="lazy" alt="">
+                      <div>
+                        <h5>{{ block.settings['address-title3'] }}</h5>
+                        <h6>{{ block.settings.address3 }}</h6>
+                        <a href="{{ block.settings.address3-btn-link }}">
+                          {{- block.settings['address3-btn-text'] }}
+                          <!-- Route &amp; contact -->
+                        </a>
+                      </div>
+                    </li>
+                    {%- endif -%}
+                  </ul>
+                </div>
+                {% comment %}
+                  <div class="quicklinks">
+                      <h3>{{ block.settings.heading }}</h3>
+                      <ul>
+                          <li><a href="{{ block.settings.link1 }}">{{ block.settings.text1 }}</a></li>
+                          <li><a href="{{ block.settings.link2 }}">{{ block.settings.text2 }}</a></li>
+                          <li><a href="{{ block.settings.link3 }}"><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/tel-icon.svg?v=1717136575" alt="">{{ block.settings.text3 }}</a></li>
+                          <li><a href="{{ block.settings.link4 }}" class="underline-txt"><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/mail-icon.svg?v=1717136575" alt="">{{ block.settings.text4 }}</a></li>
+                      </ul>
+                  </div>
+                  <div class="social-icons">
+                      <h4>{{ block.settings.social }}</h4>
+                      <ul>
+                          <li><a href="https://www.facebook.com/demeubelimporteur" target="_blank"> <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/facebook-icon.svg?v=1717136575" alt=""></a></li>
+                          <li><a href="https://www.instagram.com/demeubelimporteur/" target="_blank"> <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/insta-icon.svg?v=1717136575" alt=""></a></li>
+                          <li class="tiktok"><a href="https://www.tiktok.com/@demeubelimporteur" target="_blank"> <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/icons8-tiktok_2.svg?v=1733203700" alt=""></a></li>
+                      </ul>
+                  </div>
+                {% endcomment %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="mobilr-footer">
+      <div class="accordion" id="footeraccordionExample">
+        {% assign amount = 0 %}
+        {% assign amounts = 0 %}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'link_list' -%}
+              {% capture amount %}{{ amount | plus:1 }}{% endcapture %}
+              {% capture amount %}{{ amounts | plus:1 }}{% endcapture %}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingf1{{ amount | plus:1 }}">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsef1{{ amounts | plus:1 }}"
+                    aria-expanded="false"
+                    aria-controls="collapsef1{{ amounts | plus:1 }}"
+                  >
+                    {{ block.settings.heading }}
+                  </button>
+                </h2>
+                <div
+                  id="collapsef1{{ amounts | plus:1 }}"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingf1{{ amount | plus:1 }}"
+                  data-bs-parent="#footeraccordionExample"
+                >
+                  <div class="accordion-body">
+                    <div class="quicklinks">
+                      <ul>
+                        {%- for link in block.settings.menu.links -%}
+                          <li>
+                            <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- when 'link_list2' -%}
+              {% capture amount %}{{ amount | plus:1 }}{% endcapture %}
+              {% capture amount %}{{ amounts | plus:1 }}{% endcapture %}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingf{{ amount | plus:1 }}">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsef{{ amounts | plus:1 }}"
+                    aria-expanded="false"
+                    aria-controls="collapsef{{ amounts | plus:1 }}"
+                  >
+                    {{ block.settings.heading }}
+                  </button>
+                </h2>
+                <div
+                  id="collapsef{{ amounts | plus:1 }}"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingf{{ amount | plus:1 }}"
+                  data-bs-parent="#footeraccordionExample"
+                >
+                  <div class="accordion-body">
+                    <div class="quicklinks">
+                      <ul>
+                        {%- for link in block.settings.menu.links -%}
+                          <li>
+                            <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- when 'contact' -%}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingf3">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsef3"
+                    aria-expanded="false"
+                    aria-controls="collapsef3"
+                  >
+                    {{ block.settings.heading }}
+                  </button>
+                </h2>
+                <div
+                  id="collapsef3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingf3"
+                  data-bs-parent="#footeraccordionExample"
+                >
+                  <div class="accordion-body">
+                    <div class="ourstore-block">
+                      <ul>
+                        <li>
+                          <img src="{{ block.settings.address-img1 | img_url: '400x' }}" loading="lazy" alt="">
+                          <div>
+                            <h5>{{ block.settings['address-title1'] }}</h5>
+                            <h6>{{ block.settings.address1 }}</h6>
+                            <a href="{{ block.settings.address1-btn-link }}">
+                              {{- block.settings['address1-btn-text'] -}}
+                            </a>
+                          </div>
+                        </li>
+                        <li>
+                          <img src="{{ block.settings.address-img2 | img_url: '400x' }}" loading="lazy" alt="">
+                          <div>
+                            <h5>{{ block.settings['address-title2'] }}</h5>
+                            <h6>{{ block.settings.address2 }}</h6>
+                            <a href="{{ block.settings.address2-btn-link }}">
+                              {{- block.settings['address2-btn-text'] -}}
+                            </a>
+                          </div>
+                        </li>
+                        {%- if block.settings.address3 != blank -%}
+                        <li>
+                          <img src="{{ block.settings.address-img3 | img_url: '400x' }}" loading="lazy" alt="">
+                          <div>
+                            <h5>{{ block.settings['address-title3'] }}</h5>
+                            <h6>{{ block.settings.address3 }}</h6>
+                            <a href="{{ block.settings.address3-btn-link }}">
+                              {{- block.settings['address3-btn-text'] -}}
+                            </a>
+                          </div>
+                        </li>
+                        {%- endif -%}
+                      </ul>
+                    </div>
+                    {% comment %}
+                      <div class="quicklinks">
+                          <ul>
+                              <li><a href="{{ block.settings.link1 }}">{{ block.settings.text1 }}</a></li>
+                              <li><a href="{{ block.settings.link2 }}">{{ block.settings.text2 }}</a></li>
+                              <li><a href="{{ block.settings.link3 }}"><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/tel-icon.svg?v=1717136575" alt="">{{ block.settings.text3 }}</a></li>
+                              <li><a href="{{ block.settings.link4 }}" class="underline-txt"><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/mail-icon.svg?v=1717136575" alt="">{{ block.settings.text4 }}</a></li>
+                          </ul>
+                      </div>
+                    {% endcomment %}
+                  </div>
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="privacy-info">
+            <ul>
+              <li>{{ section.settings.copyright }}</li>
+              <li>
+                <a href="{{ section.settings.text-link }}">{{ section.settings['link-text'] }}</a>
+              </li>
+              <li>
+                <a href="{{ section.settings.text-link1 }}">{{ section.settings['link-text1'] }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          {% render 'payment-methods-footer' %}
+
+          {% comment %} <div class="payment-info">
+            <ul>
+              <li>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon1.svg?v=1717136575"
+                  width="40"
+                  height="36"
+                  alt="Veilig betalen"
+                >
+              </li>
+              <li>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon2.svg?v=1717136575"
+                  width="40"
+                  height="36"
+                  alt="Veilig betalen"
+                >
+              </li>
+              <li>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon3.svg?v=1717136575"
+                  width="40"
+                  height="36"
+                  alt="Veilig betalen"
+                >
+              </li>
+              <li>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/logo-bancontact.webp?v=1744890966"
+                  width="40"
+                  height="36"
+                  alt="Veilig betalen"
+                >
+              </li>
+              <li>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon4.svg?v=1717136575"
+                  width="40"
+                  height="36"
+                  alt="Veilig betalen"
+                >
+              </li>
+              {% comment %} <li>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon5.svg?v=1717136575"
+                  width="40"
+                  height="36"
+                  alt="Veilig betalen"
+                >
+              </li> {% endcomment %}
+              <li>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/logo-klarna.webp?v=1744890966"
+                  width="40"
+                  height="36"
+                  alt="Veilig betalen"
+                >
+              </li>
+            </ul>
+          </div> {% endcomment %}
+          <div class="social-icons">
+            <h4>{{ section.settings['social-text'] }}</h4>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/meubelimporteur" target="_blank">
+                  <img
+                    src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/facebook-icon.svg?v=1717136575"
+                    alt=""
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/meubelimporteur/" target="_blank">
+                  <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/insta-icon.svg?v=1717136575" alt=""
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+      ]
+    },
+    {
+      "type": "link_list2",
+      "name": "Link list 2",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+      ]
+    },
+    {
+      "type": "logo_item",
+      "name": "Logo part",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo-part",
+          "label": "Logo"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "texts",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "review-text",
+          "label": "Review Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "keurmerk-logo",
+          "label": "Logo"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Contact",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "text1",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link1",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "text2",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "text3",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link3",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "text4",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "link4",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "social",
+          "label": "Social"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "address Fields",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Title"
+        },
+        {
+          "type": "header",
+          "content": "Address 1 Detail"
+        },
+        {
+          "type": "image_picker",
+          "id": "address-img1",
+          "label": "Showroom 1 Image"
+        },
+        {
+          "type": "text",
+          "id": "address-title1",
+          "label": "Showroom 1 Title"
+        },
+        {
+          "type": "textarea",
+          "id": "address1",
+          "label": "Showroom 1 Address"
+        },
+        {
+          "type": "text",
+          "id": "address1-btn-text",
+          "label": "Button 1"
+        },
+        {
+          "type": "url",
+          "id": "address1-btn-link",
+          "label": "Button 1 Link"
+        },
+        {
+          "type": "header",
+          "content": "Address 2 Detail"
+        },
+        {
+          "type": "image_picker",
+          "id": "address-img2",
+          "label": "Showroom 2 Image"
+        },
+        {
+          "type": "text",
+          "id": "address-title2",
+          "label": "Showroom 2 Title"
+        },
+        {
+          "type": "textarea",
+          "id": "address2",
+          "label": "Showroom 2 Address"
+        },
+        {
+          "type": "text",
+          "id": "address2-btn-text",
+          "label": "Button 2"
+        },
+        {
+          "type": "url",
+          "id": "address2-btn-link",
+          "label": "Button 2 Link"
+        },
+        {
+          "type": "header",
+          "content": "Address 3 Detail"
+        },
+        {
+          "type": "image_picker",
+          "id": "address-img3",
+          "label": "Showroom 3 Image"
+        },
+        {
+          "type": "text",
+          "id": "address-title3",
+          "label": "Showroom 3 Title"
+        },
+        {
+          "type": "textarea",
+          "id": "address3",
+          "label": "Showroom 3 Address"
+        },
+        {
+          "type": "text",
+          "id": "address3-btn-text",
+          "label": "Button 3"
+        },
+        {
+          "type": "url",
+          "id": "address3-btn-link",
+          "label": "Button 3 Link"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copy right"
+    },
+    {
+      "type": "text",
+      "id": "link-text",
+      "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "text-link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "link-text1",
+      "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "text-link1",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "social-text",
+      "label": "Text"
+    }
+  ]
+}
+{% endschema %}

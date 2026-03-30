@@ -1,0 +1,73 @@
+<style>
+  .zakelijk-about {
+    padding: 60px 0;
+  }
+  .zakelijk-about-content {
+    max-width: 753px;
+  }
+  .zakelijk-about h2 {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 25px;
+    color: #000000;
+    margin-bottom: 30px;
+  }
+  .zakelijk-about p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 767px) {
+    .zakelijk-about {
+      padding: 40px 0;
+    }
+    .zakelijk-about h2 {
+      font-size: 28px;
+    }
+  }
+</style>
+
+<section class="zakelijk-about">
+  <div class="container">
+    <div class="zakelijk-about-content">
+      {% if section.settings.heading != blank %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <div class="zakelijk-about-text">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Zakelijk About",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Over De Meubel Importeur zakelijk"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.</p><p>Je vindt ons inmiddels in twee showrooms in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zakelijk About"
+    }
+  ]
+}
+{% endschema %}
+

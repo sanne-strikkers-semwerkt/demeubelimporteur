@@ -1,0 +1,2407 @@
+[
+  {
+    "sku": "MI-ET-130",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-140",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-120-B",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-130-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-OV",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-220-OV",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-240-OV",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-300-OV",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-160-OV-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-OV-B",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-210-OV-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-220-OV-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-200-X",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-200-X-B",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-140-SP",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-160-SP",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-200-SP",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-300-SP",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-140-SP-B",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-140-U",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-160-U",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-U",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-200-U",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-300-U",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-165-ZV",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-210-ZV",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-210-ZV",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-VK-90-ZV",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-KS-90-ZV",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-VK-160-ZV",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-80-ZV",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-165-NAT",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-210-NAT",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-165-NAT",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-210-NAT",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-VK-90-NAT",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KS-90-NAT",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-80-NAT",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-165-NV",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-210-NV",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-165-NV",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-VK-90-NV",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KS-90-NV",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-VK-160-NV",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-210-BLACK",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KS-80-ZL-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-VK-90-ZL-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-VK-120-ZL-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-SB-145-O-ZL-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-KS-80-ZL",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-VK-120-ZL",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-BF",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-BF-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-TV-120-BF",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-160-BF",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-200-BF",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-240-BF",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-120-BF-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-DR-160-BF",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-200-BF",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-160-BF-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-220-BF-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BK-65-X-L",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BK-100-X-L",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BK-100-SP-1-X",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BK-100-2-X",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BK-160-X",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BK-190-X-L",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BK-200-X",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BK-220-X",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BK-240-X",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BK-260-X",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BK-65-R",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BK-140-R",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BK-160-R",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BK-200-R",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BK-220-R",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BK-100-X-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BK-140-X-B",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BK-160-DD-X-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BK-200-R-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-VT-115-01",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-VT-115-01-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BO-SM-D",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BO-SM-L",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BO-SM-DL",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KS-100",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KS-100-B",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-160-HM",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-205-HM",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-TV-150-HM",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-205-HM",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-120",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-150",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-180",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-150-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-TV-130-HC",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-160-HC",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-TV-180-HC",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-160-HC-B",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-180-HC-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-TV-220",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-220-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-3S",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-70-SP",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-90-SP",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-65",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-90",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-130-X",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-130-OV",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-120-3L",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-3S-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-70-SP-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-90-SP-BL",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-70-B",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-90-BL",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-130-OV-BL",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-WR-60-V",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-WR-80-V",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-WR-100-V",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-WR-60-R",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-WR-80-R",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-WR-100-R",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-LT-N",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-LT-B",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-VK-120",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-VK-80-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-160-9L",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-150-3L",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-160-15L",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-DR-200-FH",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-DR-200-FH-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TV-150-L",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-DR-180-L",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-NK-01",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-NK-02",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-KST-L",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-VT-190",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-180-L-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-180-L-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BO-160-LDR-245",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BO-120-BB",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-NK-03",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BR-150",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-SM-120-3",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-110-SH",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BS-150",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-BS-180",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BO-SM-DL",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-110",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-SM-180",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-SM-120",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-110-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-SM-180-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-SM-150-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-RD-120-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-RD-160",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-DR-180-4D",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-140-3L-2D",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-140-3D",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BS-120-L",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TVS-120-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TVS-120",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TVS-150-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-TVS-150",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BS-90-L",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-200-NV",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-KS-100-NV",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KS-100-NV-4D-2L",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-100-NV",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-180-NV",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-OV-T",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-240-OV-T",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-260-OV-T",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-160-OV-T-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-OV-T-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-220-OV-T-B",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-DOV-SP-T",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-210-DOV-SP-T",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-DR-85-5L",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-100-2D-1L",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BA-160-X-T",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BA-180-X-T",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BA-200-U",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BA-200-X",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-TV-165-OBL",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-DR-100-OBL",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KS-90-OBL",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-DR-200-OBL",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-WK-80-B-1",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-WK-80-B-2",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-WK-120-B-1",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-WK-120-B-2",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-70-SP-T",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-90-SP-T",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-130-OV-T",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-70-SP-T-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-90-SP-T-B",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-3S-2CM",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-2S-OV",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-3S-QUAD",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-QUAD-S",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-QUAD-M",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-QUAD-L",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-SPIJLEN-S",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-SPIJLEN-M",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-SPIJLEN-L",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-KNEY",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-240-KNEY",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-210-KNEY-WAL",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-TRIAN",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-TRIAN-WAL",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-210-MELB-B",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-240-MELB-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-210-FORT-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-240-FORT-B",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-HOR-80-V",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HOR-100-V",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-HOR-80-R",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HOR-120X70",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KAP-02",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-KAP-03",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-WK-80-B-1-Walnut",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-WK-80-B-1-White",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-WK-120-B-1-Walnut",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-WK-120-B-2-Walnut",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-WK-120-B-1-White",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BO-190-8D-4L",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-160-SP-BOOM",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-SP-BOOM",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-200-SP-BOOM",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-220-SP-BOOM",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-CAP-CONE",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-210-CAP-CONE-DB",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-180-DOV-CONE",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-240-DOV-CONE",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-160-DOV-CONE-DB",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-240-DOV-CONE-DB",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ET-130-R-CONE-DB",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ET-150-R-CONE-DB",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-40-CONE-V",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-60-CONE-V",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-80-CONE-V",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-40-CONE-V-DB",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-60-CONE-V-DB",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-80-CONE-V-DB",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-90-CONE-V-DB",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-120-CAP-DB",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-SM-120-CAP",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-SM-120-CAP-DB",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-02-DGR",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-02-GRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-02-ROZ",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-02-BL",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-03-COG",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-03-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-03-DGRN",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-04-ANT",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-04-BLW",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-06-COG",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-06-DBLW",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-06-DGRY",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-06-DGRN",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-07-GRY",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-08-GRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-08-LGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-08-ROZ",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-08-BL",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-09-COG",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-09-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-10-DBLW",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-10-DGR",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-10-GRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-10-ROZ",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-10-BL",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-11-WHI",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-11-BEI",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-11-SAN",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-11-LGRY",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-11-DGRY",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-12-LGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-12-DGRN",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-12-DBLW",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-12-ANT",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-12-COG",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-13-BEI",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-13-SAN",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-13-COG",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-14-WHI",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-14-BEI",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-14-SAN",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-15-WHI",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-15-LGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-15-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-16-WHI",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-16-BEI",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-17-LGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-18-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-18-SAN",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ET-120-R-WAL",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-19-DGRN",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-19-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-19-BEI",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-20-DGRN",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-20-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-21-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-21-WHI",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BAR-22-BEI",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BAR-22-DGRY",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BAR-23-DGRY",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-24-SAN",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-24-LGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-24-DGRY",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-25-SAN",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-25-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-26-SAN",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-ST-26-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-27-LGRY-BLACK",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-27-LGRY-BEIGE",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-28-LGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-28-LGRN",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-28-DGRN",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-29-LGRY",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-29-WHI",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-30-LGRY",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-30-WHI",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-31-LGRY",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-ST-31-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-100-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-100-BL",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-100-GR",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-100-BR",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-100-CRE",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-101-ANT",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-101-DBR",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-102-COG",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-102-BR",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-102-DGRY",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-103-BEI",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-ST-103-TAU",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-RIGA-RECHTS-GLOW2",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-MONA-LINKS-ASTRA5",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BANK-MONA-RECHTS-ASTRA5",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-ELLIE-LINKS-GLORY3",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-ELLIE-LINKS-GLORY5",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-BARCELONA-LINKS-COGNAC",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-BARCELONA-RECHTS-COGNAC",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-MALAGA-RECHTS-ANTRACIET",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BANK-MALAGA-LINKS-GROEN",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-ROSALIE-LINKS-CHAMPAGNE",
+    "showrooms": [
+      "Grootebroek",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0010149",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0010151",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0010153",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0010155",
+    "showrooms": [
+      "Grootebroek",
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-HA0010156",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-HA0010157",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0010158",
+    "showrooms": [
+      "Grootebroek"
+    ]
+  },
+  {
+    "sku": "MI-HA0001051",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0001052",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-HA0004092",
+    "showrooms": [
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0006254",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0006253",
+    "showrooms": [
+      "Grootebroek",
+      "Breda",
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0007001",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0007003",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-HA0007004",
+    "showrooms": [
+      "Breda"
+    ]
+  },
+  {
+    "sku": "MI-BANK-NOAH-LINKS-NATUREL",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-MILO-RECHTS-TAUPE",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MI-BANK-BROOKLYN-RECHTS-BEIGE",
+    "showrooms": [
+      "Almelo"
+    ]
+  }
+]

@@ -1,0 +1,72 @@
+<section class="furniture-banner-wrp">
+                <div class="container">
+                    <div class="banner-block">
+                        <div class="description">
+                            <h2>{{ section.settings.heading }}</h2>
+                            <p>{{ section.settings.text }}</p>
+                        </div>
+                        <div class="price-box">
+                            <div class="box-detail">
+                                <img src="{{ section.settings.care-image | img_url: 'master' }}" width="252" height="251" alt="Mangohout onderhouden" class="care-img">
+                                <div>
+                                    <h3>{{ section.settings.price }}</h3>
+                                    <a href="{{ section.settings.button-link }}" class="btn-orange">{{ section.settings.button-text }}</a>
+                                </div>
+                            </div>
+                            <h6><img src="{{ section.settings.truck-img | img_url: 'master' }}" alt=""> {{ section.settings.image-text }}</h6>
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% schema %}
+  {
+    "name": "Furniture section",
+    "settings": [
+      {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Title"
+      },
+      {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Description"
+      },
+      {
+            "type": "image_picker",
+            "id": "care-image",
+            "label": "image"
+          },
+      {
+      "type": "inline_richtext",
+      "id": "price",
+      "label": "price"
+      },
+      {
+      "type": "text",
+      "id": "button-text",
+      "label": "Button text"
+      },
+      {
+      "type": "url",
+      "id": "button-link",
+      "label": "Button link"
+      },
+      {
+            "type": "image_picker",
+            "id": "truck-img",
+            "label": "image"
+          },
+      {
+      "type": "text",
+      "id": "image-text",
+      "label": "Image text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Furniture section"
+      }
+    ]
+  }
+{% endschema %}

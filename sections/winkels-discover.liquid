@@ -1,0 +1,63 @@
+<!-- Discover -->
+<section class="discover-wrp location-discover-wrp">
+  <div class="container">
+      <div class="location-discover-block">
+          <div class="titlebar">
+              <h2>{{ section.settings.heading }}</h2>
+          </div>
+
+          <div class="discover-slider">
+            {% for block in section.blocks %}
+              <div>
+                  <div class="discover-box">
+                      <a href="product.html">
+                          <div class="box-img">
+                              <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+                          </div>
+                          <div class="description">
+                              <h4>{{ block.settings.title }}</h4>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End Discover -->
+{% schema %}
+  {
+    "name": "Winkels Discover",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image_picker",
+        "name":"block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Winkels Discover"
+      }
+    ]
+  }
+{% endschema %}

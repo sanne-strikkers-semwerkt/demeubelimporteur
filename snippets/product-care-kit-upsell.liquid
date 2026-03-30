@@ -1,0 +1,281 @@
+{% comment %}
+  Accepts:
+  - product: The product object.
+  - block: The section block object.
+{% endcomment %}
+
+{% if product.metafields.custom.upsell_product != blank %}
+  {% assign upsell_product = product.metafields.custom.upsell_product.value %}
+  <div class="protection-option">
+    <h6>{{ block.settings['care-kit-title'] }}</h6>
+    <div class="form-group">
+      <!-- START: USING THE INPUT FROM YOUR WORKING CODE -->
+      <input
+        type="checkbox"
+        value="{{ upsell_product.selected_or_first_available_variant.id }}"
+        {% if upsell_product.selected_or_first_available_variant.available == false %}
+          disabled
+        {% endif %}
+        id="checkbox1"
+      >
+
+      <label for="checkbox1">
+        <div>
+          <span class="margin-none text-black">{{ upsell_product.metafields.custom.upsell_pop_up_title }}</span>
+          <p class="f-13">
+    <!-- Description text. A space is added after it for separation. -->
+    {{ upsell_product.metafields.custom.short_description }} 
+
+    <!-- The link will now appear on the same line right after the text above -->
+    <a href="javascript:void(0);"
+       class="info-link"
+       data-bs-toggle="modal"
+       data-bs-target="#care-kit-modal-{{ block.id }}">
+      {{ upsell_product.metafields.custom.upsell_meer_informatie_knop }}
+    </a>
+  </p>
+         
+        </div>
+        <div class="box-img">
+          <img
+            src="{{ upsell_product.featured_image | image_url: width: '50', height: '50' }}"
+            width="50"
+            height="50"
+            loading="lazy"
+            alt="carekit-img"
+          >
+          <span>
+            {{- upsell_product.price | money | append: ',-' -}}
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div
+    class="modal fade description-modal"
+    id="care-kit-modal-{{ block.id }}"
+    tabindex="-1"
+    aria-labelledby="care-kit-label-{{ block.id }}"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="care-kit-label-{{ block.id }}">
+            {{- upsell_product.metafields.custom.upsell_pop_up_titel -}}
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal">
+            Sluiten
+            <img
+              src="https://cdn.shopify.com/s/files/1/0474/0454/8262/files/close-icon-black.svg?v=1726308511"
+              alt="Sluiten"
+            >
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <!-- A wrapper to create the side-by-side layout -->
+          <div class="care-kit-modal-layout">
+            <img
+              src="{{ upsell_product.featured_image | image_url: width: '200' }}"
+              alt="{{ upsell_product.title }}"
+              class="modal-img"
+            >
+
+            <div class="modal-text">
+              <div class="metafield-rich-text-content">
+                {{- upsell_product.metafields.custom.upsell_pop_up_description | metafield_tag -}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .metafield-rich-text-content p {
+      margin-bottom: 1em;
+      line-height: 1.6;
+    }
+
+    /* Style the unordered lists (bullet points) */
+    .metafield-rich-text-content ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 1em;
+    }
+
+    .metafield-rich-text-content li {
+      margin-bottom: 0.5em;
+      list-style: disc;
+    }
+
+    .protection-option .form-group input[type='checkbox']:checked + label {
+      border-color: #fb5a00;
+    }
+
+    .info-modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .box-img {
+      text-align: center;
+          justify-items: anchor-center;
+    }
+
+    .product-overview-block .protection-option h6 {
+      color: #000;
+      font-family: 'Zilla Slab';
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+      margin: 0 0 10px;
+    }
+
+    .product-overview-block .protection-option input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 0;
+      width: 0;
+      border: none;
+    }
+
+    .product-overview-block .protection-option label {
+      border-radius: 10px;
+      border: 1px solid #d8d8d8;
+      background: #fff;
+      padding: 10px 10px 10px 42px;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 2fr 0.5fr;
+      align-items: flex-start;
+      gap: 12px;
+      color: #000;
+      font-family: 'Poppins';
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 16px;
+      margin: 0;
+      position: relative;
+    }
+
+    .margin-none {
+      margin: 0px !important;
+    }
+
+    .product-overview-block .protection-option label span {
+      color: #fb5a00;
+      font-family: 'Poppins';
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 23px;
+      display: block;
+      margin: 4px 0 0;
+    }
+
+    .product-overview-block .protection-option label:before {
+      position: absolute;
+      content: '';
+      font-weight: 400;
+      font-family: 'Font Awesome 5 Pro';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #fff;
+      left: 10px;
+      top: 14px;
+      height: 19px;
+      width: 19px;
+      border-radius: 5px;
+      border: 1px solid #d8d8d8;
+      background: #fff;
+      -webkit-transition: all 0.3s linear;
+      transition: all 0.3s linear;
+    }
+
+    .product-overview-block .protection-option input:checked + label:before {
+      background: #fb5a00;
+      border-color: #fb5a00;
+      content: '\f00c';
+    }
+
+    .product-overview-block .note-info-block {
+      margin: 0 0 24px;
+    }
+
+    .product-overview-block .note-info-block p {
+      color: #000;
+      font-family: 'Poppins';
+      font-size: 13px;
+      font-weight: 400;
+      line-height: normal;
+      margin: 0;
+    }
+
+    .close-button:hover {
+      color: #ffffff !important;
+      opacity: 80%;
+    }
+
+    .close-button {
+      color: white;
+      position: absolute;
+      background: #fb5a00;
+      width: 25px;
+      top: 25px;
+      right: 20px;
+      z-index: 50;
+      font-size: 3rem;
+      font-weight: bold;
+      cursor: pointer;
+      height: 25px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .close-button:hover,
+    .close-button:focus {
+      color: black;
+      text-decoration: none;
+    }
+    .info-link {
+      font-size: 13px;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  </style>
+
+  <script>
+    $(document).on('click', '.description-modal .btn-close', function () {
+      if ($(document).find('#FacetsWrapperMobile').hasClass('submenu-open')) {
+        $(document).find('#FacetsWrapperMobile').removeClass('submenu-open');
+      }
+      if ($(document).find('.mobile-facets__main.has-submenu').hasClass('submenu-open')) {
+        $(document).find('.mobile-facets__main.has-submenu').removeClass('submenu-open');
+      }
+    });
+    $(document).on('click', function (e) {
+      if ($(e.target).is('.modal-dialog') === false) {
+        $(document).find('#FacetsWrapperMobile').removeClass('submenu-open');
+        $(document).find('.mobile-facets__main.has-submenu').removeClass('submenu-open');
+      }
+    });
+  </script>
+{% endif %}

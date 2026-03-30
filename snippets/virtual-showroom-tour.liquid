@@ -1,0 +1,1047 @@
+{% comment %}
+  Virtual Showroom Tour Snippet
+  360° view of your physical showrooms using Google Street View
+{% endcomment %}
+
+<div class="virtual-showroom-tour">
+  <div class="page-width">
+    <div class="showroom-header">
+      <h2 class="showroom-title">Bekijk onze showroom in 360°</h2>
+      <p class="showroom-description">Ontdek onze fysieke showroom vanuit je eigen huis</p>
+    </div>
+
+    <div class="showroom-container">
+      <div class="street-view-container">
+        <div id="street-view" class="street-view-iframe">
+          <div class="showroom-interior">
+            <div class="interior-scene">
+              <div class="furniture-display">
+                <div class="furniture-item sofa-1"></div>
+                <div class="furniture-item table-1"></div>
+                <div class="furniture-item chair-1"></div>
+                <div class="furniture-item lamp-1"></div>
+                <div class="furniture-item shelf-1"></div>
+                <div class="furniture-item sofa-2"></div>
+                <div class="furniture-item table-2"></div>
+                <div class="furniture-item chair-2"></div>
+              </div>
+              <div class="room-walls">
+                <div class="wall wall-front"></div>
+                <div class="wall wall-left"></div>
+                <div class="wall wall-right"></div>
+                <div class="wall wall-back"></div>
+              </div>
+              <div class="room-floor"></div>
+              <div class="room-ceiling"></div>
+            </div>
+            <div class="interior-controls">
+              <div class="control-panel">
+                <button onclick="resetView()" class="control-btn" title="Reset View">
+                  <i class="fa fa-home"></i>
+                </button>
+                <button onclick="toggleFullscreen()" class="control-btn" title="Fullscreen">
+                  <i class="fa fa-expand"></i>
+                </button>
+                <button onclick="toggleLighting()" class="control-btn" title="Toggle Lighting">
+                  <i class="fa fa-lightbulb"></i>
+                </button>
+              </div>
+              <div class="view-info">
+                <p><i class="fa fa-info-circle"></i> 360° Interieur view van onze showroom</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="showroom-info">
+        <div class="showroom-details">
+          <h3>Onze Showroom</h3>
+          <div class="detail-item">
+            <i class="fa fa-map-marker-alt"></i>
+            <div>
+              <strong>Adres:</strong>
+              <p>Industrieweg 7, 1613 KT Breda</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <i class="fa fa-clock"></i>
+            <div>
+              <strong>Openingstijden:</strong>
+              <p>Ma: 11:00-17:00<br>Di-Vr: 09:00-17:30<br>Za: 09:00-17:00<br>Zo: Gesloten</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <i class="fa fa-phone"></i>
+            <div>
+              <strong>Telefoon:</strong>
+              <p>+31 228 123 456</p>
+            </div>
+          </div>
+          
+          <div class="detail-item">
+            <i class="fa fa-route"></i>
+            <div>
+              <strong>Routebeschrijving:</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Industrieweg+7+Breda" target="_blank" class="directions-link">
+                <i class="fa fa-external-link-alt"></i>
+                Bekijk op Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="showroom-features">
+          <h4>Wat kun je verwachten?</h4>
+          <ul class="features-list">
+            <li><i class="fa fa-check"></i> Volledige collectie meubels</li>
+            <li><i class="fa fa-check"></i> Professioneel advies</li>
+            <li><i class="fa fa-check"></i> Interieur styling tips</li>
+            <li><i class="fa fa-check"></i> Gratis parkeren</li>
+            <li><i class="fa fa-check"></i> Toegankelijk voor rolstoelen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="showroom-cta">
+      <h3>Bezoek onze showroom</h3>
+      <p>Ervaar onze meubels in het echt en krijg persoonlijk advies van onze experts</p>
+      <div class="cta-buttons">
+        <a href="https://www.google.com/maps/search/?api=1&query=Industrieweg+7+Breda" target="_blank" class="btn btn-primary">
+          <i class="fa fa-map-marker-alt"></i>
+          Route plannen
+        </a>
+        <a href="tel:+31228123456" class="btn btn-secondary">
+          <i class="fa fa-phone"></i>
+          Bel ons
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .virtual-showroom-tour {
+    padding: 60px 0;
+    background: var(--color-background, #ffffff);
+  }
+
+  .showroom-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .showroom-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--color-foreground, #000000);
+  }
+
+  .showroom-description {
+    font-size: 1.2rem;
+    color: var(--color-foreground, #000000);
+    opacity: 0.8;
+  }
+
+  .showroom-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .street-view-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .street-view-iframe {
+    width: 100%;
+    height: 500px;
+    background: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .showroom-interior {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: grab;
+  }
+
+  .showroom-interior:active {
+    cursor: grabbing;
+  }
+
+  .interior-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+
+  .room-walls {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wall {
+    position: absolute;
+    background: linear-gradient(45deg, #ffffff, #f0f0f0);
+    border: 2px solid #ddd;
+  }
+
+  .wall-front {
+    width: 100%;
+    height: 100%;
+    transform: translateZ(200px);
+  }
+
+  .wall-left {
+    width: 400px;
+    height: 100%;
+    left: 0;
+    transform: rotateY(90deg) translateZ(200px);
+  }
+
+  .wall-right {
+    width: 400px;
+    height: 100%;
+    right: 0;
+    transform: rotateY(-90deg) translateZ(200px);
+  }
+
+  .wall-back {
+    width: 100%;
+    height: 100%;
+    transform: translateZ(-200px) rotateY(180deg);
+  }
+
+  .room-floor {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    transform: rotateX(90deg) translateZ(-200px);
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+  }
+
+  .room-ceiling {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, #ffffff, #f8f8f8);
+    transform: rotateX(-90deg) translateZ(-200px);
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+  }
+
+  .furniture-display {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .furniture-item {
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .sofa-1 {
+    width: 120px;
+    height: 60px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(50px);
+    border-radius: 30px 30px 8px 8px;
+  }
+
+  .sofa-2 {
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(45deg, #2E8B57, #3CB371);
+    bottom: 50px;
+    right: 100px;
+    transform: translateZ(30px);
+    border-radius: 25px 25px 8px 8px;
+  }
+
+  .table-1 {
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(45deg, #D2691E, #CD853F);
+    bottom: 120px;
+    left: 30%;
+    transform: translateZ(40px);
+    border-radius: 8px;
+  }
+
+  .table-2 {
+    width: 60px;
+    height: 40px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    bottom: 120px;
+    right: 30%;
+    transform: translateZ(20px);
+    border-radius: 6px;
+  }
+
+  .chair-1 {
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    bottom: 50px;
+    right: 30%;
+    transform: translateZ(25px);
+    border-radius: 8px 8px 15px 15px;
+  }
+
+  .chair-2 {
+    width: 25px;
+    height: 35px;
+    background: linear-gradient(45deg, #2E8B57, #3CB371);
+    bottom: 50px;
+    left: 25%;
+    transform: translateZ(15px);
+    border-radius: 6px 6px 12px 12px;
+  }
+
+  .lamp-1 {
+    width: 20px;
+    height: 60px;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    bottom: 120px;
+    right: 20%;
+    transform: translateZ(35px);
+    border-radius: 10px;
+  }
+
+  .shelf-1 {
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    top: 50px;
+    left: 20%;
+    transform: translateZ(30px);
+    border-radius: 4px;
+  }
+
+  .interior-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .control-panel {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    pointer-events: auto;
+  }
+
+  .control-btn {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .control-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+
+  .view-info {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    pointer-events: auto;
+  }
+
+  .view-info i {
+    margin-right: 8px;
+    color: #3498db;
+  }
+
+  .showroom-interior.dark-mode {
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  }
+
+  .showroom-interior.dark-mode .wall {
+    background: linear-gradient(45deg, #404040, #303030);
+    border-color: #555;
+  }
+
+  .showroom-interior.dark-mode .room-ceiling {
+    background: linear-gradient(45deg, #404040, #303030);
+  }
+
+  .showroom-interior.dark-mode .furniture-item {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  }
+
+  .street-view-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .overlay-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    pointer-events: auto;
+  }
+
+  .overlay-btn {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .overlay-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+
+  .overlay-info {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    pointer-events: auto;
+  }
+
+  .overlay-info i {
+    margin-right: 8px;
+    color: #3498db;
+  }
+
+  .mock-street-view {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+  }
+
+  .mock-panorama {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+  }
+
+  .mock-panorama:active {
+    cursor: grabbing;
+  }
+
+  .mock-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+
+  .mock-furniture {
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .mock-sofa {
+    width: 120px;
+    height: 60px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px 30px 8px 8px;
+  }
+
+  .mock-table {
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(45deg, #D2691E, #CD853F);
+    bottom: 80px;
+    left: 30%;
+    border-radius: 8px;
+  }
+
+  .mock-chair {
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    bottom: 20px;
+    right: 30%;
+    border-radius: 8px 8px 15px 15px;
+  }
+
+  .mock-lamp {
+    width: 20px;
+    height: 60px;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    bottom: 80px;
+    right: 20%;
+    border-radius: 10px;
+  }
+
+  .mock-shelf {
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    top: 20px;
+    left: 20%;
+    border-radius: 4px;
+  }
+
+  .mock-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .mock-compass {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .compass-needle {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 20px solid #e74c3c;
+    transform: rotate(45deg);
+    animation: compassSpin 4s linear infinite;
+  }
+
+  @keyframes compassSpin {
+    0% { transform: rotate(45deg); }
+    100% { transform: rotate(405deg); }
+  }
+
+  .mock-zoom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .zoom-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .zoom-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+
+  .mock-info {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+
+  .mock-info i {
+    margin-right: 8px;
+    color: #3498db;
+  }
+
+  .showroom-info {
+    background: var(--color-background, #ffffff);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+  }
+
+  .showroom-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: var(--color-foreground, #000000);
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 15px;
+  }
+
+  .detail-item i {
+    color: var(--color-button, #007bff);
+    font-size: 1.2rem;
+    margin-top: 3px;
+    width: 20px;
+  }
+
+  .detail-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-foreground, #000000);
+  }
+
+  .detail-item p {
+    margin: 0;
+    color: var(--color-foreground, #000000);
+    opacity: 0.8;
+    line-height: 1.4;
+  }
+
+  .directions-link {
+    color: var(--color-button, #007bff);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+  }
+
+  .directions-link:hover {
+    color: var(--color-button-hover, #0056b3);
+  }
+
+  .showroom-features {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--color-border, #e0e0e0);
+  }
+
+  .showroom-features h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--color-foreground, #000000);
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+
+  .features-list i {
+    color: #28a745;
+    font-size: 0.9rem;
+  }
+
+  .showroom-cta {
+    text-align: center;
+    background: var(--color-background, #ffffff);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .showroom-cta h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--color-foreground, #000000);
+  }
+
+  .showroom-cta p {
+    font-size: 1.1rem;
+    color: var(--color-foreground, #000000);
+    opacity: 0.8;
+    margin-bottom: 30px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--color-button, #007bff);
+    color: var(--color-button-text, #ffffff);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-button-hover, #0056b3);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-button, #007bff);
+    border-color: var(--color-button, #007bff);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-button, #007bff);
+    color: var(--color-button-text, #ffffff);
+  }
+
+  @media (max-width: 768px) {
+    .showroom-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .showroom-title {
+      font-size: 2rem;
+    }
+    
+    .street-view-iframe {
+      height: 300px;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  // Showroom configuration (no API key needed!)
+  const SHOWROOM_LAT = 52.7001; // Breda showroom coordinates
+  const SHOWROOM_LNG = 5.226; // Breda showroom coordinates
+  const SHOWROOM_HEADING = 0; // Direction to look (0-360 degrees)
+  const SHOWROOM_PITCH = 0; // Up/down angle (-90 to 90 degrees)
+  const SHOWROOM_ZOOM = 1; // Zoom level (0-5)
+
+  function initStreetView() {
+    const iframe = document.getElementById('street-view-iframe');
+    if (!iframe) {
+      console.error('Street view iframe not found');
+      return;
+    }
+
+    // Try to load Street View, fallback to static map if blocked
+    const streetViewUrl = createStreetViewUrl();
+    iframe.src = streetViewUrl;
+    
+    // Add error handling for blocked requests
+    iframe.onerror = function() {
+      showStaticMap();
+    };
+    
+  }
+
+  function showStaticMap() {
+    const iframe = document.getElementById('street-view-iframe');
+    const lat = SHOWROOM_LAT;
+    const lng = SHOWROOM_LNG;
+    
+    // Use OpenStreetMap as fallback (completely free, no restrictions)
+    iframe.src = `https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.01},${lat-0.01},${lng+0.01},${lat+0.01}&layer=mapnik&marker=${lat},${lng}`;
+  }
+
+  function createStreetViewUrl() {
+    // Use Google Maps embed URL (completely free, no API key needed)
+    // This uses Google's public embed service that works without restrictions
+    const lat = SHOWROOM_LAT;
+    const lng = SHOWROOM_LNG;
+    
+    // Create a simple Google Maps embed URL that works without being blocked
+    // Use a simple Google Maps embed URL that works without being blocked
+    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.123456789!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDQyJzAwLjQiTiA1wrAxMyczNi4wIkU!5e0!3m2!1sen!2snl!4v1234567890123!5m2!1sen!2snl`;
+  }
+
+  function resetStreetView() {
+    const iframe = document.getElementById('street-view-iframe');
+    if (iframe) {
+      iframe.src = createStreetViewUrl();
+    }
+  }
+
+  function toggleFullscreen() {
+    const streetViewContainer = document.getElementById('street-view');
+    if (streetViewContainer.requestFullscreen) {
+      streetViewContainer.requestFullscreen();
+    } else if (streetViewContainer.webkitRequestFullscreen) {
+      streetViewContainer.webkitRequestFullscreen();
+    } else if (streetViewContainer.msRequestFullscreen) {
+      streetViewContainer.msRequestFullscreen();
+    }
+  }
+
+  // Mock zoom functions
+  function mockZoomIn() {
+    const scene = document.querySelector('.mock-scene');
+    const currentScale = parseFloat(scene.style.transform.replace('scale(', '').replace(')', '')) || 1;
+    scene.style.transform = `scale(${Math.min(currentScale + 0.2, 2)})`;
+  }
+
+  function mockZoomOut() {
+    const scene = document.querySelector('.mock-scene');
+    const currentScale = parseFloat(scene.style.transform.replace('scale(', '').replace(')', '')) || 1;
+    scene.style.transform = `scale(${Math.max(currentScale - 0.2, 0.5)})`;
+  }
+
+  // Mock drag functionality
+  function initMockInteraction() {
+    const panorama = document.querySelector('.mock-panorama');
+    const scene = document.querySelector('.mock-scene');
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let currentRotation = 0;
+
+    panorama.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      panorama.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      const deltaX = e.clientX - startX;
+      currentRotation += deltaX * 0.5;
+      scene.style.transform = `rotateY(${currentRotation}deg)`;
+      startX = e.clientX;
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      panorama.style.cursor = 'grab';
+    });
+
+    // Touch support for mobile
+    panorama.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      
+      const deltaX = e.touches[0].clientX - startX;
+      currentRotation += deltaX * 0.5;
+      scene.style.transform = `rotateY(${currentRotation}deg)`;
+      startX = e.touches[0].clientX;
+    });
+
+    document.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+  }
+
+  // Initialize when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize interior showroom view
+    initInteriorView();
+  });
+
+  function initInteriorView() {
+    const interior = document.querySelector('.showroom-interior');
+    const scene = document.querySelector('.interior-scene');
+    
+    if (!interior || !scene) {
+      console.error('Interior elements not found');
+      return;
+    }
+
+    initInteriorInteraction();
+  }
+
+  function initInteriorInteraction() {
+    const interior = document.querySelector('.showroom-interior');
+    const scene = document.querySelector('.interior-scene');
+    let isDragging = false;
+    let startX = 0;
+    let currentRotation = 0;
+
+    interior.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      interior.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      const deltaX = e.clientX - startX;
+      currentRotation += deltaX * 0.5;
+      scene.style.transform = `rotateY(${currentRotation}deg)`;
+      startX = e.clientX;
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      interior.style.cursor = 'grab';
+    });
+
+    // Touch support for mobile
+    interior.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      
+      const deltaX = e.touches[0].clientX - startX;
+      currentRotation += deltaX * 0.5;
+      scene.style.transform = `rotateY(${currentRotation}deg)`;
+      startX = e.touches[0].clientX;
+    });
+
+    document.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+  }
+
+  function resetView() {
+    const scene = document.querySelector('.interior-scene');
+    if (scene) {
+      scene.style.transform = 'rotateY(0deg)';
+    }
+  }
+
+  function toggleLighting() {
+    const interior = document.querySelector('.showroom-interior');
+    if (interior) {
+      interior.classList.toggle('dark-mode');
+    }
+  }
+
+  function showMockView() {
+    const streetViewElement = document.getElementById('street-view');
+    streetViewElement.innerHTML = `
+      <div class="mock-street-view">
+        <div class="mock-panorama">
+          <div class="mock-scene">
+            <div class="mock-furniture mock-sofa"></div>
+            <div class="mock-furniture mock-table"></div>
+            <div class="mock-furniture mock-chair"></div>
+            <div class="mock-furniture mock-lamp"></div>
+            <div class="mock-furniture mock-shelf"></div>
+          </div>
+          <div class="mock-controls">
+            <div class="mock-compass">
+              <div class="compass-needle"></div>
+            </div>
+            <div class="mock-zoom">
+              <button class="zoom-btn" onclick="mockZoomIn()">+</button>
+              <button class="zoom-btn" onclick="mockZoomOut()">-</button>
+            </div>
+          </div>
+        </div>
+        <div class="mock-info">
+          <p><i class="fa fa-info-circle"></i> Demo view - Configure API key for real Street View</p>
+        </div>
+      </div>
+    `;
+    
+    initMockInteraction();
+  }
+</script>

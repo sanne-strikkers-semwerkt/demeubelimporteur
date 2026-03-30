@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Ryan serie",
+        "description": "Stijlvol en praktisch"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Ryan.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam materiaal</strong>: mangohout is milieuvriendelijk, sterk en slijtvast.</li><li><strong>Unieke uitstraling</strong>: elk meubelstuk heeft een eigen karakter dankzij de natuurlijke houtnerf.</li><li><strong>Veelzijdig design</strong>: geschikt voor diverse interieurstijlen.</li><li><strong>Praktisch</strong>: perfect voor dagelijks gebruik, bijna geen <a href=\"https://www.demeubelimporteur.nl/collections/onderhoud\"><span style=\"text-decoration:underline\">onderhoud</span></a> nodig.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/ryan-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "ryan-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/ryan-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ryan-meubels van mangohout",
+            "description": "<p>Wil je jouw woonkamer opnieuw inrichten met meubels die je interieur naar een hoger niveau tillen? Ontdek onze meubelserie Ryan. Deze exclusieve collectie mangohouten meubels combineert stijl, stevigheid en praktisch gebruiksgemak. Of je nu een blikvanger zoekt of een functioneel meubel, de Ryan-serie biedt voor ieder wat wils.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Waarom Ryan-meubels perfect zijn voor jouw interieur",
+            "description": "<p>Bij De Meubel Importeur zijn we helemaal fan van mangohout. Onze Ryan-meubels zijn dan ook gemaakt van dit duurzame materiaal. Mangohout staat bekend om zijn warme uitstraling en robuuste kwaliteit. Het unieke houtpatroon maakt elk meubelstuk bijzonder, waardoor jouw woonkamer een persoonlijke en natuurlijke sfeer krijgt. Daarnaast is deze houtsoort enorm milieuvriendelijk. Het kappen van mangobomen draagt niet bij aan ontbossing, omdat ze meteen worden vervangen door nieuwe bomen die weer fruit dragen.</p><p>Wacht niet langer en maak van jouw interieur een stijlvolle en praktische ruimte. Bestel jouw favoriete Ryan-meubels van mangohout vandaag nog of bezoek een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms</a>. Wij staan klaar om je te helpen bij het vinden van het perfecte meubelstuk!</p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "De salontafel: het hart van jouw woonkamer",
+            "description": "<p>Een van de hoogtepunten uit onze Ryan-meubelserie is de salontafel. Dankzij het ruime tafelblad heb je voldoende plek voor je boek of afstandsbediening en voor je dagelijkse kop koffie. Of je nu ontspant met vrienden of geniet van een rustmoment, de Ryan-salontafel biedt een perfecte balans tussen gebruiksgemak en stijl. Bovendien is de tafel ontworpen om jarenlang mee te gaan, zodat je zorgeloos kunt genieten van dit prachtige meubelstuk.</p>"
+          }
+        },
+        "right_textarea_8RjF3m": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Koop jouw favoriete Ryan-meubel direct!",
+            "description": "<p>Bestel vandaag nog jouw favoriete Ryan-meubel bij De Meubel Importeur, dan geniet je van:</p>"
+          }
+        },
+        "right_text_jUbGDX": {
+          "type": "right_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Snelle levering</strong>: is jouw bestelling op voorraad, dan heb je die binnen 5 werkdagen in huis.</li><li><strong>Voordelige prijzen</strong>: De Meubel Importeur is de goedkoopste mangohouten meubelzaak van Nederland!</li><li><strong>Veiligheid</strong>: je loopt geen risico, want je betaalt je bestelling pas achteraf. Daarbij ontvang je altijd één jaar garantie!</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "right_textarea_AwQf8r",
+        "right_textarea_8RjF3m",
+        "right_text_jUbGDX"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

@@ -1,0 +1,162 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Fianna serie",
+        "description": "Zwarte mangohouten meubels voor een industrieel modern interieur"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Fianna.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li>Gemaakt van duurzaam zwart mangohout met een verfijnd visgraatpatroon.</li><li>Zeer functioneel, met veel opbergruimte in een mix van open vakken en lades.</li><li>Perfect voor in een modern interieur door de strakke lijnen en metalen accenten.</li><li>Jarenlang bruikbaar met <a href=\"https://www.demeubelimporteur.nl/collections/onderhoud\"><span style=\"text-decoration:underline\">minimaal onderhoud</span></a>, zonder uit de mode te raken.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/fianna-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "fianna-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/fianna-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de Fianna-collectie",
+            "description": "<p>Wil jij je interieur een stijlvolle, industriële upgrade geven? Dat kan! Met onze Fianna-collectie haal je zwarte mangohouten meubels in huis die vakmanschap, functionaliteit en modern design combineren. Deze unieke meubelserie - met een opvallend visgraatpatroon en stoere metalen accenten - is dé keuze voor liefhebbers van een industrieel modern interieur. Of je nu woont in een loft, een gerenoveerd pakhuis of een compact stadsappartement, onze Fianna-meubels tillen je woonruimte naar een hoger niveau. </p>"
+          }
+        },
+        "left_textarea_mLQ3nN": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Welke meubels vind je in ons Fianna-assortiment?",
+            "description": ""
+          }
+        },
+        "left_text_wwwK7Q": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Tv-meubel</strong>: perfect als middelpunt in je woonkamer, met ruimte om al je apparatuur netjes op te bergen.</li><li><strong>Vakkenkast</strong>: een veelzijdige kast om boeken, decoratie en persoonlijke items op een stijlvolle manier te presenteren.</li><li><strong>Dressoir</strong>: een praktisch meubel voor je eetkamer of hal, met ruime opberglades en een elegante afwerking.</li><li><strong>Salontafel</strong>: compact en robuust, met handige opbergruimte voor alledaagse spullen zoals tijdschriften en afstandsbedieningen.</li><li><strong>Kast</strong>: een royale opbergoplossing met een opvallend visgraatdesign, ideaal om jouw interieur te organiseren.</li></ul>"
+          }
+        },
+        "right_textarea_WywRQf": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Laat je inspireren",
+            "description": "<p>Onze Fianna-meubels van mangohout komen het best tot hun recht in een licht en ruimtelijk interieur. Combineer ze met neutrale muren in beige of taupe, een betonnen of houten vloer, en voeg een vleugje groen toe met grote kamerplanten. Accessoires zoals abstracte kunst en linnen textiel versterken de moderne uitstraling.</p>"
+          }
+        },
+        "right_textarea_EKpGhT": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Waarom kiezen voor de Fianna-collectie?",
+            "description": "<p>Bij De Meubel Importeur vinden we functionaliteit enorm belangrijk, maar het oog wil ook wat. Daarom is elk meubelstuk uit onze Fianna-collectie gemaakt van hoogwaardig zwart mangohout, afgewerkt met een visgraatpatroon dat tijdloos en verfijnd oogt. Het gebruik van zwart metalen frames geeft de meubels een stoere uitstraling, terwijl de slimme combinatie van open en gesloten opbergruimte zorgt voor een opgeruimd en georganiseerd huis.</p>"
+          }
+        },
+        "right_textarea_Ya7adE": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bezoek onze showrooms",
+            "description": "<p>Wil je de meubels in het echt bekijken, voordat je een aankoop doet? Kom dan langs in een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms</a>. Hier kun je de Fianna-collectie zelf ervaren, de kwaliteit voelen en de details bewonderen. Heb je vragen? Dan staan onze specialisten klaar om je te helpen.</p><p><em><strong>Weet je al wel welk Fianna-meubel jouw favoriet is? Bestel jouw keuze direct - zonder aanbetaling - en maak je interieur compleet!</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_mLQ3nN",
+        "left_text_wwwK7Q",
+        "right_textarea_WywRQf",
+        "right_textarea_EKpGhT",
+        "right_textarea_Ya7adE"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

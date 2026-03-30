@@ -1,0 +1,244 @@
+{% comment %}
+  Renders accepted payment methods
+
+  Accepts:
+  - show_title: {Boolean} shows "We accept" title (optional, default: true)
+  - title: {String} custom title text (optional)
+  - class: {String} additional CSS classes (optional)
+  - size: {String} icon size - 'small', 'medium', 'large' (optional, default: 'medium')
+  - sort_order: {String} comma-separated list of payment types to sort by (optional)
+  - reverse: {Boolean} reverse the sort order (optional, default: false)
+
+  Usage:
+  {% render 'payment-methods' %}
+  {% render 'payment-methods', show_title: false, size: 'large' %}
+  {% render 'payment-methods', title: 'Betalen met', class: 'custom-payment' %}
+  {% render 'payment-methods', sort_order: 'visa,master,paypal,apple_pay' %}
+{% endcomment %}
+
+{%- liquid
+  assign show_title = show_title | default: true
+  assign title_text = title | default: 'sections.footer.payment' | t
+  assign icon_size = size | default: 'medium'
+  assign additional_classes = class | default: ''
+  assign sort_order = sort_order | default: 'ideal,master,paypal,bancontact,visa,klarna'
+  assign reverse_order = reverse | default: false
+
+  comment
+    Create sorted payment types array
+  endcomment
+  assign payment_types = shop.enabled_payment_types
+
+  if sort_order != blank
+    assign sorted_payment_types = ''
+    assign sort_array = sort_order | split: ','
+
+    comment
+      First, add payment types in the specified order
+    endcomment
+    for sort_item in sort_array
+      assign sort_item_clean = sort_item | strip
+      for payment_type in payment_types
+        comment
+          Check for exact match or common variations
+        endcomment
+        assign is_match = false
+        if payment_type == sort_item_clean
+          assign is_match = true
+        elsif sort_item_clean == 'bancontact' and payment_type contains 'bancontact'
+          assign is_match = true
+        elsif sort_item_clean == 'bancontact' and payment_type contains 'Bancontact'
+          assign is_match = true
+        endif
+        
+        if is_match
+          if sorted_payment_types == blank
+            assign sorted_payment_types = payment_type
+          else
+            assign sorted_payment_types = sorted_payment_types | append: ',' | append: payment_type
+          endif
+        endif
+      endfor
+    endfor
+
+    comment
+      Then add any remaining payment types not in the sort order
+    endcomment
+    for payment_type in payment_types
+      assign found = false
+      for sort_item in sort_array
+        assign sort_item_clean = sort_item | strip
+        if payment_type == sort_item_clean
+          assign found = true
+          break
+        endif
+      endfor
+
+      unless found
+        if sorted_payment_types == blank
+          assign sorted_payment_types = payment_type
+        else
+          assign sorted_payment_types = sorted_payment_types | append: ',' | append: payment_type
+        endif
+      endunless
+    endfor
+
+    assign payment_types = sorted_payment_types | split: ','
+  endif
+
+  if reverse_order
+    assign payment_types = payment_types | reverse
+  endif
+
+  comment
+    TEMPORARY FIX: Force show Bancontact for testing
+    Set to true to test Bancontact display
+    REMOVE THIS CODE AFTER CONFIRMING BANCONTACT WORKS IN BELGIUM
+  endcomment
+  assign force_bancontact = true
+
+  comment
+    Force add Bancontact for testing
+  endcomment
+  if force_bancontact
+    unless payment_types contains 'bancontact'
+      assign payment_types = payment_types | join: ',' | append: ',bancontact' | split: ','
+    endunless
+  endif
+-%}
+<div class="payment-methods mb-4 {{ additional_classes }}">
+  {%- if payment_types.size > 0 -%}
+    <ul class="payment-methods__list list-payment" role="list">
+      {%- for type in payment_types -%}
+        <li class="payment-methods__item list-payment__item">
+          {{ type | payment_type_svg_tag: class: 'payment-methods__icon icon icon--full-color' }}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- else -%}
+    <p class="payment-methods__empty">{{ 'sections.footer.no_payment_methods' | t }}</p>
+  {%- endif -%}
+</div>
+
+{% style %}
+
+  .payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .payment-methods__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: {{ settings.text_color | default: '#000' }};
+  }
+
+  .payment-methods__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .payment-methods__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .payment-methods__icon {
+    height: auto;
+    max-width: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  .payment-methods__icon:hover {
+    opacity: 0.8;
+  }
+
+  /* Size variations */
+  .payment-methods--small .payment-methods__icon {
+    width: 2.4rem;
+    height: 1.6rem;
+  }
+
+  .payment-methods--medium .payment-methods__icon {
+    width: 3.2rem;
+    height: 2.1rem;
+  }
+
+  .payment-methods--large .payment-methods__icon {
+    width: 4rem;
+    height: 2.6rem;
+  }
+
+  .payment-methods__empty {
+    color: {{ settings.text_color | default: '#666' }};
+    font-style: italic;
+    margin: 0;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .payment-methods__list {
+      gap: 0.6rem;
+    }
+
+    .payment-methods--small .payment-methods__icon {
+      width: 2rem;
+      height: 1.3rem;
+    }
+
+    .payment-methods--medium .payment-methods__icon {
+      width: 2.8rem;
+      height: 1.8rem;
+    }
+
+    .payment-methods--large .payment-methods__icon {
+      width: 3.2rem;
+      height: 2.1rem;
+    }
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .payment-methods__title {
+      color: {{ settings.text_color_dark | default: '#fff' }};
+    }
+
+    .payment-methods__empty {
+      color: {{ settings.text_color_dark | default: '#ccc' }};
+    }
+  }
+  .payment-methods__icon {
+  width: 58px;
+  height: auto;
+}
+
+.list-payment {
+  display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      justify-content: center;
+      gap: 10px;
+      padding-top: 1rem;
+      padding-left: 0;
+}
+
+
+
+@media screen and (min-width: 750px) {
+  .list-payment {
+    justify-content: space-between;
+    margin: -0.5rem;
+    padding-top: 0;
+  }
+  .payment-methods  {
+    padding: 0 20px;
+  }
+}
+
+{% endstyle %}

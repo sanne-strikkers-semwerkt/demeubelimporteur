@@ -1,0 +1,132 @@
+<div class="track-main">
+  {% if canonical_url contains 'order' %}
+    <link href="https://delivery.nu/orderportal/app.css" rel="stylesheet">
+    <style>
+      .op-statusbar {
+        background: #fdb801;
+      }
+      .op-active {
+        color: #fdb801;
+      }
+      .op-active svg {
+        filter: invert(69%) sepia(69%) saturate(1350%) hue-rotate(358deg) brightness(101%) contrast(102%);
+      }
+      .op-button {
+        background: #fdb801;
+        color: #fff;
+        display: inline-block;
+        text-align: center;
+      }
+      .op-button:hover {
+        color: #fff;
+      }
+    </style>
+    <div id="app"></div>
+    <script type="text/javascript">
+      window.op_config = {
+        prefix: 'DMI',
+        strip_prefixes: [
+          'DMI',
+          'DMIBE',
+          'DM1',
+          'DM1BE',
+          'DM1B3'
+        ]
+      };
+    </script>
+    <script type="text/javascript" src="https://delivery.nu/orderportal/chunk-vendors.js"></script>
+    <script type="text/javascript" src="https://delivery.nu/orderportal/app.js"></script>
+  {% else %}
+    <h2 class="th-title">Mijn Bestelling</h2>
+    <div class="track-body">
+      <div class="container">
+        <div class="track-fold">
+          <p>{{ section.settings.description }}</p>
+          <form class="track_form">
+            <div class="form-group">
+              <label>Ordernummer</label>
+              <input
+                type="text"
+                class="form-control"
+                name="order"
+                required
+                oninvalid="this.setCustomValidity('Vul een ordernummer in')"
+                oninput="this.setCustomValidity('')"
+                id="order_number"
+              >
+              <p class="invalid_order">Vul een ordernummer in</p>
+            </div>
+            <div class="form-group">
+              <label>E-mailadres</label>
+              <input
+                type="text"
+                class="form-control"
+                name="email"
+                required
+                oninvalid="this.setCustomValidity('Vul een e-mailadres in')"
+                oninput="this.setCustomValidity('')"
+                id="email_add"
+              >
+              <p class="invalid_email">Vul een e-mailadres in</p>
+            </div>
+            <button type="submit" class="btn-submit">Zoeken</button>
+          </form>
+          <div class="track-step">
+            {% assign count = 1 %}
+            {% for block in section.blocks %}
+              <div class="step">
+                <figure><img src="{{ block.settings.image | img_url: 'master' }}" alt=""></figure>
+                <div class="tsinfo">
+                  <label>STAP {{ count }}</label>
+                  <h4>{{ block.settings.heading }}</h4>
+                  <p>{{ block.settings.desc }}</p>
+                </div>
+              </div>
+              {% assign count = count | plus: 1 %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name": "Order Tracking section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Page Description"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "text",
+    "name": "Page step",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Step Image"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Step Title"
+      },
+      {
+        "type": "textarea",
+        "id": "desc",
+        "label": "Step Description"
+      }
+    ]
+  }
+],
+  "presets" : [
+   {
+     "name" : "Order Tracking section"
+   }
+  ]
+}
+{% endschema %}

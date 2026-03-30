@@ -1,0 +1,21 @@
+<div class="breadcrumb">
+  {%- assign hoofdcollectie = product.metafields.custom.breadcrumb_hoofdcollectie.value -%}
+  {%- assign subcollectie = product.metafields.custom.breadcrumb_subcollectie.value -%}
+  <a
+    href="javascript:void(0);"
+    class="btn-back"
+    onclick="if (document.referrer.indexOf(window.location.host) !== -1) { history.go(-1); return false; } else { window.location.href = '{{ routes.root_url }}'; }"
+    >Ga terug</a
+  >
+  <ul>
+    <li><a href="{{ routes.root_url }}">Home</a></li>
+    {%- if hoofdcollectie -%}
+      <li>{{- hoofdcollectie.title | link_to: hoofdcollectie.url }}</li>
+      {%- if subcollectie -%}
+        <li>{{- subcollectie.title | link_to: subcollectie.url }}</li>
+      {%- endif -%}
+    {%- elsif product.collections and product.collections.first -%}
+      <li>{{- product.collections.first.title | link_to: product.collections.first.url }}</li>
+    {%- endif -%}
+  </ul>
+</div>

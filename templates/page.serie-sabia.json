@@ -1,0 +1,155 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Sabia serie",
+        "description": "Tijdloze stijl en praktisch design"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Sabia.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam materiaal:</strong> gemaakt van stevig en milieuvriendelijk mangohout.</li><li><strong>Eenvoudig in onderhoud:</strong> een vochtige doek is voldoende om de meubels schoon te houden.</li><li><strong>Veelzijdig design:</strong> past perfect bij zowel moderne als landelijke interieurs.</li><li><strong>Ruime opbergmogelijkheden:</strong> voor een geordend en opgeruimd huis.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/sabia-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "sabia-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/sabia-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_eXzFjp": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Meubelserie Sabia",
+            "description": "<p>Ben je op zoek naar meubels die jouw interieur een warme, natuurlijke uitstraling geven? Onze meubelserie Sabia combineert stijl en functionaliteit. Vervaardigd van duurzaam mangohout en afgewerkt met een stoer zwartstalen frame, biedt Sabia een moderne look die toch tijdloos aanvoelt. Met deze serie haal je niet alleen een eyecatcher in huis, maar ook meubels van hoge kwaliteit die jarenlang meegaan. En dat alles voor een vriendelijke prijs!</p>"
+          }
+        },
+        "left_textarea_dpLBUR": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Kast Sabia: praktisch en stijlvol",
+            "description": "<p>De kast uit onze meubelserie Sabia is een ideale keuze voor wie op zoek is naar een elegante opbergoplossing. Met zijn robuuste constructie van mangohout en staal biedt de kast voldoende ruimte voor boeken, decoraties of andere benodigdheden. De lichte houtkleur past moeiteloos bij diverse interieurstijlen en zorgt voor een fris en open gevoel in je ruimte.</p>"
+          }
+        },
+        "left_textarea_byHF3m": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Dressoir Sabia: een combinatie van warmte en functionaliteit",
+            "description": "<p>Ons Sabia-dressoir voegt direct karakter toe aan je kamer. Dit veelzijdige meubel is niet alleen een stijlvolle blikvanger, maar biedt ook ruime opbergmogelijkheden voor al je spullen. Denk aan servies, linnengoed of andere essentials die je netjes wilt opbergen. Het stevige stalen frame zorgt voor stabiliteit en geeft het dressoir een moderne uitstraling.</p>"
+          }
+        },
+        "right_textarea_XWF3Fa": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Tv-meubel Sabia: de perfecte basis voor jouw entertainment",
+            "description": "<p>Op zoek naar een functioneel en stijlvol tv-meubel? Ons Sabia-tv-meubel is de perfecte keuze. Met voldoende opbergruimte voor je media-apparatuur, kabels en afstandsbedieningen combineert dit meubel gebruiksgemak met een fraai design. Het warme mangohout maakt je woonkamer direct gezelliger en uitnodigender.</p>"
+          }
+        },
+        "right_textarea_LbHqyU": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bezoek een van onze showrooms en ontdek de Sabia-serie",
+            "description": "<p>Houd jij van een opgeruimd huis met een natuurlijke uitstraling? Dan biedt onze meubelserie Sabia precies wat jij zoekt. Kies voor de stevige kast, het robuuste dressoir of het stoere tv-meubel.</p><p>Wil je de meubelserie Sabia met eigen ogen zien voordat je een aankoop doet? Bezoek dan een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\" target=\"_blank\">showrooms</a>. Hier kun je de kast, het dressoir en het tv-meubel in het echt zien en de kwaliteit van het mangohout zelf ervaren. Ons team staat voor je klaar om je te adviseren en te helpen bij het kiezen van de perfecte meubels voor jouw interieur. Plan vandaag nog je bezoek en ontdek de tijdloze charme van Sabia-meubels van mangohout.</p><p><em><strong>Direct online bestellen? Dat kan zonder zorgen: je betaalt pas aan de deur, zonder aanbetaling!</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_eXzFjp",
+        "left_textarea_dpLBUR",
+        "left_textarea_byHF3m",
+        "right_textarea_XWF3Fa",
+        "right_textarea_LbHqyU"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

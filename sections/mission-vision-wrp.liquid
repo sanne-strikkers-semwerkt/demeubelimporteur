@@ -1,0 +1,120 @@
+<section class="mission-vision-wrp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="mission-vision-content">
+                    <div class="mission-detail">
+                      {% if section.settings.mission-title != blank %}
+                        <h2>{{ section.settings.mission-title }}</h2>
+                      {% endif %}
+                      {% if section.settings.mission-desc != blank %}
+                        <p>{{ section.settings.mission-desc }}</p>
+                      {% endif %}
+                        <div class="mission-video">
+                          {% if section.settings.video-src-link contains "youtube.com" %}
+                            <iframe width="100%" height="324" src="{{ section.settings.video-src-link | replace: 'watch?v=', 'embed/' }}" frameborder="0" allowfullscreen></iframe>
+                          {% else %}
+                            <video controls>
+                              <source src="{{ section.settings.video-src-link }}" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                          {% endif %}
+                        </div>
+                    </div>
+                    <div class="vision-detail">
+                      {% if section.settings.vision-title %}
+                        <h2>{{ section.settings.vision-title }}</h2>
+                      {% endif %}
+                      {% if section.settings.vision-desc %}
+                        <p>{{ section.settings.vision-desc }}</p>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="mission-vision-img">
+                    <div class="mission-video">
+                      {% if section.settings.video-src-link contains "youtube.com" %}
+                        <iframe width="100%" height="324" src="{{ section.settings.video-src-link | replace: 'watch?v=', 'embed/' }}" frameborder="0" allowfullscreen></iframe>
+                      {% else %}
+                        <video controls>
+                          <source src="{{ section.settings.video-src-link }}" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      {% endif %}
+
+                      <!-- <video controls>
+                        <source src="{{ section.settings.video-src-link }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video> -->
+                    </div>
+                    <div class="mission-box" style="background-image: url('{{ section.settings.mv-bg-image | img_url: 'master'}}');">
+                      {% if section.settings.box-desc != blank %}
+                        <p>{{ section.settings.box-desc }}</p>
+                      {% endif %}
+                      {% if section.settings.btnText!=blank or section.settings.btnLink != blank %}
+                        <a href="{{ section.settings.btnLink }}" class="btn-orange">{{ section.settings.btnText }}</a>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Mission Vision",
+    "settings": [
+      {
+        "type": "text",
+        "id": "mission-title",
+        "label": "Mission Title"
+      },
+      {
+        "type": "richtext",
+        "id": "mission-desc",
+        "label": "Mission Description"
+      },
+      {
+        "type": "url",
+        "id": "video-src-link",
+        "label": "Video Source Link"
+      },
+      {
+        "type": "text",
+        "id": "vision-title",
+        "label": "Vision Title"
+      },
+      {
+        "type": "richtext",
+        "id": "vision-desc",
+        "label": "Vision Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "mv-bg-image",
+        "label": "Box Background Image"
+      },
+      {
+        "type": "richtext",
+        "id": "box-desc",
+        "label": "Box Description"
+      },
+      {
+        "type": "text",
+        "id": "btnText",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btnLink",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Mission Vision"
+      }
+    ]
+  }
+{% endschema %}

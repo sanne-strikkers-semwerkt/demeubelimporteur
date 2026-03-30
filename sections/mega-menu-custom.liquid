@@ -1,0 +1,724 @@
+{% comment %}
+  Customizable mega menu – same design as reference (Producten / Interieurstijlen / Ruimtes / Merken + right links).
+  Add in theme customizer; configure dropdowns and right-side links.
+{% endcomment %}
+
+{%- liquid
+  assign brand_color = section.settings.brand_color | default: '#fb5a00'
+  assign success_color = section.settings.success_color | default: '#16a34a'
+  assign min_width = section.settings.min_desktop_width | default: 1025
+-%}
+
+<div
+  class="mega-menu-custom"
+  id="mega-menu-custom-{{ section.id }}"
+  style="--mega-brand: {{ brand_color }}; --mega-success: {{ success_color }}; --mega-min-width: {{ min_width }}px;"
+  data-section-id="{{ section.id }}"
+>
+  <div class="mega-menu-custom__bar">
+    <div class="mega-menu-custom__container">
+      <ul class="mega-menu-custom__nav" role="list">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'menu_dropdown' -%}
+              <li class="mega-menu-custom__nav-item" {{ block.shopify_attributes }}>
+                <button
+                  type="button"
+                  class="mega-menu-custom__trigger"
+                  data-dropdown-index="{{ forloop.index0 }}"
+                  aria-expanded="false"
+                  aria-controls="mega-panel-{{ section.id }}-{{ forloop.index0 }}"
+                  id="mega-trigger-{{ section.id }}-{{ forloop.index0 }}"
+                >
+                  <span>{{ block.settings.title | default: 'Menu' }}</span>
+                  <svg class="mega-menu-custom__caret" width="16" height="17" viewBox="0 0 16 17" fill="none" aria-hidden="true">
+                    <path d="M12 6.5L8 10.5L4 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </li>
+          {%- endcase -%}
+        {%- endfor -%}
+      </ul>
+
+      <ul class="mega-menu-custom__right" role="list">
+        {%- if section.settings.right_link_1_text != blank -%}
+          <li>
+            <a
+              href="{{ section.settings.right_link_1_url | default: '#' }}"
+              class="mega-menu-custom__right-link {% if section.settings.right_link_1_style == 'button' %}mega-menu-custom__right-link--button{% else %}mega-menu-custom__right-link--success{% endif %}"
+            >
+              {{ section.settings.right_link_1_text }}
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if section.settings.right_link_2_text != blank -%}
+          <li>
+            <a
+              href="{{ section.settings.right_link_2_url | default: '#' }}"
+              class="mega-menu-custom__right-link {% if section.settings.right_link_2_style == 'button' %}mega-menu-custom__right-link--button{% else %}mega-menu-custom__right-link--success{% endif %}"
+            >
+              {{ section.settings.right_link_2_text }}
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if section.settings.right_link_3_text != blank -%}
+          <li>
+            <a
+              href="{{ section.settings.right_link_3_url | default: '#' }}"
+              class="mega-menu-custom__right-link {% if section.settings.right_link_3_style == 'button' %}mega-menu-custom__right-link--button{% else %}mega-menu-custom__right-link--success{% endif %}"
+            >
+              {{ section.settings.right_link_3_text }}
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </div>
+  </div>
+
+  <div class="mega-menu-custom__overlay" id="mega-overlay-{{ section.id }}" aria-hidden="true"></div>
+
+  {%- assign dropdown_index = -1 -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'menu_dropdown' -%}
+      {%- assign dropdown_index = dropdown_index | plus: 1 -%}
+      {%- assign style = block.settings.style -%}
+
+      <div
+        class="mega-menu-custom__panel"
+        id="mega-panel-{{ section.id }}-{{ dropdown_index }}"
+        data-dropdown-index="{{ dropdown_index }}"
+        data-style="{{ style }}"
+        role="region"
+        aria-labelledby="mega-trigger-{{ section.id }}-{{ dropdown_index }}"
+        hidden
+        {{ block.shopify_attributes }}
+      >
+        <div class="mega-menu-custom__panel-inner">
+          {%- if style == 'products' and block.settings.link_list != blank -%}
+            {%- assign link_list = linklists[block.settings.link_list] -%}
+            {%- assign categories = link_list.links -%}
+            <div class="mega-menu-custom__grid mega-menu-custom__grid--products">
+              <div class="mega-menu-custom__col-categories">
+                <h3 class="mega-menu-custom__col-title">{{ block.settings.header_label | default: block.settings.title }}</h3>
+                <ul class="mega-menu-custom__category-list" role="list">
+                  {%- for cat in categories -%}
+                    <li>
+                      <button
+                        type="button"
+                        class="mega-menu-custom__category-btn {% if forloop.first %}mega-menu-custom__category-btn--active{% endif %}"
+                        data-submenu-index="{{ forloop.index0 }}"
+                      >
+                        {{ cat.title }}
+                        <svg class="mega-menu-custom__chevron" width="16" height="17" viewBox="0 0 16 17" fill="none" aria-hidden="true">
+                          <path d="M6 12.5L10 8.5L6 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+              <div class="mega-menu-custom__col-content">
+                {%- for cat in categories -%}
+                  <div
+                    class="mega-menu-custom__subpanel {% if forloop.first %}mega-menu-custom__subpanel--active{% endif %}"
+                    data-submenu-index="{{ forloop.index0 }}"
+                  >
+                    <div class="mega-menu-custom__subpanel-inner">
+                      <div class="mega-menu-custom__sublinks-box">
+                        <h3 class="mega-menu-custom__col-title mega-menu-custom__col-title--gray">{{ cat.title }}</h3>
+                        <ul class="mega-menu-custom__sublinks" role="list">
+                          {%- for child in cat.links -%}
+                            <li>
+                              <a href="{{ child.url }}" class="mega-menu-custom__sublink">{{ child.title }}</a>
+                            </li>
+                          {%- endfor -%}
+                          <li class="mega-menu-custom__view-all">
+                            <a href="{{ cat.url }}" class="mega-menu-custom__view-all-link">Bekijk alle {{ cat.title }}</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="mega-menu-custom__featured">
+                        {%- if cat.object != blank and cat.object.image != blank -%}
+                          <a href="{{ cat.url }}" class="mega-menu-custom__featured-link">
+                            <span class="visually-hidden">{{ cat.title }}</span>
+                            <img
+                              src="{{ cat.object.image | image_url: width: 700 }}"
+                              alt=""
+                              width="700"
+                              height="800"
+                              class="mega-menu-custom__featured-img"
+                              loading="lazy"
+                            >
+                          </a>
+                        {%- elsif block.settings.fallback_image != blank -%}
+                          <a href="{{ cat.url }}" class="mega-menu-custom__featured-link">
+                            <span class="visually-hidden">{{ cat.title }}</span>
+                            <img
+                              src="{{ block.settings.fallback_image | image_url: width: 700 }}"
+                              alt=""
+                              width="700"
+                              height="800"
+                              class="mega-menu-custom__featured-img"
+                              loading="lazy"
+                            >
+                          </a>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- elsif style == 'grid' -%}
+            <div class="mega-menu-custom__grid mega-menu-custom__grid--cards">
+              <ul class="mega-menu-custom__card-list" role="list">
+                {%- assign collect = false -%}
+                {%- for b in section.blocks -%}
+                  {%- if b.type == 'menu_dropdown' and b.id == block.id -%}
+                    {%- assign collect = true -%}
+                  {%- elsif b.type == 'menu_dropdown' and collect -%}
+                    {%- break -%}
+                  {%- endif -%}
+                  {%- if b.type == 'grid_card' and collect -%}
+                    <li {{ b.shopify_attributes }}>
+                      <div class="mega-menu-custom__card">
+                        <a href="{{ b.settings.url | default: '#' }}" class="mega-menu-custom__card-link">
+                          <span class="visually-hidden">{{ b.settings.title }}</span>
+                          {%- if b.settings.image != blank -%}
+                            <img
+                              src="{{ b.settings.image | image_url: width: 600 }}"
+                              alt=""
+                              width="600"
+                              height="300"
+                              class="mega-menu-custom__card-img"
+                              loading="lazy"
+                            >
+                          {%- endif -%}
+                          <div class="mega-menu-custom__card-footer">
+                            <span class="mega-menu-custom__card-title">{{ b.settings.title | default: 'Card' }}</span>
+                            <svg class="mega-menu-custom__chevron" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                              <path d="M6 12.5L10 8.5L6 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+<style>
+  .mega-menu-custom {
+    position: relative;
+    display: none;
+    background: #fff;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  @media (min-width: {{ min_width }}px) {
+    .mega-menu-custom { display: block; }
+  }
+
+  .mega-menu-custom__bar { border-bottom: 1px solid #f3f4f6; }
+  .mega-menu-custom__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mega-menu-custom__nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0;
+  }
+  .mega-menu-custom__nav-item { margin: 0; }
+  .mega-menu-custom__trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: #000;
+    cursor: pointer;
+  }
+  .mega-menu-custom__trigger:hover { text-decoration: underline; }
+  .mega-menu-custom__trigger[aria-expanded="true"] { text-decoration: underline; }
+  .mega-menu-custom__caret {
+    transition: transform 0.2s ease;
+  }
+  .mega-menu-custom__trigger[aria-expanded="true"] .mega-menu-custom__caret {
+    transform: rotate(180deg);
+  }
+  .mega-menu-custom__right {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0;
+  }
+  .mega-menu-custom__right-link {
+    text-decoration: underline;
+    color: var(--mega-success);
+  }
+  .mega-menu-custom__right-link:hover { text-decoration: none; }
+  .mega-menu-custom__right-link--button {
+    text-decoration: none;
+    background: var(--mega-brand);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+  }
+  .mega-menu-custom__right-link--button:hover {
+    filter: brightness(1.05);
+  }
+
+  .mega-menu-custom__overlay {
+    position: fixed;
+    inset: 0;
+    top: var(--header-height, 120px);
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9;
+    transition: opacity 0.3s ease;
+  }
+  .mega-menu-custom__overlay.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mega-menu-custom__panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: #fff;
+    border-top: 1px solid #f3f4f6;
+    padding: 1.5rem 0;
+    z-index: 10;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  }
+  .mega-menu-custom__panel[hidden] { display: none !important; }
+  .mega-menu-custom__panel-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .mega-menu-custom__grid { display: grid; gap: 1.5rem; }
+  .mega-menu-custom__grid--products {
+    grid-template-columns: 1fr 3fr;
+  }
+  .mega-menu-custom__col-title {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    margin: 0 0 0.5rem 0;
+    font-weight: 400;
+  }
+  .mega-menu-custom__col-title--gray { color: #9ca3af; }
+  .mega-menu-custom__category-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .mega-menu-custom__category-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background: transparent;
+    font: inherit;
+    color: #000;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.15s ease;
+  }
+  .mega-menu-custom__category-btn:hover { text-decoration: underline; }
+  .mega-menu-custom__category-btn--active {
+    background: #f3f4f6;
+    border-radius: 6px;
+    border-color: transparent;
+  }
+  .mega-menu-custom__chevron {
+    transition: transform 0.15s ease;
+  }
+  .mega-menu-custom__category-btn:hover .mega-menu-custom__chevron {
+    transform: translateX(4px);
+  }
+
+  .mega-menu-custom__col-content { position: relative; min-height: 200px; }
+  .mega-menu-custom__subpanel {
+    display: none;
+  }
+  .mega-menu-custom__subpanel--active {
+    display: block;
+  }
+  .mega-menu-custom__subpanel-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .mega-menu-custom__sublinks-box {
+    padding: 1rem;
+    background: #f3f4f6;
+    border-radius: 6px;
+  }
+  .mega-menu-custom__sublinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 1.5rem;
+  }
+  .mega-menu-custom__sublink {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .mega-menu-custom__sublink:hover { text-decoration: underline; }
+  .mega-menu-custom__view-all { grid-column: 1 / -1; margin-top: 0.5rem; }
+  .mega-menu-custom__view-all-link {
+    font-size: 0.875rem;
+    color: var(--mega-brand);
+    text-decoration: underline;
+    padding: 0 0.75rem;
+  }
+  .mega-menu-custom__view-all-link:hover { text-decoration: none; }
+  .mega-menu-custom__featured-link {
+    display: block;
+    aspect-ratio: 7/8;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+  .mega-menu-custom__featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .mega-menu-custom__grid--cards { padding: 0; }
+  .mega-menu-custom__card-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .mega-menu-custom__card {
+    background: #f3f4f6;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .mega-menu-custom__card-link {
+    display: block;
+    text-decoration: none;
+    color: #000;
+  }
+  .mega-menu-custom__card-link:hover .mega-menu-custom__card-title { text-decoration: underline; }
+  .mega-menu-custom__card-link:hover .mega-menu-custom__chevron { transform: translateX(4px); }
+  .mega-menu-custom__card-img {
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+    display: block;
+  }
+  .mega-menu-custom__card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+  .mega-menu-custom__card-title { font-weight: 500; }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+</style>
+
+<script>
+  (function() {
+    const section = document.getElementById('mega-menu-custom-{{ section.id }}');
+    if (!section) return;
+    const overlay = document.getElementById('mega-overlay-{{ section.id }}');
+    const triggers = section.querySelectorAll('.mega-menu-custom__trigger');
+    const panels = section.querySelectorAll('.mega-menu-custom__panel');
+
+    function openDropdown(index) {
+      triggers.forEach(function(t, i) {
+        t.setAttribute('aria-expanded', i === index);
+      });
+      panels.forEach(function(p, i) {
+        p.hidden = i !== index;
+      });
+      if (panels[index]) {
+        const firstBtn = panels[index].querySelector('.mega-menu-custom__category-btn');
+        if (firstBtn) {
+          panels[index].querySelectorAll('.mega-menu-custom__category-btn').forEach(function(b) { b.classList.remove('mega-menu-custom__category-btn--active'); });
+          panels[index].querySelectorAll('.mega-menu-custom__subpanel').forEach(function(s) { s.classList.remove('mega-menu-custom__subpanel--active'); });
+          firstBtn.classList.add('mega-menu-custom__category-btn--active');
+          const firstSub = panels[index].querySelector('.mega-menu-custom__subpanel');
+          if (firstSub) firstSub.classList.add('mega-menu-custom__subpanel--active');
+        }
+      }
+      overlay.classList.add('is-visible');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeDropdown() {
+      triggers.forEach(function(t) { t.setAttribute('aria-expanded', 'false'); });
+      panels.forEach(function(p) { p.hidden = true; });
+      overlay.classList.remove('is-visible');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    triggers.forEach(function(btn, index) {
+      btn.addEventListener('click', function() {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen) closeDropdown();
+        else openDropdown(index);
+      });
+    });
+
+    overlay.addEventListener('click', closeDropdown);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeDropdown();
+    });
+
+    section.querySelectorAll('.mega-menu-custom__category-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const panel = btn.closest('.mega-menu-custom__panel');
+        const subIndex = btn.getAttribute('data-submenu-index');
+        if (!panel) return;
+        panel.querySelectorAll('.mega-menu-custom__category-btn').forEach(function(b) { b.classList.remove('mega-menu-custom__category-btn--active'); });
+        panel.querySelectorAll('.mega-menu-custom__subpanel').forEach(function(s) { s.classList.remove('mega-menu-custom__subpanel--active'); });
+        btn.classList.add('mega-menu-custom__category-btn--active');
+        const sub = panel.querySelector('.mega-menu-custom__subpanel[data-submenu-index="' + subIndex + '"]');
+        if (sub) sub.classList.add('mega-menu-custom__subpanel--active');
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Mega menu (custom)",
+  "class": "section-mega-menu-custom",
+  "settings": [
+    {
+      "type": "range",
+      "id": "min_desktop_width",
+      "min": 768,
+      "max": 1400,
+      "step": 8,
+      "default": 1024,
+      "unit": "px",
+      "label": "Show from width (px)"
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Brand / button color",
+      "default": "#fb5a00"
+    },
+    {
+      "type": "color",
+      "id": "success_color",
+      "label": "Success / link color",
+      "default": "#16a34a"
+    },
+    {
+      "type": "header",
+      "content": "Right side links"
+    },
+    {
+      "type": "text",
+      "id": "right_link_1_text",
+      "label": "Link 1 text",
+      "default": "Nieuw"
+    },
+    {
+      "type": "url",
+      "id": "right_link_1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "select",
+      "id": "right_link_1_style",
+      "label": "Link 1 style",
+      "options": [
+        { "value": "text", "label": "Green text" },
+        { "value": "button", "label": "Orange button" }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "text",
+      "id": "right_link_2_text",
+      "label": "Link 2 text",
+      "default": "Op voorraad"
+    },
+    {
+      "type": "url",
+      "id": "right_link_2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "select",
+      "id": "right_link_2_style",
+      "label": "Link 2 style",
+      "options": [
+        { "value": "text", "label": "Green text" },
+        { "value": "button", "label": "Orange button" }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "text",
+      "id": "right_link_3_text",
+      "label": "Link 3 text",
+      "default": "Pre-order deals"
+    },
+    {
+      "type": "url",
+      "id": "right_link_3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "select",
+      "id": "right_link_3_style",
+      "label": "Link 3 style",
+      "options": [
+        { "value": "text", "label": "Green text" },
+        { "value": "button", "label": "Orange button" }
+      ],
+      "default": "button"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_dropdown",
+      "name": "Dropdown menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Menu title",
+          "default": "Producten"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            { "value": "products", "label": "Products (categories + subcategories + image)" },
+            { "value": "grid", "label": "Grid (image cards)" }
+          ],
+          "default": "products"
+        },
+        {
+          "type": "text",
+          "id": "header_label",
+          "label": "Left column header (products style)",
+          "default": "Producten"
+        },
+        {
+          "type": "link_list",
+          "id": "link_list",
+          "label": "Menu (products style)",
+          "info": "First level = categories, second level = subcategories. Use collection links for category images."
+        },
+        {
+          "type": "image_picker",
+          "id": "fallback_image",
+          "label": "Fallback image (if collection has no image)"
+        }
+      ]
+    },
+    {
+      "type": "grid_card",
+      "name": "Grid card",
+      "limit": 24,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mega menu (custom)",
+      "blocks": [
+        {
+          "type": "menu_dropdown",
+          "settings": {
+            "title": "Producten",
+            "style": "products",
+            "header_label": "Producten"
+          }
+        },
+        {
+          "type": "menu_dropdown",
+          "settings": {
+            "title": "Interieurstijlen",
+            "style": "grid"
+          }
+        },
+        {
+          "type": "grid_card",
+          "settings": { "title": "Card 1" }
+        },
+        {
+          "type": "grid_card",
+          "settings": { "title": "Card 2" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Neal serie",
+        "description": "Rustieke meubels van mangohout"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Neal.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Tijdloos design:</strong> een perfecte mix van stoer en warm, passend in zowel landelijke als industriële interieurs.</li><li><strong>Duurzaam materiaal:</strong> gemaakt van massief mangohout, een milieuvriendelijke keuze met een lange levensduur.</li><li><strong>Praktisch in gebruik:</strong> onderhoudsarm en stevig genoeg om dagelijks gebruik te weerstaan.</li><li><strong>Veelzijdig:</strong> dankzij de neutrale kleuren en natuurlijke afwerking zijn de meubels eenvoudig te combineren met andere stijlen en accessoires.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/neal-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "neal-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/neal-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de Neal-meubelcollectie",
+            "description": "<p>Hoe geef je je interieur een robuuste en tegelijkertijd warme uitstraling? Daar hebben we bij De Meubel Importeur nu antwoord op! Met de Neal-meubelcollectie maak je een statement in jouw woning. Deze unieke serie meubels combineert het beste van twee werelden: de natuurlijke schoonheid van mangohout met de industriële charme van zwarte metalen accenten. Of je nu een landelijke boerderijwoning of een moderne loft hebt, de Neal-serie past perfect in jouw interieur.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Tijdloze landelijke meubels van mangohout",
+            "description": "<p>Mangohout staat bekend om zijn warme uitstraling en duurzaamheid. Onze Neal-serie haalt het maximale uit deze eigenschappen. Met een natuurlijke afwerking straalt het hout karakter en authenticiteit uit, terwijl de strakke lijnen en zwarte metalen details zorgen voor een moderne twist. Deze meubels zijn niet alleen een lust voor het oog, maar ook praktisch: ze combineren stijl en functionaliteit moeiteloos.</p><p>Als je houdt van rustieke meubels met een eigentijds randje, biedt de Neal-serie precies wat je zoekt. Dankzij de warme en neutrale kleuren breng je eenvoudig balans en harmonie in je interieur. Bovendien zijn deze meubels robuust en onderhoudsarm; ideaal voor dagelijks gebruik.</p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Het dressoir: de ster van jouw interieur",
+            "description": "<p>Het dressoir uit onze Neal-meubelcollectie is een perfect voorbeeld van wat deze serie zo bijzonder maakt. Met zijn stevige constructie van mangohout en industriële metalen accenten biedt dit dressoir niet alleen praktische opbergruimte, maar ook een stijlvolle toevoeging aan je woonkamer, eetkamer of hal. Gebruik het om servies, boeken of andere spullen georganiseerd te houden en geniet van de warme, stoere uitstraling die het aan je interieur geeft. Dit dressoir bewijst dat praktisch en elegant perfect samen kunnen gaan.</p><p></p>"
+          }
+        },
+        "right_textarea_rME6wi": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bezoek een van onze showrooms",
+            "description": "<p>Bij De Meubel Importeur begrijpen we dat je je nieuwe meubels voordat je ze koopt niet alleen op een foto wilt zien, maar ook in het echt wilt ervaren. Kom daarom vandaag nog langs in een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms</a> en laat je inspireren door de warme uitstraling van onze landelijke meubels van mangohout.</p><p>Mis deze kans niet om je interieur naar een hoger niveau te tillen met de Neal-serie. Bestel eenvoudig online of kom langs en ontdek de charme van deze prachtige collectie zelf!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "right_textarea_AwQf8r",
+        "right_textarea_rME6wi"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

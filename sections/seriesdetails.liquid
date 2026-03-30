@@ -1,0 +1,137 @@
+<section class="henderson-product-wrp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="slider henderson-product-for">
+                              {% for block in section.blocks %}
+                                <div>
+                                    <div class="slider-box">
+                                        <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="slider henderson-product-nav">
+                              {% for block in section.blocks %}
+                                <div>
+                                    <div class="slider-box">
+                                        <img src="{{ block.settings.image | img_url: 'master' }}" alt="" />
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class="detail">
+                                <ul>
+                                    {{ section.settings.html }}
+                                </ul>
+                                <a href="{{ section.settings.link }}" class="btn-orange">{{ section.settings.button }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script>
+            /* **** Slider ***** */
+            $(".henderson-product-for").slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                arrows: true,
+                infinite: false,
+                asNavFor: ".henderson-product-nav",
+            });
+            $(".henderson-product-nav").slick({
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                asNavFor: ".henderson-product-for",
+                dots: false,
+                infinite: false,
+                arrows: false,
+                focusOnSelect: true,
+                responsive: [
+                    {
+                        breakpoint: 1199,
+                        settings: {
+                            slidesToShow: 4,
+                        },
+                    },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 3,
+                        },
+                    },
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 3,
+                        },
+                    },
+                    {
+                        breakpoint: 575,
+                        settings: {
+                            slidesToShow: 3,
+                        },
+                    },
+                    {
+                        breakpoint: 447,
+                        settings: {
+                            slidesToShow: 3,
+                        },
+                    },
+                    {
+                        breakpoint: 389,
+                        settings: {
+                            slidesToShow: 3,
+                        },
+                    },
+                ],
+            });
+            /* ***** End Slider **** */
+
+            
+        </script>
+{% schema %}
+  {
+    "name": "Series detail",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "html",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "button",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Button link"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "Series detail"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Britt serie",
+        "description": "Duurzame meubels met een natuurlijke uitstraling"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Britt.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam materiaal</strong>: mangohout is sterk en gaat jarenlang mee.</li><li><strong>Slimme ontwerpen</strong>: praktische oplossingen met volop opbergruimte.</li><li><strong>Veelzijdig design</strong>: geschikt voor verschillende interieurstijlen, van landelijk tot industrieel.</li><li><strong>Uniek karakter</strong>: elk meubel is uniek dankzij het natuurlijke houtnerfpatroon.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/britt-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "britt-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/britt-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Ontdek de veelzijdigheid van onze mangohouten Britt-meubels",
+            "description": "<p>Ben je op zoek naar stijlvolle en duurzame meubels met een natuurlijke uitstraling? Onze meubelserie Britt biedt alles wat je nodig hebt om warmte en karakter aan je interieur toe te voegen. Deze collectie van mangohouten meubels combineert tijdloze charme met praktische oplossingen. Of je nu je woonkamer, werkkamer of eetkamer wilt inrichten, onze landelijke Britt-meubels maken van jouw huis een plek om helemaal tot rust te komen na een drukke (werk)dag.</p>"
+          }
+        },
+        "left_textarea_fhyUki": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Britt-meubels voor elke ruimte in huis",
+            "description": "<p>De meubelserie Britt biedt een breed assortiment aan meubels waarmee je jouw interieur op een stijlvolle en praktische manier kunt inrichten, waaronder: </p>"
+          }
+        },
+        "left_text_G77gyK": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Kasten</strong>: kies uit een boekenkast of vitrinekast om je spullen georganiseerd en stijlvol op te bergen.</li><li><strong>Tv-meubels</strong>: upgrade je woonkamer met een elegant tv-meubel dat functionaliteit en design combineert.</li><li><strong>Salontafels</strong>: voeg een blikvanger toe aan je zithoek met een salontafel van mangohout met ruime lades en stalen details.</li><li><strong>Bureaus</strong>: creëer een inspirerende werkplek met een stevig en stijlvol bureau dat volop opbergruimte biedt.</li></ul>"
+          }
+        },
+        "right_textarea_UmQTwQ": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Mangohout: sterk, stijlvol en uniek",
+            "description": "<p>De meubels in onze Britt-serie zijn gemaakt van hoogwaardig mangohout, een materiaal dat zowel robuust als duurzaam is. Het unieke nerfpatroon en de warme tinten van mangohout brengen een natuurlijke sfeer in je interieur. De toevoeging van zwarte stalen accenten geeft de meubels een moderne uitstraling, waardoor ze perfect passen in zowel landelijke als industriële interieurs. Dit maakt de meubels uit de Britt-serie veelzijdig en tijdloos.</p>"
+          }
+        },
+        "right_textarea_LEQKqN": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bezoek onze showroom en ervaar onze Britt-meubels zelf",
+            "description": "<p>Welke ruimte je ook wilt inrichten, de meubels uit onze meubelserie Britt zorgen voor een stijlvolle en praktische toevoeging aan je interieur. Heb je interesse, maar wil je de mangohouten Britt-meubels uit onze collectie eerst met eigen ogen zien? Bezoek dan <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">een van onze showrooms</a> en laat je inspireren.</p><p><em><strong>Maak jouw droominterieur werkelijkheid. Kies voor onze landelijke Britt-meubels!</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_DaB9fT",
+        "left_textarea_fhyUki",
+        "left_text_G77gyK",
+        "right_textarea_UmQTwQ",
+        "right_textarea_LEQKqN"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

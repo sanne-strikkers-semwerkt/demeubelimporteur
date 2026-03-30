@@ -1,0 +1,101 @@
+<section class="about-contact-wrp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="contact-content">
+                  {% if section.settings.contact-content-title != blank %}
+                    <h2>{{ section.settings.contact-content-title }}</h2>
+                  {% endif %}
+                  {% if section.settings.contact-content-desc %}
+                    <p>{{ section.settings.contact-content-desc }}</p>
+                  {% endif %}
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="contact-info">
+                  {% if section.settings.contact-info-heading != blank %}
+                    <h3>{{ section.settings.contact-info-heading }}</h3>
+                  {% endif %}
+                  {% if section.settings.contact-info-desc != blank %}
+                    <p>{{ section.settings.contact-info-desc }}</p>
+                  {% endif %}
+                  {% if section.settings.contact-info-title %}
+                    <h4>{{ section.settings.contact-info-title }}</h4>
+                  {% endif %}
+                    <ul>
+                      {% if section.settings.contact-no %}
+                        <li><a href="tel:+31228{{ section.settings.contact-no }}"><span><i class="fas fa-phone-alt"></i></span>0228 - {{ section.settings.contact-no }}</a></li>
+                      {% endif %}
+                      {% if section.settings.email-address %}
+                        <li><a href="mailto:{{ section.settings.email-address }}"><span><i class="fas fa-envelope"></i></span>{{ section.settings.email-address }}</a></li>
+                      {% endif %}
+                    </ul>
+                    {% if section.settings.contact-info-short-title != blank or section.settings.contact-info-short-desc != blank %}
+                      <h6>{{ section.settings.contact-info-short-title }} 
+                        {% if section.settings.contact-info-short-desc != blank %}
+                          <span>{{ section.settings.contact-info-short-desc }}</span>
+                        {% endif %}
+                      </h6>
+                  {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Contact Us",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact-content-title",
+        "label": "Content Title"
+      },
+      {
+        "type": "richtext",
+        "id": "contact-content-desc",
+        "label": "Content Description"
+      },
+      {
+        "type": "text",
+        "id": "contact-info-heading",
+        "label": "Contact Info Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "contact-info-desc",
+        "label": "Contact Info Description"
+      },
+      {
+        "type": "text",
+        "id": "contact-info-title",
+        "label": "Contact Info Sub Title"
+      },
+      {
+        "type": "text",
+        "id": "contact-no",
+        "label": "Contact Number"
+      },
+      {
+        "type": "text",
+        "id": "email-address",
+        "label": "Email Address"
+      },
+      {
+        "type": "text",
+        "id": "contact-info-short-title",
+        "label": "Contact Info Short Title"
+      },
+      {
+        "type": "textarea",
+        "id": "contact-info-short-desc",
+        "label": "Contact Info Short Description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Contact Us"
+      }
+    ]
+  }
+{% endschema %}

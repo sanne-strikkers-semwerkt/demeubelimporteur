@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "usp_YgwG8N": {
+          "type": "USP",
+          "settings": {
+            "product-usp1": "Geen risico, betaal pas bij levering",
+            "product-usp2": "10.000+ meubels uit voorraad leverbaar",
+            "product-usp3": "9,5 uit 2.000+ reviews"
+          }
+        }
+      },
+      "block_order": [
+        "usp_YgwG8N"
+      ],
+      "settings": {
+        "products_per_page": 18,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "kleur": false,
+        "kleur-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "materiaal": false,
+        "materiaal-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "prijs": false,
+        "prijs-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "zithoogte": false,
+        "zithoogte-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "breedte": false,
+        "breedte-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "lengte": false,
+        "lengte-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "vorm": false,
+        "vorm-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "aantal-personen": false,
+        "aantal-personen-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "serie": true,
+        "serie-text": "<p>Een meubelserie bestaat uit meerdere meubelstukken die qua ontwerp, materiaalgebruik en afwerking volledig op elkaar zijn afgestemd. Hierdoor kun je moeiteloos verschillende meubels combineren en een harmonieus interieur creëren. Denk bijvoorbeeld aan een eettafel, dressoir en tv-meubel die samen een stijlvol geheel vormen.</p>",
+        "beschikbaarheid": false,
+        "beschikbaarheid-text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "recent_viewed_WknhUG": {
+      "type": "recent-viewed",
+      "settings": {
+        "title": "Dit heb je eerder bekeken:"
+      }
+    },
+    "usp_wrp_egJg8g": {
+      "type": "usp-wrp",
+      "blocks": {
+        "text_b9Rhyr": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/wallet-alt-svgrepo-com_1.svg",
+            "text": "Geen risico, betaal pas bij levering"
+          }
+        },
+        "text_tYC74Y": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/truck-speed-svgrepo-com_1_1.svg",
+            "text": "Op voorraad? Binnen 5 dagen in huis"
+          }
+        },
+        "text_tHKkpN": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/check-badge-svgrepo-com_5.svg",
+            "text": "Goedkoopste van Nederland"
+          }
+        },
+        "text_MXEYLd": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/thumb-up-gross-line-symbol-svgrepo-com_1.svg",
+            "text": "Altijd 1 jaar garantie"
+          }
+        },
+        "text_ffYjBb": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/star-sharp-svgrepo-com_1.svg",
+            "text": "9,6 uit 1000+ reviews"
+          }
+        }
+      },
+      "block_order": [
+        "text_b9Rhyr",
+        "text_tYC74Y",
+        "text_tHKkpN",
+        "text_MXEYLd",
+        "text_ffYjBb"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "recent_viewed_WknhUG",
+    "usp_wrp_egJg8g"
+  ]
+}

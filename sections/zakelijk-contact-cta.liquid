@@ -1,0 +1,254 @@
+<style>
+  .zakelijk-contact-cta {
+    padding: 60px 0;
+    background-color: #ebf6ee;
+  }
+  .zakelijk-contact-cta h2 {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 25px;
+    color: #000000;
+    margin-bottom: 50px;
+  }
+  .zakelijk-contact-cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+  .zakelijk-contact-cta-divider {
+    width: 1px;
+    height: 127px;
+    background-color: #000000;
+    margin-top: 20px;
+  }
+  .zakelijk-contact-option {
+    display: flex;
+    flex-direction: column;
+  }
+  .zakelijk-contact-option h3 {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  .zakelijk-contact-option-left {
+    display: flex;
+    gap: 20px;
+  }
+  .zakelijk-contact-option-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid #d8d8d8;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .zakelijk-contact-option-info {
+    flex: 1;
+  }
+  .zakelijk-contact-option-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .zakelijk-contact-option-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #000000;
+  }
+  .zakelijk-contact-option-contact-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+  .zakelijk-contact-option-status {
+    display: inline-block;
+    background-color: #3aa759;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 25px;
+    margin-bottom: 15px;
+  }
+  .zakelijk-contact-option-button {
+    background-color: #3aa759;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.3s;
+  }
+  .zakelijk-contact-option-button:hover {
+    opacity: 0.9;
+    color: #ffffff;
+  }
+  @media (max-width: 991px) {
+    .zakelijk-contact-cta-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .zakelijk-contact-cta-divider {
+      display: none;
+    }
+    .zakelijk-contact-option-left {
+      flex-direction: column;
+    }
+    .zakelijk-contact-option-avatar {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  @media (max-width: 767px) {
+    .zakelijk-contact-cta {
+      padding: 40px 0;
+    }
+    .zakelijk-contact-cta h2 {
+      font-size: 28px;
+    }
+    .zakelijk-contact-option h3 {
+      font-size: 20px;
+    }
+  }
+</style>
+
+<section class="zakelijk-contact-cta">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="zakelijk-contact-cta-grid">
+      <div class="zakelijk-contact-option">
+        <div class="zakelijk-contact-option-left">
+          {% if section.settings.left_avatar != blank %}
+            <img src="{{ section.settings.left_avatar | img_url: '150x150' }}" alt="Contact" class="zakelijk-contact-option-avatar">
+          {% endif %}
+          <div class="zakelijk-contact-option-info">
+            {% if section.settings.left_heading != blank %}
+              <h3>{{ section.settings.left_heading }}</h3>
+            {% endif %}
+            <div class="zakelijk-contact-option-contact">
+              {% if section.settings.left_phone != blank %}
+                <div class="zakelijk-contact-option-contact-item">
+                  <svg class="zakelijk-contact-option-contact-icon" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5 10.5V12.5C13.5 12.8978 13.342 13.2794 13.0607 13.5607C12.7794 13.842 12.3978 14 12 14H2C1.60218 14 1.22064 13.842 0.93934 13.5607C0.658035 13.2794 0.5 12.8978 0.5 12.5V2.5C0.5 2.10218 0.658035 1.72064 0.93934 1.43934C1.22064 1.15804 1.60218 1 2 1H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.5 1H13.5V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.5 8L13.5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{{ section.settings.left_phone }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.left_email != blank %}
+                <div class="zakelijk-contact-option-contact-item">
+                  <svg class="zakelijk-contact-option-contact-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3H14C14.5304 3 15.0391 3.21071 15.4142 3.58579C15.7893 3.96086 16 4.46957 16 5V11C16 11.5304 15.7893 12.0391 15.4142 12.4142C15.0391 12.7893 14.5304 13 14 13H2C1.46957 13 0.960859 12.7893 0.585786 12.4142C0.210714 12.0391 0 11.5304 0 11V5C0 4.46957 0.210714 3.96086 0.585786 3.58579C0.960859 3.21071 1.46957 3 2 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 5L8 9L0 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>{{ section.settings.left_email }}</span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="zakelijk-contact-cta-divider"></div>
+      <div class="zakelijk-contact-option">
+        {% if section.settings.right_heading != blank %}
+          <h3>{{ section.settings.right_heading }}</h3>
+        {% endif %}
+        {% if section.settings.right_status != blank %}
+          <span class="zakelijk-contact-option-status">{{ section.settings.right_status }}</span>
+        {% endif %}
+        {% if section.settings.right_button_text != blank and section.settings.right_button_link != blank %}
+          <a href="{{ section.settings.right_button_link }}" class="zakelijk-contact-option-button">
+            {{ section.settings.right_button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Zakelijk Contact CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Neem vrijblijvend contact op"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_avatar",
+      "label": "Left Avatar Image"
+    },
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Left Heading",
+      "default": "Bel Willem voor gratis interieuradvies!"
+    },
+    {
+      "type": "text",
+      "id": "left_phone",
+      "label": "Left Phone",
+      "default": "0228 - 785 883"
+    },
+    {
+      "type": "text",
+      "id": "left_email",
+      "label": "Left Email",
+      "default": "zakelijk@demeubelimporteur.nl"
+    },
+    {
+      "type": "text",
+      "id": "right_heading",
+      "label": "Right Heading",
+      "default": "Of chat met één van onze specialisten"
+    },
+    {
+      "type": "text",
+      "id": "right_status",
+      "label": "Right Status",
+      "default": "Nu online"
+    },
+    {
+      "type": "text",
+      "id": "right_button_text",
+      "label": "Right Button Text",
+      "default": "Start live chat"
+    },
+    {
+      "type": "url",
+      "id": "right_button_link",
+      "label": "Right Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zakelijk Contact CTA"
+    }
+  ]
+}
+{% endschema %}
+

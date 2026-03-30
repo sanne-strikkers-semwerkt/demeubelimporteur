@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Yves serie",
+        "description": "Stoere mangohouten meubels"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Yves.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam en sterk:</strong> de meubels zijn stevig, milieuvriendelijk en gaan jarenlang mee.</li><li><strong>Veelzijdig ontwerp:</strong> de meubels zijn geschikt voor zowel compacte stadsappartementen als ruimere lofts.</li><li><strong>Industriële charme:</strong> de combinatie van mangohout en zwart metaal geeft jouw interieur een stoere, eigentijdse uitstraling.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/yves-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "yves-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/yves-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Meubelserie Yves",
+            "description": "<p>Ben je op zoek naar meubels die zowel stijlvol als praktisch zijn? Maak kennis met onze meubelserie Yves, een unieke collectie mangohouten meubels met een industriële uitstraling. </p><p>Perfect voor moderne stadsappartementen en lofts waar karakter en functionaliteit samenkomen. Laat je inspireren door deze tijdloze serie die jouw interieur een robuuste, maar warme sfeer geeft.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "Het design: de kracht van natuur en industrie",
+            "description": "<p>De meubelserie Yves combineert de warmte van mangohout met de stoere uitstraling van zwart metalen frames. Het hout - bekend om zijn unieke nerf en warme tinten - geeft een natuurlijke en uitnodigende sfeer aan elke ruimte. Het zwarte metaal voegt een industriële touch toe, wat zorgt voor een perfect evenwicht tussen modern en klassiek. Deze meubels stralen kracht en stijl uit, en passen in elk interieur met een robuuste uitstraling.</p>"
+          }
+        },
+        "right_textarea_LgypAW": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Ontdek de salontafelset Yves",
+            "description": "<p>Een absolute blikvanger uit onze meubelserie Yves is de salontafelset. Deze set is ontworpen met flexibiliteit en stijl als uitgangspunt. Gebruik de tafels samen voor een compacte opstelling of plaats ze apart voor een speels effect. Het warme mangohout en het zwarte metaal zorgen voor een perfecte balans tussen elegantie en functionaliteit. Of je nu een gezellige avond met vrienden organiseert of gewoon wilt ontspannen met een kop koffie, deze set maakt het mogelijk.</p>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bezoek een van onze winkels",
+            "description": "<p>Benieuwd hoe de meubelserie Yves in jouw interieur past? Kom langs bij een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\" target=\"_blank\">showrooms</a> en ervaar deze unieke collectie zelf. Bekijk de salontafelset van dichtbij, voel de kwaliteit van het mangohout en krijg persoonlijk advies van onze interieuradviseurs. Wacht niet langer en ontdek onze meubelserie Yves. Bestel vandaag nog zonder aanbetaling en geniet van een zorgeloze aankoop. Bij voorraad leveren we jouw aankoop binnen vijf werkdagen, zo staan je nieuwe meubels snel in je woonkamer te shinen!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "right_textarea_LgypAW",
+        "right_textarea_AwQf8r"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

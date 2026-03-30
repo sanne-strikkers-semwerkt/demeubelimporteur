@@ -1,0 +1,132 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "location_banner_VXgTNg": {
+      "type": "location-banner",
+      "settings": {
+        "image": "shopify://shop_images/location-banner-bg.png",
+        "title": "Winkel Breda",
+        "link": "https://maps.app.goo.gl/JgXAif5u9xsUWBpMA",
+        "button": "Bekijk de route",
+        "text": "Adres: Spinveld 22A, 4815 HS, Breda"
+      }
+    },
+    "location_detail_GYGAeY": {
+      "type": "location-detail",
+      "blocks": {
+        "text_R7iaC7": {
+          "type": "text",
+          "settings": {
+            "title-aboveDesc": "In onze fysieke winkel vind je een zorgvuldig geselecteerd assortiment van onze online collectie.  Niet alle meubelen die je op onze website ziet staan in de winkel.  Onze adviseurs helpen je graag bij het uitzoeken van een nieuwe eettafel, kast, dressoir of ander meubel. Na het plaatsen van je bestelling bezorgen we je meubel zo snel mogelijk bij je thuis.<br><br> <span style=\"color: #fb5a00;\">Let op: in onze winkel in Breda kun je onze meubels bekijken, maar niet direct meenemen of afhalen. Na je bestelling wordt alles netjes bij je thuis bezorgd.</span>",
+            "title": "Liever je meubelen online bestellen?",
+            "title-belowDesc": "",
+            "btn-label": "Bekijk alle meubelen",
+            "btn-link": "https://www.demeubelimporteur.nl/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "text_R7iaC7"
+      ],
+      "custom_css": [],
+      "settings": {
+        "text": "In onze ruime winkel in Breda vind je een uitgebreide collectie meubels van mangohout. We hebben verschillende modellen en stijlen voor je samengesteld, zodat er voor elk interieur iets passends tussen zit. Met de gratis parkeermogelijkheden voor de deur kun je gemakkelijk komen kijken en de meubels in het echt ervaren.",
+        "heading1": "Uitstekende service",
+        "text1": "Onze medewerkers helpen je graag bij het vinden van passende meubels voor jouw interieur. We geven advies over de mogelijkheden binnen onze collectie en denken mee over praktische oplossingen voor je woonruimte. Dit doen we natuurlijk geheel vrijblijvend. Je beslist zelf of je tot aankoop overgaat.",
+        "heading2": "Praktische informatie",
+        "text2": "De winkel is goed bereikbaar en biedt ruime, gratis parkeergelegenheid direct voor de deur. We begrijpen dat je meubels graag eerst wilt zien en voelen, voordat je een keuze maakt. Daarom nodigen we je uit om langs te komen en rustig rond te kijken. Onder het genot van een kopje koffie kun je de collectie bekijken en al je vragen stellen aan onze medewerkers.",
+        "image": "shopify://shop_images/DMI-placeholder.jpg",
+        "heading3": "Openingstijden",
+        "text3": "<li>Maandag:  <span> 09:00 - 17:00</span>\n</li>\n                                <li>Dinsdag: <span> 09:00 - 17:00</span>\n</li>\n                                <li>Woensdag: <span> 09:00 - 17:00</span>\n</li>\n                                <li>Donderdag: <span> 09:00 - 17:00</span>\n</li>\n\n                                <li>Vrijdag: <span> 09:00 - 17:00</span>\n</li>\n                                <li>Zaterdag:  <span>09:00 - 17:00</span>\n</li>\n                                <li>Zondag:  <span>12:00 - 17:00</span>\n</li>\n\n<br>\n<b>Let op: de winkel in Breda is op 14 januari vanaf 11:30 en op 15 januari vanaf 10:00 geopend.\n</b>",
+        "heading4": "Contact",
+        "text4": "Voor vragen of het maken van een afspraak zijn we bereikbaar op:",
+        "phone-link": "tel:0228785 883",
+        "phone": "0228 - 785 883",
+        "mail-link": "mailto:info@demeubelimporteur.nl",
+        "mail": "info@demeubelimporteur.nl"
+      }
+    },
+    "location_gallery_h7KBF3": {
+      "type": "location-gallery",
+      "settings": {
+        "video": "",
+        "image0": "shopify://shop_images/MangohoutendressoirKensi140cm3deuren.webp",
+        "image": "shopify://shop_images/Mangohouten_Salontafel_Tara_70_en_90_cm.jpg",
+        "image1": "shopify://shop_images/Mangohouten_Eettafel_Duncan_160_cm.jpg"
+      }
+    },
+    "location_contact_GUmXw8": {
+      "type": "location-contact",
+      "disabled": true,
+      "settings": {
+        "heading": "Maak een afspraak met onze specialist voor advies opmaat.",
+        "image": "shopify://shop_images/location-contact.png"
+      }
+    },
+    "usp_wrp_6xd6r9": {
+      "type": "usp-wrp",
+      "blocks": {
+        "text_TcrHWE": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon1.svg",
+            "text": "Snelle levering met eigen transport"
+          }
+        },
+        "text_yMFreJ": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon2.svg",
+            "text": "Grootste assortiment van Nederland"
+          }
+        },
+        "text_t6KbNF": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon3.svg",
+            "text": "Altijd 1 jaar garantie op al jouw meubels"
+          }
+        },
+        "text_ELMRGK": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/usp-icon4.svg",
+            "text": "Klanten geven ons een 4,9 van de 5 sterren!"
+          }
+        }
+      },
+      "block_order": [
+        "text_TcrHWE",
+        "text_yMFreJ",
+        "text_t6KbNF",
+        "text_ELMRGK"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "location_banner_VXgTNg",
+    "location_detail_GYGAeY",
+    "location_gallery_h7KBF3",
+    "location_contact_GUmXw8",
+    "usp_wrp_6xd6r9"
+  ]
+}

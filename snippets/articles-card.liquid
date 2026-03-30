@@ -1,0 +1,33 @@
+<div class="blog-post">
+    <div class="post-img">
+      <a href="{{ article.url }}">
+        <img srcset="
+                  {%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                  {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {{ article.image.src | image_url }} {{ article.image.src.width }}w
+                "
+                src="{{ article.image.src | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                alt="{{ article.image.src.alt | escape }}"
+                class=""
+                {% unless lazy_load == false %}
+                  loading="lazy"
+                {% endunless %}>
+        <div class="bcard">{{ article.published_at | date: "%d <br>  <span>%b</span>" }}</div>
+      </a>
+    </div>
+    <div class="description" id="info{{ variable }}">
+        <div class="date-author">
+          <h6><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/calendar_1_5a04bd73-e969-43c1-be89-893863b2d216.svg?v=1721996497" alt="">{{ article.published_at | date: "%b %d, 20%y" }}&nbsp;/</h6>
+          <h6><img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/UserCirclePlus_1.svg?v=1722249228" alt="">{{ article.author | split: ' ' | first }}</h6>
+        </div>
+        <a href="{{ article.url }}"><h2>{{ article.title | escape }}</h2></a>
+        
+        <p>{{ article.content | strip_html | truncatewords: 50 }}</p>
+        <a href="{{ article.url }}" class="btn-primary">Lees verder</a>
+    </div>
+</div>

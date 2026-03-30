@@ -1,0 +1,748 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+{{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .font-bold {
+    font-weight: 600;
+  }
+
+  .cart-note-wrapper {
+    margin-bottom: 20px;
+  }
+  .cart-note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+  }
+  .cart-note-header label {
+   color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 29px;
+    padding: 10px 0;
+    display: flex;
+  }
+  .cart-note-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+  }
+  .cart-note-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f1f1f1;
+    transition: .4s;
+    border-radius: 28px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  input:checked + .slider {
+    background-color: #28a745; /* Green color when active */
+  }
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+  .cart-note__container {
+    display: none;
+  }
+  .cart-note__container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  .cart-title-mdi {
+    color: #000;
+    font-family: 'Zilla Slab';
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 25px;
+    margin: 0;
+  }
+
+  .cart-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .mdi-title-col {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-main.check-btn {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 10px !important;
+    margin: 0px;
+  }
+{%- endstyle -%}
+
+{% comment %}
+  ==============================================================================
+  JAVASCRIPTS
+  - External and deferred scripts are loaded here.
+  - All inline JavaScript has been moved to a single <script> tag
+    at the bottom of the file.
+  ==============================================================================
+{% endcomment %}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+{%- unless settings.cart_type == 'drawer' -%}
+  <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
+<script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+
+<cart-items class="{% if cart == empty %} is-empty{% else %} {% endif %}">
+  <section class="cart-wrp">
+    <div class="container">
+      <div class="cart-block {% if cart == empty %} {% else %} is-emptys{% endif %}">
+        <div class="cart__warnings">
+          <p class="cart__empty-text font-style">{{ 'sections.cart.empty' | t }}</p>
+          <a href="{{ routes.all_products_collection_url }}" class="read-more button">
+            {{ 'general.continue_shopping' | t }}
+          </a>
+        </div>
+      </div>
+
+      <div class="row" style="{% if cart == empty %} display: none;{% else %} {% endif %}">
+        <div class="col-md-8 col-sm-12">
+          <form action="{{ routes.cart_url }}/add" class="cart__contents critical-hidden" method="post" id="cart">
+            <div class="cart-block" id="main-cart-items" data-id="{{ section.id }}">
+              <div class="js-contents">
+                {%- for item in cart.items -%}
+                  <div
+                    class="cart-box"
+                    id="CartItem-{{ item.index | plus: 1 }}"
+                    data-cartitem-id="{{ item.id }}"
+                    data-cartitem-vendor="{{ item.vendor }}"
+                  >
+                    {% if item.image %}
+                      <div class="item-img">
+                        <a href="{{ item.product.url }}">
+                          <img
+                            src="{{ item.image | image_url: width: 300 }}"
+                            alt="{{ item.image.alt | escape }}"
+                            width="150"
+                            height="150"
+                            loading="lazy"
+                          >
+                        </a>
+                      </div>
+                    {% endif %}
+                    <div class="item-info" data-stockinfo="{{ item.product.metafields.arena.stockinfo }}">
+                      <h3 class="font-bold">
+                        <a href="{{ item.product.url }}">{{ item.product.title | escape }}</a>
+                      </h3>
+                      <ul>
+                        <li>
+                          <div class="form-group">
+                            <select
+                              class="form-control select2 cart-item-quantity-selector"
+                              data-quantity="{{ item.quantity }}"
+                              data-item-key="{{ item.key }}"
+                              id="Quantity-Desktop-{{ item.index | plus: 1 }}"
+                            >
+                              {%- assign quantity_step = item.product.metafields.custom.quantity_steps.value
+                                | default: 1
+                                | times: 1
+                              -%}
+                              {% if quantity_step > 1 %}
+                                {%- for i in (1..15) -%}
+                                  {%- assign quantity_value = i | times: quantity_step -%}
+                                  <option
+                                    value="{{ quantity_value }}"
+                                    {% if item.quantity == quantity_value %}
+                                      selected
+                                    {% endif %}
+                                  >
+                                    {{ quantity_value }}
+                                  </option>
+                                {%- endfor -%}
+                              {% else %}
+                                {% for i in (1..30) %}
+                                  <option
+                                    value="{{ i }}"
+                                    {% if item.quantity == i %}
+                                      selected
+                                    {% endif %}
+                                  >
+                                    {{ i }}
+                                  </option>
+                                {% endfor %}
+                              {% endif %}
+                            </select>
+                          </div>
+                        </li>
+                        <li>
+                          <cart-remove-button
+                            id="Remove-{{ item.index | plus: 1 }}"
+                            data-index="{{ item.index | plus: 1 }}"
+                          >
+                            <a
+                              href="{{ item.url_to_remove }}"
+                              class="close"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                              onclick="event.preventDefault(); qtyUpdate('{{ item.key }}', 0);"
+                            >
+                              <i class="fas fa-trash-alt"></i> Verwijderen
+                            </a>
+                          </cart-remove-button>
+                        </li>
+                      </ul>
+
+                      {% assign current_variant = item.product.selected_or_first_available_variant %}
+                      {% if current_variant.inventory_quantity > 0 %}
+                        <h5 class="stockss">Op voorraad</h5>
+                      {% endif %}
+                      {% if item.product.metafields.arena.stockinfo != blank
+                        and current_variant.inventory_quantity <= 0
+                      %}
+                        <h5 class="weekss"></h5>
+                      {% endif %}
+                    </div>
+                    <div class="item-info item-info-mob">
+                      <ul>
+                        <li>
+                          <div class="form-group">
+                            <select
+                              class="form-control select2 cart-item-quantity-selector"
+                              data-item-key="{{ item.key }}"
+                              id="Quantity-Mobile-{{ item.index | plus: 1 }}"
+                            >
+                              {%- assign quantity_step = item.product.metafields.custom.quantity_steps.value
+                                | default: 1
+                                | times: 1
+                              -%}
+                              {% if quantity_step > 1 %}
+                                {%- for i in (1..15) -%}
+                                  {%- assign quantity_value = i | times: quantity_step -%}
+                                  <option
+                                    value="{{ quantity_value }}"
+                                    {% if item.quantity == quantity_value %}
+                                      selected
+                                    {% endif %}
+                                  >
+                                    {{ quantity_value }}
+                                  </option>
+                                {%- endfor -%}
+                              {% else %}
+                                {% for i in (1..30) %}
+                                  <option
+                                    value="{{ i }}"
+                                    {% if item.quantity == i %}
+                                      selected
+                                    {% endif %}
+                                  >
+                                    {{ i }}
+                                  </option>
+                                {% endfor %}
+                              {% endif %}
+                            </select>
+                          </div>
+                        </li>
+                        <li>
+                          <cart-remove-button
+                            id="Remove-Mobile-{{ item.index | plus: 1 }}"
+                            data-index="{{ item.index | plus: 1 }}"
+                          >
+                            <a
+                              href="{{ item.url_to_remove }}"
+                              class="close"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                              onclick="event.preventDefault(); qtyUpdate('{{ item.key }}', 0);"
+                            >
+                              <i class="fas fa-trash-alt"></i> Verwijderen
+                            </a>
+                          </cart-remove-button>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div data-hulkapps-line-price data-key="{{item.key}}" class="item-price">
+                      {% if item.line_level_discount_allocations != blank %}
+                        <h5>
+                          Adviesprijs <span>{{ item.original_price | money }}</span>
+                        </h5>
+                        <h6>{{ item.final_price | money }}</h6>
+                      {% else %}
+                        {%- if item.variant.compare_at_price != item.final_price -%}
+                          <div class="sale-line-as-before">
+                            <p>
+                              Adviesprijs
+                              <span
+                                ><b class="relative">{{- item.variant.compare_at_price | money -}}</b></span
+                              >
+                            </p>
+                          </div>
+
+                          <style>
+                            .relative {
+                              position: relative;
+                            }
+
+                            .sale-line-as-before p {
+                              color: #434141;
+                              font-family: 'Poppins', sans-serif;
+                              font-size: 13px;
+                              font-weight: 300;
+                              line-height: normal;
+                              margin: 0 0 5px;
+                            }
+
+                            .sale-line-as-before p span b::before {
+                              content: '';
+                              position: absolute;
+                              top: 50%;
+                              left: 0;
+                              width: 115%;
+                              height: 1px;
+                              background: red;
+                              transform: rotate(355deg);
+                              pointer-events: none;
+                            }
+                          </style>
+                        {% endif %}
+                        <h6>{{ item.final_price | money }}</h6>
+                      {% endif %}
+                    </div>
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in item.line_level_discount_allocations -%}
+                        <li class="discounts__discount">
+                          {%- render 'icon-discount' -%}
+                          {{ discount.discount_application.title | escape }}
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="order-block sticky-top" id="main-cart-footer">
+            {% for block in section.blocks %}
+              <div class="order-box">
+                <h3>Overzicht</h3>
+                <div class="box-info">
+                  <ul>
+                    {%- assign subtotal_price = 0 -%}
+                    {% for item in cart.items %}
+                      {% if item.line_level_discount_allocations != blank %}
+                        {% assign subtotal_price1 = item.original_price | times: item.quantity %}
+                      {% elsif item.variant.compare_at_price != null %}
+                        {% assign subtotal_price1 = item.variant.compare_at_price | times: item.quantity %}
+                      {% else %}
+                        {% assign subtotal_price1 = item.variant.price | times: item.quantity %}
+                      {% endif %}
+                      {% assign subtotal_price = subtotal_price | plus: subtotal_price1 %}
+                    {% endfor %}
+
+                    {%- comment -%}FIX: Define special shipping conditions before they are used {%- endcomment -%}
+                    {%- assign is_special_shipping_case = false -%}
+                    {%- if cart.item_count == 1 -%}
+                      {%- assign first_item_title = cart.items.first.product.title -%}
+                      {%- if first_item_title == 'Meubel Importeur Care kit Matt Polish'
+                        or first_item_title == 'Meubel Importeur Greenfix Black'
+                      -%}
+                        {%- assign is_special_shipping_case = true -%}
+                      {%- endif -%}
+                    {%- endif -%}
+
+                    <li>
+                      Subtotaal<span>
+                        {%- if subtotal_price > cart.total_price -%}
+                          {{- subtotal_price | money -}}
+                        {%- else -%}
+                          {{- cart.items_subtotal_price | money -}}
+                        {%- endif -%}
+                      </span>
+                    </li>
+
+                    {% assign discount_allocated_price = 0 %}
+                    {%- if cart.cart_level_discount_applications.size > 0 -%}
+                      <li>
+                        korting
+                        <ul class="discounts list-unstyled" role="list">
+                          {%- for discount in cart.cart_level_discount_applications -%}
+                            <li class="discounts__discount discounts__discount--position">
+                              {%- render 'icon-discount' -%}
+                              {{ discount.title }}
+                              {% assign discount_allocated_price = discount_allocated_price
+                                | plus: discount.total_allocated_amount
+                              %}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                        <span>-{{ discount_allocated_price | money }}</span>
+                      </li>
+                    {%- endif -%}
+
+                    <li>
+                      Verzendkosten
+                      {% assign all_have_verzendtarief_tag = true %}
+                      {%- for item in cart.items -%}
+                        {% unless item.product.tags contains 'laag-verzendtarief' %}
+                          {% assign all_have_verzendtarief_tag = false %}
+                        {% endunless %}
+                      {%- endfor -%}
+                      <span class="green-texts"></span><span class="charges">Berekend bij afrekenen</span>
+                    </li>
+
+                    {%- assign final_total_price = cart.total_price -%}
+
+                    {%- if subtotal_price > final_total_price -%}
+                      <li class="text-orange">
+                        {% assign totl = subtotal_price | minus: final_total_price %}
+                        Je bespaart <span>-{{ totl | money }}</span>
+                      </li>
+                    {%- endif -%}
+
+                    {% if all_have_verzendtarief_tag %}
+                      <li class="totle-txt">
+                        <b>Totaal<small>Inclusief btw</small></b>
+                        {% assign ship_final_price = final_total_price | plus: 0 %}
+                        {%- if is_special_shipping_case -%}
+                          {% assign ship_final_price = final_total_price %}
+                        {%- endif -%}
+                        <span class="ship_yes" style="display: none;" data-hulkapps-cart-total>
+                          {{- ship_final_price | money -}}
+                        </span>
+                        <span class="ship_no" style="display: none;">{{ final_total_price | money }}</span>
+                      </li>
+                    {% else %}
+                      <li class="totle-txt">
+                        <b>Totaal<small>Inclusief btw</small></b>
+                        {% assign ship_final_price = final_total_price | plus: 0 %}
+                        {%- if is_special_shipping_case -%}
+                          {% assign ship_final_price = final_total_price %}
+                        {%- endif -%}
+                        <span class="ship_yes" style="display: none;" data-hulkapps-cart-total>
+                          {{- ship_final_price | money -}}
+                        </span>
+                        <span class="ship_no" style="display: none;">{{ final_total_price | money }}</span>
+                      </li>
+                    {% endif %}
+                  </ul>
+                  <button
+                    type="submit"
+                    id="checkout"
+                    class="btn-main"
+                    name="checkout"
+                    {% if cart == empty %}
+                      disabled
+                    {% endif %}
+                    onclick="window.location.href='/cart/checkout';"
+                  >
+                    Naar bestellen
+                  </button>
+                </div>
+                <div class="mt-4 heading-custom-h6">
+                {% render 'payment-methods' %}
+                <span class="text-center">
+                  Of kies voor gemak met
+                  <font style="text-decoration: underline;">betalen bij levering</font>
+                </span>
+                </div>
+                {% comment %} <div class="box-footer">
+                  <ul>
+                    <li>
+                      <img
+                        src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon1.svg?v=1717136575"
+                        alt=""
+                      >
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon2.svg?v=1717136575"
+                        alt=""
+                      >
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon3.svg?v=1717136575"
+                        alt=""
+                      >
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/logo-bancontact.webp?v=1744890966"
+                        width="56"
+                        height="23"
+                        alt=""
+                      >
+                    </li>
+                    <li>
+                      <img
+                        src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon4.svg?v=1717136575"
+                        alt=""
+                      >
+                    </li>
+                    {% comment %} <li>
+                      <img
+                        src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/payment-icon5.svg?v=1717136575"
+                        alt=""
+                      >
+                    </li> {% endcomment %}
+                    <li>
+                      <img
+                        src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/logo-klarna.webp?v=1744890966"
+                        width="56"
+                        height="23"
+                        alt=""
+                      >
+                    </li>
+                  </ul>
+                  <h6>
+                    Of kies voor gemak met
+                    <font style="text-decoration: underline;">betalen bij levering</font>
+                  </h6>
+                </div>   {% endcomment %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</cart-items>
+
+<script>
+  // --- Global Quantity Update Function ---
+  function qtyUpdate(id, quantity) {
+    const noteValue = document.getElementById('Cart-note')?.value || '';
+    const payload = {
+      updates: { [id]: quantity },
+      note: noteValue,
+    };
+
+    fetch(window.Shopify.routes.root + 'cart/update.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (response.ok) {
+          window.location.reload();
+        } else {
+          console.error('Error:', response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  // --- Document Ready Scripts ---
+  $(document).ready(function () {
+    // Initialize Select2 dropdowns
+    $('.select2').select2();
+
+    // Attach a single event listener for all quantity dropdowns
+    $('.cart-item-quantity-selector').on('change', function () {
+      const qty = $(this).val();
+      const itemKey = $(this).data('item-key');
+      if (itemKey) {
+        qtyUpdate(itemKey, qty);
+      }
+    });
+
+    // --- Delivery Date Calculation Script ---
+    function getMondayOfWeek(weekNumber, year) {
+      year = year || new Date().getFullYear();
+      const jan1 = new Date(year, 0, 1);
+      const jan1Day = jan1.getDay();
+      const offset = jan1Day <= 4 ? 1 - jan1Day : 8 - jan1Day;
+      const monday = new Date(year, 0, 1 + offset + (weekNumber - 1) * 7);
+      const day = monday.getDate();
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${day} ${monthName}`;
+    }
+
+    function getMondayOfWeekFromToday(weeksFromToday) {
+      const today = new Date();
+      const targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + weeksFromToday * 7);
+      const day = targetDate.getDay();
+      const diffToMonday = day === 0 ? -6 : 1 - day;
+      const monday = new Date(targetDate);
+      monday.setDate(targetDate.getDate() + diffToMonday);
+      const mondayDay = monday.getDate();
+      const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+      return `${mondayDay} ${monthName}`;
+    }
+
+    $('.item-info').each(function () {
+      const $item = $(this);
+      const levertijdText = $item.data('stockinfo');
+      if (!levertijdText) return;
+
+      const rangeRegex = /tussen de\s+(\d+)\s+en\s+(\d+)\s+weken/i;
+      const singleWeekRegex = /(\d+)\s*weken?/i;
+      const vanafWeekRegex = /vanaf\s+week\s+(\d+)/i;
+      let updatedText = levertijdText;
+
+      if (rangeRegex.test(levertijdText)) {
+        const match = levertijdText.match(rangeRegex);
+        const earliestWeek = parseInt(match[1]);
+        updatedText = `Levering vanaf ${getMondayOfWeekFromToday(earliestWeek)}`;
+      } else if (vanafWeekRegex.test(levertijdText)) {
+        const match = levertijdText.match(vanafWeekRegex);
+        updatedText = `Levering vanaf ${getMondayOfWeek(parseInt(match[1]))}`;
+      } else if (singleWeekRegex.test(levertijdText)) {
+        const match = levertijdText.match(singleWeekRegex);
+        updatedText = `Levering vanaf ${getMondayOfWeek(parseInt(match[1]))}`;
+      }
+      $item.find('h5.weekss').text(updatedText);
+    });
+
+    // --- Shipping Calculation Script ---
+    $.getJSON('/cart.js', function (cart) {
+      const allowedTitles = ['Meubel Importeur Care kit Matt Polish', 'Meubel Importeur Greenfix Black'];
+      const allAllowed = cart.items.every((item) => allowedTitles.includes(item.product_title));
+      const hasAllowed = cart.items.some((item) => allowedTitles.includes(item.product_title));
+
+      if (hasAllowed && allAllowed) {
+        $('.green-texts').text('Gratis').show();
+        $('.charges, .ship_yes').hide();
+        $('.ship_no').show();
+      } else {
+        $('.charges').text('Berekend bij afrekenen').show();
+        $('.green-texts, .ship_no').hide();
+        $('.ship_yes').show();
+      }
+    });
+
+    // --- Custom Note Script ---
+    const $noteContainer = $('#cart-note-container');
+    const $noteToggle = $('#cart-note-toggle-checkbox');
+    const $cartNote = $('#Cart-note');
+
+    if ($cartNote.length) {
+      // Ensure the element exists before adding listeners
+      // Show/Hide note container based on toggle
+      $noteToggle.on('change', function () {
+        if ($(this).is(':checked')) {
+          $noteContainer.slideDown();
+        } else {
+          $noteContainer.slideUp();
+        }
+      });
+
+      // Auto-save cart note via AJAX while typing
+      let noteTypingTimer;
+      const noteDoneTypingInterval = 800;
+      const updateCartNoteAjax = () => {
+        fetch('/cart/update.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ note: $cartNote.val() }),
+        });
+      };
+
+      $cartNote.on('keyup', () => {
+        clearTimeout(noteTypingTimer);
+        noteTypingTimer = setTimeout(updateCartNoteAjax, noteDoneTypingInterval);
+      });
+      $cartNote.on('keydown', () => {
+        clearTimeout(noteTypingTimer);
+      });
+
+      // Open note box on page load if a note already exists
+      if ($cartNote.val().trim().length > 0) {
+        $noteToggle.prop('checked', true);
+        $noteContainer.show();
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart-items.name",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

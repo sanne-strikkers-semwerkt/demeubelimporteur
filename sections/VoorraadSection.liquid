@@ -1,0 +1,541 @@
+{% comment %}
+  Sectie: Showroom Voorraad Modal (MII) - Versie 3.3
+  - Nieuw 'outline' design voor de triggerknop.
+  - Productnaam toegevoegd bovenaan de modal.
+  - 'Sluiten'-knop heeft nu de 'btn-orange' stijl met aangepast formaat.
+{% endcomment %}
+{%- liquid
+  assign product_image = product.featured_media | default: 'product-1'
+  assign product_price = product.price | money
+-%}
+<div class="page-width" data-section-id="{{ section.id }}">
+  <button id="open-showroom-modal-mii" class="btn-orange showroom-trigger-button">
+   {{ section.settings.button_text }}
+  </button>
+</div>
+<div id="showroom-modal-mii" class="showroom-modal-overlay" aria-hidden="true">
+  <div class="showroom-modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title-mii">
+    <div class="showroom-modal-header">
+      <h2 id="modal-title-mii" class="h4">{{ section.settings.modal_title }}</h2>
+      <button class="showroom-modal-close btn-orange btn-modal-close" aria-label="Sluiten">Sluiten</button>
+    </div>
+    <div class="showroom-modal-body">
+      <div class="showroom-modal__product-info--v8">
+        <img
+          src="{{ product_image | image_url: width: 120 }}"
+          alt="{{ product_image.alt | escape }}"
+          class="showroom-modal__product-image--v8"
+          width="60"
+          height="60"
+        >
+        <div class="showroom-modal__product-details--v8">
+          <p class="showroom-modal__product-title--v8">{{ product.title | escape }}</p>
+          <p class="showroom-modal__product-price--v8">{{ product_price }}</p>
+        </div>
+      </div>
+      <div class="showroom-modal-filter">
+        <div>
+          <input type="checkbox" id="stock-filter-mii" class="showroom-filter-checkbox">
+          <label for="stock-filter-mii">Met voorraad</label>
+        </div>
+        <button id="geolocate-btn" class="geolocate-button btn-secondary-custom">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-location" viewBox="0 0 16 20">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 20C8 20 16 12 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12 8 20 8 20ZM8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12Z" fill="currentColor"></path>
+          </svg>
+          <span id="geolocate-text" class=" text-xs">Gebruik locatie</span>
+        </button>
+      </div>
+      <div
+        id="showroom-list-mii-modal"
+        data-product-sku="{{ product.selected_or_first_available_variant.sku | escape }}"
+      ></div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // --- START CONFIGURATIE ---
+    const showroomDetails = [
+      {
+        name: 'Breda',
+        address: 'Industrieweg 7, 1613 KT Breda',
+        hours: {
+          0: '11:00 - 17:00',
+          1: '09:00 - 17:30',
+          2: '09:00 - 17:30',
+          3: '09:00 - 17:30',
+          4: '09:00 - 17:30',
+          5: '09:00 - 17:30',
+          6: '09:00 - 17:00',
+        },
+        lat: 52.7001,
+        lon: 5.226,
+        url: 'https://www.google.nl/maps/place/De+Meubel+Importeur/@51.6236125,4.871771,17z/data=!3m1!4b1!4m6!3m5!1s0x47c69967ab9086ab:0x5d892bffbe55144e!8m2!3d51.6236092!4d4.8743459!16s%2Fg%2F11w_t5g3_k?entry=tts&g_ep=EgoyMDI1MDIxMS4wIPu8ASoASAFQAw%3D%3D',
+        image:
+          'https://cdn.shopify.com/s/files/1/0563/8412/7158/files/Scherm_afbeelding_2025-08-19_om_13.05.17.png?v=1755601549',
+      },
+      {
+        name: 'Oosterhout',
+        address: 'Florijnstraat 5, 4903 RM Oosterhout',
+        hours: {
+          0: 'Gesloten',
+          1: 'Gesloten',
+          2: '10:00 - 17:00',
+          3: '10:00 - 17:00',
+          4: '10:00 - 17:00',
+          5: '10:00 - 17:00',
+          6: '10:00 - 17:00',
+        },
+        lat: 51.6441,
+        lon: 4.8465,
+        url: 'https://www.google.nl/maps/place/De+Meubel+Importeur/@51.6236125,4.871771,17z/data=!3m1!4b1!4m6!3m5!1s0x47c69967ab9086ab:0x5d892bffbe55144e!8m2!3d51.6236092!4d4.8743459!16s%2Fg%2F11w_t5g3_k?entry=tts&g_ep=EgoyMDI1MDIxMS4wIPu8ASoASAFQAw%3D%3D',
+        image: 'https://www.demeubelimporteur.nl/cdn/shop/files/demeubelimporteur-oosterhout.jpg?v=1739284735',
+      },
+    ];
+    // --- EINDE CONFIGURATIE ---
+    const openBtn = document.getElementById('open-showroom-modal-mii');
+    const modal = document.getElementById('showroom-modal-mii');
+    const closeBtn = modal.querySelector('.showroom-modal-close');
+    const container = document.getElementById('showroom-list-mii-modal');
+    const filterCheckbox = document.getElementById('stock-filter-mii');
+    const geolocateBtn = document.getElementById('geolocate-btn');
+    const geolocateText = document.getElementById('geolocate-text');
+    let storeData = [],
+      dataLoaded = false;
+    const getTodaysHours = (hoursObject) => {
+      const hoursToday = hoursObject[new Date().getDay()];
+      return hoursToday === 'Gesloten' ? 'Vandaag gesloten' : `Vandaag open van ${hoursToday} uur`;
+    };
+    const openModal = () => {
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (!dataLoaded) loadStockAndCombineData();
+    };
+    const closeModal = () => {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    const getDistance = (lat1, lon1, lat2, lon2) => {
+      const R = 6371,
+        dLat = ((lat2 - lat1) * Math.PI) / 180,
+        dLon = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+    };
+    const handleGeolocation = () => {
+      if (!navigator.geolocation) {
+        geolocateText.textContent = 'Geen GPS ondersteuning';
+        return;
+      }
+      geolocateText.textContent = 'Locatie zoeken...';
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          storeData.forEach((s) => (s.distance = getDistance(pos.coords.latitude, pos.coords.longitude, s.lat, s.lon)));
+          storeData.sort((a, b) => a.distance - b.distance);
+          geolocateText.textContent = 'Locatie gevonden';
+          geolocateBtn.classList.add('found');
+          renderShowroomList();
+        },
+        () => {
+          geolocateText.textContent = 'Locatie geweigerd';
+        }
+      );
+    };
+    const renderShowroomList = () => {
+      let filteredStores = storeData.filter((store) => (filterCheckbox.checked ? store.isAvailable : true));
+      if (filteredStores.length === 0) {
+        container.innerHTML = '<p class="loading-status">Geen winkels gevonden die aan uw criteria voldoen.</p>';
+      } else {
+        container.innerHTML = filteredStores
+          .map((store) => {
+            const distanceHTML = store.distance
+              ? `<p class="showroom-distance">${store.distance.toFixed(1)} km</p>`
+              : '';
+            return `
+                  <div class="showroom-item-modal" data-status="${store.isAvailable ? 'available' : 'unavailable'}">
+                    <div class="showroom-details">
+                      <div class="showroom-details-header">
+                  <div class="store-info">
+                    <p class="store-name">Winkel ${store.name}</p>
+                    ${distanceHTML}
+                    <p class="store-address">${store.address}</p>
+                    <p class="store-hours">${getTodaysHours(store.hours)}</p>
+                  </div>
+                     <span class="store-image" style="background-image: url('${store.image}');" aria-label="Winkel ${
+              store.name
+            }" role="img"></span>
+                  </div>
+                  </div>
+                    <div class="showroom-stock-info">
+                       <p class="status"><span class="status-dot ${
+                         store.isAvailable ? 'available' : 'unavailable'
+                       }"></span>${store.isAvailable ? 'Op voorraad' : 'Niet op voorraad'}</p>
+                       <a href="${
+                         store.url
+                       }" class="btn-orange btn-modal-route flex-gap-mhi" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot"></i>Bekijk de route</a>
+                    </div>
+                  </div>`;
+          })
+          .join('');
+      }
+    };
+    const loadStockAndCombineData = () => {
+      const productSku = container.dataset.productSku;
+      const jsonUrl = "{{ 'showroom_voorraad_mii.json' | asset_url }}";
+      container.innerHTML = '<p class="loading-status">Voorraadstatus wordt geladen...</p>';
+      fetch(jsonUrl)
+        .then((response) => response.json())
+        .then((stockData) => {
+          const productStock = stockData.find((item) => item.sku === productSku);
+          storeData = showroomDetails.map((detail) => ({
+            ...detail,
+            isAvailable: productStock ? productStock.showrooms.includes(detail.name) : false,
+            distance: null,
+          }));
+          dataLoaded = true;
+          renderShowroomList();
+        })
+        .catch((error) => {
+          container.innerHTML = '<p class="error-status">Kon voorraadstatus niet ophalen.</p>';
+          console.error('Fout bij laden MII voorraad:', error);
+        });
+    };
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+    filterCheckbox.addEventListener('change', renderShowroomList);
+    geolocateBtn.addEventListener('click', handleGeolocation);
+  });
+</script>
+
+
+<style>
+  :root {
+    /* Kleuren */
+    --brand-orange: #fb5a00;
+    --color-success: #008a00;
+    --color-error: #e60000;
+    --color-text-primary: #212121;
+    --color-text-secondary: #555;
+    --color-background-light: #fff;
+    --color-border: #eeede9;
+    /* Spacing & Afmetingen */
+    --spacing-unit: 4px;
+    --main-padding: calc(var(--spacing-unit) * 4); /* 24px */
+    --content-padding: calc(var(--spacing-unit) * 4); /* 16px */
+    --item-gap: calc(var(--spacing-unit) * 3); /* 16px */
+    --border-radius: 8px;
+  }
+  .store-info {
+    padding: 1rem 0;
+    width: fit-content;
+    font-family: sans-serif;
+  }
+  .flex-gap-mhi {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .store-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+  }
+  .store-address,
+  .store-hours {
+    margin: 0.25rem 0;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  /* --- Triggerknop --- */
+  .showroom-trigger-button {
+    background-color: transparent;
+    border: 1px solid var(--brand-orange);
+    color: var(--brand-orange);
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .text-xs {
+    font-size: 12px;
+  }
+  .showroom-trigger-button:hover {
+    background-color: var(--brand-orange);
+    color: #fff;
+  }
+  .showroom-address,
+  .showroom-hours {
+    color: #000;
+    font-family: 'Poppins';
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 23px;
+    margin: 0;
+  }
+  /* --- Basis Modal Structuur & Animatie --- */
+  .showroom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .showroom-modal-overlay[aria-hidden='false'] {
+    opacity: 1;
+    visibility: visible;
+  }
+  .showroom-modal-content {
+    font-family: 'Zilla Slab', serif;
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+  }
+  .showroom-modal-overlay[aria-hidden='false'] .showroom-modal-content {
+    transform: scale(1);
+  }
+  /* --- Modal Header --- */
+  .showroom-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--content-padding) var(--main-padding); /* 16px 24px */
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+  .showroom-modal-header .h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  .btn-modal-close {
+    padding: 8px 16px !important; /* Consistent met andere knoppen */
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    white-space: nowrap;
+  }
+  /* --- Modal Body & Product Info --- */
+  .showroom-modal-body {
+    padding: var(--content-padding) var(--main-padding); /* 16px 24px */
+    overflow-y: auto;
+  }
+  .showroom-modal__product-info--v8 {
+    display: flex;
+    align-items: center;
+    gap: var(--item-gap); /* 16px */
+    background: var(--color-background-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 7px; /* 16px */
+    margin-bottom: var(--main-padding); /* 24px */
+  }
+  .showroom-modal__product-image--v8 {
+    border-radius: calc(var(--spacing-unit) * 1); /* 4px */
+    object-fit: cover;
+    flex-shrink: 0;
+    border: none;
+  }
+  .showroom-modal__product-details--v8 p {
+    margin: 0;
+  }
+  .showroom-modal__product-title--v8 {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-unit); /* 4px */
+  }
+  .showroom-modal__product-price--v8 {
+    color: #fb5a00;
+    font-weight: 500;
+  }
+  /* --- Filterbalk --- */
+  .showroom-modal-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--item-gap); /* 16px */
+    padding-bottom: var(--content-padding); /* 16px */
+  }
+  div.showroom-modal-filter > div {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 2); /* 8px */
+  }
+  .showroom-filter-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand-orange);
+  }
+  .geolocate-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 2); /* 8px */
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+  .geolocate-button .icon {
+    width: 16px;
+    height: 20px;
+  }
+  .geolocate-button.found {
+    color: var(--color-success);
+  }
+  /* --- Winkellijst --- */
+  #showroom-list-mii-modal {
+    display: flex;
+    flex-direction: column;
+    gap: var(--item-gap); /* 16px */
+  }
+  .showroom-item-modal {
+    background-color: var(--color-background-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 7px; /* 16px */
+    display: flex;
+    flex-direction: column;
+    gap: var(--item-gap); /* 16px */
+  }
+  .showroom-details-header {
+    display: grid;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 content, 1/3 image */
+    align-items: stretch; /* ensures image takes full height */
+    gap: var(--item-gap);
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--item-gap);
+  }
+  .showroom-name {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+  .showroom-distance {
+    font-size: 0.9rem;
+    color: var(--brand-orange);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  /* --- Voorraad & Knop-balk --- */
+  .showroom-stock-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 content, 1/3 image */
+    align-items: stretch; /* ensures image takes full height */
+    gap: var(--item-gap);
+    justify-content: space-between;
+    align-items: center;
+  }
+  .status {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 2); /* 8px */
+    font-weight: 600;
+    margin: 0;
+  }
+  .status-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+  .status-dot.available {
+    background-color: var(--color-success);
+  }
+  .status-dot.unavailable {
+    background-color: var(--color-error);
+  }
+  .btn-modal-route {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    justify-content: center;
+  }
+  /* --- Hulp- en laadstatussen --- */
+  .loading-status,
+  .error-status {
+    padding: calc(var(--spacing-unit) * 8); /* 32px */
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+  .store-image {
+    width: 100%;
+    height: 100%;
+    min-height: 77px;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+  }
+  .btn-secondary-custom {
+    color: #000;
+    font-family: 'Zilla Slab', serif;
+    font-size: 16px;
+    z-index: 1 !important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 1px solid #d8d8d8;
+    background: #fff;
+    width: fit-content;
+    position: relative;
+  }
+  .margin-tops {
+  margin-top: 1.5rem;}
+</style>
+{% schema %}
+{
+  "name": "Showroom Voorraad (MII)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Knop tekst",
+      "default": "Ophalen in de winkel"
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "Titel in modal",
+      "default": "Winkelvoorraad"
+    }
+  ],
+  "presets": [{ "name": "Showroom Voorraad Modal (MII)" }]
+}
+{% endschema %}

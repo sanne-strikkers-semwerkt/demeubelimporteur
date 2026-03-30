@@ -1,0 +1,366 @@
+{%- liquid
+  assign all_related_handles_str = ''
+  assign cart_handles_str = ''
+  assign limit = section.settings.limit
+
+  for item in cart.items
+    assign cart_handles_str = cart_handles_str | append: item.product.handle | append: ','
+
+    if item.product.metafields.custom.cross_sell_products.value != blank
+      for related_product in item.product.metafields.custom.cross_sell_products.value
+        assign all_related_handles_str = all_related_handles_str | append: related_product.handle | append: ','
+      endfor
+    endif
+  endfor
+
+  assign related_handles_array = all_related_handles_str | split: ',' | compact | uniq
+  assign cart_handles_array = cart_handles_str | split: ','
+
+  assign final_handles_to_show_str = ''
+  assign counter = 0
+
+  for handle in related_handles_array
+    if counter >= limit
+      break
+    endif
+
+    unless cart_handles_array contains handle
+      if all_products[handle] != blank
+        assign final_handles_to_show_str = final_handles_to_show_str | append: handle | append: ','
+        assign counter = counter | plus: 1
+      endif
+    endunless
+  endfor
+
+  assign final_handles_to_show_array = final_handles_to_show_str | split: ','
+-%}
+
+{% if final_handles_to_show_array.first != blank %}
+  <style>
+    .related-cart-products .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .related-cart-products .product-box {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: 1px solid {{ section.settings.product_box_border_color }};
+      padding: 0px;
+      background: {{ section.settings.product_box_bg_color }};
+    }
+    .box-img-wrapper {
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      position: relative;
+    }
+    .box-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .related-cart-products .description {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+    }
+    .price-and-cart-wrapper {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .main-tags {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: flex-start;
+    }
+
+    .main-tags label {
+      padding: 4px 10px;
+      border-radius: 10px;
+      background: {{ section.settings.discount_tag_bg_color }};
+      color: {{ section.settings.discount_tag_text_color }};
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    .main-tags .collname {
+      padding: 4px 16px;
+      border-radius: 7px;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+      line-height: normal;
+    }
+  </style>
+
+  <section style="background: {{ section.settings.section_bg_color }}; padding: {{ section.settings.section_padding }}px 0; margin-top: {{ section.settings.section_margin_top }}px;">
+    <div class="container">
+      <div class="purchase-block related-cart-products">
+        <h2>{{ section.settings.heading_text }}</h2>
+        <div class="row">
+          {%- for handle in final_handles_to_show_array -%}
+            {%- assign product = all_products[handle] -%}
+            {%- if product != blank -%}
+              <div class="col-md-3 col-lg-3" style="margin-bottom: 15px;">
+                <div class="product-box">
+                  <div class="box-img-wrapper">
+                    <div class="main-tags">
+                      {%- for coll in product.collections -%}
+                        {% if coll.title == settings.collectionss.title %}
+                          
+                          {% comment %} NA DE BLACKFRIDAY AANZETTEN {% endcomment %}
+                          {% comment %} <div
+                            class="collname"
+                            style="color: {{ settings.tag_color }}; background: {{ settings.tag_background }};"
+                          >
+                            <span class="super" style="color: {{ settings.tag_color }};">{{ settings.tag_title }}</span>
+                            <span class="sale" style="color: {{ settings.tag_color2 }};">
+                              {{- settings.tag_title2 -}}
+                            </span>
+                          </div> {% endcomment %}
+                        
+                          <div class="notification-bar" style="background:none!important; padding: 0px!important;border-radius: 10px!important;">
+                            <div class="notification-block">
+                                <h6 style="padding: 4px 10px !important; width: 100%; border-radius: 5px;">
+                                    <b>PAAS</b>
+                                    <span>DEALS</span>
+                                </h6>
+                        </div>
+                      </div>
+                    {% endif %}
+                      {%- endfor -%}
+
+                      {%- if product.compare_at_price > product.price -%}
+                        {%- capture discount -%}{{ product.compare_at_price_max | minus: product.price | money }}{%- endcapture -%}
+                        <label>€{{ discount | remove: ',00€' | remove: '€' }} korting</label>
+                      {%- endif -%}
+                    </div>
+
+                    <a href="{{ product.url }}">
+                      <img
+                        src="{{ product.featured_media | image_url: width: 450 }}"
+                        alt="{{ product.featured_media.alt | escape }}"
+                        loading="lazy"
+                      >
+                    </a>
+                  </div>
+
+                  <div class="description">
+                    <h3>
+                      <a href="{{ product.url }}">{{ product.title }}</a>
+                    </h3>
+
+                    {% assign current_variant = product.selected_or_first_available_variant %}
+                    <div class="item-info" data-stockinfo="{{ product.metafields.arena.stockinfo | escape }}">
+                      {% if current_variant.inventory_quantity > 0 %}
+                        <h5 class="stockss show-stock-desktop show-stock-tablet show-stock-mobile">Op voorraad</h5>
+                      {% endif %}
+
+                      {% if product.metafields.arena.stockinfo != blank and current_variant.inventory_quantity <= 0 %}
+                        <h5 class="weekss show-delivery-weeks-desktop show-delivery-weeks-tablet show-delivery-weeks-mobile"></h5>
+                      {% endif %}
+                    </div>
+
+                    <script>
+                      $(document).ready(function () {
+                        function getMondayOfWeek(weekNumber, year) {
+                          year = year || new Date().getFullYear();
+                          let jan1 = new Date(year, 0, 1);
+                          let jan1Day = jan1.getDay();
+                          let offset = jan1Day <= 4 ? 1 - jan1Day : 8 - jan1Day;
+                          let monday = new Date(year, 0, 1 + offset + (weekNumber - 1) * 7);
+                          let day = monday.getDate();
+                          const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+                          return `${day} ${monthName}`;
+                        }
+
+                        function getMondayOfWeekFromToday(weeksFromToday) {
+                          let today = new Date();
+                          let targetDate = new Date(
+                            today.getFullYear(),
+                            today.getMonth(),
+                            today.getDate() + weeksFromToday * 7
+                          );
+                          let day = targetDate.getDay();
+                          let diffToMonday = day === 0 ? -6 : 1 - day;
+                          let monday = new Date(targetDate);
+                          monday.setDate(targetDate.getDate() + diffToMonday);
+                          let mondayDay = monday.getDate();
+                          const monthName = monday.toLocaleString('nl-NL', { month: 'long' });
+                          return `${mondayDay} ${monthName}`;
+                        }
+
+                        $('.item-info').each(function () {
+                          let $item = $(this);
+                          let levertijdText = $item.data('stockinfo');
+
+                          if (!levertijdText) {
+                            return;
+                          }
+
+                          const rangeRegex = /tussen de\s+(\d+)\s+en\s+(\d+)\s+weken/i;
+                          const singleWeekRegex = /(\d+)\s*weken?/i;
+                          const vanafWeekRegex = /vanaf\s+week\s+(\d+)/i;
+                          let updatedText = levertijdText;
+
+                          if (rangeRegex.test(levertijdText)) {
+                            let match = levertijdText.match(rangeRegex);
+                            let earliestWeek = parseInt(match[1]);
+                            updatedText = `Levering vanaf ${getMondayOfWeekFromToday(earliestWeek)}`;
+                          } else if (vanafWeekRegex.test(levertijdText)) {
+                            let match = levertijdText.match(vanafWeekRegex);
+                            updatedText = `Levering vanaf ${getMondayOfWeek(parseInt(match[1]))}`;
+                          } else if (singleWeekRegex.test(levertijdText)) {
+                            let match = levertijdText.match(singleWeekRegex);
+                            updatedText = `Levering vanaf ${getMondayOfWeek(parseInt(match[1]))}`;
+                          }
+                          $item.find('h5.weekss').text(updatedText);
+                        });
+                      });
+                    </script>
+
+                    {%- if product.compare_at_price > product.price -%}
+                      <p>
+                        Adviesprijs <span>{{ product.compare_at_price | money }}</span>
+                      </p>
+                    {% endif -%}
+                    <div class="price-and-cart-wrapper">
+                      <h6>{{ product.price | money }}</h6>
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        <form action="{{ routes.cart_add_url }}" method="post">
+                          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                          <button
+                            type="submit"
+                            class="atc-btn btn-atc-cross-sell-cart"
+                            style="background: {{ section.settings.atc_button_bg_color }};"
+                          >
+                            <i class="fal fa-plus"></i><i class="fa fa-shopping-cart"></i>
+                          </button>
+                        </form>
+                      {% else %}
+                        <button
+                          type="button"
+                          class="sold-out-btn"
+                          style="background: {{ section.settings.atc_button_bg_color }};"
+                          disabled
+                        >
+                          <i class="fal fa-plus"></i><i class="fa fa-shopping-cart"></i>
+                        </button>
+                      {% endif -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Related Cart Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Bekijk ook eens:"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Number of Products",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Section Styling"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "#f1f1f1"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Margin Top",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Product Box Styling"
+    },
+    {
+      "type": "color",
+      "id": "product_box_bg_color",
+      "label": "Product Box Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "product_box_border_color",
+      "label": "Product Box Border Color",
+      "default": "#f1f1f1"
+    },
+    {
+      "type": "color",
+      "id": "atc_button_bg_color",
+      "label": "Add to Cart Button Background",
+      "default": "#fb5a00"
+    },
+    {
+      "type": "header",
+      "content": "Tag Styling"
+    },
+    {
+      "type": "color",
+      "id": "discount_tag_bg_color",
+      "label": "Discount Tag Background Color",
+      "default": "#fb5a00"
+    },
+    {
+      "type": "color",
+      "id": "discount_tag_text_color",
+      "label": "Discount Tag Text Color",
+      "default": "#fff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related Cart Products"
+    }
+  ]
+}
+{% endschema %}

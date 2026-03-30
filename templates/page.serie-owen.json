@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "detail_banner_jB9T8N": {
+      "type": "detail-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner-image-bg.jpg",
+        "title": "Owen serie",
+        "description": "Til jouw interieur naar een hoger niveau"
+      }
+    },
+    "seriesdetails_HkWpqN": {
+      "type": "seriesdetails",
+      "blocks": {
+        "block_VE9RKD": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Owen.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_VE9RKD"
+      ],
+      "settings": {
+        "html": "<ul><li><strong>Duurzaam mangohout:</strong> voor een milieuvriendelijke en unieke uitstraling.</li><li><strong>Landelijke charme:</strong> perfect voor een warme en tijdloze sfeer.</li><li><strong>Metalen accenten:</strong> voor een stoer en industrieel detail.</li><li><strong>Veelzijdig assortiment:</strong> geschikt voor elke ruimte in huis.</li></ul>",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/owen-serie"
+      }
+    },
+    "detail_product_wrap_dywQHx": {
+      "type": "detail-product-wrap",
+      "settings": {
+        "collection": "owen-serie",
+        "button": "Bekijk de volledige serie",
+        "link": "shopify://collections/owen-serie"
+      }
+    },
+    "detail_suitable_zWWqyt": {
+      "type": "detail-suitable",
+      "blocks": {
+        "left_textarea_PiHFL9": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "De meubelserie Owen",
+            "description": "<p>Ben je op zoek naar meubels die je interieur niet alleen warmte en karakter geven, maar ook een uniek statement maken? Ontdek de meubelserie Owen: een collectie die functionaliteit, duurzaamheid en een landelijke uitstraling moeiteloos combineert. Gemaakt van hoogwaardig mangohout en afgewerkt met stevige metalen accenten, zijn deze meubels ontworpen om jouw huis jarenlang stijl en comfort te bieden.</p>"
+          }
+        },
+        "left_textarea_DaB9fT": {
+          "type": "left_textarea",
+          "settings": {
+            "heading": "De Owen-collectie: stijlvol en functioneel",
+            "description": "<p>Met de meubelserie Owen richt je moeiteloos elke ruimte in huis in, of je nu op zoek bent naar een eyecatcher voor je woonkamer of een praktisch meubel voor je slaapkamer. In ons Owen-assortiment vind je onder andere:</p>"
+          }
+        },
+        "left_text_ahHDGJ": {
+          "type": "left_text",
+          "settings": {
+            "list-block": "<ul><li><strong>Vitrinekasten:</strong> ideaal om je mooiste servies of decoratie te presenteren. De combinatie van glazen panelen, mangohout en metalen accenten creëert een elegant en stoer effect.</li><li><strong>Nachtkastjes:</strong> compact, praktisch en stijlvol. Onze Owen-nachtkastjes bieden voldoende opbergruimte en hebben een stevig blad voor een lamp of wekker.</li><li><strong>Salontafels:</strong> het middelpunt van je woonkamer. Het robuuste ontwerp van mangohout en metalen poten garandeert een tijdloos karakter dat jarenlang meegaat.</li></ul>"
+          }
+        },
+        "right_textarea_AwQf8r": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Waarom kiezen voor mangohouten meubels?",
+            "description": "<p>Mangohout is een duurzaam en milieuvriendelijk materiaal met unieke nerfpatronen en warme tinten. Onze Owen-meubels maken optimaal gebruik van deze natuurlijke schoonheid. Elk stuk in de collectie wordt zorgvuldig vervaardigd in onze fabriek in India, waardoor het een eigen, karakteristieke uitstraling krijgt. De combinatie van mangohout en metalen details maakt deze meubels perfect voor een landelijke woonstijl, terwijl ze ook naadloos passen in een industrieel of modern interieur.</p>"
+          }
+        },
+        "right_textarea_jYWiid": {
+          "type": "right_textarea",
+          "settings": {
+            "heading": "Bezoek onze showroom of bestel online",
+            "description": "<p>Ben jij enthousiast over de mangohouten meubels uit de Owen-serie? Bezoek een van onze <a href=\"https://www.demeubelimporteur.nl/pages/winkels\">showrooms</a> en ervaar de unieke charme van deze meubels in het echt. Onze deskundige medewerkers staan klaar om je te adviseren en te helpen bij het maken van de juiste keuze voor jouw interieur. Weet jij al precies wat je wilt? Bestel eenvoudig online en profiteer van snelle levering en betaling aan de deur.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "left_textarea_PiHFL9",
+        "left_textarea_DaB9fT",
+        "left_text_ahHDGJ",
+        "right_textarea_AwQf8r",
+        "right_textarea_jYWiid"
+      ],
+      "settings": {}
+    },
+    "popular_series_NVz6hJ": {
+      "type": "popular-series",
+      "blocks": {
+        "block_MKyYqW": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-britt-2.jpg",
+            "heading": "Britt",
+            "text": "Stijlvolle en duurzame meubels met een natuurlijke uitstraling",
+            "button": "Bekijk serie",
+            "link": "/pages/britt-serie/"
+          }
+        },
+        "block_tKkB4f": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-ula.jpg",
+            "heading": "Ula",
+            "text": "Stijlvol en functioneel voor jouw interieur",
+            "button": "Bekijk serie",
+            "link": "/pages/ula-serie/"
+          }
+        },
+        "block_dJ7hAC": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/serie-oscar.jpg",
+            "heading": "Oscar",
+            "text": "Tijdloze stijl en robuuste kwaliteit",
+            "button": "Bekijk serie",
+            "link": "/pages/oscar-serie/"
+          }
+        }
+      },
+      "block_order": [
+        "block_MKyYqW",
+        "block_tKkB4f",
+        "block_dJ7hAC"
+      ],
+      "settings": {
+        "title": "Meer populaire series:"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "detail_banner_jB9T8N",
+    "seriesdetails_HkWpqN",
+    "detail_product_wrap_dywQHx",
+    "detail_suitable_zWWqyt",
+    "popular_series_NVz6hJ"
+  ]
+}

@@ -1,0 +1,58 @@
+ <!-- Product -->
+  <section class="product-wrp2 black-friday-product-wrp">
+      <div class="container">
+          <div class="product-slider">
+            {% for card_product in section.settings.collection.products %}
+              <div>
+                  <div class="product-box">
+                      <a href="{{ card_product.url }}">
+                          <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/offer-label.svg?v=1731582452" alt="" class="offer-label-img">
+                          <div class="box-img">
+                              <img src="{{ card_product.featured_media | img_url: 'master' }}" alt="">
+                          </div>
+                          <div class="description">
+                              <h3>{{ card_product.title }}</h3>
+                              <p>
+                                {% if card_product.compare_at_price != blank %}
+                                  Adviesprijs <span>{{ card_product.compare_at_price | money }},-</span>
+                                  {% if card_product.metafields.custom.onze_prijs != blank %}
+                                    {% comment %} {% assign onze_price = card_product.metafields.custom.onze_prijs | remove: "," %} {% endcomment %}
+                                    {% comment %} {% assign onze_price = onze_price | remove: "." %} {% endcomment %}
+                                    {% comment %} <b>Onze prijs <span>{{ onze_price | money }},-</span> </b> {% endcomment %}
+                                  {% endif %}
+                                {% else %}
+                                  {% if card_product.metafields.custom.onze_prijs != blank %}
+                                    {% comment %} {% assign onze_price = card_product.metafields.custom.onze_prijs | remove: "," %}
+                                    {% assign onze_price = onze_price | remove: "." %} {% endcomment %}
+                                      {% comment %} <b>Onze prijs <span>{{ onze_price | money }},-</span> </b> {% endcomment %}
+                                    {% endif %}
+                                {% endif %}
+                              </p>
+                              <h5>Black Friday prijs</h5>
+                              <h6>{{ card_product.price | money }},-</h6>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+             {% endfor %}
+          </div>
+      </div>
+  </section>
+  <!-- End Product -->
+{% schema %}
+  {
+    "name": "Black Friday Deals",
+    "settings": [
+      {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Black Friday Deals"
+      }
+    ]
+  }
+{% endschema %}

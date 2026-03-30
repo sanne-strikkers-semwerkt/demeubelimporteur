@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  (function(){
+    var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+    window.criteo_q = window.criteo_q || [];
+    window.criteo_q.push(
+      { event: "setAccount", account: 94584 },
+      { event: "setEmail", email: "{{ customer.email | remove: ' ' | strip_newlines | downcase | sha256 }}", hash_method: "sha256" },
+      { event: "setEmail", email: "{{ customer.email | remove: ' ' | strip_newlines | downcase | md5 }}", hash_method: "md5" },
+      { event: "setSiteType", type: deviceType },
+      { event: "setZipcode", zipcode: "{{ customer.default_address.zip }}" },
+        {% assign template-type = template | split: '.' | first %}
+        {% if template-type == 'cart' or template-type == 'collection' or template-type == 'index' or template-type == 'product' or template-type == 'search' %}
+        {% unless template-type == 'cart' and cart.item_count < 1 %}
+        {% assign id_prefix = "shopify_NL" %}
+          {% case template-type %}
+            {% when 'cart' %}{ event: "viewBasket", ecpplugin: "shopify-mc", item: [{% for item in cart.items %}{% unless forloop.index0 == 0 %}, {% endunless %}{ id: "{{ id_prefix }}_{{ item.product.id }}_{{ item.variant.id }}", price: (typeof({{ item.price }}) != "number") ? {{ item.price }} : ({{ item.price }}/100), quantity: {{ item.quantity }} }{% endfor %}]}
+            {% when 'search' %}{ event: "viewSearchResult", ecpplugin: "shopify-mc", "keyword":"{{search.terms}}", item: [{% for product in search.results limit:3 %}{% if forloop.index0 != 0 %},{% endif %}"{{product.id}}"{% endfor %}]}
+            {% when 'collection' %}{ event: "viewList", ecpplugin: "shopify", category:"{{collection.handle}}", item: [{% for product in collection.products limit:3 %}{% if forloop.index0 != 0 %},{% endif %}"{{product.id}}"{% endfor %}]}
+            {% when 'index' %}{ event: "viewHome", ecpplugin: "shopify-mc" }
+            {% when 'product' %}{ event: "viewItem", ecpplugin: "shopify-mc", item: {% if product.selected_variant != nil %} "{{ id_prefix }}_{{ product.id }}_{{product.selected_variant.id}}" {% else %} "{{ product.id }}" {% endif %} }
+          {% endcase %}
+        {% endunless %}
+        {% else %}
+          { event: "viewPage" , ecpplugin: "shopify-mc" }
+        {% endif %}
+    );
+  })();
+</script>

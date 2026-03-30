@@ -1,0 +1,936 @@
+{% comment %}
+  Welkom-terug modal: toont wanneer bezoeker terugkomt met items in winkelwagen.
+  Toon eens per dag of per sessie, volledig instelbaar via customizer.
+{% endcomment %}
+{% if section.settings.enabled %}
+  <div
+    id="welcome-back-modal-root"
+    data-welcome-back
+    data-delay="{{ section.settings.delay_seconds | default: 2 }}"
+    data-frequency="{{ section.settings.frequency | default: 'once_per_day' }}"
+    data-max-per-day="{{ section.settings.max_per_day | default: 10 }}"
+    data-heading="{{ section.settings.heading | escape }}"
+    data-message="{{ section.settings.message | escape }}"
+    data-btn-primary="{{ section.settings.btn_primary_text | escape }}"
+    data-btn-secondary="{{ section.settings.btn_secondary_text | escape }}"
+    data-logo="{% if section.settings.logo != blank %}{{ section.settings.logo | image_url: width: 200 | escape }}{% endif %}"
+    data-empty="{{ section.settings.empty_message | escape }}"
+    data-tracking-enabled="{{ section.settings.enable_tracking | default: false }}"
+    data-goal-popup-show="{{ section.settings.goal_pop_up_show | escape }}"
+    data-goal-cart-view="{{ section.settings.goal_cart_view | escape }}"
+    data-goal-product-click="{{ section.settings.goal_product_click | escape }}"
+    data-goal-modal-close="{{ section.settings.goal_modal_close | escape }}"
+    style="display: none;"
+    aria-hidden="true"
+  ></div>
+
+  <style>
+    .conv-welcome-modal-overlay {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: rgba(33, 33, 33, 0.65) !important;
+      z-index: 999999 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+      padding: 16px !important;
+      box-sizing: border-box !important;
+    }
+
+    .conv-welcome-modal-overlay.conv-active {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .conv-welcome-modal {
+      background: #fff !important;
+      border-radius: 10px !important;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3) !important;
+      max-width: 580px !important;
+      width: 100% !important;
+      max-height: calc(100vh - 32px) !important;
+      overflow: hidden !important;
+      transform: translateY(40px) scale(0.92) !important;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .conv-welcome-modal-overlay.conv-active .conv-welcome-modal {
+      transform: translateY(0) scale(1) !important;
+    }
+
+    .conv-modal-header {
+      padding: 12px !important;
+      background: #ffffff !important;
+      position: relative !important;
+      text-align: center !important;
+      flex-shrink: 0 !important;
+    }
+
+    .conv-modal-header img {
+        margin: 12px auto 0 auto !important;
+      }
+
+    .conv-modal-body {
+      padding: 32px !important;
+      overflow-y: auto !important;
+      background: #fff !important;
+      flex: 1 !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+
+    .conv-saved-message {
+      background: #fff5d9 !important;
+      border-radius: 0 !important;
+      padding: 20px !important;
+      margin-bottom: 16px !important;
+      text-align: center !important;
+      position: relative !important;
+      border-radius: 10px;
+    }
+
+    .conv-saved-text {
+      color: #2D2D2D !important;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      margin: 0 !important;
+      line-height: 1.5 !important;
+      font-family: 'Poppins', sans-serif !important;
+    }
+
+    .conv-cart-items {
+      margin-bottom: 0 !important;
+    }
+
+    .conv-cart-item {
+      display: flex !important;
+      align-items: center !important;
+      padding: 20px 0 !important;
+      border-bottom: 1px solid #E5E5E5 !important;
+      transition: all 0.3s ease !important;
+      cursor: pointer !important;
+      text-decoration: none !important;
+      color: inherit !important;
+      position: relative !important;
+    }
+
+    .conv-cart-item:last-child {
+      border-bottom: none !important;
+    }
+
+
+    .conv-item-image {
+      width: 80px !important;
+      height: 80px !important;
+      border-radius: 10px !important;
+      object-fit: cover !important;
+      margin-right: 20px !important;
+      background: #f8f6f3 !important;
+      border: 1px solid #E5E5E5 !important;
+      transition: all 0.3s ease !important;
+    }
+
+
+    .conv-item-details {
+      flex: 1 !important;
+      min-width: 0 !important;
+    }
+
+    .conv-item-title {
+      font-size: 17px !important;
+      font-weight: 600 !important;
+      color: #2D2D2D !important;
+      margin: 0 0 2px !important;
+      line-height: 1.3 !important;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 2 !important;
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+      transition: color 0.3s ease !important;
+    }
+
+    .conv-item-variant {
+      font-size: 14px !important;
+      color: #666 !important;
+      margin: 0 0 8px !important;
+      font-weight: 400 !important;
+    }
+
+    .conv-item-price {
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      color: #fb5a00 !important;
+      margin: 0 !important;
+      font-family: 'Poppins', sans-serif !important;
+    }
+
+    .conv-item-quantity {
+      font-size: 14px !important;
+      font-family: 'Poppins', sans-serif !important;
+      color: #2D2D2D !important;
+      {% comment %} background: #2D2D2D !important; {% endcomment %}
+      padding: 8px 16px !important;
+      border-radius: 0 !important;
+      margin-left: 16px !important;
+      font-weight: 600 !important;
+      min-width: 40px !important;
+      text-align: center !important;
+      {% comment %} border: 1px solid #2D2D2D !important; {% endcomment %}
+      transition: all 0.3s ease !important;
+      flex-shrink: 0 !important;
+    }
+
+    .conv-empty-cart {
+      text-align: center !important;
+      padding: 60px 20px !important;
+      color: #666 !important;
+    }
+
+    .conv-modal-actions {
+      display: flex !important;
+      gap: 16px !important;
+      padding: 32px !important;
+      background: #f1f1f1 !important;
+      {% comment %} border-top: 1px solid #E5E5E5 !important; {% endcomment %}
+      flex-shrink: 0 !important;
+    }
+
+    .conv-btn {
+      padding: 12px !important;
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      text-decoration: none !important;
+      display: inline-block !important;
+      text-align: center !important;
+      border: 1px solid transparent !important;
+      position: relative !important;
+      overflow: hidden !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    .conv-btn-primary {
+      border-radius: 10px;
+      background: #3aa759!important;
+      color: #fff !important;
+      flex: 2 !important;
+    }
+
+    .conv-btn-secondary {
+      border-radius: 10px !important;
+      background: transparent !important;
+      color: #000000 !important;
+      border-color: #000000 !important;
+      flex: 1 !important;
+    }
+
+    .conv-btn-primary:hover {
+      background: #24833d !important;
+      border-color: #24833d !important;
+      box-shadow: 0 8px 24px rgba(200, 155, 92, 0.3) !important;
+    }
+
+    .conv-btn-secondary:hover {
+      background: #fff !important;
+      color: #2D2D2D !important;
+    }
+
+    .conv-modal-body::-webkit-scrollbar {
+      width: 6px !important;
+    }
+
+    .conv-modal-body::-webkit-scrollbar-track {
+      background: #f8f6f3 !important;
+    }
+
+
+
+    @supports (-webkit-overflow-scrolling: touch) {
+      .conv-modal-body {
+        -webkit-overflow-scrolling: touch !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .conv-welcome-modal-overlay {
+        padding: 0 !important;
+        align-items: flex-end !important;
+        background: rgba(33, 33, 33, 0.5) !important;
+      }
+
+      .conv-welcome-modal {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 90vh !important;
+        border-radius: 20px 20px 0 0 !important;
+        transform: translateY(100%) !important;
+        transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3) !important;
+        touch-action: none !important;
+      }
+
+      .conv-welcome-modal-overlay.conv-active .conv-welcome-modal {
+        transform: translateY(0) !important;
+      }
+
+      .conv-modal-header {
+        padding: 0 20px 20px !important;
+        border-radius: 20px 20px 0 0 !important;
+      }
+
+      .conv-modal-body {
+        padding: 20px !important;
+        max-height: calc(90vh - 200px) !important;
+      }
+
+      .conv-saved-message {
+        padding: 15px !important;
+        margin-bottom: 24px !important;
+      }
+
+      .conv-cart-item {
+        padding: 16px 0 !important;
+      }
+
+
+      .conv-item-image {
+        width: 64px !important;
+        height: 64px !important;
+        margin-right: 16px !important;
+      }
+
+      .conv-item-title {
+        font-size: 17px !important;
+      }
+
+      .conv-item-variant {
+        font-size: 13px !important;
+      }
+
+      .conv-item-price {
+        font-size: 16px !important;
+      }
+
+      .conv-item-quantity {
+        padding: 6px 12px !important;
+        font-size: 13px !important;
+        margin-left: 12px !important;
+      }
+
+      .conv-modal-actions {
+        flex-direction: column !important;
+        padding: 20px !important;
+        gap: 12px !important;
+        border-radius: 0 !important;
+      }
+
+      .conv-btn {
+        padding: 16px 24px !important;
+        font-size: 16px !important;
+        width: 100% !important;
+      }
+
+      .conv-btn-primary {
+        order: -1 !important;
+      }
+    }
+  </style>
+
+  <script>
+    (function() {
+      if (window.convWelcomeBackModal) {
+        return;
+      }
+      window.convWelcomeBackModal = true;
+
+      const root = document.getElementById('welcome-back-modal-root');
+      if (!root || !root.hasAttribute('data-welcome-back')) return;
+
+      const delayMs = parseInt(root.dataset.delay || '2', 10) * 1000;
+      const frequency = root.dataset.frequency || 'once_per_day';
+      const maxPerDay = parseInt(root.dataset.maxPerDay || '10', 10);
+      const heading = root.dataset.heading || 'Welkom terug!';
+      const messageTemplate = root.dataset.message || 'We hebben {count} {items} voor je opgeslagen:';
+      const btnPrimary = root.dataset.btnPrimary || 'Bekijk winkelwagen';
+      const btnSecondary = root.dataset.btnSecondary || 'Sluiten';
+      const logoUrl = root.dataset.logo || '';
+      const emptyMessage = root.dataset.empty || 'Je winkelwagen is leeg';
+
+      const trackingEnabled = root.dataset.trackingEnabled === 'true';
+      const goalPopupShow = root.dataset.goalPopupShow || '';
+      const goalCartView = root.dataset.goalCartView || '';
+      const goalProductClick = root.dataset.goalProductClick || '';
+      const goalModalClose = root.dataset.goalModalClose || '';
+
+      const STORAGE_KEY = 'dmi_welcome_back_day_count';
+      const HIDDEN_PRODUCT_ID = '15706174095694';
+
+      const convTracking = {
+        triggerConversion(goalId) {
+          if (!trackingEnabled || !goalId) return;
+          try {
+            window._conv_q = window._conv_q || [];
+            window._conv_q.push(['triggerConversion', goalId]);
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({'event': goalId });
+
+          } catch (e) {
+            // Silent fail
+          }
+        },
+
+        trackCartView() {
+          this.triggerConversion(goalCartView);
+        },
+
+        trackProductClick() {
+          this.triggerConversion(goalProductClick);
+        },
+
+        trackModalClose() {
+          this.triggerConversion(goalModalClose);
+        }
+      };
+
+      const convUtils = {
+        formatPrice(price) {
+          try {
+            return new Intl.NumberFormat('nl-NL', {
+              style: 'currency',
+              currency: 'EUR'
+            }).format(price / 100);
+          } catch (e) {
+            return '€' + (price / 100).toFixed(2);
+          }
+        },
+
+        getProductUrl(item) {
+          if (item.url) {
+            return item.url;
+          } else if (item.handle) {
+            return '/products/' + item.handle;
+          } else if (item.product_handle) {
+            return '/products/' + item.product_handle;
+          } else if (item.product_title || item.title) {
+            const slug = (item.product_title || item.title)
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/(^-|-$)/g, '');
+            return '/products/' + slug;
+          }
+          return '/search?q=' + encodeURIComponent(item.product_title || item.title || 'product');
+        },
+
+        isMobile() {
+          return window.innerWidth <= 768;
+        }
+      };
+
+      const convCartAPI = {
+        async getCart() {
+          try {
+            const response = await fetch('/cart.js', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            });
+
+            if (!response.ok) {
+              throw new Error('HTTP error ' + response.status);
+            }
+
+            const cartData = await response.json();
+            return cartData;
+          } catch (error) {
+            return { items: [], total_price: 0 };
+          }
+        }
+      };
+
+      function shouldShow() {
+        if (frequency === 'once_per_session') {
+          try {
+            if (sessionStorage.getItem('dmi_welcome_back_shown') === '1') return false;
+          } catch (e) {}
+          return true;
+        }
+        try {
+          const today = new Date().toDateString();
+          const stored = localStorage.getItem(STORAGE_KEY) || '';
+          const parts = stored.split('|');
+          if (parts[0] === today) {
+            const count = parseInt(parts[1] || '0', 10);
+            if (count >= maxPerDay) return false;
+          }
+        } catch (e) {}
+        return true;
+      }
+
+      function markShown() {
+        try {
+          if (frequency === 'once_per_session') {
+            sessionStorage.setItem('dmi_welcome_back_shown', '1');
+          } else {
+            const today = new Date().toDateString();
+            const stored = localStorage.getItem(STORAGE_KEY) || '';
+            const parts = stored.split('|');
+            let count = 1;
+            if (parts[0] === today) {
+              count = Math.min(maxPerDay, parseInt(parts[1] || '0', 10) + 1);
+            }
+            localStorage.setItem(STORAGE_KEY, today + '|' + count);
+          }
+        } catch (e) {}
+      }
+
+      class ConvSwipeHandler {
+        constructor(modal, onClose) {
+          this.modal = modal;
+          this.onClose = onClose;
+          this.startY = 0;
+          this.currentY = 0;
+          this.isDragging = false;
+          this.modalElement = null;
+
+          this.handleTouchStart = this.handleTouchStart.bind(this);
+          this.handleTouchMove = this.handleTouchMove.bind(this);
+          this.handleTouchEnd = this.handleTouchEnd.bind(this);
+        }
+
+        init(modalElement) {
+          if (!convUtils.isMobile()) return;
+
+          this.modalElement = modalElement;
+          const header = modalElement.querySelector('.conv-modal-header');
+
+          if (header) {
+            header.addEventListener('touchstart', this.handleTouchStart, { passive: false });
+            header.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+            header.addEventListener('touchend', this.handleTouchEnd, { passive: false });
+          }
+        }
+
+        handleTouchStart(e) {
+          const modalBody = this.modalElement.querySelector('.conv-modal-body');
+          if (modalBody && modalBody.scrollTop > 0) {
+            return;
+          }
+
+          this.startY = e.touches[0].clientY;
+          this.currentY = this.startY;
+          this.isDragging = true;
+          this.modalElement.style.transition = 'none';
+        }
+
+        handleTouchMove(e) {
+          if (!this.isDragging) return;
+
+          const modalBody = this.modalElement.querySelector('.conv-modal-body');
+          if (modalBody && modalBody.scrollTop > 0) {
+            return;
+          }
+
+          this.currentY = e.touches[0].clientY;
+          const deltaY = this.currentY - this.startY;
+
+          if (deltaY > 0) {
+            e.preventDefault();
+            this.modalElement.style.transform = 'translateY(' + deltaY + 'px)';
+          }
+        }
+
+        handleTouchEnd() {
+          if (!this.isDragging) return;
+
+          this.isDragging = false;
+          const deltaY = this.currentY - this.startY;
+
+          this.modalElement.style.transition = '';
+
+          if (deltaY > 100) {
+            convTracking.trackModalClose();
+            this.onClose();
+          } else {
+            this.modalElement.style.transform = '';
+          }
+        }
+
+        destroy() {
+          if (!this.modalElement) return;
+
+          const header = this.modalElement.querySelector('.conv-modal-header');
+
+          if (header) {
+            header.removeEventListener('touchstart', this.handleTouchStart);
+            header.removeEventListener('touchmove', this.handleTouchMove);
+            header.removeEventListener('touchend', this.handleTouchEnd);
+          }
+        }
+      }
+
+      class ConvWelcomeBackModal {
+        constructor() {
+          this.overlay = null;
+          this.modal = null;
+          this.isOpen = false;
+          this.cartData = null;
+          this.swipeHandler = null;
+        }
+
+        async init() {
+          try {
+            if (!shouldShow()) {
+              return;
+            }
+
+            this.cartData = await convCartAPI.getCart();
+
+            if (!this.cartData.items || this.cartData.items.length === 0) {
+              return;
+            }
+
+            this.filteredCartItems = (this.cartData.items || []).filter(
+              function(item) { return String(item.product_id) !== HIDDEN_PRODUCT_ID; }
+            );
+            if (this.filteredCartItems.length === 0) {
+              return;
+            }
+
+            setTimeout(() => {
+              this.createModal();
+              this.show();
+              markShown();
+            }, delayMs);
+
+          } catch (error) {
+            // Silent fail
+          }
+        }
+
+        createModal() {
+          const existingModal = document.querySelector('.conv-welcome-modal-overlay');
+          if (existingModal) {
+            existingModal.remove();
+          }
+
+          this.overlay = document.createElement('div');
+          this.overlay.className = 'conv-welcome-modal-overlay';
+
+          this.modal = document.createElement('div');
+          this.modal.className = 'conv-welcome-modal';
+
+          const itemCount = this.filteredCartItems ? this.filteredCartItems.length : 0;
+          const itemText = itemCount === 1 ? 'meubelstuk' : 'meubelstukken';
+          const messageText = (messageTemplate || '')
+            .replace(/\{count\}/g, String(itemCount))
+            .replace(/\{items\}/g, itemText);
+
+          const logoHtml = logoUrl
+            ? '<img src="' + logoUrl + '" width="150" loading="lazy" alt="" />'
+            : '';
+
+          this.modal.innerHTML = ''
+            + '<div class="conv-modal-header">'
+            +   (logoHtml || '')
+            + '</div>'
+            + '<div class="conv-modal-body">'
+            +   '<div class="conv-saved-message">'
+            +     '<p class="conv-saved-text">'
+            +       (heading || 'Welkom terug!').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            +       ' '
+            +       messageText.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            +     '</p>'
+            +   '</div>'
+            +   this.renderCartItems()
+            + '</div>'
+            + '<div class="conv-modal-actions">'
+            +   '<button class="conv-btn conv-btn-secondary" data-action="close">'
+            +     (btnSecondary || 'Sluiten').replace(/</g, '&lt;')
+            +   '</button>'
+            +   '<a href="/cart" class="conv-btn conv-btn-primary" data-action="view-cart">'
+            +     (btnPrimary || 'Bekijk winkelwagen').replace(/</g, '&lt;')
+            +   '</a>'
+            + '</div>';
+
+          this.overlay.appendChild(this.modal);
+          document.body.appendChild(this.overlay);
+
+          this.bindEvents();
+
+          this.swipeHandler = new ConvSwipeHandler(this, () => this.hide());
+          this.swipeHandler.init(this.modal);
+        }
+
+        renderCartItems() {
+          if (!this.filteredCartItems || this.filteredCartItems.length === 0) {
+            return '<div class="conv-empty-cart">' + emptyMessage.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>';
+          }
+
+          const itemsHTML = this.filteredCartItems.map(item => {
+            const imageUrl = (item.featured_image && item.featured_image.url) || item.image || '';
+            const productUrl = convUtils.getProductUrl(item);
+
+            return ''
+              + '<a href="' + productUrl + '" class="conv-cart-item" data-product-url="' + productUrl + '">'
+              +   '<img class="conv-item-image"'
+              +        ' src="' + imageUrl + '"'
+              +        ' alt="' + (item.product_title || item.title || '').replace(/"/g, '&quot;') + '"'
+              +        ' loading="lazy">'
+              +   '<div class="conv-item-details">'
+              +     '<h3 class="conv-item-title">'
+              +       (item.product_title || item.title || '').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+              +     '</h3>'
+              +     (item.variant_title
+                      ? '<p class="conv-item-variant">'
+                        + item.variant_title.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                        + '</p>'
+                      : '')
+              +     '<p class="conv-item-price">'
+              +       convUtils.formatPrice(item.final_line_price || item.line_price || 0)
+              +     '</p>'
+              +   '</div>'
+              +   '<div class="conv-item-quantity">×' + (item.quantity || 1) + '</div>'
+              + '</a>';
+          }).join('');
+
+          return '<div class="conv-cart-items">' + itemsHTML + '</div>';
+        }
+
+        bindEvents() {
+          if (!this.overlay) return;
+
+          const closeActionBtn = this.overlay.querySelector('[data-action="close"]');
+          if (closeActionBtn) {
+            closeActionBtn.addEventListener('click', () => {
+              convTracking.trackModalClose();
+              this.hide();
+            });
+          }
+
+          const viewCartBtn = this.overlay.querySelector('[data-action="view-cart"]');
+          if (viewCartBtn) {
+            viewCartBtn.addEventListener('click', () => {
+              convTracking.trackCartView();
+            });
+          }
+
+          const productLinks = this.overlay.querySelectorAll('.conv-cart-item[data-product-url]');
+          productLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              convTracking.trackProductClick();
+
+              setTimeout(() => {
+                this.hide();
+              }, 100);
+            });
+          });
+
+          this.overlay.addEventListener('click', (e) => {
+            if (e.target === this.overlay) {
+              convTracking.trackModalClose();
+              this.hide();
+            }
+          });
+
+          const escHandler = (e) => {
+            if (e.key === 'Escape' && this.isOpen) {
+              convTracking.trackModalClose();
+              this.hide();
+            }
+          };
+          document.addEventListener('keydown', escHandler);
+
+          this.escHandler = escHandler;
+        }
+
+        show() {
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({'event': 'welcome_back_popup_show' });
+
+          if (!this.overlay) return;
+
+          this.isOpen = true;
+          document.body.style.overflow = 'hidden';
+
+          // trigger transition
+          this.overlay.offsetHeight;
+          this.overlay.classList.add('conv-active');
+        }
+
+        hide() {
+          if (!this.overlay) return;
+
+          this.isOpen = false;
+          document.body.style.overflow = '';
+          this.overlay.classList.remove('conv-active');
+
+          if (this.escHandler) {
+            document.removeEventListener('keydown', this.escHandler);
+          }
+
+          if (this.swipeHandler) {
+            this.swipeHandler.destroy();
+          }
+
+          setTimeout(() => {
+            if (this.overlay && this.overlay.parentNode) {
+              this.overlay.parentNode.removeChild(this.overlay);
+            }
+          }, 400);
+        }
+      }
+
+      const modal = new ConvWelcomeBackModal();
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => modal.init());
+      } else {
+        modal.init();
+      }
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Welkom terug modal",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Modal inschakelen",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Wanneer tonen"
+    },
+    {
+      "type": "range",
+      "id": "delay_seconds",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Vertraging voordat modal opent",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "frequency",
+      "label": "Frequentie",
+      "options": [
+        { "value": "once_per_day", "label": "Per dag (max. aantal hieronder)" },
+        { "value": "once_per_session", "label": "Eén keer per sessie" }
+      ],
+      "default": "once_per_day"
+    },
+    {
+      "type": "range",
+      "id": "max_per_day",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "label": "Max. keer tonen per dag",
+      "info": "Alleen van toepassing bij 'Per dag'. Standaard 1 = één keer per dag.",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Tekst"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titel (boven aan modal)",
+      "default": "Welkom terug!"
+    },
+    {
+      "type": "textarea",
+      "id": "message",
+      "label": "Bericht boven cart-items",
+      "info": "Gebruik {count} voor aantal en {items} voor 'meubelstuk' of 'meubelstukken'",
+      "default": "We hebben {count} {items} voor je opgeslagen:"
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Tekst bij lege winkelwagen",
+      "default": "Je winkelwagen is leeg"
+    },
+    {
+      "type": "header",
+      "content": "Knoppen"
+    },
+    {
+      "type": "text",
+      "id": "btn_primary_text",
+      "label": "Tekst primaire knop (naar winkelwagen)",
+      "default": "Bekijk winkelwagen"
+    },
+    {
+      "type": "text",
+      "id": "btn_secondary_text",
+      "label": "Tekst secundaire knop (sluiten)",
+      "default": "Sluiten"
+    },
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo in header (optioneel)",
+      "info": "Laat leeg om de titel als tekst te tonen"
+    },
+    {
+      "type": "header",
+      "content": "Tracking (optioneel)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_tracking",
+      "label": "Convert tracking inschakelen",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "goal_popup_show",
+      "label": "Goal ID - Popup show"
+    },
+    {
+      "type": "text",
+      "id": "goal_cart_view",
+      "label": "Goal ID - winkelwagen bekijken"
+    },
+    {
+      "type": "text",
+      "id": "goal_product_click",
+      "label": "Goal ID - productklik"
+    },
+    {
+      "type": "text",
+      "id": "goal_modal_close",
+      "label": "Goal ID - modal sluiten"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Welkom terug modal"
+    }
+  ]
+}
+{% endschema %}
