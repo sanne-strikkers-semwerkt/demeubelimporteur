@@ -46,8 +46,8 @@
 <section class="zakelijk-hero">
   <div class="container">
     <div class="zakelijk-hero-content">
-      {% if section.settings.heading != blank %}
-        <h1>{{ section.settings.heading }}</h1>
+      {% if section.settings.hero_heading %}
+        <p>{{ section.settings.hero_heading }}</p>
       {% endif %}
       {% if section.settings.button_text != blank and section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}" class="zakelijk-hero-button">
@@ -64,7 +64,7 @@
   "settings": [
     {
       "type": "richtext",
-      "id": "heading",
+      "id": "hero_heading",
       "label": "Heading",
       "default": "Thuisgevoel, ook op kantoor met meubels van De Meubel Importeur"
     },
