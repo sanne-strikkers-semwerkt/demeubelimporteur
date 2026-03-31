@@ -1,16 +1,3 @@
-{% comment %}
-  Gebruik:
-  {% render 'video-component',
-     id: section.id,
-     s: section.settings,
-     custom_video_url: section.settings.hero_video,
-     custom_poster: section.settings.hero_image
-  %}
-{% endcomment %}
-
-{{ 'video-section.css' | asset_url | stylesheet_tag }}
-{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-
 {%- liquid
   assign current_video_url = custom_video_url | default: s.video_url
   assign current_video = custom_video | default: s.video
@@ -19,32 +6,25 @@
   assign video_id = current_video.id | default: current_video_url.id
   assign video_alt = current_video.alt | default: s.description | default: s.heading
   assign alt = 'sections.video.load_video' | t: description: video_alt | escape
+
+  assign has_custom_height = false
+  if max_height != blank
+    assign has_custom_height = true
+  endif
 -%}
 
-{%- style -%}
-  .section-{{ id }}-padding {
-    padding-top: {{ s.padding_top | default: 40 | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ s.padding_bottom | default: 40 | times: 0.75 | round: 0 }}px;
-  }
-  @media screen and (min-width: 750px) {
-    .section-{{ id }}-padding {
-      padding-top: {{ s.padding_top | default: 40 }}px;
-      padding-bottom: {{ s.padding_bottom | default: 40 }}px;
-    }
-  }
-{%- endstyle -%}
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 
-<div class="video-section-wrapper section-{{ id }}-padding">
+<div
+  class="video-component-container"
+  style="{% if has_custom_height %}--component-height: {{ max_height }};{% endif %}"
+>
   <deferred-media
-    class="video-section__media deferred-media gradient global-media-settings"
+    class="video-section__media deferred-media gradient global-media-settings {% if has_custom_height %}custom-height-active{% endif %}"
     data-media-id="{{ video_id }}"
-    {% if current_poster != null %}
-      style="--ratio-percent: {{ 1 | divided_by: current_poster.aspect_ratio | times: 100 }}%;"
-    {% else %}
-      style="--ratio-percent: 56.25%;"
-    {% endif %}
+    style="{% if current_poster != null and has_custom_height == false %}--ratio-percent: {{ 1 | divided_by: current_poster.aspect_ratio | times: 100 }}%;{% elsif has_custom_height == false %}--ratio-percent: 56.25%;{% endif %}"
   >
-    {% comment %} De Poster (Afbeelding voor het klikken) {% endcomment %}
     <button
       id="Deferred-Poster-Modal-{{ video_id }}"
       class="video-section__poster media deferred-media__poster media--landscape"
@@ -64,8 +44,6 @@
         {%- render 'icon-play' -%}
       </span>
     </button>
-
-    {% comment %} De Template (Wordt door global.js ge-cloned bij klik) {% endcomment %}
     <template>
       {%- if current_video == null and current_video_url != null -%}
         {%- liquid
@@ -96,9 +74,33 @@
           current_video
           | video_tag: image_size: '1100x', autoplay: true, loop: s.enable_video_looping, controls: true, muted: false
         }}
-      {%- else -%}
-        <div class="video-error">Video niet gevonden.</div>
       {%- endif -%}
     </template>
   </deferred-media>
 </div>
+
+<style>
+  .video-component-container {
+    width: 100%;
+    position: relative;
+  }
+  .deferred-media.custom-height-active {
+    padding-bottom: 0 !important;
+    height: var(--component-height);
+    max-height: var(--component-height);
+  }
+  .custom-height-active .media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .custom-height-active img,
+  .custom-height-active iframe,
+  .custom-height-active video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+</style>

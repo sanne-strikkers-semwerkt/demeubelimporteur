@@ -23,9 +23,11 @@
       "settings": {
         "hero_heading": "<h1>Thuisgevoel, ook op kantoor met meubels van De Meubel Importeur</h1>",
         "button_text": "Ontdek de mogelijkheden",
-        "button_link": "",
+        "button_link": "shopify://collections",
         "hero_picker": "video",
-        "hero_video": "https://www.youtube.com/watch?v=TqNx4dVv2BQ"
+        "hero_video": "https://www.youtube.com/watch?v=TqNx4dVv2BQ",
+        "hero_image": "shopify://shop_images/keuken-zakelijk-demeubelimporteur.webp",
+        "footer_text": "Deze bedrijven gingen je voor"
       }
     },
     "zakelijk_usp_top": {

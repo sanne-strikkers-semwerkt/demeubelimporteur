@@ -6,17 +6,12 @@
           id: section.id,
           s: section.settings,
           custom_video_url: section.settings.hero_video,
-          custom_poster: section.settings.hero_image
+          custom_poster: section.settings.hero_image,
+          max_height: '390px'
         %}
       {% else %}
         {% if section.settings.hero_image != blank %}
-          {{
-            section.settings.hero_image
-            | image_url: width: 800
-            | image_tag: loading: 'lazy', class: 'hero-image-render', widths: '400, 600, 800'
-          }}
-        {% else %}
-          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {{ section.settings.hero_image | image_url: width: 800 | image_tag: class: 'hero-image-render' }}
         {% endif %}
       {% endif %}
     </div>
@@ -30,7 +25,7 @@
         {% endif %}
 
         {% if section.settings.button_text != blank and section.settings.button_link != blank %}
-          <a href="{{ section.settings.button_link }}" class="zakelijk-hero-button">
+          <a href="{{ section.settings.button_link }}" class="btn-orange">
             {{ section.settings.button_text }}
           </a>
         {% endif %}
@@ -38,7 +33,7 @@
 
       <div class="zakelijk-hero-footer">
         {% if section.settings.footer_text != blank %}
-          <p>
+          <p class="zakelijk-hero-footer-text">
             {{ section.settings.footer_text }}
           </p>
         {% endif %}
@@ -63,42 +58,53 @@
   .zakelijk-hero-media {
     flex: 1;
     width: 100%;
+    position: relative;
   }
 
   .zakelijk-hero-media .video-section,
   .zakelijk-hero-media .deferred-media,
-  .zakelijk-hero-media img {
+  .zakelijk-hero-media img,
+  .zakelijk-hero-media iframe {
     border-radius: 10px;
     overflow: hidden;
     max-height: 390px;
     width: 100%;
     object-fit: cover;
   }
+  .zakelijk-hero-media .deferred-media__poster-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: #ffffff;
+    width: 70px;
+    height: 70px;
+  }
+  .zakelijk-hero-media .deferred-media__poster-button svg {
+    width: 70px;
+    height: 70px;
+  }
   .zakelijk-hero-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 72px;
   }
-  .zakelijk-hero-heading-wrapper p {
+  .zakelijk-hero-heading-wrapper * {
     font-family: 'Zilla Slab', serif;
-    font-size: 42px;
+    font-size: 44px;
     line-height: 52px;
-    color: #000000;
-    margin-bottom: 30px;
+    text-align: left;
+    font-weight: 400;
+    margin-bottom: 24px;
   }
-  .zakelijk-hero-button {
-    background-color: #fb5a00;
-    color: #ffffff;
-    border-radius: 10px;
-    padding: 15px 30px;
+  .zakelijk-hero-footer-text {
     font-family: 'Zilla Slab', serif;
     font-weight: 600;
+    font-weight: 400;
     font-size: 20px;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.2s ease;
-  }
-  .zakelijk-hero-button:hover {
-    transform: scale(1.02);
-    color: #ffffff;
+    line-height: 100%;
+    margin-bottom: 23px;
   }
 
   @media (max-width: 767px) {
@@ -154,7 +160,8 @@
       "id": "hero_video",
       "label": "Video URL",
       "accept": ["youtube", "vimeo"],
-      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "visible_if": "{{ section.settings.hero_picker == 'video' }}"
     },
     {
       "type": "image_picker",
@@ -169,7 +176,47 @@
       "type": "text",
       "id": "footer_text",
       "label": "Footer tekst",
-      "default": "Deze bedrijven gingen je voor"
+      "default": "Deze bedrijven gingen je voor:"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_business_1",
+      "label": "Logo Zakelijk 1"
+    },
+    {
+      "type": "text",
+      "id": "text_business_1",
+      "label": "Tekst Zakelijk 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_business_2",
+      "label": "Logo Zakelijk 2"
+    },
+    {
+      "type": "text",
+      "id": "text_business_2",
+      "label": "Tekst Zakelijk 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_business_3",
+      "label": "Logo Zakelijk 3"
+    },
+    {
+      "type": "text",
+      "id": "text_business_3",
+      "label": "Tekst Zakelijk 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_business_4",
+      "label": "Logo Zakelijk 4"
+    },
+    {
+      "type": "text",
+      "id": "text_business_4",
+      "label": "Tekst Zakelijk 4"
     }
   ],
   "presets": [
