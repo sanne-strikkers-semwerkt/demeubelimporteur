@@ -21,13 +21,13 @@
       "type": "zakelijk-hero",
       "name": "Zakelijk Hero",
       "settings": {
-        "hero_heading": "<h1>Thuisgevoel, ook op kantoor met meubels van De Meubel Importeur</h1>",
+        "hero_heading": "<h1><strong>Thuisgevoel</strong>, ook op kantoor met meubels van De Meubel Importeur</h1>",
         "button_text": "Ontdek de mogelijkheden",
         "button_link": "shopify://collections",
         "hero_picker": "video",
         "hero_video": "https://www.youtube.com/watch?v=TqNx4dVv2BQ",
-        "hero_image": "shopify://shop_images/keuken-zakelijk-demeubelimporteur.webp",
-        "footer_text": "Deze bedrijven gingen je voor",
+        "hero_image": "shopify://shop_images/keuken-zakelijk-demeubelimporteur-fade.webp",
+        "footer_text": "Deze bedrijven gingen je voor:",
         "logo_business_1": "shopify://shop_images/Group.svg",
         "text_business_1": "Zakelijk",
         "logo_business_2": "shopify://shop_images/Group.svg",
@@ -36,6 +36,45 @@
         "text_business_3": "Zakelijk",
         "logo_business_4": "shopify://shop_images/Group.svg",
         "text_business_4": "Zakelijk"
+      }
+    },
+    "image_with_text_nKdzCE": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_tqN663": {
+          "type": "heading",
+          "settings": {
+            "heading": "Over  De Meubel Importeur zakelijk",
+            "heading_size": "h1"
+          }
+        },
+        "text_V8JQyp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.<br/><br/>Je vindt ons inmiddels in twee showrooms in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tqN663",
+        "text_V8JQyp"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/dmi-woonmaand-oktober-rosa.webp",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "zakelijk_usp_top": {
@@ -78,14 +117,6 @@
       ],
       "disabled": true,
       "settings": {}
-    },
-    "zakelijk_about": {
-      "type": "zakelijk-about",
-      "disabled": true,
-      "settings": {
-        "heading": "Over De Meubel Importeur zakelijk",
-        "description": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.</p><p>Je vindt ons inmiddels in meerdere showrooms in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>"
-      }
     },
     "zakelijk_client_logos": {
       "type": "zakelijk-client-logos",
@@ -237,8 +268,8 @@
   "order": [
     "main",
     "zakelijk_hero_kfnGfM",
+    "image_with_text_nKdzCE",
     "zakelijk_usp_top",
-    "zakelijk_about",
     "zakelijk_client_logos",
     "zakelijk_projects",
     "zakelijk_contact_form",

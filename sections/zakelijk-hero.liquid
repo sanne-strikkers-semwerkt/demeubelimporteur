@@ -113,7 +113,7 @@
     align-items: flex-start;
     gap: 72px;
   }
-  .zakelijk-hero-heading-wrapper * {
+  .zakelijk-hero-heading-wrapper *:not(strong) {
     font-family: 'Zilla Slab', serif;
     font-size: 44px;
     line-height: 52px;
@@ -148,12 +148,18 @@
   }
 
   @media (max-width: 767px) {
+    .zakelijk-hero {
+      padding: 40px 0;
+    }
     .zakelijk-hero .container {
       flex-direction: column;
       gap: 25px;
       text-align: center;
     }
-    .zakelijk-hero-heading-wrapper p {
+    .zakelijk-hero-content {
+      gap: 32px;
+    }
+    .zakelijk-hero-heading-wrapper h1 {
       font-size: 32px;
       line-height: 42px;
     }
