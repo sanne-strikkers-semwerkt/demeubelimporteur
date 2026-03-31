@@ -1,0 +1,104 @@
+{% comment %}
+  Gebruik:
+  {% render 'video-component',
+     id: section.id,
+     s: section.settings,
+     custom_video_url: section.settings.hero_video,
+     custom_poster: section.settings.hero_image
+  %}
+{% endcomment %}
+
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign current_video_url = custom_video_url | default: s.video_url
+  assign current_video = custom_video | default: s.video
+  assign current_poster = custom_poster | default: current_video.preview_image | default: s.cover_image
+
+  assign video_id = current_video.id | default: current_video_url.id
+  assign video_alt = current_video.alt | default: s.description | default: s.heading
+  assign alt = 'sections.video.load_video' | t: description: video_alt | escape
+-%}
+
+{%- style -%}
+  .section-{{ id }}-padding {
+    padding-top: {{ s.padding_top | default: 40 | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ s.padding_bottom | default: 40 | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ id }}-padding {
+      padding-top: {{ s.padding_top | default: 40 }}px;
+      padding-bottom: {{ s.padding_bottom | default: 40 }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="video-section-wrapper section-{{ id }}-padding">
+  <deferred-media
+    class="video-section__media deferred-media gradient global-media-settings"
+    data-media-id="{{ video_id }}"
+    {% if current_poster != null %}
+      style="--ratio-percent: {{ 1 | divided_by: current_poster.aspect_ratio | times: 100 }}%;"
+    {% else %}
+      style="--ratio-percent: 56.25%;"
+    {% endif %}
+  >
+    {% comment %} De Poster (Afbeelding voor het klikken) {% endcomment %}
+    <button
+      id="Deferred-Poster-Modal-{{ video_id }}"
+      class="video-section__poster media deferred-media__poster media--landscape"
+      type="button"
+      aria-label="{{ alt }}"
+    >
+      {%- if current_poster != null -%}
+        {{
+          current_poster
+          | image_url: width: 2000
+          | image_tag: loading: 'lazy', sizes: '100vw', widths: '375, 750, 1100, 1500, 2000', alt: alt
+        }}
+      {%- else -%}
+        {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+      {%- endif -%}
+      <span class="deferred-media__poster-button motion-reduce">
+        {%- render 'icon-play' -%}
+      </span>
+    </button>
+
+    {% comment %} De Template (Wordt door global.js ge-cloned bij klik) {% endcomment %}
+    <template>
+      {%- if current_video == null and current_video_url != null -%}
+        {%- liquid
+          assign loop = ''
+          if s.enable_video_looping
+            assign loop = '&loop=1&playlist=' | append: video_id
+          endif
+        -%}
+        {%- if current_video_url.type == 'youtube' -%}
+          <iframe
+            src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
+            class="js-youtube"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="{{ video_alt | escape }}"
+          ></iframe>
+        {%- else -%}
+          <iframe
+            src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
+            class="js-vimeo"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="{{ video_alt | escape }}"
+          ></iframe>
+        {%- endif -%}
+      {%- elsif current_video != null -%}
+        {{
+          current_video
+          | video_tag: image_size: '1100x', autoplay: true, loop: s.enable_video_looping, controls: true, muted: false
+        }}
+      {%- else -%}
+        <div class="video-error">Video niet gevonden.</div>
+      {%- endif -%}
+    </template>
+  </deferred-media>
+</div>

@@ -17,12 +17,15 @@
         "padding_bottom": 0
       }
     },
-    "zakelijk_hero": {
+    "zakelijk_hero_kfnGfM": {
       "type": "zakelijk-hero",
+      "name": "Zakelijk Hero",
       "settings": {
-        "heading": "Thuisgevoel, ook op kantoor met meubels van De Meubel Importeur",
+        "hero_heading": "<h1>Thuisgevoel, ook op kantoor met meubels van De Meubel Importeur</h1>",
         "button_text": "Ontdek de mogelijkheden",
-        "button_link": ""
+        "button_link": "",
+        "hero_picker": "video",
+        "hero_video": "https://www.youtube.com/watch?v=TqNx4dVv2BQ"
       }
     },
     "zakelijk_usp_top": {
@@ -63,10 +66,12 @@
         "usp_3",
         "usp_4"
       ],
+      "disabled": true,
       "settings": {}
     },
     "zakelijk_about": {
       "type": "zakelijk-about",
+      "disabled": true,
       "settings": {
         "heading": "Over De Meubel Importeur zakelijk",
         "description": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.</p><p>Je vindt ons inmiddels in meerdere showrooms in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>"
@@ -74,6 +79,7 @@
     },
     "zakelijk_client_logos": {
       "type": "zakelijk-client-logos",
+      "disabled": true,
       "settings": {
         "heading": "Deze bedrijven gingen je voor:"
       }
@@ -108,12 +114,14 @@
         "project_2",
         "project_3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Onze projecten"
       }
     },
     "zakelijk_contact_form": {
       "type": "zakelijk-contact-form",
+      "disabled": true,
       "settings": {
         "heading": "Wij hebben alle kennis in huis, stel uw vragen aan onze expert.",
         "button_text": "Verstuur"
@@ -121,6 +129,7 @@
     },
     "zakelijk_contact_cta": {
       "type": "zakelijk-contact-cta",
+      "disabled": true,
       "settings": {
         "heading": "Neem vrijblijvend contact op",
         "left_heading": "Bel Willem voor gratis interieuradvies!",
@@ -168,6 +177,7 @@
         "review_2",
         "review_3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Reviews voor De Meubel Importeur"
       }
@@ -210,12 +220,13 @@
         "usp_bottom_3",
         "usp_bottom_4"
       ],
+      "disabled": true,
       "settings": {}
     }
   },
   "order": [
     "main",
-    "zakelijk_hero",
+    "zakelijk_hero_kfnGfM",
     "zakelijk_usp_top",
     "zakelijk_about",
     "zakelijk_client_logos",
