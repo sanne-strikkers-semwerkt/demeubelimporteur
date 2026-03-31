@@ -37,6 +37,29 @@
             {{ section.settings.footer_text }}
           </p>
         {% endif %}
+
+        <div class="zakelijk-hero-logos">
+          {% for i in (1..4) %}
+            {%- liquid
+              assign logo_key = 'logo_business_' | append: i
+              assign text_key = 'text_business_' | append: i
+              assign logo = section.settings[logo_key]
+              assign text = section.settings[text_key]
+            -%}
+
+            {% if logo != blank or text != blank %}
+              <div class="zakelijk-hero-logos-item">
+                {% if logo != blank %}
+                  {{ logo | image_url: width: 28 | image_tag: class: 'zakelijk-hero-logos-logo', loading: 'lazy' }}
+                {% endif %}
+
+                {% if text != blank %}
+                  <span class="zakelijk-hero-logos-text">{{ text }}</span>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -98,6 +121,10 @@
     font-weight: 400;
     margin-bottom: 24px;
   }
+  .zakelijk-hero-footer {
+    width: 100%;
+    text-align: left;
+  }
   .zakelijk-hero-footer-text {
     font-family: 'Zilla Slab', serif;
     font-weight: 600;
@@ -105,6 +132,19 @@
     font-size: 20px;
     line-height: 100%;
     margin-bottom: 23px;
+  }
+  .zakelijk-hero-logos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .zakelijk-hero-logos-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'Poppins', sans-serif;
   }
 
   @media (max-width: 767px) {

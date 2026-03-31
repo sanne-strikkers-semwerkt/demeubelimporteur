@@ -27,7 +27,15 @@
         "hero_picker": "video",
         "hero_video": "https://www.youtube.com/watch?v=TqNx4dVv2BQ",
         "hero_image": "shopify://shop_images/keuken-zakelijk-demeubelimporteur.webp",
-        "footer_text": "Deze bedrijven gingen je voor"
+        "footer_text": "Deze bedrijven gingen je voor",
+        "logo_business_1": "shopify://shop_images/Group.svg",
+        "text_business_1": "Zakelijk",
+        "logo_business_2": "shopify://shop_images/Group.svg",
+        "text_business_2": "Zakelijk",
+        "logo_business_3": "shopify://shop_images/Group.svg",
+        "text_business_3": "Zakelijk",
+        "logo_business_4": "shopify://shop_images/Group.svg",
+        "text_business_4": "Zakelijk"
       }
     },
     "zakelijk_usp_top": {
