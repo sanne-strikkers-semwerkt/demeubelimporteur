@@ -181,9 +181,12 @@
     "zakelijk_contact_form": {
       "type": "zakelijk-contact-form",
       "settings": {
+        "color_scheme": "scheme-2",
         "image": "shopify://shop_images/location-contact.png",
         "heading": "Wij hebben alle kennis in huis, stel uw vragen aan onze expert.",
-        "button_text": "Verstuur"
+        "button_text": "Verstuur",
+        "padding_top": 60,
+        "padding_bottom": 0
       }
     }
   },
