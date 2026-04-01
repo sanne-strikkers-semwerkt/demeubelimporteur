@@ -146,7 +146,7 @@
       "settings": {
         "color_scheme": "scheme-7d899ad8-7de5-4add-b2af-ea4454175fcb",
         "padding_top": 0,
-        "padding_bottom": 96
+        "padding_bottom": 48
       }
     },
     "zakelijk_contact_cta": {
@@ -178,17 +178,10 @@
         "max_reviews": 10
       }
     },
-    "zakelijk_client_logos": {
-      "type": "zakelijk-client-logos",
-      "disabled": true,
-      "settings": {
-        "heading": "Deze bedrijven gingen je voor:"
-      }
-    },
     "zakelijk_contact_form": {
       "type": "zakelijk-contact-form",
-      "disabled": true,
       "settings": {
+        "image": "shopify://shop_images/location-contact.png",
         "heading": "Wij hebben alle kennis in huis, stel uw vragen aan onze expert.",
         "button_text": "Verstuur"
       }
@@ -202,7 +195,6 @@
     "zakelijk_usp_top",
     "zakelijk_contact_cta",
     "about_reviews_wrp_KgJ7WX",
-    "zakelijk_client_logos",
     "zakelijk_contact_form"
   ]
 }
