@@ -85,7 +85,10 @@
         "project_3"
       ],
       "settings": {
-        "heading": "Onze projecten"
+        "heading": "Onze projecten",
+        "color_scheme": "",
+        "padding_top": 96,
+        "padding_bottom": 88
       }
     },
     "zakelijk_usp_top": {
