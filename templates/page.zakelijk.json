@@ -97,6 +97,7 @@
         "usp_1": {
           "type": "usp",
           "settings": {
+            "icon": "shopify://shop_images/check-icon_e59023e0-7a69-439e-9955-490b38936b17.svg",
             "text": "Geen risico, betaal achteraf",
             "show_flags": false
           }
@@ -104,6 +105,7 @@
         "usp_2": {
           "type": "usp",
           "settings": {
+            "icon": "shopify://shop_images/check-icon.svg",
             "text": "Op voorraad = binnen 5 dagen in huis",
             "show_flags": false
           }
@@ -111,13 +113,17 @@
         "usp_3": {
           "type": "usp",
           "settings": {
+            "icon": "shopify://shop_images/check-icon.svg",
             "text": "Goedkoopste van",
-            "show_flags": true
+            "show_flags": true,
+            "flag_1": "shopify://shop_images/nederland-icon_0c786eeb-706b-472d-877a-7e88eaa17aa6.svg",
+            "flag_2": "shopify://shop_images/belgie-icon.svg"
           }
         },
         "usp_4": {
           "type": "usp",
           "settings": {
+            "icon": "shopify://shop_images/check-icon.svg",
             "text": "Altijd 1 jaar garantie",
             "show_flags": false
           }
@@ -129,7 +135,6 @@
         "usp_3",
         "usp_4"
       ],
-      "disabled": true,
       "settings": {}
     },
     "zakelijk_client_logos": {
@@ -201,47 +206,6 @@
       "settings": {
         "heading": "Reviews voor De Meubel Importeur"
       }
-    },
-    "zakelijk_usp_bottom": {
-      "type": "zakelijk-usp",
-      "blocks": {
-        "usp_bottom_1": {
-          "type": "usp",
-          "settings": {
-            "text": "Geen risico, betaal achteraf",
-            "show_flags": false
-          }
-        },
-        "usp_bottom_2": {
-          "type": "usp",
-          "settings": {
-            "text": "Op voorraad = binnen 5 dagen in huis",
-            "show_flags": false
-          }
-        },
-        "usp_bottom_3": {
-          "type": "usp",
-          "settings": {
-            "text": "Goedkoopste van",
-            "show_flags": true
-          }
-        },
-        "usp_bottom_4": {
-          "type": "usp",
-          "settings": {
-            "text": "Altijd 1 jaar garantie",
-            "show_flags": false
-          }
-        }
-      },
-      "block_order": [
-        "usp_bottom_1",
-        "usp_bottom_2",
-        "usp_bottom_3",
-        "usp_bottom_4"
-      ],
-      "disabled": true,
-      "settings": {}
     }
   },
   "order": [
@@ -253,7 +217,6 @@
     "zakelijk_client_logos",
     "zakelijk_contact_form",
     "zakelijk_contact_cta",
-    "zakelijk_reviews",
-    "zakelijk_usp_bottom"
+    "zakelijk_reviews"
   ]
 }

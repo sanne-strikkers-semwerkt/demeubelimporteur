@@ -1,7 +1,68 @@
+<section class="zakelijk-usp container section-{{ section.id }}-padding">
+  <div class="zakelijk-usp-container color-{{ section.settings.color_scheme }} gradient">
+    <div class="zakelijk-usp-list">
+      {% for block in section.blocks %}
+        <div class="zakelijk-usp-item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <img
+              src="{{ block.settings.icon | img_url: '15x15' }}"
+              alt=""
+              style="width: 15px; height: 15px;"
+              width="15"
+              height="15"
+            >
+          {% endif %}
+          <span class="zakelijk-usp-item-text">{{ block.settings.text }}</span>
+          {% if block.settings.show_flags %}
+            <div class="zakelijk-usp-item-flags">
+              {% if block.settings.flag_1 != blank %}
+                <img
+                  src="{{ block.settings.flag_1 | img_url: '13x9' }}"
+                  alt=""
+                  class="zakelijk-usp-item-flag"
+                  width="13"
+                  height="9"
+                >
+              {% endif %}
+              {% if block.settings.flag_text_1 != blank %}
+                <span class="zakelijk-usp-item-text">{{ block.settings.flag_text_1 }}</span>
+              {% endif %}
+              {% if block.settings.flag_2 != blank %}
+                <img
+                  src="{{ block.settings.flag_2 | img_url: '13x9' }}"
+                  alt=""
+                  class="zakelijk-usp-item-flag"
+                  width="13"
+                  height="9"
+                >
+              {% endif %}
+              {% if block.settings.flag_text_2 != blank %}
+                <span class="zakelijk-usp-item-text">{{ block.settings.flag_text_2 }}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <style>
-  .zakelijk-usp {
-    background-color: #fff5d9;
-    padding: 40px 0;
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .zakelijk-usp-container {
+    padding: 20px 40px;
+    border-radius: 30px;
   }
   .zakelijk-usp-list {
     display: flex;
@@ -22,7 +83,6 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 19.5px;
-    color: #000000;
   }
   .zakelijk-usp-item-flags {
     display: flex;
@@ -36,44 +96,56 @@
     display: inline-block;
   }
   @media (max-width: 991px) {
+    .zakelijk-usp-container {
+      padding: 20px;
+    }
     .zakelijk-usp-list {
       flex-direction: column;
       align-items: flex-start;
+      gap: 15px;
     }
     .zakelijk-usp-item {
       width: 100%;
+      min-width: auto;
     }
   }
 </style>
 
-<section class="zakelijk-usp">
-  <div class="container">
-    <div class="zakelijk-usp-list">
-      {% for block in section.blocks %}
-        <div class="zakelijk-usp-item" {{ block.shopify_attributes }}>
-          {% if block.settings.icon != blank %}
-            <img src="{{ block.settings.icon | img_url: '30x30' }}" alt="" style="width: 30px; height: 30px;">
-          {% endif %}
-          <span class="zakelijk-usp-item-text">{{ block.settings.text }}</span>
-          {% if block.settings.show_flags %}
-            <div class="zakelijk-usp-item-flags">
-              {% if block.settings.flag_1 != blank %}
-                <img src="{{ block.settings.flag_1 | img_url: '13x9' }}" alt="" class="zakelijk-usp-item-flag">
-              {% endif %}
-              {% if block.settings.flag_2 != blank %}
-                <img src="{{ block.settings.flag_2 | img_url: '13x9' }}" alt="" class="zakelijk-usp-item-flag">
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
 {% schema %}
 {
   "name": "Zakelijk USP",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Kleurschema container",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
   "blocks": [
     {
       "type": "usp",
@@ -99,12 +171,26 @@
         {
           "type": "image_picker",
           "id": "flag_1",
-          "label": "Flag 1 (e.g., Netherlands)"
+          "label": "Vlag 1 (e.g., Netherlands)",
+          "visible_if": "{{ section.settings.show_flags == true }}"
+        },
+        {
+          "type": "text",
+          "id": "flag_text_1",
+          "label": "Tekst voor vlag 1 (e.g., Netherlands)",
+          "visible_if": "{{ section.settings.show_flags == true }}"
         },
         {
           "type": "image_picker",
           "id": "flag_2",
-          "label": "Flag 2 (e.g., Belgium)"
+          "label": "Vlag 2 (e.g., Belgium)",
+          "visible_if": "{{ section.settings.show_flags == true }}"
+        },
+        {
+          "type": "text",
+          "id": "flag_text_2",
+          "label": "Tekst voor vlag 2 (e.g., Belgium)",
+          "visible_if": "{{ section.settings.show_flags == true }}"
         }
       ]
     }
