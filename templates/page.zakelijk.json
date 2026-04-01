@@ -146,7 +146,7 @@
       "settings": {
         "color_scheme": "scheme-7d899ad8-7de5-4add-b2af-ea4454175fcb",
         "padding_top": 0,
-        "padding_bottom": 48
+        "padding_bottom": 60
       }
     },
     "zakelijk_contact_cta": {
@@ -168,6 +168,9 @@
     },
     "about_reviews_wrp_KgJ7WX": {
       "type": "about-reviews-wrp",
+      "custom_css": [
+        ".about-reviews-wrp {margin: 60px 0 0;}"
+      ],
       "name": "Reviews",
       "settings": {
         "reviews-heading": "Reviews voor De Meubel Importeur",

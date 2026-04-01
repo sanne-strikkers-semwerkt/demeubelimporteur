@@ -16,7 +16,13 @@
 
         {%- form 'contact', id: 'zakelijk-contact-form' -%}
           {%- if form.posted_successfully? -%}
-            <p class="form-status" tabindex="-1" autofocus>Bedankt voor uw bericht!</p>
+            <div class="form-status-container" tabindex="-1" autofocus>
+              <svg class="icon-success" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6.5" cy="6.5" r="6" fill="#3AA759"/>
+                <path d="M4 6.5L5.5 8L9 4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p class="form-status">Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.</p>
+            </div>
           {%- endif -%}
 
           <div class="zakelijk-contact-form-grid">
@@ -168,6 +174,37 @@
     margin-top: 25px;
   }
 
+  .zakelijk-contact-form .form-status-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(58, 167, 89, 0.1);
+    border: 1px solid #3AA759;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    color: #3AA759;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .zakelijk-contact-form .icon-success {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .zakelijk-contact-form .form-status {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   @media (max-width: 991px) {
     .zakelijk-contact-form-wrapper { grid-template-columns: 1fr; }
