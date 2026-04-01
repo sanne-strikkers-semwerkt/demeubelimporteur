@@ -46,7 +46,9 @@
         "image_position": "right",
         "heading": "Over De Meubel Importeur zakelijk",
         "description": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.</p><p>Je vindt ons inmiddels in twee showrooms in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>",
-        "image": "shopify://shop_images/dmi-woonmaand-oktober-rosa.webp"
+        "image": "shopify://shop_images/dmi-woonmaand-oktober-rosa.webp",
+        "padding_top": 88,
+        "padding_bottom": 88
       }
     },
     "zakelijk_usp_top": {
