@@ -152,14 +152,18 @@
     "zakelijk_contact_cta": {
       "type": "zakelijk-contact-cta",
       "settings": {
+        "color_scheme": "scheme-67f8e3f7-077d-4a82-9c34-d20aec33c6aa",
         "heading": "Neem vrijblijvend contact op",
+        "left_avatar": "shopify://shop_images/chat-met-meubelimporteur.webp",
         "left_heading": "Bel Willem voor gratis interieuradvies!",
         "left_phone": "0228 - 785 883",
         "left_email": "zakelijk@demeubelimporteur.nl",
         "right_heading": "Of chat met één van onze specialisten",
         "right_status": "Nu online",
         "right_button_text": "Start live chat",
-        "right_button_link": ""
+        "right_button_link": "shopify://collections/all",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "about_reviews_wrp_KgJ7WX": {

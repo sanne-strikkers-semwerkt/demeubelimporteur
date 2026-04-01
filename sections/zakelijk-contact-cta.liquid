@@ -65,16 +65,16 @@
           <h3>{{ section.settings.right_heading }}</h3>
         {%- endif -%}
         <div class="zakelijk-contact-option-actions">
+          {%- if section.settings.right_button_text != blank and section.settings.right_button_link != blank -%}
+            <a href="{{ section.settings.right_button_link }}" class="zakelijk-contact-option-button">
+              {{ section.settings.right_button_text }}
+            </a>
+          {%- endif -%}
           {%- if section.settings.right_status != blank -%}
             <div class="zakelijk-contact-option-status">
               <span class="status-dot"></span>
               {{ section.settings.right_status }}
             </div>
-          {%- endif -%}
-          {%- if section.settings.right_button_text != blank and section.settings.right_button_link != blank -%}
-            <a href="{{ section.settings.right_button_link }}" class="zakelijk-contact-option-button">
-              {{ section.settings.right_button_text }}
-            </a>
           {%- endif -%}
         </div>
       </div>
@@ -105,9 +105,8 @@
 
   .zakelijk-contact-cta-grid {
     display: grid;
-    /* De linker kolom (1.2fr) is nu breder dan de rechter (0.8fr) */
     grid-template-columns: 1.2fr auto 0.8fr;
-    gap: 40px;
+    gap: 80px;
     align-items: center;
     padding: 45px clamp(20px, 5vw, 80px);
     border-radius: 10px;
@@ -116,14 +115,14 @@
   .zakelijk-contact-cta-divider {
     width: 1px;
     height: 100px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,1);
   }
 
   .zakelijk-contact-option h3 {
     font-family: 'Zilla Slab', serif;
     font-weight: 600;
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
   .zakelijk-contact-option-left {
@@ -138,14 +137,14 @@
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid #D8D8D8;
   }
 
   .zakelijk-contact-option-contact {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 45px;
   }
 
   .zakelijk-contact-option-contact-item {
@@ -170,8 +169,8 @@
 
   .zakelijk-contact-option-actions {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     gap: 15px;
   }
 
@@ -236,6 +235,9 @@
     .zakelijk-contact-cta-divider {
       width: 100%;
       height: 1px;
+    }
+    .zakelijk-contact-option-contact {
+      margin-top: 0;
     }
   }
 
