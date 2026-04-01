@@ -51,6 +51,43 @@
         "padding_bottom": 88
       }
     },
+    "zakelijk_projects": {
+      "type": "zakelijk-projects",
+      "blocks": {
+        "project_1": {
+          "type": "project",
+          "settings": {
+            "image": "shopify://shop_images/demeubelimporteur-project-1.webp",
+            "title": "Inrichting Stichting Startbaan",
+            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
+          }
+        },
+        "project_2": {
+          "type": "project",
+          "settings": {
+            "image": "shopify://shop_images/demeubelimporteur-project-2.webp",
+            "title": "Kantoorinrichting van vakantiepark",
+            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
+          }
+        },
+        "project_3": {
+          "type": "project",
+          "settings": {
+            "image": "shopify://shop_images/demeubelimporteur-project-3.webp",
+            "title": "Vergaderruimte van Semwerkt",
+            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
+          }
+        }
+      },
+      "block_order": [
+        "project_1",
+        "project_2",
+        "project_3"
+      ],
+      "settings": {
+        "heading": "Onze projecten"
+      }
+    },
     "zakelijk_usp_top": {
       "type": "zakelijk-usp",
       "blocks": {
@@ -97,41 +134,6 @@
       "disabled": true,
       "settings": {
         "heading": "Deze bedrijven gingen je voor:"
-      }
-    },
-    "zakelijk_projects": {
-      "type": "zakelijk-projects",
-      "blocks": {
-        "project_1": {
-          "type": "project",
-          "settings": {
-            "title": "Inrichting Stichting Startbaan",
-            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
-          }
-        },
-        "project_2": {
-          "type": "project",
-          "settings": {
-            "title": "Kantoorinrichting van vakantiepark",
-            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
-          }
-        },
-        "project_3": {
-          "type": "project",
-          "settings": {
-            "title": "Vergaderruimte van Semwerkt",
-            "description": "Lorem ipsum dolor sit amestie et consectetur adipiscing elit. Nunc aliquet leo augue donec posuere, sem quis sollicitudin euismod."
-          }
-        }
-      },
-      "block_order": [
-        "project_1",
-        "project_2",
-        "project_3"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Onze projecten"
       }
     },
     "zakelijk_contact_form": {
@@ -243,9 +245,9 @@
     "main",
     "zakelijk_hero_kfnGfM",
     "zakelijk_about_3WEe3r",
+    "zakelijk_projects",
     "zakelijk_usp_top",
     "zakelijk_client_logos",
-    "zakelijk_projects",
     "zakelijk_contact_form",
     "zakelijk_contact_cta",
     "zakelijk_reviews",
