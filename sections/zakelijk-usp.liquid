@@ -75,7 +75,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    flex: 1;
     min-width: 200px;
   }
   .zakelijk-usp-item-text {
@@ -89,6 +88,9 @@
     align-items: center;
     gap: 5px;
     margin-left: 5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: -5px;
   }
   .zakelijk-usp-item-flag {
     width: 13px;
@@ -172,25 +174,25 @@
           "type": "image_picker",
           "id": "flag_1",
           "label": "Vlag 1 (e.g., Netherlands)",
-          "visible_if": "{{ section.settings.show_flags == true }}"
+          "visible_if": "{{ block.settings.show_flags == true }}"
         },
         {
           "type": "text",
           "id": "flag_text_1",
           "label": "Tekst voor vlag 1 (e.g., Netherlands)",
-          "visible_if": "{{ section.settings.show_flags == true }}"
+          "visible_if": "{{ block.settings.show_flags == true }}"
         },
         {
           "type": "image_picker",
           "id": "flag_2",
           "label": "Vlag 2 (e.g., Belgium)",
-          "visible_if": "{{ section.settings.show_flags == true }}"
+          "visible_if": "{{ block.settings.show_flags == true }}"
         },
         {
           "type": "text",
           "id": "flag_text_2",
           "label": "Tekst voor vlag 2 (e.g., Belgium)",
-          "visible_if": "{{ section.settings.show_flags == true }}"
+          "visible_if": "{{ block.settings.show_flags == true }}"
         }
       ]
     }
