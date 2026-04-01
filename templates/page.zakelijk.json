@@ -149,6 +149,31 @@
         "padding_bottom": 96
       }
     },
+    "zakelijk_contact_cta": {
+      "type": "zakelijk-contact-cta",
+      "settings": {
+        "heading": "Neem vrijblijvend contact op",
+        "left_heading": "Bel Willem voor gratis interieuradvies!",
+        "left_phone": "0228 - 785 883",
+        "left_email": "zakelijk@demeubelimporteur.nl",
+        "right_heading": "Of chat met één van onze specialisten",
+        "right_status": "Nu online",
+        "right_button_text": "Start live chat",
+        "right_button_link": ""
+      }
+    },
+    "about_reviews_wrp_KgJ7WX": {
+      "type": "about-reviews-wrp",
+      "name": "Reviews",
+      "settings": {
+        "reviews-heading": "Reviews voor De Meubel Importeur",
+        "rateus-btn-text": "Geef jouw mening",
+        "rateus-btn-link": "https://www.webwinkelkeur.nl/webshop/DeMeubelimporteur_1214608/reviews",
+        "webwinkelkeur_id": "1214608",
+        "webwinkelkeur_public_code": "02e03ef20c068ec89d1d88b37ebf06e98f5b0c0f5cfabcaac6e043df03f11a79",
+        "max_reviews": 10
+      }
+    },
     "zakelijk_client_logos": {
       "type": "zakelijk-client-logos",
       "disabled": true,
@@ -163,61 +188,6 @@
         "heading": "Wij hebben alle kennis in huis, stel uw vragen aan onze expert.",
         "button_text": "Verstuur"
       }
-    },
-    "zakelijk_contact_cta": {
-      "type": "zakelijk-contact-cta",
-      "disabled": true,
-      "settings": {
-        "heading": "Neem vrijblijvend contact op",
-        "left_heading": "Bel Willem voor gratis interieuradvies!",
-        "left_phone": "0228 - 785 883",
-        "left_email": "zakelijk@demeubelimporteur.nl",
-        "right_heading": "Of chat met één van onze specialisten",
-        "right_status": "Nu online",
-        "right_button_text": "Start live chat",
-        "right_button_link": ""
-      }
-    },
-    "zakelijk_reviews": {
-      "type": "zakelijk-reviews",
-      "blocks": {
-        "review_1": {
-          "type": "zak_review",
-          "settings": {
-            "rating": 4,
-            "author": "R. Verhulst",
-            "date": "23-04-2025   Review voor DeMeubelimporteur",
-            "text": "Verkoop ging wat slechter maar de afwikkeling was zeer goed."
-          }
-        },
-        "review_2": {
-          "type": "zak_review",
-          "settings": {
-            "rating": 5,
-            "author": "R. Coenen",
-            "date": "23-04-2025   Review voor DeMeubelimporteur",
-            "text": "Top service voor een mooie prijs!"
-          }
-        },
-        "review_3": {
-          "type": "zak_review",
-          "settings": {
-            "rating": 5,
-            "author": "E Postma",
-            "date": "23-04-2025   Review voor DeMeubelimporteur",
-            "text": "Alleen de stoelen zijn nog niet binnen maar we zijn tot heden zeer tevreden goede service en ook goed advies hopelijk komen de stoelen eerder dan week 33 verder alles goed"
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Reviews voor De Meubel Importeur"
-      }
     }
   },
   "order": [
@@ -226,9 +196,9 @@
     "zakelijk_about_3WEe3r",
     "zakelijk_projects",
     "zakelijk_usp_top",
-    "zakelijk_client_logos",
-    "zakelijk_contact_form",
     "zakelijk_contact_cta",
-    "zakelijk_reviews"
+    "about_reviews_wrp_KgJ7WX",
+    "zakelijk_client_logos",
+    "zakelijk_contact_form"
   ]
 }
