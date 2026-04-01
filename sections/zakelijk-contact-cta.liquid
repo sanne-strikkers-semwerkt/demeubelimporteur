@@ -65,10 +65,13 @@
           <h3>{{ section.settings.right_heading }}</h3>
         {%- endif -%}
         <div class="zakelijk-contact-option-actions">
-          {%- if section.settings.right_button_text != blank and section.settings.right_button_link != blank -%}
-            <a href="{{ section.settings.right_button_link }}" class="zakelijk-contact-option-button">
+          {%- if section.settings.right_button_text != blank -%}
+            <button
+              onclick="$crisp.push(['do', 'chat:show']);$crisp.push(['do', 'chat:open']);"
+              class="zakelijk-contact-option-button"
+            >
               {{ section.settings.right_button_text }}
-            </a>
+            </button>
           {%- endif -%}
           {%- if section.settings.right_status != blank -%}
             <div class="zakelijk-contact-option-status">
@@ -156,6 +159,7 @@
     text-decoration: underline;
     color: inherit;
     transition: opacity 0.3s ease;
+    font-weight: 400;
   }
 
   .zakelijk-contact-option-contact-item:hover {
@@ -170,6 +174,7 @@
   .zakelijk-contact-option-actions {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 15px;
   }
@@ -219,6 +224,7 @@
     font-size: 18px;
     text-decoration: none;
     transition: all 0.3s ease;
+    border: none;
   }
 
   .zakelijk-contact-option-button:hover {
@@ -313,11 +319,6 @@
       "id": "right_button_text",
       "label": "Knop tekst",
       "default": "Start live chat"
-    },
-    {
-      "type": "url",
-      "id": "right_button_link",
-      "label": "Knop link"
     },
     {
       "type": "header",
