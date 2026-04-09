@@ -5,7 +5,6 @@
     {%- endif -%}
 
     <div class="zakelijk-contact-cta-grid color-{{ section.settings.color_scheme }} gradient">
-      {%- comment -%} Left Column {%- endcomment -%}
       <div class="zakelijk-contact-option">
         <div class="zakelijk-contact-option-left">
           {%- if section.settings.left_avatar != blank -%}
@@ -25,30 +24,13 @@
                   href="tel:{{ section.settings.left_phone | replace: ' ', '' }}"
                   class="zakelijk-contact-option-contact-item"
                 >
-                  <svg
-                    class="zakelijk-contact-option-contact-icon"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    stroke="currentColor"
-                  >
-                    <path d="M13.5 10.5V12.5C13.5 12.8978 13.342 13.2794 13.0607 13.5607C12.7794 13.842 12.3978 14 12 14H2C1.60218 14 1.22064 13.842 0.93934 13.5607C0.658035 13.2794 0.5 12.8978 0.5 12.5V2.5C0.5 2.10218 0.658035 1.72064 0.93934 1.43934C1.22064 1.15804 1.60218 1 2 1H4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.5 1H13.5V4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M6.5 8L13.5 1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                  {{ 'icon-tel.svg' | inline_asset_content }}
                   <span>{{ section.settings.left_phone }}</span>
                 </a>
               {%- endif -%}
               {%- if section.settings.left_email != blank -%}
                 <a href="mailto:{{ section.settings.left_email }}" class="zakelijk-contact-option-contact-item">
-                  <svg
-                    class="zakelijk-contact-option-contact-icon"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                  >
-                    <path d="M2 3H14C14.5304 3 15.0391 3.21071 15.4142 3.58579C15.7893 3.96086 16 4.46957 16 5V11C16 11.5304 15.7893 12.0391 15.4142 12.4142C15.0391 12.7893 14.5304 13 14 13H2C1.46957 13 0.960859 12.7893 0.585786 12.4142C0.210714 12.0391 0 11.5304 0 11V5C0 4.46957 0.210714 3.96086 0.585786 3.58579C0.960859 3.21071 1.46957 3 2 3Z" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 5L8 9L0 5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                  {{ 'icon-mail.svg' | inline_asset_content }}
                   <span>{{ section.settings.left_email }}</span>
                 </a>
               {%- endif -%}
@@ -59,7 +41,6 @@
 
       <div class="zakelijk-contact-cta-divider"></div>
 
-      {%- comment -%} Right Column {%- endcomment -%}
       <div class="zakelijk-contact-option">
         {%- if section.settings.right_heading != blank -%}
           <h3>{{ section.settings.right_heading }}</h3>
@@ -75,7 +56,7 @@
           {%- endif -%}
           {%- if section.settings.right_status != blank -%}
             <div class="zakelijk-contact-option-status">
-              <span class="status-dot"></span>
+              {{ 'icon-check.svg' | inline_asset_content }}
               {{ section.settings.right_status }}
             </div>
           {%- endif -%}
@@ -86,6 +67,13 @@
 </section>
 
 {%- style -%}
+  .zakelijk-contact-cta {
+    --btn-color: #3aa759;
+    --font-family-heading: 'Zilla Slab', serif;
+    --font-family-body: 'Poppins', sans-serif;
+    --body-color: #000;
+  }
+
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -99,7 +87,8 @@
   }
 
   .zakelijk-contact-cta-header {
-    font-family: 'Zilla Slab', serif;
+    font-family: var(--font-family-heading);
+    color: var(--body-color);
     font-weight: 600;
     font-size: 32px;
     line-height: 1.2;
@@ -122,8 +111,9 @@
   }
 
   .zakelijk-contact-option h3 {
-    font-family: 'Zilla Slab', serif;
-    font-weight: 600;
+    font-family: var(--font-family-heading);
+    color: var(--body-color);
+    font-weight: 500;
     font-size: 24px;
     margin-bottom: 20px;
   }
@@ -154,7 +144,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-family-body);
+    color: var(--body-color) !important;
     font-size: 15px;
     text-decoration: underline;
     color: inherit;
@@ -180,51 +171,26 @@
   }
 
   .zakelijk-contact-option-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 50px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #3aa759;
-    border-radius: 50%;
-    position: relative;
-  }
-
-  .status-dot::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    border-radius: inherit;
-    animation: pulse-ring 2s infinite;
-  }
-
-  @keyframes pulse-ring {
-    0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(2.5); opacity: 0; }
+    color: var(--btn-color);
+    font-family: var(--font-family-body);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
   }
 
   .zakelijk-contact-option-button {
-    background-color: #3aa759;
+    background-color: var(--btn-color);
     color: #fff !important;
     padding: 14px 28px;
     border-radius: 8px;
-    font-family: 'Zilla Slab', serif;
-    font-weight: 600;
+    font-family: var(--font-family-heading);
+    font-weight: 500;
     font-size: 18px;
     text-decoration: none;
     transition: all 0.3s ease;
     border: none;
+    margin-right: 6px;
   }
 
   .zakelijk-contact-option-button:hover {
