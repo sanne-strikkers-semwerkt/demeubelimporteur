@@ -139,6 +139,9 @@
         "usp_zNcgRm",
         "usp_XtFgLx"
       ],
+      "custom_css": [
+        ".usp-beam-wrp {background: transparent;}"
+      ],
       "name": "USP Beam Wrap",
       "settings": {
         "in-center": true
@@ -156,7 +159,7 @@
         "right_heading": "Of chat met één van onze specialisten",
         "right_status": "Nu online",
         "right_button_text": "Start live chat",
-        "padding_top": 92,
+        "padding_top": 84,
         "padding_bottom": 0
       }
     },
