@@ -91,62 +91,57 @@
         "padding_bottom": 88
       }
     },
-    "zakelijk_usp_top": {
-      "type": "zakelijk-usp",
+    "usp_beam_wrp_cKzkC6": {
+      "type": "usp-beam-wrp",
       "blocks": {
-        "usp_1": {
+        "usp_RQQbbd": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/check-icon_e59023e0-7a69-439e-9955-490b38936b17.svg",
-            "text": "Geen risico, betaal achteraf",
-            "show_flags": false,
-            "flag_text_1": "",
-            "flag_text_2": ""
+            "usp-text": "Geen risico, betaal pas bij levering",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
           }
         },
-        "usp_2": {
+        "usp_Y4AymE": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/check-icon.svg",
-            "text": "Op voorraad = binnen 5 dagen in huis",
-            "show_flags": false,
-            "flag_text_1": "",
-            "flag_text_2": ""
+            "usp-text": "Goedkoopste van",
+            "show_country_logos": true,
+            "country-logo-1": "shopify://shop_images/nederland-icon.svg",
+            "country-name-1": "Nederland",
+            "country-logo-2": "shopify://shop_images/belgie-icon.svg",
+            "country-name-2": "België"
           }
         },
-        "usp_3": {
+        "usp_zNcgRm": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/check-icon.svg",
-            "text": "Goedkoopste van",
-            "show_flags": true,
-            "flag_1": "shopify://shop_images/nederland-icon_0c786eeb-706b-472d-877a-7e88eaa17aa6.svg",
-            "flag_text_1": "Nederland &",
-            "flag_2": "shopify://shop_images/belgie-icon.svg",
-            "flag_text_2": "België"
+            "usp-text": "Altijd 1 jaar garantie",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
           }
         },
-        "usp_4": {
+        "usp_XtFgLx": {
           "type": "usp",
           "settings": {
-            "icon": "shopify://shop_images/check-icon.svg",
-            "text": "Altijd 1 jaar garantie",
-            "show_flags": false,
-            "flag_text_1": "",
-            "flag_text_2": ""
+            "usp-text": "9,6 uit 2,000+ reviews",
+            "show_country_logos": false,
+            "country-name-1": "",
+            "country-name-2": ""
           }
         }
       },
       "block_order": [
-        "usp_1",
-        "usp_2",
-        "usp_3",
-        "usp_4"
+        "usp_RQQbbd",
+        "usp_Y4AymE",
+        "usp_zNcgRm",
+        "usp_XtFgLx"
       ],
+      "name": "USP Beam Wrap",
       "settings": {
-        "color_scheme": "scheme-7d899ad8-7de5-4add-b2af-ea4454175fcb",
-        "padding_top": 0,
-        "padding_bottom": 60
+        "in-center": true
       }
     },
     "zakelijk_contact_cta": {
@@ -161,8 +156,7 @@
         "right_heading": "Of chat met één van onze specialisten",
         "right_status": "Nu online",
         "right_button_text": "Start live chat",
-        "right_button_link": "shopify://collections/all",
-        "padding_top": 0,
+        "padding_top": 92,
         "padding_bottom": 0
       }
     },
@@ -198,7 +192,7 @@
     "zakelijk_hero_kfnGfM",
     "zakelijk_about_3WEe3r",
     "zakelijk_projects",
-    "zakelijk_usp_top",
+    "usp_beam_wrp_cKzkC6",
     "zakelijk_contact_cta",
     "about_reviews_wrp_KgJ7WX",
     "zakelijk_contact_form"
