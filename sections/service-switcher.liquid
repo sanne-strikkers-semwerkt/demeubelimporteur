@@ -1,0 +1,53 @@
+<div class="page-width">
+  <div class="service-switcher-wrapper" style="padding: 50px 0; text-align: center;">
+    <div id="choice-menu">
+      <h2>Hoe kunnen we je helpen?</h2>
+      <div style="margin-top: 20px;">
+        <button class="button" onclick="toggleService('return')" style="margin: 10px;">Item retourneren</button>
+        <button class="button button--secondary" onclick="toggleService('damage')" style="margin: 10px;">
+          Schade melden
+        </button>
+      </div>
+    </div>
+
+    <div id="form-return" style="display: none; margin-top: 30px;">
+      <button class="link" onclick="goBack()" style="margin-bottom: 20px;">← Terug naar keuze</button>
+      <div class="form-container">
+        {%- comment -%} Plak hier de embed code van je Return Form {%- endcomment -%}
+        <div id="shopify-section-forms-JOUW_RETOUR_ID"></div>
+      </div>
+    </div>
+
+    <div id="form-damage" style="display: none; margin-top: 30px;">
+      <button class="link" onclick="goBack()" style="margin-bottom: 20px;">← Terug naar keuze</button>
+      <div class="form-container">
+        {%- comment -%} Plak hier de embed code van je Damage Form {%- endcomment -%}
+        <div id="shopify-section-forms-JOUW_SCHADE_ID"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleService(type) {
+    document.getElementById('choice-menu').style.display = 'none';
+    if (type === 'return') {
+      document.getElementById('form-return').style.display = 'block';
+    } else {
+      document.getElementById('form-damage').style.display = 'block';
+    }
+  }
+
+  function goBack() {
+    document.getElementById('form-return').style.display = 'none';
+    document.getElementById('form-damage').style.display = 'none';
+    document.getElementById('choice-menu').style.display = 'block';
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Service Switcher",
+  "settings": []
+}
+{% endschema %}
