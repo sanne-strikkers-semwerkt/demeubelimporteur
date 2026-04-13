@@ -1,0 +1,88 @@
+<section class="openingstijden-wrp">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <h2 class="openingstijden-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="row">
+      {% for block in section.blocks %}
+        {% assign is_today = block.settings.is_today %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="openingstijden-card{% if is_today %} openingstijden-card--today{% endif %}">
+            <h3 class="openingstijden-day">{{ block.settings.day_name }}</h3>
+            {% if block.settings.date != blank %}
+              <p class="openingstijden-date">{{ block.settings.date }}</p>
+            {% endif %}
+            {% if block.settings.label != blank %}
+              <p class="openingstijden-label">{{ block.settings.label }}</p>
+            {% endif %}
+            <p class="openingstijden-time">{{ block.settings.time }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Afwijkende openingstijden",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Afwijkende openingstijden"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "special_day",
+      "name": "Speciale dag",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "day_name",
+          "label": "Dag",
+          "default": "Eerste Paasdag"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Datum",
+          "default": "5 april 2026"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Tijden",
+          "default": "12:00 - 17:00"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (bijv. Paasweekend)"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_today",
+          "label": "Markeer als vandaag",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Afwijkende openingstijden",
+      "blocks": [
+        { "type": "special_day", "settings": { "day_name": "Goede Vrijdag", "date": "3 april 2026", "time": "10:00 - 18:00", "label": "Paasweekend" } },
+        { "type": "special_day", "settings": { "day_name": "Zaterdag", "date": "4 april 2026", "time": "10:00 - 17:00", "label": "Paasweekend" } },
+        { "type": "special_day", "settings": { "day_name": "Eerste Paasdag", "date": "5 april 2026", "time": "12:00 - 17:00", "label": "Paasweekend" } },
+        { "type": "special_day", "settings": { "day_name": "Tweede Paasdag", "date": "6 april 2026", "time": "10:00 - 17:00", "label": "Paasweekend" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

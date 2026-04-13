@@ -1,0 +1,262 @@
+<section class="openingstijden-wrp">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <h2 class="openingstijden-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <p class="openingstijden-subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <!-- Show 7 days: Maandag to Zondag - April 2026 (Today is Wednesday, April 1) -->
+    {% assign current_weekday = 'now' | date: '%w' | plus: 0 %}
+
+    <div class="row openingstijden-tabel">
+      {% assign day_data = "Maandag|30 mrt. 2026|11:00 - 18:00,Dinsdag|31 mrt. 2026|10:00 - 18:00,Woensdag|1 apr. 2026|10:00 - 18:00,Donderdag|2 apr. 2026|10:00 - 20:00,Vrijdag|3 apr. 2026|10:00 - 18:00,Zaterdag|4 apr. 2026|10:00 - 17:00,Zondag|5 apr. 2026|12:00 - 17:00" | split: "," %}
+
+      {% for item in day_data %}
+        {% assign parts = item | split: "|" %}
+        {% assign day_name = parts[0] %}
+        {% assign day_date = parts[1] %}
+        {% assign default_time = parts[2] %}
+
+        {% assign is_today = false %}
+        {% if day_name == "Woensdag" %}
+          {% assign is_today = true %}
+        {% endif %}
+
+        <!-- Use custom time from blocks if available -->
+        {% assign day_time = default_time %}
+        {% for block in section.blocks %}
+          {% if block.type == 'day' %}
+            {% assign block_day = block.settings.day_name | downcase | strip %}
+            {% assign current_day = day_name | downcase | strip %}
+            {% if block_day contains current_day or current_day contains block_day %}
+              {% if block.settings.time != blank %}
+                {% assign day_time = block.settings.time %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="openingstijden-card{% if is_today %} openingstijden-card--today{% endif %}">
+            <h3 class="openingstijden-day">{{ day_name }}</h3>
+            <p class="openingstijden-date">{{ day_date }}</p>
+            {% if is_today %}
+              <p class="openingstijden-label">Vandaag</p>
+            {% endif %}
+            <p class="openingstijden-time">{{ day_time }}</p>
+          </div>
+        </div>
+      {% endfor %}
+
+      {% if section.settings.show_all_times %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <a class="openingstijden-card openingstijden-card--ghost"
+             href="{{ section.settings.all_times_link | default: '/openingstijden' }}">
+            <p class="openingstijden-label">Alle tijden</p>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+
+
+  </div>
+</section>
+
+<style>
+  .openingstijden-wrp {
+    padding: 60px 0;
+  }
+  .openingstijden-heading {
+    color: #000;
+    font-family: "Zilla Slab", serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 16px;
+  }
+  .openingstijden-subheading {
+    color: #666;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 0 40px;
+  }
+  .openingstijden-card {
+    border-radius: 10px;
+    border: 1px solid #d8d8d8;
+    background: #fff;
+    padding: 24px 20px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+  .openingstijden-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .openingstijden-card--today {
+    background: #fbba00;
+    border-color: #fbba00;
+    box-shadow: 0 4px 16px rgba(251,186,0,0.3);
+  }
+  .openingstijden-card--ghost {
+    text-decoration: none;
+    border-style: dashed;
+  }
+  .openingstijden-day {
+    color: #000;
+    font-family: "Zilla Slab", serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .openingstijden-date {
+    color: #555;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    margin: 0;
+  }
+  .openingstijden-card--today .openingstijden-date {
+    color: #333;
+  }
+  .openingstijden-label {
+    color: #000;
+    font-family: Poppins, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .openingstijden-time {
+    color: #000;
+    font-family: "Zilla Slab", serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 4px 0 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Openingstijden",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Openingstijden"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Dit zijn de openingstijden van De Meubel Importeur"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all_times",
+      "label": "Show 'Alle tijden' card",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "all_times_link",
+      "label": "Link for 'Alle tijden'"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "day",
+      "name": "Dag",
+      "limit": 15,
+      "settings": [
+        {
+          "type": "text",
+          "id": "day_name",
+          "label": "Day name",
+          "default": "Woensdag"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Opening time",
+          "default": "09:00 - 17:30"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_today",
+          "label": "Is today / highlight",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "special_day",
+      "name": "Speciale dag",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "day_name",
+          "label": "Day name",
+          "default": "Eerste Paasdag"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "5 april 2026"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Opening time",
+          "default": "12:00 - 17:00"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (e.g. Paasweekend)"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_today",
+          "label": "Is today / highlight",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Openingstijden",
+      "blocks": [
+        { "type": "day", "settings": { "day_name": "Maandag", "time": "11:00 - 18:00" } },
+        { "type": "day", "settings": { "day_name": "Dinsdag", "time": "10:00 - 18:00" } },
+        { "type": "day", "settings": { "day_name": "Woensdag", "time": "10:00 - 18:00" } },
+        { "type": "day", "settings": { "day_name": "Donderdag", "time": "10:00 - 20:00" } },
+        { "type": "day", "settings": { "day_name": "Vrijdag", "time": "10:00 - 18:00" } },
+        { "type": "day", "settings": { "day_name": "Zaterdag", "time": "10:00 - 17:00" } },
+        { "type": "day", "settings": { "day_name": "Zondag", "time": "12:00 - 17:00" } },
+        { "type": "special_day", "settings": { "day_name": "Goede Vrijdag", "date": "3 april 2026", "time": "10:00 - 18:00", "label": "Paasweekend" } },
+        { "type": "special_day", "settings": { "day_name": "Zaterdag", "date": "4 april 2026", "time": "10:00 - 17:00", "label": "Paasweekend" } },
+        { "type": "special_day", "settings": { "day_name": "Eerste Paasdag", "date": "5 april 2026", "time": "12:00 - 17:00", "label": "Paasweekend" } },
+        { "type": "special_day", "settings": { "day_name": "Tweede Paasdag", "date": "6 april 2026", "time": "10:00 - 17:00", "label": "Paasweekend" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

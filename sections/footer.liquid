@@ -18,6 +18,23 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .shopping-awards-badge {
+    margin-top: 35px !important;
+    text-align: center;
+  }
+
+  .shopping-awards-badge img {
+    max-height: 175px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+
+  @media screen and (max-width: 767px) {
+    .shopping-awards-badge img {
+      max-height: 175px;
+    }
+  }
 {%- endstyle -%}
 
 <section class="bekend-van-section">
@@ -30,6 +47,9 @@
         </div>
         <div class="media-logo">
           <img src="{{ 'Slam_logo.png' | asset_url }}" alt="Slam!" class="logo-slam">
+        </div>
+        <div class="media-logo">
+          <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/shopping-awards-logo-footer.png?v=1776063819" alt="Shopping Awards" class="logo-shopping-awards">
         </div>
       </div>
     </div>
@@ -102,7 +122,26 @@
                     <a href="https://www.webwinkelkeur.nl/webshop/DeMeubelimporteur_1214608/reviews" target="_blank">
                       <img src="{{ block.settings.keurmerk-logo | img_url:'master' }}" width="114" height="36" alt=""
                     ></a>
+
+                 
                   </div>
+
+                     <!-- Shopping Awards Publieksprijs 2026 -->
+                    {% if section.settings.shopping_awards_logo != blank %}
+                      <div class="shopping-awards-badge mt-12">
+                        <img src="{{ section.settings.shopping_awards_logo | img_url: 'master' }}"
+                             alt="Shopping Awards Goud Publieksprijs 2026"
+                             style="max-height: 175px; width: auto;">
+                      </div>
+                    {% else %}
+                      <!-- Default to the uploaded image -->
+                      <div class="shopping-awards-badge mt-3">
+                        <img src="{{ 'label-shopping-awards-publieksprijs-2026.png' | asset_url }}"
+                             alt="Shopping Awards Goud Publieksprijs 2026"
+                             style="max-height: 175px; width: auto;">
+                      </div>
+                    {% endif %}
+
                 </div>
               </div>
             {%- when 'link_list' -%}
@@ -706,6 +745,12 @@
       "type": "text",
       "id": "social-text",
       "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "shopping_awards_logo",
+      "label": "Shopping Awards Logo (Publieksprijs 2026)",
+      "info": "Add the Goud Publieksprijs 2026 logo below the reviews"
     }
   ]
 }

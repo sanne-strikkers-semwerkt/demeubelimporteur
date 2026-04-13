@@ -13,12 +13,6 @@
     ]
   },
   {
-    "sku": "MHO1-ET-120-B",
-    "showrooms": [
-      "Almelo"
-    ]
-  },
-  {
     "sku": "MHO1-ET-130-B",
     "showrooms": [
       "Emmeloord"
@@ -809,8 +803,7 @@
   {
     "sku": "MHO1-LT-N",
     "showrooms": [
-      "Emmeloord",
-      "Almelo"
+      "Emmeloord"
     ]
   },
   {
@@ -1294,7 +1287,8 @@
   {
     "sku": "MHO1-DR-100-2D-1L",
     "showrooms": [
-      "Emmeloord"
+      "Emmeloord",
+      "Almelo"
     ]
   },
   {
@@ -1657,6 +1651,24 @@
     ]
   },
   {
+    "sku": "MHO1-ET-120-MC-WHI",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MHO1-ST-45-MC-BEI",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MHO1-ST-120-MC-BEI",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
     "sku": "MHO1-ST-01-ANT",
     "showrooms": [
       "Emmeloord"
@@ -1720,8 +1732,7 @@
   {
     "sku": "MHO1-ST-03-DGRY",
     "showrooms": [
-      "Emmeloord",
-      "Almelo"
+      "Emmeloord"
     ]
   },
   {
@@ -2255,6 +2266,24 @@
   },
   {
     "sku": "MHO1-ST-102-DGRY",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MHO1-ST-200-EIK-BEI",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MHO1-ST-201-WAL-BEI",
+    "showrooms": [
+      "Almelo"
+    ]
+  },
+  {
+    "sku": "MHO1-ST-202-WAL-BEI",
     "showrooms": [
       "Almelo"
     ]

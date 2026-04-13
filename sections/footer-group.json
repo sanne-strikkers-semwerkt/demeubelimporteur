@@ -28,8 +28,8 @@
           "type": "logo_item",
           "settings": {
             "logo-part": "shopify://shop_images/logo.svg",
-            "texts": "De Meubel Importeur is expert in meubelen en lifestyle. Hier richt je je thuis en je leven in. Met inspiratie, persoonlijk advies en een groot assortiment. Van kasten tot tafels en van stoelen tot eetkamerbanken. Wij hebben ze in huis!",
-            "review-text": "2,000+ reviews",
+            "texts": "De Meubel Importeur is expert in meubelen en lifestyle. Met inspiratie, persoonlijk advies en een groot assortiment. Van kasten tot tafels en van stoelen tot banken. Wij hebben ze in huis!",
+            "review-text": "2,500+ reviews",
             "keurmerk-logo": "shopify://shop_images/wwk.svg"
           }
         },
@@ -90,7 +90,8 @@
         "text-link": "shopify://pages/algemene-voorwaarden",
         "link-text1": "Privacy & Cookies",
         "text-link1": "shopify://pages/privacy-verklaring",
-        "social-text": "Wil je ons volgen?"
+        "social-text": "Wil je ons volgen?",
+        "shopping_awards_logo": "shopify://shop_images/label-shopping-awards-publieksprijs-2026.png"
       }
     }
   },

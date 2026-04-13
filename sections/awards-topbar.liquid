@@ -6,7 +6,8 @@
         {% if section.settings.show_badge %}
           {% if section.settings.badge_image != blank %}
             <div class="awards-badge-image">
-              <img src="{{ section.settings.badge_image | image_url: width: 100 }}" alt="Shopping Awards 25e editie" height="30">
+              {% comment %} <img src="{{ section.settings.badge_image | image_url: width: 100 }}" alt="Shopping Awards 25e editie" height="30"> {% endcomment %}
+                <img src="{{ section.settings.badge_image | image_url: width: 200 }}" alt="Shopping Awards 25e editie" height="30">
             </div>
           {% else %}
             <h6>
@@ -22,13 +23,14 @@
           <h5>{{ section.settings.main_text }}</h5>
         {% endif %}
       </div>
-      
+      {% if section.settings.button_text != blank %}
       <a href="{{ section.settings.vote_url }}" 
          class="friday-link" 
          target="_blank" 
          rel="noopener">
         {{ section.settings.button_text }}
       </a>
+      {% endif %}
       
       {% if section.settings.enable_close %}
         <a href="#" class="notification-close">
@@ -45,8 +47,12 @@
 
 <style>
   .notification-bar.awards-notification {
+    font-family: Poppins, sans-serif;
     position: relative;
-    background: {{ section.settings.background_gradient }} !important;
+    {% comment %} background: {{ section.settings.background_gradient }} !important;
+  background: linear-gradient(90deg, #212529 0, #ffc107); {% endcomment %}
+  background: #212529;
+  padding: 8px 0;
     {% if section.settings.enable_animation %}
     background-size: 200% 200%;
     animation: gradientShift {{ section.settings.animation_speed }}s ease infinite;
@@ -73,6 +79,7 @@
   }
   
   .notification-bar.awards-notification .notification-block h5 {
+    font-size: 15px;
     color: {{ section.settings.text_color }} !important;
   }
   

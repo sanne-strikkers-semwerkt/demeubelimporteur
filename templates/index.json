@@ -115,15 +115,17 @@
     },
     "hero_wrp_MEPD9r": {
       "type": "hero-wrp",
-      "custom_css": [],
+      "custom_css": [
+        ".hero-wrp .description h2 {color: #fff !important; text-shadow: 2px 2px 5px #212529;}"
+      ],
       "name": "Super Sale",
       "settings": {
-        "image": "shopify://shop_images/dmi-paasdeals-2026-header-v2.jpg",
-        "text": "Paas Deals bij De Meubel Importeur<span class=\"hero-subtitle\">Topkwaliteit meubelen voor haas(t) niks 🐰</span>",
-        "banner-bg-color": "#f8e3ff",
-        "text-color": "#ba00fb",
-        "button-label": "Shop nu",
-        "button-link": "shopify://collections/paas-deals",
+        "image": "shopify://shop_images/dmi-shopping-awards.jpg",
+        "text": "Winnaar Shopping Awards 2026 in Wonen<span class=\"hero-subtitle\">Ontdek topkwaliteit meubelen voor de laagste prijs</span>",
+        "banner-bg-color": "#fbba00",
+        "text-color": "#000000",
+        "button-label": "Shop de Super Sale",
+        "button-link": "shopify://collections/super-sale",
         "btn-background": "#fb5a00",
         "btn-background-hover": "#e15100",
         "btn-text": "#ffffff",

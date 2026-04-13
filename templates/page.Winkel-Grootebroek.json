@@ -50,15 +50,15 @@
         "text1": "Wil je weten welke maten het beste passen of welke modellen aansluiten bij je andere meubels? Onze medewerkers delen graag hun kennis over de collectie en geven praktisch advies. We denken met je mee, zonder dat je je verplicht hoeft te voelen tot een aankoop.",
         "heading2": "Praktische informatie",
         "text2": "Onze winkel is goed te vinden aan de Industrieweg in Grootebroek en heeft een ruim, gratis parkeerterrein voor de deur. Mangohout moet je eigenlijk in het echt zien en voelen om een goede keuze te kunnen maken. Daarom ben je van harte welkom om langs te komen. Onder het genot van een kop koffie bekijk je op je gemak de verschillende mogelijkheden!",
-        "image": "shopify://shop_images/dmi-paasweekend-grootebroek.jpg",
+        "image": "shopify://shop_images/dmi-grootebroek-winkel-showroom.jpg",
         "heading3": "Openingstijden",
-        "text3": "<li>Maandag:  <span> 09:00 - 17:30</span>\n</li>\n                                <li>Dinsdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Woensdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Donderdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Vrijdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Zaterdag:  <span>09:00 - 17:00</span>\n</li>\n                                <li>Zondag:  <span>11:00 - 17:00</span>\n</li>\n<br>\n<li><b>Openingstijden Paasweekend:</b></li>\n<li>3 april (Goede Vrijdag):<br> 09:00 - 17:30\n</li>\n<li>4 april (Zaterdag):<br> 09:00 - 17:00\n</li><li>5 april (Eerste Paasdag):<br> 11:00 - 17:00\n</li>\n<li>6 april (Tweede Paasdag):<br> 09:00 - 17:30\n</li>",
+        "text3": "<li>Maandag:  <span> 09:00 - 17:30</span>\n</li>\n                                <li>Dinsdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Woensdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Donderdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Vrijdag: <span>09:00 - 17:30</span>\n</li>\n                                <li>Zaterdag:  <span>09:00 - 17:00</span>\n</li>\n                                <li>Zondag:  <span>11:00 - 17:00</span>\n</li>",
         "heading4": "Contact",
         "text4": "Voor vragen of het maken van een afspraak zijn we bereikbaar op:",
         "phone-link": "tel:+31228785 883",
         "phone": "0228 - 785 883",
-        "mail-link": "mailto:info@demeubelimporteur.nl",
-        "mail": "info@demeubelimporteur.nl"
+        "mail-link": "mailto:service@demeubelimporteur.nl",
+        "mail": "service@demeubelimporteur.nl"
       }
     },
     "location_gallery_h7KBF3": {
@@ -118,6 +118,191 @@
       ],
       "disabled": true,
       "settings": {}
+    },
+    "openingstijden_XkGzGx": {
+      "type": "openingstijden",
+      "blocks": {
+        "day_QgUCTh": {
+          "type": "day",
+          "settings": {
+            "day_name": "Maandag",
+            "date": "",
+            "time": "09:00 - 17:30",
+            "is_today": false
+          }
+        },
+        "day_63xfrR": {
+          "type": "day",
+          "settings": {
+            "day_name": "Dinsdag",
+            "date": "",
+            "time": "09:00 - 17:30",
+            "is_today": false
+          }
+        },
+        "day_y8WaBi": {
+          "type": "day",
+          "settings": {
+            "day_name": "Woensdag",
+            "date": "",
+            "time": "09:00 - 17:30",
+            "is_today": false
+          }
+        },
+        "day_nnyx8k": {
+          "type": "day",
+          "settings": {
+            "day_name": "Donderdag",
+            "date": "",
+            "time": "09:00 - 17:30",
+            "is_today": false
+          }
+        },
+        "day_YeJjDc": {
+          "type": "day",
+          "settings": {
+            "day_name": "Vrijdag",
+            "date": "",
+            "time": "09:00 - 17:30",
+            "is_today": false
+          }
+        },
+        "day_hNzY4e": {
+          "type": "day",
+          "settings": {
+            "day_name": "Zaterdag",
+            "date": "",
+            "time": "09:00 - 17:30",
+            "is_today": false
+          }
+        },
+        "day_XwJDzw": {
+          "type": "day",
+          "settings": {
+            "day_name": "Zondag",
+            "date": "",
+            "time": "11:00 - 17:00",
+            "is_today": false
+          }
+        },
+        "special_day_BcTHiy": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Goede Vrijdag",
+            "date": "3 april 2026",
+            "time": "10:00 - 18:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_pzByp3": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Zaterdag",
+            "date": "4 april 2026",
+            "time": "10:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_wY7BYC": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Eerste Paasdag",
+            "date": "5 april 2026",
+            "time": "12:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_CJQRNt": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Tweede Paasdag",
+            "date": "6 april 2026",
+            "time": "10:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        }
+      },
+      "block_order": [
+        "day_QgUCTh",
+        "day_63xfrR",
+        "day_y8WaBi",
+        "day_nnyx8k",
+        "day_YeJjDc",
+        "day_hNzY4e",
+        "day_XwJDzw",
+        "special_day_BcTHiy",
+        "special_day_pzByp3",
+        "special_day_wY7BYC",
+        "special_day_CJQRNt"
+      ],
+      "disabled": true,
+      "name": "Openingstijden",
+      "settings": {
+        "heading": "Openingstijden",
+        "subheading": "Dit zijn de openingstijden van De Meubel Importeur Grootebroek",
+        "show_all_times": false,
+        "all_times_link": ""
+      }
+    },
+    "afwijkende_openingstijden_GqEMp3": {
+      "type": "afwijkende-openingstijden",
+      "blocks": {
+        "special_day_DxdeDy": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Goede Vrijdag",
+            "date": "3 april 2026",
+            "time": "09:00 - 17:30",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_zCkiph": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Zaterdag",
+            "date": "4 april 2026",
+            "time": "09:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_6dQe3j": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Eerste Paasdag",
+            "date": "5 april 2026",
+            "time": "11:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_UwXYf8": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Tweede Paasdag",
+            "date": "6 april 2026",
+            "time": "09:00 - 17:30",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        }
+      },
+      "block_order": [
+        "special_day_DxdeDy",
+        "special_day_zCkiph",
+        "special_day_6dQe3j",
+        "special_day_UwXYf8"
+      ],
+      "disabled": true,
+      "name": "Afwijkende openingstijden",
+      "settings": {
+        "heading": "Afwijkende openingstijden"
+      }
     }
   },
   "order": [
@@ -126,6 +311,8 @@
     "location_detail_GYGAeY",
     "location_gallery_h7KBF3",
     "location_contact_GUmXw8",
-    "usp_wrp_6xd6r9"
+    "usp_wrp_6xd6r9",
+    "openingstijden_XkGzGx",
+    "afwijkende_openingstijden_GqEMp3"
   ]
 }

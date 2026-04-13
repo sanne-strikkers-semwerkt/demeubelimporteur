@@ -159,7 +159,7 @@
           "type": "accordion",
           "settings": {
             "acc-title": "IK HEB EEN KLACHT, WAAR KAN IK TERECHT?",
-            "acc-desc": "<p>Hiervoor zul je contact moeten opnemen met de service afdeling. Zij zullen dan in overleg met je op zoek gaan naar de juiste oplossing.</p>\n\n                                    <p>Zij zijn te bereiken per mail; dit kunt u sturen naar: <a href=\"#\">service@demeubelimporteur.nl</a> </p>\n\n                                    <p>Graag ontvangen zij de onderstaande gegevens:</p>\n\n                                    <p>Naam</p>\n\n                                    <p>Ordernummer</p>\n\n                                    <p>Foto van de schade/ het probleem</p>\n\n                                    <p>Foto van etiket op (beide) dozen</p>\n\n                                    <p>Foto van kleine witte stickertje op het uitgepakte meubel (bij tafels aan onderkant blad, bij (buffet-)kasten aan de achterkant, etc.)</p>\n\n                                    <p>Heb je ergens anders een klacht over? Breng deze dan onder onze aandacht door te bellen met 0228-785 883 of mail naar <a href=\"#\">info@demeubelimporteur.nl.</a> </p>"
+            "acc-desc": "<p>Hiervoor zul je contact moeten opnemen met de service afdeling. Zij zullen dan in overleg met je op zoek gaan naar de juiste oplossing.</p>\n\n                                    <p>Zij zijn te bereiken per mail; dit kunt u sturen naar: <a href=\"#\">service@demeubelimporteur.nl</a> </p>\n\n                                    <p>Graag ontvangen zij de onderstaande gegevens:</p>\n\n                                    <p>Naam</p>\n\n                                    <p>Ordernummer</p>\n\n                                    <p>Foto van de schade/ het probleem</p>\n\n                                    <p>Foto van etiket op (beide) dozen</p>\n\n                                    <p>Foto van kleine witte stickertje op het uitgepakte meubel (bij tafels aan onderkant blad, bij (buffet-)kasten aan de achterkant, etc.)</p>\n\n                                    <p>Heb je ergens anders een klacht over? Breng deze dan onder onze aandacht door te bellen met 0228-785 883 of mail naar <a href=\"#\">service@demeubelimporteur.nl.</a> </p>"
           }
         },
         "accordion_EYK3ba": {
@@ -484,7 +484,7 @@
         "contact-info-desc": "<p>De Meubel Importeur staat ingeschreven bij de Kamer van Koophandel met het KvK-nummer 82625964 en het BTW-nummer NL862544130B01.</p>",
         "contact-info-title": "Contactgegevens",
         "contact-no": "785 883",
-        "email-address": "info@demeubelimporteur.nl",
+        "email-address": "service@demeubelimporteur.nl",
         "contact-info-short-title": "De Meubel Importeur is onderdeel van Furniture Connect",
         "contact-info-short-desc": "Furniture Connect B.V. specialiseert zich in de online verkoop van huis- en tuinartikelen."
       }

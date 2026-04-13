@@ -160,7 +160,7 @@
           "type": "accordion",
           "settings": {
             "acc-title": "IK HEB EEN KLACHT, WAAR KAN IK TERECHT?",
-            "acc-desc": "<p>Hiervoor zul je contact moeten opnemen met de service afdeling. Zij zullen dan in overleg met je op zoek gaan naar de juiste oplossing.</p>\n\n                                    <p>Zij zijn te bereiken per mail; dit kunt u sturen naar: <a href=\"#\">service@demeubelimporteur.nl</a> </p>\n\n                                    <p>Graag ontvangen zij de onderstaande gegevens:</p>\n\n                                    <p>Naam</p>\n\n                                    <p>Ordernummer</p>\n\n                                    <p>Foto van de schade/ het probleem</p>\n\n                                    <p>Foto van etiket op (beide) dozen</p>\n\n                                    <p>Foto van kleine witte stickertje op het uitgepakte meubel (bij tafels aan onderkant blad, bij (buffet-)kasten aan de achterkant, etc.)</p>\n\n                                    <p>Heb je ergens anders een klacht over? Breng deze dan onder onze aandacht door te bellen met 0228-785 883 of mail naar <a href=\"#\">info@demeubelimporteur.nl.</a> </p>"
+            "acc-desc": "<p>Hiervoor zul je contact moeten opnemen met de service afdeling. Zij zullen dan in overleg met je op zoek gaan naar de juiste oplossing.</p>\n\n                                    <p>Zij zijn te bereiken per mail; dit kunt u sturen naar: <a href=\"#\">service@demeubelimporteur.nl</a> </p>\n\n                                    <p>Graag ontvangen zij de onderstaande gegevens:</p>\n\n                                    <p>Naam</p>\n\n                                    <p>Ordernummer</p>\n\n                                    <p>Foto van de schade/ het probleem</p>\n\n                                    <p>Foto van etiket op (beide) dozen</p>\n\n                                    <p>Foto van kleine witte stickertje op het uitgepakte meubel (bij tafels aan onderkant blad, bij (buffet-)kasten aan de achterkant, etc.)</p>\n\n                                    <p>Heb je ergens anders een klacht over? Breng deze dan onder onze aandacht door te bellen met 0228-785 883 of mail naar <a href=\"#\">service@demeubelimporteur.nl.</a> </p>"
           }
         },
         "accordion_EYK3ba": {
@@ -332,7 +332,7 @@
       "settings": {
         "banner-bg-img": "shopify://shop_images/about-banner.png",
         "banner-title": "Wie zijn wij?",
-        "banner-description": "<p>Unieke, duurzame meubels voor de scherpste prijs van Nederland, dat is waar we bij De Meubel Importeur voor staan. Of je nu je favoriete meubels shopt in onze webshop of langskomt bij een van onze winkels, je vindt bij ons altijd de <strong>perfecte meubels voor een aantrekkelijke prijs.</strong></p>"
+        "banner-description": "<p>Unieke, duurzame meubels voor de scherpste prijs van Nederland, dat is waar we bij De Meubel Importeur voor staan. Of je nu je favoriete meubels shopt in onze webshop of langskomt bij een van onze winkels, je vindt bij ons altijd de <strong>topkwaliteit meubelen voor de laagste prijs.</strong></p>"
       }
     },
     "about_us_wrp_iWdBT6": {
@@ -347,13 +347,13 @@
         "list_TErcwb": {
           "type": "list",
           "settings": {
-            "sec-list": "Op voorraad? Binnen 5 werkdagen in huis."
+            "sec-list": "Op voorraad? Binnen 10 werkdagen in huis."
           }
         },
         "list_DKEMmp": {
           "type": "list",
           "settings": {
-            "sec-list": "Bezichtigen mogelijk in een van onze showrooms."
+            "sec-list": "Bezichtigen mogelijk in een van onze winkels."
           }
         },
         "list_KjgeQH": {
@@ -387,7 +387,7 @@
       "settings": {
         "title": "Waarom De Meubel Importeur?",
         "section-desc": "Iedereen verdient meubels met een mooi design, van hoge kwaliteit. Bij De Meubel Importeur zorgen we daarvoor, zonder gedoe en met oog voor duurzaamheid.",
-        "aboutus-img": "shopify://shop_images/dmi-almelo-winkel-showroom.jpg"
+        "aboutus-img": "shopify://shop_images/dmi-over-ons-shopping-awards.jpg"
       }
     },
     "usp_beam_wrp_VJDApt": {
@@ -474,12 +474,12 @@
       "name": "Contact Us",
       "settings": {
         "contact-content-title": "Dit is De Meubel Importeur",
-        "contact-content-desc": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.</p><p>Je vindt ons inmiddels in twee showrooms in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>",
+        "contact-content-desc": "<p>Sinds 2018 maakt De Meubel Importeur meubels die lang meegaan én karakter toevoegen aan je interieur. Je ziet het meteen: elk stuk is gemaakt van mangohout. Deze houtsoort is sterk, warm van kleur en afkomstig van bomen die opnieuw geplant worden na de oogst. Zo kies jij niet alleen voor sfeer, maar ook voor een verantwoorde basis.</p><p>Je vindt ons inmiddels in drie winkels in Nederland, waar ons team altijd voor je klaarstaat. Wij houden van meubels, denken praktisch en zeggen gewoon waar het op staat. Of je nu liever rustig rondkijkt of gericht advies wilt, bij ons zit je goed.</p>",
         "contact-info-heading": "Kamer van Koophandel",
         "contact-info-desc": "<p>De Meubel Importeur staat ingeschreven bij de Kamer van Koophandel met het KvK-nummer 82625964 en het BTW-nummer NL862544130B01.</p>",
         "contact-info-title": "Contactgegevens",
         "contact-no": "785 883",
-        "email-address": "info@demeubelimporteur.nl",
+        "email-address": "service@demeubelimporteur.nl",
         "contact-info-short-title": "De Meubel Importeur is onderdeel van Furniture Connect",
         "contact-info-short-desc": "Furniture Connect B.V. specialiseert zich in de online verkoop van huis- en tuinartikelen."
       }

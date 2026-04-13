@@ -4411,3 +4411,8 @@ span {
         height: 35px !important
     }
 }
+
+.bg-fbba00 {
+    background-color: #fbba00 !important;
+    color: #333;
+}

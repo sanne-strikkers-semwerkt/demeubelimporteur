@@ -51,15 +51,15 @@
         "text1": "Onze medewerkers helpen je graag bij het vinden van passende meubels voor jouw interieur. We geven advies over de mogelijkheden binnen onze collectie en denken mee over praktische oplossingen voor je woonruimte. Dit doen we natuurlijk geheel vrijblijvend. Je beslist zelf of je tot aankoop overgaat.",
         "heading2": "Praktische informatie",
         "text2": "De winkel is goed bereikbaar en biedt ruime, gratis parkeergelegenheid direct voor de deur. We begrijpen dat je meubels graag eerst wilt zien en voelen, voordat je een keuze maakt. Daarom nodigen we je uit om langs te komen en rustig rond te kijken. Onder het genot van een kopje koffie kun je de collectie bekijken en al je vragen stellen aan onze medewerkers.",
-        "image": "shopify://shop_images/dmi-paasweekend-breda.jpg",
+        "image": "shopify://shop_images/dmi-breda-winkel-showroom.jpg",
         "heading3": "Openingstijden",
-        "text3": "<li>Maandag:  <span> Gesloten</span>\n</li>\n                                <li>Dinsdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Woensdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Donderdag: <span> 10:00 - 18:00</span>\n</li>\n\n\n                                <li>Vrijdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Zaterdag:  <span>10:00 - 17:00</span>\n</li>\n                                <li>Zondag:  <span>12:00 - 17:00</span>\n</li>\n<br>\n<li><b>Openingstijden Paasweekend:</b></li>\n<li>3 april (Goede Vrijdag):<br> 10:00 - 18:00\n</li>\n<li>4 april (Zaterdag):<br> 10:00 - 17:00\n</li><li>5 april (Eerste Paasdag):<br> 10:00 - 17:00\n</li>\n<li>6 april (Tweede Paasdag):<br> 10:00 - 17:00\n</li>",
+        "text3": "<li>Maandag:  <span> 10:00 - 18:00</span>\n</li>\n                                <li>Dinsdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Woensdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Donderdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Vrijdag: <span> 10:00 - 18:00</span>\n</li>\n                                <li>Zaterdag:  <span>10:00 - 17:00</span>\n</li>\n                                <li>Zondag:  <span>10:00 - 17:00</span>\n</li>",
         "heading4": "Contact",
         "text4": "Voor vragen of het maken van een afspraak zijn we bereikbaar op:",
         "phone-link": "tel:+31228785 883",
         "phone": "0228 - 785 883",
-        "mail-link": "mailto:info@demeubelimporteur.nl",
-        "mail": "info@demeubelimporteur.nl"
+        "mail-link": "mailto:service@demeubelimporteur.nl",
+        "mail": "service@demeubelimporteur.nl"
       }
     },
     "location_gallery_h7KBF3": {
@@ -119,6 +119,191 @@
       ],
       "disabled": true,
       "settings": {}
+    },
+    "openingstijden_EAB7MH": {
+      "type": "openingstijden",
+      "blocks": {
+        "day_VdqpWf": {
+          "type": "day",
+          "settings": {
+            "day_name": "Maandag",
+            "date": "",
+            "time": "10:00 - 18:00",
+            "is_today": false
+          }
+        },
+        "day_CatftA": {
+          "type": "day",
+          "settings": {
+            "day_name": "Dinsdag",
+            "date": "",
+            "time": "10:00 - 18:00",
+            "is_today": false
+          }
+        },
+        "day_bggPmG": {
+          "type": "day",
+          "settings": {
+            "day_name": "Woensdag",
+            "date": "",
+            "time": "10:00 - 18:00",
+            "is_today": false
+          }
+        },
+        "day_JtgmkK": {
+          "type": "day",
+          "settings": {
+            "day_name": "Donderdag",
+            "date": "",
+            "time": "10:00 - 20:00",
+            "is_today": false
+          }
+        },
+        "day_Pxr47d": {
+          "type": "day",
+          "settings": {
+            "day_name": "Vrijdag",
+            "date": "",
+            "time": "10:00 - 18:00",
+            "is_today": false
+          }
+        },
+        "day_c3RkQq": {
+          "type": "day",
+          "settings": {
+            "day_name": "Zaterdag",
+            "date": "",
+            "time": "10:00 - 17:00",
+            "is_today": false
+          }
+        },
+        "day_aDnBkb": {
+          "type": "day",
+          "settings": {
+            "day_name": "Zondag",
+            "date": "",
+            "time": "12:00 - 17:00",
+            "is_today": false
+          }
+        },
+        "special_day_Lim3Am": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Goede Vrijdag",
+            "date": "3 april 2026",
+            "time": "10:00 - 18:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_Yy6nmx": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Zaterdag",
+            "date": "4 april 2026",
+            "time": "10:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_jPJtMh": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Eerste Paasdag",
+            "date": "5 april 2026",
+            "time": "12:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_PP3yyE": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Tweede Paasdag",
+            "date": "6 april 2026",
+            "time": "10:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        }
+      },
+      "block_order": [
+        "day_VdqpWf",
+        "day_CatftA",
+        "day_bggPmG",
+        "day_JtgmkK",
+        "day_Pxr47d",
+        "day_c3RkQq",
+        "day_aDnBkb",
+        "special_day_Lim3Am",
+        "special_day_Yy6nmx",
+        "special_day_jPJtMh",
+        "special_day_PP3yyE"
+      ],
+      "disabled": true,
+      "name": "Openingstijden",
+      "settings": {
+        "heading": "Openingstijden",
+        "subheading": "Dit zijn de openingstijden van De Meubel Importeur Breda",
+        "show_all_times": false,
+        "all_times_link": ""
+      }
+    },
+    "afwijkende_openingstijden_DBWdKy": {
+      "type": "afwijkende-openingstijden",
+      "blocks": {
+        "special_day_AAhp8Y": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Goede Vrijdag",
+            "date": "3 april 2026",
+            "time": "10:00 - 18:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_PFPWpx": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Zaterdag",
+            "date": "4 april 2026",
+            "time": "10:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_LEyDDh": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Eerste Paasdag",
+            "date": "5 april 2026",
+            "time": "10:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        },
+        "special_day_ine3Pp": {
+          "type": "special_day",
+          "settings": {
+            "day_name": "Tweede Paasdag",
+            "date": "6 april 2026",
+            "time": "10:00 - 17:00",
+            "label": "Paasweekend",
+            "is_today": false
+          }
+        }
+      },
+      "block_order": [
+        "special_day_AAhp8Y",
+        "special_day_PFPWpx",
+        "special_day_LEyDDh",
+        "special_day_ine3Pp"
+      ],
+      "disabled": true,
+      "name": "Afwijkende openingstijden",
+      "settings": {
+        "heading": "Afwijkende openingstijden"
+      }
     }
   },
   "order": [
@@ -127,6 +312,8 @@
     "location_detail_GYGAeY",
     "location_gallery_h7KBF3",
     "location_contact_GUmXw8",
-    "usp_wrp_6xd6r9"
+    "usp_wrp_6xd6r9",
+    "openingstijden_EAB7MH",
+    "afwijkende_openingstijden_DBWdKy"
   ]
 }

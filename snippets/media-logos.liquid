@@ -3,12 +3,18 @@
 {% endcomment %}
 
 <div class="media-logos-header">
+  
+  {% comment %} <span class="font-custom-header-badge">
+    Troste winnaar van
+  </span>
   <div class="media-logo-item">
-    <img src="{{ '100p-nl-logo.svg' | asset_url }}" alt="100NL" class="logo-100nl-header" width="auto" height="24">
-  </div>
+    <img src="{{ 'shopping-awards-logo-dark.png' | asset_url }}" alt="Slam!" class="logo-slam-header" width="auto" height="36">
+  </div> {% endcomment %}
+
   <div class="media-logo-item">
-    <img src="{{ 'Slam_logo.png' | asset_url }}" alt="Slam!" class="logo-slam-header" width="auto" height="24">
+    <img src="https://cdn.shopify.com/s/files/1/0563/8412/7158/files/shopping-awards-label-header.png?v=1776063380" alt="Shopping Awards Winnaar 2026" class="logo-slam-header" width="auto" height="36">
   </div>
+
 </div>
 
 <style>
@@ -16,9 +22,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
   }
 
+  .font-custom-header-badge {
+margin: 0;
+    color: #000;
+    font-family: Poppins, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
   .webwinkelkeur-img {
 display: flex;
 align-items: center;
@@ -32,7 +46,7 @@ align-items: center;
 
   .logo-100nl-header,
   .logo-slam-header {
-    height: 15px;
+    height: 40px;
     width: auto;
   }
 
@@ -46,28 +60,22 @@ align-items: center;
     .media-logos-header {
       display: none;
     }
-.media-logos-header {
-flex-direction: row;
-}
+
     .drawer-navbar-nav .reviews-info .webwinkelkeur-img img {
-max-height: 22px;
+max-height: 36px;
   }
 
   /* Mobile menu specific styling - show in mobile drawer */
   .media-logos-mobile {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     justify-content: center;
   }
 
   .media-logos-mobile .media-logos-header {
-    gap: 10px;
     display: flex !important; /* Override the mobile hide rule */
   }
 
-  .media-logos-mobile .logo-100nl-header,
-  .media-logos-mobile .logo-slam-header {
-    height: 15px;
-  }
+
 
 </style>
