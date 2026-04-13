@@ -1,34 +1,37 @@
-<div
-  class="service-switcher-nav"
-  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
->
-  <div class="titlebar">
-    <h2 class="service-switcher-nav__title">{{ section.settings.heading }}</h2>
-    <p>{{ section.settings.subheading }}</p>
-  </div>
+<div class="page-width">
+  <div
+    class="service-switcher-nav"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  >
+    <div class="titlebar">
+      <h2 class="service-switcher-nav__title">{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
 
-  <div class="service-switcher-nav__switcher">
-    <input
-      type="radio"
-      id="choice-1"
-      name="service-type"
-      class="service-switcher-nav__switcher-input"
-      value="{{ section.settings.block_id_1 }}"
-    >
-    <label for="choice-1" class="service-switcher-nav__switcher-label btn-orange">
-      {{ section.settings.label_1 }}
-    </label>
+    <div class="service-switcher-nav__switcher">
+      <input
+        type="radio"
+        id="choice-1"
+        name="service-type"
+        class="service-switcher-nav__switcher-input"
+        value="{{ section.settings.block_id_1 }}"
+        checked
+      >
+      <label for="choice-1" class="service-switcher-nav__switcher-label btn-orange">
+        {{ section.settings.label_1 }}
+      </label>
 
-    <input
-      type="radio"
-      id="choice-2"
-      name="service-type"
-      class="service-switcher-nav__switcher-input"
-      value="{{ section.settings.block_id_2 }}"
-    >
-    <label for="choice-2" class="service-switcher-nav__switcher-label btn-orange">
-      {{ section.settings.label_2 }}
-    </label>
+      <input
+        type="radio"
+        id="choice-2"
+        name="service-type"
+        class="service-switcher-nav__switcher-input"
+        value="{{ section.settings.block_id_2 }}"
+      >
+      <label for="choice-2" class="service-switcher-nav__switcher-label btn-orange">
+        {{ section.settings.label_2 }}
+      </label>
+    </div>
   </div>
 </div>
 
@@ -71,7 +74,9 @@
     border-color: #000;
   }
 
-  #{{ section.settings.block_id_1 }},
+  #{{ section.settings.block_id_1 }} {
+    display: block;
+  }
   #{{ section.settings.block_id_2 }} {
     display: none;
   }
@@ -98,8 +103,6 @@
 
         selectedForm.style.display = 'block';
         window.dispatchEvent(new Event('resize'));
-
-        selectedForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
       };
 
       radioInputs.forEach((radio) => radio.addEventListener('change', handleChange));
