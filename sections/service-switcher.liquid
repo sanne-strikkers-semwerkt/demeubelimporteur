@@ -1,53 +1,197 @@
-<div class="page-width">
-  <div class="service-switcher-wrapper" style="padding: 50px 0; text-align: center;">
-    <div id="choice-menu">
-      <h2>Hoe kunnen we je helpen?</h2>
-      <div style="margin-top: 20px;">
-        <button class="button" onclick="toggleService('return')" style="margin: 10px;">Item retourneren</button>
-        <button class="button button--secondary" onclick="toggleService('damage')" style="margin: 10px;">
-          Schade melden
-        </button>
-      </div>
-    </div>
+<div
+  class="service-switcher-nav"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="titlebar">
+    <h2 class="service-switcher-nav__title">{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+  </div>
 
-    <div id="form-return" style="display: none; margin-top: 30px;">
-      <button class="link" onclick="goBack()" style="margin-bottom: 20px;">← Terug naar keuze</button>
-      <div class="form-container">
-        {%- comment -%} Plak hier de embed code van je Return Form {%- endcomment -%}
-        <div id="shopify-section-forms-JOUW_RETOUR_ID"></div>
-      </div>
-    </div>
+  <div class="service-switcher-nav__switcher">
+    <input
+      type="radio"
+      id="choice-1"
+      name="service-type"
+      class="service-switcher-nav__switcher-input"
+      value="{{ section.settings.block_id_1 }}"
+    >
+    <label for="choice-1" class="service-switcher-nav__switcher-label btn-orange">
+      {{ section.settings.label_1 }}
+    </label>
 
-    <div id="form-damage" style="display: none; margin-top: 30px;">
-      <button class="link" onclick="goBack()" style="margin-bottom: 20px;">← Terug naar keuze</button>
-      <div class="form-container">
-        {%- comment -%} Plak hier de embed code van je Damage Form {%- endcomment -%}
-        <div id="shopify-section-forms-JOUW_SCHADE_ID"></div>
-      </div>
-    </div>
+    <input
+      type="radio"
+      id="choice-2"
+      name="service-type"
+      class="service-switcher-nav__switcher-input"
+      value="{{ section.settings.block_id_2 }}"
+    >
+    <label for="choice-2" class="service-switcher-nav__switcher-label btn-orange">
+      {{ section.settings.label_2 }}
+    </label>
   </div>
 </div>
 
-<script>
-  function toggleService(type) {
-    document.getElementById('choice-menu').style.display = 'none';
-    if (type === 'return') {
-      document.getElementById('form-return').style.display = 'block';
-    } else {
-      document.getElementById('form-damage').style.display = 'block';
-    }
+<style>
+  .service-switcher-nav { text-align: center; }
+  .titlebar .service-switcher-nav__title {
+    color: #000;
+    font-family: 'Zilla Slab', serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .titlebar p {
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+  }
+  .service-switcher-nav__switcher-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .service-switcher-nav__switcher {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .service-switcher-nav__switcher-label {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin: 0;
+  }
+  .service-switcher-nav__switcher-input:checked + .service-switcher-nav__switcher-label {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
   }
 
-  function goBack() {
-    document.getElementById('form-return').style.display = 'none';
-    document.getElementById('form-damage').style.display = 'none';
-    document.getElementById('choice-menu').style.display = 'block';
+  #{{ section.settings.block_id_1 }},
+  #{{ section.settings.block_id_2 }} {
+    display: none;
   }
+</style>
+
+<script>
+  (() => {
+    const initRadioSwitcher = () => {
+      const radioInputs = document.querySelectorAll('input[name="service-type"]');
+      const allTargetIds = Array.from(radioInputs)
+        .map((input) => input.value)
+        .filter((id) => id !== '');
+
+      const handleChange = (event) => {
+        const selectedId = event.target.value;
+        const selectedForm = document.getElementById(selectedId);
+
+        if (!selectedForm) return;
+
+        allTargetIds.forEach((id) => {
+          const form = document.getElementById(id);
+          if (form) form.style.display = 'none';
+        });
+
+        selectedForm.style.display = 'block';
+        window.dispatchEvent(new Event('resize'));
+
+        selectedForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      radioInputs.forEach((radio) => radio.addEventListener('change', handleChange));
+    };
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initRadioSwitcher)
+      : initRadioSwitcher();
+  })();
 </script>
 
 {% schema %}
 {
-  "name": "Service Switcher",
-  "settings": []
+  "name": "Service Switcher Nav",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Teksten"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titel",
+      "default": "Hoe kunnen we je helpen?"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtitel",
+      "default": "Selecteer een optie om de aanvraag te starten:"
+    },
+    {
+      "type": "header",
+      "content": "Optie 1 (bijv. Retour)"
+    },
+    {
+      "type": "text",
+      "id": "label_1",
+      "label": "Label knop 1",
+      "default": "Retourneren"
+    },
+    {
+      "type": "text",
+      "id": "block_id_1",
+      "label": "Block ID van formulier 1",
+      "info": "Bijv: shopify-block-xxxx"
+    },
+    {
+      "type": "header",
+      "content": "Optie 2 (bijv. Schade)"
+    },
+    {
+      "type": "text",
+      "id": "label_2",
+      "label": "Label knop 2",
+      "default": "Schade melden"
+    },
+    {
+      "type": "text",
+      "id": "block_id_2",
+      "label": "Block ID van formulier 2",
+      "info": "Bijv: shopify-block-yyyy"
+    },
+    {
+      "type": "header",
+      "content": "Sectie instellingen"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding boven",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding onder",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service Switcher Nav"
+    }
+  ]
 }
 {% endschema %}

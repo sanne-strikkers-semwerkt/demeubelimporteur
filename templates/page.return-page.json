@@ -13,6 +13,52 @@
       "type": "service-switcher",
       "settings": {}
     },
+    "17760723679cd9fecb": {
+      "type": "apps",
+      "blocks": {
+        "forms_inline_cFhKq6": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "950930",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#FFFFFF",
+            "links_color": "#1878B9",
+            "errors_color": "#E02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        },
+        "forms_inline_j8Azzf": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "950929",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#FFFFFF",
+            "links_color": "#1878B9",
+            "errors_color": "#E02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_cFhKq6",
+        "forms_inline_j8Azzf"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -586,6 +632,7 @@
   },
   "order": [
     "service_switcher_custom",
+    "17760723679cd9fecb",
     "main",
     "faq_section_zhH9mU",
     "about_us_banner_Kk6gFH",
