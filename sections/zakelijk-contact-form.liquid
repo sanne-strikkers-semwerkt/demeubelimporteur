@@ -26,36 +26,57 @@
           {%- endif -%}
 
           <div class="zakelijk-contact-form-grid">
-            <div class="zakelijk-contact-form-field">
-              <input type="text" id="ContactForm-name-{{ section.id }}" name="contact[name]" placeholder=" " required>
+            <div class="zakelijk-contact-form-field form-group">
+              <input
+                class="form-control"
+                type="text"
+                id="ContactForm-name-{{ section.id }}"
+                name="contact[name]"
+                placeholder=" "
+                required
+              >
               <label for="ContactForm-name-{{ section.id }}">Naam*</label>
             </div>
-            <div class="zakelijk-contact-form-field">
+            <div class="zakelijk-contact-form-field form-group">
               <input
                 type="text"
                 id="ContactForm-company-{{ section.id }}"
                 name="contact[company]"
                 placeholder=" "
+                class="form-control"
                 required
               >
               <label for="ContactForm-company-{{ section.id }}">Bedrijfsnaam*</label>
             </div>
-            <div class="zakelijk-contact-form-field">
+            <div class="zakelijk-contact-form-field form-group">
               <input
                 type="email"
                 id="ContactForm-email-{{ section.id }}"
                 name="contact[email]"
                 placeholder=" "
                 required
+                class="form-control"
               >
               <label for="ContactForm-email-{{ section.id }}">E-mailadres*</label>
             </div>
-            <div class="zakelijk-contact-form-field">
-              <input type="tel" id="ContactForm-phone-{{ section.id }}" name="contact[phone]" placeholder=" ">
+            <div class="zakelijk-contact-form-field form-group">
+              <input
+                type="tel"
+                id="ContactForm-phone-{{ section.id }}"
+                name="contact[phone]"
+                placeholder=" "
+                class="form-control"
+              >
               <label for="ContactForm-phone-{{ section.id }}">Telefoonnummer</label>
             </div>
-            <div class="zakelijk-contact-form-field field-full">
-              <textarea id="ContactForm-body-{{ section.id }}" name="contact[body]" rows="5" placeholder=" "></textarea>
+            <div class="zakelijk-contact-form-field form-group field-full">
+              <textarea
+                id="ContactForm-body-{{ section.id }}"
+                name="contact[body]"
+                rows="5"
+                placeholder=" "
+                class="form-control"
+              ></textarea>
               <label for="ContactForm-body-{{ section.id }}">Stel hier uw vraag...</label>
             </div>
           </div>
@@ -126,48 +147,11 @@
     position: relative;
   }
 
-  .zakelijk-contact-form-field input,
-  .zakelijk-contact-form-field textarea {
-    width: 100%;
-    padding: 2rem 1.5rem 0.8rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px;
-    background-color: #ffffff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    color: #000000;
-    appearance: none;
-  }
-
   .zakelijk-contact-form-text {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 100%;
-  }
-
-  .zakelijk-contact-form-field textarea {
-    min-height: 120px;
-  }
-
-  .zakelijk-contact-form-field label {
-    position: absolute;
-    top: 1.4rem;
-    left: 1.5rem;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    color: #9d9d9d;
-    transition: all 0.2s ease;
-    pointer-events: none;
-  }
-
-  .zakelijk-contact-form-field input:focus ~ label,
-  .zakelijk-contact-form-field input:not(:placeholder-shown) ~ label,
-  .zakelijk-contact-form-field textarea:focus ~ label,
-  .zakelijk-contact-form-field textarea:not(:placeholder-shown) ~ label {
-    top: 0.6rem;
-    font-size: 12px;
-    color: #fb5a00;
   }
 
   .zakelijk-contact-form-button {
@@ -185,6 +169,10 @@
     margin-bottom: 25px;
     color: #3AA759;
     animation: fadeIn 0.5s ease-out;
+  }
+
+  .zakelijk-contact-form form .zakelijk-contact-form-field.form-group .form-control {
+    box-shadow: none;
   }
 
   .zakelijk-contact-form .icon-success {
