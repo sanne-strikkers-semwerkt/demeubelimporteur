@@ -18,64 +18,55 @@
 </div>
 
 <style>
+/* Container */
+.media-logos-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 12px; /* prevents touching screen edges */
+  box-sizing: border-box;
+}
+
+/* Logo wrapper */
+.media-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Logo image */
+.logo-slam-header {
+  display: block;
+  max-width: 100%;   /* prevents overflow */
+  height: auto;      /* keeps aspect ratio */
+  max-height: 40px;  /* desktop size */
+  object-fit: contain;
+}
+
+/* Optional hover */
+.logo-slam-header:hover {
+  opacity: 0.9;
+}
+
+/* Tablet & mobile */
+@media screen and (max-width: 768px) {
   .media-logos-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0 8px;
   }
 
-  .font-custom-header-badge {
-margin: 0;
-    color: #000;
-    font-family: Poppins, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-  .webwinkelkeur-img {
-display: flex;
-align-items: center;
- gap: 20px;
-}
-
-  .media-logo-item {
-    display: flex;
-    align-items: center;
-  }
-
-  .logo-100nl-header,
   .logo-slam-header {
-    height: 40px;
-    width: auto;
+    max-height: 32px;
   }
+}
 
-  .logo-100nl-header:hover,
-  .logo-slam-header:hover {
-    opacity: 1;
+/* Small phones */
+@media screen and (max-width: 480px) {
+  .logo-slam-header {
+    max-height: 28px;
   }
-
-  /* Hide main header version on mobile - similar to webwinkelkeur */
-  @media screen and (max-width: 768px) {
-    .media-logos-header {
-      display: none;
-    }
-
-    .drawer-navbar-nav .reviews-info .webwinkelkeur-img img {
-max-height: 36px;
-  }
-
-  /* Mobile menu specific styling - show in mobile drawer */
-  .media-logos-mobile {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .media-logos-mobile .media-logos-header {
-    display: flex !important; /* Override the mobile hide rule */
-  }
-
-
-
+}
 </style>
