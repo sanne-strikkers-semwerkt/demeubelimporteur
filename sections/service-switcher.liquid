@@ -35,6 +35,38 @@
   </div>
 </div>
 
+<script>
+  (() => {
+    const initRadioSwitcher = () => {
+      const radioInputs = document.querySelectorAll('input[name="service-type"]');
+      const allTargetIds = Array.from(radioInputs)
+        .map((input) => input.value)
+        .filter((id) => id !== '');
+
+      const handleChange = (event) => {
+        const selectedId = event.target.value;
+        const selectedForm = document.getElementById(selectedId);
+
+        if (!selectedForm) return;
+
+        allTargetIds.forEach((id) => {
+          const form = document.getElementById(id);
+          if (form) form.style.display = 'none';
+        });
+
+        selectedForm.style.display = 'block';
+        window.dispatchEvent(new Event('resize'));
+      };
+
+      radioInputs.forEach((radio) => radio.addEventListener('change', handleChange));
+    };
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initRadioSwitcher)
+      : initRadioSwitcher();
+  })();
+</script>
+
 <style>
   .service-switcher-nav { text-align: center; }
   .titlebar .service-switcher-nav__title {
@@ -81,38 +113,6 @@
     display: none;
   }
 </style>
-
-<script>
-  (() => {
-    const initRadioSwitcher = () => {
-      const radioInputs = document.querySelectorAll('input[name="service-type"]');
-      const allTargetIds = Array.from(radioInputs)
-        .map((input) => input.value)
-        .filter((id) => id !== '');
-
-      const handleChange = (event) => {
-        const selectedId = event.target.value;
-        const selectedForm = document.getElementById(selectedId);
-
-        if (!selectedForm) return;
-
-        allTargetIds.forEach((id) => {
-          const form = document.getElementById(id);
-          if (form) form.style.display = 'none';
-        });
-
-        selectedForm.style.display = 'block';
-        window.dispatchEvent(new Event('resize'));
-      };
-
-      radioInputs.forEach((radio) => radio.addEventListener('change', handleChange));
-    };
-
-    document.readyState === 'loading'
-      ? document.addEventListener('DOMContentLoaded', initRadioSwitcher)
-      : initRadioSwitcher();
-  })();
-</script>
 
 {% schema %}
 {
