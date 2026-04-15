@@ -68,7 +68,8 @@ form .form-group {
 }
 
 form .form-group label,
-section.contact-wrp .contact-form .form-group label {
+section.contact-wrp .contact-form .form-group label,
+.track-main .track-body .track-fold form .form-group label {
     pointer-events: none;
     z-index: 1;
     font-family: var(--form-label-font-family);
@@ -91,7 +92,8 @@ section.contact-wrp .contact-form .form-group label {
 }
 
 form .form-group .form-control,
-section.contact-wrp .contact-form .form-group .form-control {
+section.contact-wrp .contact-form .form-group .form-control,
+.track-main .track-body .track-fold form .form-group .form-control {
     resize: none;
     width: var(--form-input-width);
     padding: var(--form-input-padding);
@@ -108,12 +110,14 @@ section.contact-wrp .contact-form .form-group .form-control {
 }
 
 form .form-group .form-control:focus,
-section.contact-wrp .contact-form .form-group .form-control:focus {
+section.contact-wrp .contact-form .form-group .form-control:focus,
+.track-main .track-body .track-fold form .form-group label:focus {
     outline: 0;
 }
 
 form .form-group .form-control:focus~label,
-section.contact-wrp .contact-form .form-group .form-control:focus~label {
+section.contact-wrp .contact-form .form-group .form-control:focus~label,
+.track-main .track-body .track-fold form .form-group .form-control:focus~label {
     transform: var(--form-input-transform);
     width: 100%;
     min-width: 0;
